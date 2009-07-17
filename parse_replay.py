@@ -10,7 +10,10 @@ basicConfig(level=0)
 #  word = 2 bytes   'h' 
 # dword = 4 bytes   'L'
 
-class UnknownBlockException:
+class UnknownBlockException(Exception):
+    pass
+
+class UnknownActionException(Exception):
     pass
 
 def get_header(fp):
@@ -103,15 +106,18 @@ def parse_first_block(fp):
     player = get_player(fp)
     game = get_gameinfo(fp)
     gsr = get_gamestartrecord(fp)
-    pprint(gsr)
+    #pprint(gsr)
 
 def parse_leave(fp):
     data = extract(fp, "<LBLL")
     reason, player_id, result, unknown = data
-    print map(hex, data)
+    #print map(hex, data)
 
 def parse_action(fp):
-    _id, = extract(fp, 'b')
+    #dumpline(read(fp, 16, False))
+
+    _id, = extract(fp, 'B')
+    #print 'action_id=0x%02X' % _id
     if _id==0x01:
         # pause
         pass
@@ -120,7 +126,7 @@ def parse_action(fp):
         pass
     elif _id==0x03:
         # set speed
-        new_speed = extract(fp, 'b')[0]
+        new_speed, = extract(fp, 'b')
     elif _id==0x04:
         # increase speed
         pass
@@ -137,22 +143,123 @@ def parse_action(fp):
         # unit/building ability
         data = extract(fp, '<H3L')
     elif _id==0x11:
+        # unit/building ability
         data = extract(fp, '<H5L')
     elif _id==0x12:
+        # unit/building ability
         data = extract(fp, '<H7L')
     elif _id==0x13:
+        # give item to unit / drop item on ground
         data = extract(fp, '<H9L')
     elif _id==0x14:
-        data = extract(fp, '<H5L9x2L')
+        # unit/building ability
+        data = extract(fp, '<H5L9x3L')
+    elif _id==0x16:
+        # change selection
+        select_mode, n_units = extract(fp, '<BH')
+        read(fp, 8*n_units)
+    elif _id==0x17:
+        # assign group hotkey
+        group, n_units = extract(fp, '<BH')
+        read(fp, 8*n_units)
+    elif _id==0x18:
+        # select group hotkey
+        group, unknown = extract(fp, 'BB')
+    elif _id==0x19:
+        # select subgroup
+        item_id, object_id1, object_id2 = extract(fp, 'LLL')
+    elif _id==0x1A:
+        # update subgroup
+        pass
+    elif _id==0x1B:
+        # unknown
+        extract(fp, '<BLL')
+    elif _id==0x1C:
+        # select ground item
+        unknown, object_id1, object_id2 = extract(fp, '<BLL')
+    elif _id==0x1D:
+        # cancel hero revival
+        read(fp, 8)
+    elif _id in (0x1E, 0x1D):
+        # remove unit from building qeue
+        slot, item = extract(fp, '<BL')
+    elif _id==0x21:
+        # unknown
+        read(fp, 8)
+    elif _id==0x20 or 0x22<=_id<=0x32:
+        # cheats
+        cheat_sizes = [
+                1, 0, 1, 1, 1, 1, 1,
+                6, 6, 1, 1, 1, 1,
+                6, 5, 1, 1, 1, 1 ]
+        size = cheat_sizes[_id-0x20]
+        read(fp, size)
+    elif _id==0x50:
+        # change ally options
+        slot, flags = extract(fp, '<BL')
+    elif _id==0x51:
+        # transfer resources
+        slot, gold, lumber = extract(fp, '<BLL')
+    elif _id==0x60:
+        # map trigger chat command
+        unknown1, unknown2 = extract(fp, 'LL')
+        message = extract_string(fp)
+        #print 'trigger chat command=%s' % message
+    elif _id==0x61:
+        # escape pressed
+        pass
+    elif _id==0x62:
+        # scenario trigger
+        unknown1, unknown2, counter = extract(fp, 'LLL')
+    elif _id==0x66:
+        # enter choose hero skill submenu
+        pass
+    elif _id==0x67:
+        # enter choose building submenu
+        pass
+    elif _id==0x68:
+        # minimap signal
+        x, y, unknown = extract(fp, 'ffL')
+        # XXX: check this
+    elif _id==0x69:
+        # continue game (BlockB)
+        read(fp, 16)
+    elif _id==0x6A:
+        # continue game (BlockA)
+        read(fp, 16)
+    elif _id==0x75:
+        # unknown
+        unknown, = extract(fp, 'B')
+    elif _id==0x6B:
+        # DotA trigger
+        # see reshine.php:1162
+        string_a = extract_string(fp)
+        string_b = extract_string(fp)
+        string_c = extract_string(fp)
+        value = extract(fp, 'L')
+        #pprint(locals())
     else:
         print 'unknown action_id 0x%02X' % _id
+        raise UnknownActionException()
 
 def parse_timeslot(fp):
+    #print 'parse_timeslot()'
+    #dumpline(read(fp, 16, False))
     n_bytes, time_increment = extract(fp, 'HH')
-    fp_ts = StringIO(read(fp, n_bytes-2))
-    player_id, block_length = extract(fp, '<bh')
-    for i in range(block_length):
-        parse_action(fp_ts)
+    fpcmd = StringIO(read(fp, n_bytes-2))
+
+    if not eof(fpcmd):
+        player_id, block_length = extract(fpcmd, '<bh')
+        fpaction = StringIO(read(fpcmd, block_length))
+        while not eof(fpaction):
+            startpos = fpaction.tell()
+            try:
+                parse_action(fpaction)
+            except Exception, ex:
+                fpaction.seek(startpos)
+                dumpline(read(fpaction, 24, False))
+                fpaction.read()
+                raise
 
 
 def parse_chatmessage(fp):
@@ -163,23 +270,24 @@ def parse_chatmessage(fp):
 def parse_block(fp):
     data = read(fp, 8, False)
     _id, = extract(fp, 'B')
-    if _id in (0x1A, 0x1B, 0x1C): # start fps
+    if _id in (0x1A, 0x1B, 0x1C): # start blocks
         read(fp, 4)
     elif _id==0x17:
         parse_leave(fp)
-    elif _id==0x1F: # timeslot fp
+    elif _id in (0x1E, 0x1F): # timeslot fp
         parse_timeslot(fp)
     elif _id==0x20: # chat message
         parse_chatmessage(fp)
-    elif _id==0x22: # unkown
+    elif _id==0x22: # unknown
         read(fp, 5)
     elif _id==0x23: # unknown
         read(fp, 10)
     elif _id==0x2F: # forced end game countdown
         read(fp, 8)
-    elif _id==0x00:
+    elif _id==0x00: # done
         print ' --- finished --- '
-        fp.read()
+        left = len(fp.read())
+        print "%d bytes left" % left
     else: # failure
         print "Unknown blockid %02X" % _id
         dump(data, 'h')
@@ -200,7 +308,7 @@ def get_replay(fp):
     gsr = get_gamestartrecord(game_data)
     #pprint(gsr)
 
-    while read(game_data, 1, seek=False):
+    while not eof(game_data):
         parse_block(game_data)
 
 

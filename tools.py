@@ -4,6 +4,23 @@ from struct import *
 import string
 import zlib
 
+def dumpline(data):
+    if not data:
+        return
+    else:
+        data, rest = data[:24], data[24:]
+
+        valid_chars = string.letters + string.digits + string.punctuation + ' '
+
+        hexdata = '|'.join("%02X" % ord(c) for c in data)
+        ascdata = '|'.join((("%-2s" % c) if c in valid_chars else "  ") for c in data)
+
+        print hexdata
+        print ascdata
+
+        dumpline(rest)
+
+
 
 def dump(data, mode=''):
     MAXLINE = 16
@@ -33,6 +50,9 @@ def read(fp, size, seek=True):
     if not seek:
         fp.seek(pos)
     return data
+
+def eof(fp):
+    return read(fp, 1, False)==''
 
 def extract(fp, fmt, seek=True):
     data = unpack(fmt, read(fp, calcsize(fmt), seek))
