@@ -44,29 +44,38 @@ def dump(data, mode=''):
     print
 
 
-def read(fp, size, seek=True):
-    pos = fp.tell()
+def read(fp, size):
     data = fp.read(size)
-    if not seek:
-        fp.seek(pos)
     return data
 
 def eof(fp):
-    return read(fp, 1, False)==''
+    pos = fp.tell()
+    if fp.read(1)=='':
+        return True
+    else:
+        fp.seek(pos)
+        return False
 
-def extract(fp, fmt, seek=True):
-    data = unpack(fmt, read(fp, calcsize(fmt), seek))
+def extract(fp, fmt):
+    data = unpack(fmt, read(fp, calcsize(fmt)))
     return data
 
-def extract_string(fp, seek=True):
+def extract_fp(fp, size):
+    return StringIO(fp.read(size))
+
+def extract_string(fp):
     _startpos = fp.tell()
     b, c = [], read(fp, 1)
     while c and c!='\0':
         b.append(c)
         c = read(fp, 1)
-    if not seek:
-        fp.seek(_startpos)
     return ''.join(b)
+
+def extract_player(fp):
+    record_id, player_id = extract(fp, "BB")
+    name = extract_string(fp)
+    fp.read(2)
+    return record_id, player_id, name
 
 def decode_gameinfo(data):
     enc = map(ord, data)

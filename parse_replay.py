@@ -1,4 +1,7 @@
-from StringIO import StringIO
+import psyco
+psyco.full()
+
+from cStringIO import StringIO
 
 from logging import basicConfig, debug, warn
 from pprint import pprint
@@ -24,18 +27,6 @@ def get_header(fp):
         header.update(dict(zip(keys, extract(fp, '4sLHHLL'))))
         header['ident'] = header['ident'][::-1]
     return header
-
-def get_game_data(header, fp):
-    fp.seek(header['size'])
-    buf = StringIO()
-    for i in range(header['blocks']):
-        c_size, u_size, checksum = extract(fp, "HHL")
-        data = fp.read(c_size)
-        buf.write(inflate(data[2:]))
-    buf.flush()
-    buf.seek(0)
-    return buf
-
 
 def get_player(fp):
     record_id, player_id = extract(fp, "BB")
@@ -86,7 +77,6 @@ def get_slotrecord(fp):
     keys = 'id downloaded slotstatus computer team color race ai_level handicap'
     return dict(zip(keys.split(), extract(fp, '9b')))
 
-
 def get_gamestartrecord(fp):
     gsr = {'slots':[]}
     record_id, n_bytes, n_slots = extract(fp, "<bhb")
@@ -101,23 +91,14 @@ def get_gamestartrecord(fp):
 
     return gsr
 
-def parse_first_block(fp):
-    read(fp, 4)
-    player = get_player(fp)
-    game = get_gameinfo(fp)
-    gsr = get_gamestartrecord(fp)
-    #pprint(gsr)
-
-def parse_leave(fp):
+def parse_leave(game, fp):
     data = extract(fp, "<LBLL")
     reason, player_id, result, unknown = data
     #print map(hex, data)
 
-def parse_action(fp):
-    #dumpline(read(fp, 16, False))
-
+def parse_action(game, fp):
     _id, = extract(fp, 'B')
-    #print 'action_id=0x%02X' % _id
+
     if _id==0x01:
         # pause
         pass
@@ -197,6 +178,8 @@ def parse_action(fp):
     elif _id==0x50:
         # change ally options
         slot, flags = extract(fp, '<BL')
+        print "change ally options"
+        print "slot=%s flags=%s" % (slot, flags)
     elif _id==0x51:
         # transfer resources
         slot, gold, lumber = extract(fp, '<BLL')
@@ -236,13 +219,13 @@ def parse_action(fp):
         string_a = extract_string(fp)
         string_b = extract_string(fp)
         string_c = extract_string(fp)
-        value = extract(fp, 'L')
+        value, = extract(fp, 'L')
+        #print("%-12s %-10s %-12s %-12s" % (string_a, string_b, string_c, value))
         #pprint(locals())
     else:
-        print 'unknown action_id 0x%02X' % _id
         raise UnknownActionException()
 
-def parse_timeslot(fp):
+def parse_timeslot(game, fp):
     #print 'parse_timeslot()'
     #dumpline(read(fp, 16, False))
     n_bytes, time_increment = extract(fp, 'HH')
@@ -254,30 +237,29 @@ def parse_timeslot(fp):
         while not eof(fpaction):
             startpos = fpaction.tell()
             try:
-                parse_action(fpaction)
+                parse_action(game, fpaction)
             except Exception, ex:
                 fpaction.seek(startpos)
                 dumpline(read(fpaction, 24, False))
                 fpaction.read()
                 raise
 
-
-def parse_chatmessage(fp):
+def parse_chatmessage(game, fp):
     data = extract(fp, "<bhbl")
     sender, n_bytes, flags, mode = data
     msg = extract_string(fp)
 
-def parse_block(fp):
+def parse_block(game, fp):
     data = read(fp, 8, False)
     _id, = extract(fp, 'B')
     if _id in (0x1A, 0x1B, 0x1C): # start blocks
         read(fp, 4)
     elif _id==0x17:
-        parse_leave(fp)
+        parse_leave(game, fp)
     elif _id in (0x1E, 0x1F): # timeslot fp
-        parse_timeslot(fp)
+        parse_timeslot(game, fp)
     elif _id==0x20: # chat message
-        parse_chatmessage(fp)
+        parse_chatmessage(game, fp)
     elif _id==0x22: # unknown
         read(fp, 5)
     elif _id==0x23: # unknown
@@ -297,19 +279,18 @@ def parse_block(fp):
 
     #dump(read(fp, 256, False))
 
-def get_replay(fp):
-    header = get_header(fp)
-    debug("header=%s" % header)
-
-    game_data = get_game_data(header, fp)
-    read(game_data, 4)
-    player = get_player(game_data)
-    game = get_gameinfo(game_data)
-    gsr = get_gamestartrecord(game_data)
+def get_game(fp):
+    game = {}
+    game['header']  = get_header(fp)
+    fpgame = unzip_gamedata(game['header'], fp)
+    read(fpgame, 4)
+    game['host'] = get_player(fpgame)
+    game['info'] = get_gameinfo(fpgame)
+    game['startrecord'] = get_gamestartrecord(fpgame)
     #pprint(gsr)
 
-    while not eof(game_data):
-        parse_block(game_data)
+    while not eof(fpgame):
+        parse_block(game, fpgame)
 
 
 def usage(name):
@@ -319,7 +300,7 @@ if __name__=="__main__":
     import sys
     if len(sys.argv)>1:
         f = sys.argv[1]
-        get_replay(file(f))
+        get_game(file(f))
     else:
         usage(sys.argv[0])
 
