@@ -34,6 +34,7 @@ class ActionBlockReader(BlockReader):
         self.define(0x6A, 'ContinueGame',       Skip(16))
         self.define(0x6A, 'Unknown',            Skip('B'))
 
+        self.currentPlayer = None
 
     def handleSaveGame(self, block, io):
         name = extractString(io)
@@ -52,6 +53,7 @@ class ActionBlockReader(BlockReader):
 
     def handleChangeAllys(self, block, io):
         slot, flag = extract('<BL', io)
+        #print 'ChangeAllys (%d, %d)' % (slot, flag)
 
     def handleUseAbility(self, block, io):
         sizes = {

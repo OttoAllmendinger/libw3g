@@ -29,6 +29,7 @@ class BlockReader:
     def __init__(self, state):
         self.state = state
         self.blockMap = {}
+        self.debug = False
 
     def define(self, blockId, blockName, callback=None):
         if callback==None:
@@ -50,4 +51,10 @@ class BlockReader:
                 raise Exception("Undefined Block 0x%02X" % _id)
 
             block, callback = self.blockMap[_id]
+
+            if self.debug and self.state['debug']['blockdebugger']:
+                pos = io.tell()
+                bdb = self.state['debug']['blockdebugger'](self, block, io)
+                io.seek(pos)
+
             callback(block, io)

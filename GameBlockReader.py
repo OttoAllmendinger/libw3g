@@ -12,7 +12,7 @@ class GameBlockReader(BlockReader):
         self.defineRange(0x1A, 0x1C, 'StartBlock',  Skip(4))
         self.defineRange(0x1E, 0x1F, 'TimeSlot')
 
-        self.define(0x22, 'Unknown',                Skip(5))
+        self.define(0x22, 'RandomSeed',             Skip(5))
         self.define(0x23, 'Unknown',                Skip(10))
         self.define(0x2F, 'ForcedCountdown',        Skip(8))
 
@@ -34,7 +34,12 @@ class GameBlockReader(BlockReader):
         n_bytes, time_inc = extract('HH', io)
         cmdio = extractIO(n_bytes-2, io)
 
-        if not eof(cmdio):
+        self.state['gametime'] += time_inc
+
+        if n_bytes>2:
             player_id, block_length = extract('<bH', cmdio)
             actionio = extractIO(block_length, cmdio)
+
+            # player handling isn't very clean
+            self.actionBlockReader.currentPlayer = self.state['playerMap'][player_id]
             self.actionBlockReader.parse(actionio)

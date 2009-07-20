@@ -17,7 +17,7 @@ def dump(data):
         print hexdata
         print ascdata
 
-        dumpline(rest)
+        dump(rest)
 
 
 # TODO: deprecate
@@ -39,13 +39,18 @@ def extract(fmt, io):
 def extractIO(size, io):
     return StringIO(io.read(size))
 
-def extractString(io):
+def extractString(io, decode=True):
     _startpos = io.tell()
     b, c = [], io.read(1)
     while c and c!='\0':
         b.append(c)
         c = io.read(1)
-    return ''.join(b)
+    string = ''.join(b)
+
+    if decode:
+        return string.decode('utf8')
+    else:
+        return string
 
 def extractPlayer(io):
     record_id, player_id = extract("BB", io)
