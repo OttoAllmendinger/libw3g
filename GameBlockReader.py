@@ -1,36 +1,40 @@
 from BlockReader import *
 from ActionBlockReader import ActionBlockReader
 
+from Tools import *
+
 class GameBlockReader(BlockReader):
-    def __init__(self):
-        BlockReader.__init__(self)
+    def __init__(self, gamestate):
+        BlockReader.__init__(self, gamestate)
 
-        self.actionBlockReader = ActionBlockReader()
+        self.actionBlockReader = ActionBlockReader(gamestate)
 
-        self.defineRange(0x1A, 0x1C, 'StartBlock', StaticRead(4))
-        self.define(0x17, 'LeaveGame')
+        self.defineRange(0x1A, 0x1C, 'StartBlock',  Skip(4))
         self.defineRange(0x1E, 0x1F, 'TimeSlot')
+
+        self.define(0x22, 'Unknown',                Skip(5))
+        self.define(0x23, 'Unknown',                Skip(10))
+        self.define(0x2F, 'ForcedCountdown',        Skip(8))
+
+        self.define(0x17, 'LeaveGame')
         self.define(0x20, 'ChatMessage')
-        self.define(0x22, 'Unknown', StaticRead(5))
-        self.define(0x23, 'Unknown', StaticRead(10))
-        self.define(0x2F, 'ForcedCountdown', StaticRead(8))
         self.define(0x00, 'Finish')
 
-    def LeaveGame(self, block, fp):
-        reason, player_id, result, unknown = extract(fp, '<LBLL')
+    def handleLeaveGame(self, block, io):
+        reason, player_id, result, unknown = extract('<LBLL', io)
 
-    def ChatMessage(self, block, fp):
-        sender, size, flags, mode = extract(fp, '<bhbl')
-        message = extract_string(fp)
+    def handleChatMessage(self, block, io):
+        sender, size, flags, mode = extract('<bhbl', io)
+        message = extractString(io)
 
-    def Finish(self, block, fp):
-        fp.read()
+    def handleFinish(self, block, io):
+        io.read()
 
-    def TimeSlot(self, block, fp):
-        n_bytes, time_inc = extract(fp, 'HH')
-        fpcmd = extract_fp(fp, n_bytes-2)
+    def handleTimeSlot(self, block, io):
+        n_bytes, time_inc = extract('HH', io)
+        cmdio = extractIO(n_bytes-2, io)
 
-        if not eof(fpcmd):
-            player_id, block_length = extract(fpcmd, '<bH')
-            fpaction = extract_fp(fpcmd, block_length)
-            self.actionBlockReader.parse(fpaction)
+        if not eof(cmdio):
+            player_id, block_length = extract('<bH', cmdio)
+            actionio = extractIO(block_length, cmdio)
+            self.actionBlockReader.parse(actionio)
