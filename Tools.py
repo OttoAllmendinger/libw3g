@@ -3,6 +3,14 @@ from struct import *
 import string
 import zlib
 
+try:
+    import betterprint as pprint
+except:
+    import pprint
+
+
+pprint = pprint.pprint
+
 def dump(data):
     if not data:
         return
@@ -53,10 +61,10 @@ def extractString(io, decode=True):
         return string
 
 def extractPlayer(io):
-    record_id, player_id = extract("BB", io)
+    record_flag, player_id = extract("BB", io)
     name = extractString(io)
     io.read(2)
-    return record_id, player_id, name
+    return {'RecordFlag':record_flag, 'PlayerId':player_id, 'Name': name}
 
 def decodeGameInfo(data):
     enc = map(ord, data)
@@ -74,3 +82,13 @@ def inflate(data):
     inf = dc.decompress(data)
     inf += dc.flush()
     return inf
+
+def formatGametime(milliseconds):
+    #hours   = int(milliseconds/1000/60/60)
+    minutes = int(milliseconds/1000/60)
+    seconds = int(milliseconds/1000) - 60*minutes
+    return "%2d:%02d" % (minutes, seconds)
+
+
+def getEmptyGamestate():
+    return { 'gametime': 0, 'debug': {} }

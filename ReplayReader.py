@@ -21,7 +21,7 @@ class ReplayReader:
 
     def extractGameInfo(self, io):
         gameinfo = {}
-        gameinfo['name'] = extractString(io)
+        gameinfo['Name'] = extractString(io)
         io.read(1)
 
         ioGameinfo = decodeGameInfo(extractString(io, decode=False))
@@ -29,63 +29,64 @@ class ReplayReader:
 
         # TODO: convert these values properly
 
-        gameinfo['speed'] = b_speed
-        gameinfo['visibility'] = b_vis
-        gameinfo['fixedTeams'] = b_teams
-        gameinfo['unitSharing'] = b_sharing
-        gameinfo['mapName']= extractString(ioGameinfo)
-        gameinfo['gameHost'] = extractString(ioGameinfo)
+        gameinfo['Speed'] = b_speed
+        gameinfo['Visibility'] = b_vis
+        gameinfo['FixedTeams'] = b_teams
+        gameinfo['UnitSharing'] = b_sharing
+        gameinfo['MapName']= extractString(ioGameinfo)
+        gameinfo['GameHost'] = extractString(ioGameinfo)
 
         player_slots = extract('L', io)
 
-        gameinfo['players'] = players = [self.state['host']]
+        records = [self.state['Host']]
 
         io.read(8)
+
+        rid = 1
 
         while True:
             _lastpos = io.tell()
             p = extractPlayer(io)
             io.read(4)
-            if p[0] in [0x00, 0x16]:
-                players.append(p)
+            if p['RecordFlag'] in [0x00, 0x16]:
+                records.append(p)
             else:
                 io.seek(_lastpos)
                 break
 
-        self.state['playerMap'] = playermap = {}
-        for p_type, p_id, p_name in players:
-            playermap[p_id] = {
-                    'name': p_name,
-                    'isHost' : p_type==0x00,
-            }
+
+        gameinfo['Players'] = players = {}
+        for rid, rec in enumerate(records):
+            players[rec['PlayerId']] = rec
+            rec['IsAdmin']= (rid==0)
 
         return gameinfo
 
 
     def extractSlotRecord(self, io):
-        keys = 'id downloaded slotStatus computer team color race aiLevel handicap'
+        keys = 'PlayerId Downloaded SlotStatus Computer Team Color Race AiLevel Handicap'
         return dict(zip(keys.split(), extract('9b', io)))
 
     def extractStartRecord(self, io):
-        slots = []
-        startrecord = {'slots': slots }
+        slots = {}
+        startrecord = {'Slots': slots }
         record_id, n_bytes, n_slots = extract("<bhb", io)
+
+        self.state['Slots'] = {}
 
         assert record_id==0x19
 
         for i in range(n_slots):
-            slots.append(self.extractSlotRecord(io))
-
-        playerMap = self.state['playerMap']
-
-        for slot in slots:
-            p_id = slot['id']
-            if p_id in playerMap.keys():
-                playerMap[p_id].update(slot)
+            sid = i+1
+            slot = self.extractSlotRecord(io)
+            if slot['SlotStatus'] != 0:
+                pid = slot['PlayerId']
+                player = self.state['Players'][pid]
+                player['SlotId']=sid
+                self.state['Slots'][sid] = player
 
         keys = "random_seed select_mode start_spots".split()
         startrecord.update(dict(zip(keys, extract("LBB", io))))
-
 
         return startrecord
 
@@ -99,7 +100,8 @@ class ReplayReader:
             gameio.write(inflate(data[2:]))
         gameio.seek(4)
 
-        self.state['host'] = extractPlayer(gameio)
-        self.state['info'] = self.extractGameInfo(gameio)
-        self.state['startrecord'] = self.extractStartRecord(gameio)
+        self.state['Host'] = extractPlayer(gameio)
+        self.state['Info'] = self.extractGameInfo(gameio)
+        self.state['Players'] = self.state['Info']['Players']
+        self.state['StartRecord'] = self.extractStartRecord(gameio)
         self.gameBlockReader.parse(gameio)

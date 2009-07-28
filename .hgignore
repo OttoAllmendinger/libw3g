@@ -1,6 +1,8 @@
 syntax: glob
 
+_tools/
 replays/
 *.swo
 *.swp
 *.pyc
+*.db

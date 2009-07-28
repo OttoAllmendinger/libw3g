@@ -1,3 +1,11 @@
+#/usr/bin/python
+#coding=utf8
+
+
+# fucking hack
+import codecs, locale, sys
+sys.stdout = codecs.getwriter(locale.getdefaultlocale()[1])(sys.stdout, 'replace')
+
 import psyco
 psyco.full()
 
@@ -10,8 +18,9 @@ from logging import basicConfig
 
 from ReplayReader import ReplayReader
 from ActionBlockReader import ActionBlockReader
+
 from Tools import *
-from Game import *
+from Units import *
 
 
 DEBUG = False
@@ -22,28 +31,56 @@ class DotaActionBlockReader(ActionBlockReader):
         ActionBlockReader.__init__(self, gamestate)
 
         self.dotastate = {
-                'events': [],
-                'modeline': None
+                'Events': [],
+                'ModeLine': None,
+                'HeroStats': dict((n,{}) for n in range(1, 13)),
+                'MapPlayerHero': {},
+                'MapHeroPlayer': {}
         }
 
-        self.state['dota'] = self.dotastate
+        self.state['DotA'] = self.dotastate
 
         self.define(0x6B, 'DotaTrigger')
+
+
+        self.triggerKeys = {
+            '1' : 'Kills',
+            '2' : 'Deaths',
+            '3' : 'Creep Kills',
+            '4' : 'Creep Denies',
+            '5' : 'Assists',
+            '6' : 'End Gold',
+            '7' : 'Neutrals',
+            '9' : 'Hero',
+            'id': 'SpawnId',
+        }
+
+        for i in range(6):
+            self.triggerKeys['8_%d'%i] = ('Inventory', i)
 
     def handleChatTrigger(self, block, io):
         extract('LL', io)
         message = extractString(io)
 
-        if self.currentPlayer['isHost'] and\
-                self.dotastate['modeline']==None:
-            self.dotastate['modeline'] = message
+        if self.currentPlayer['IsAdmin'] and\
+                self.dotastate['ModeLine']==None:
+            self.dotastate['ModeLine'] = message
 
     def handleDotaTrigger(self, block, io):
         drx = extractString(io)
         a = extractString(io)
         b = extractString(io)
-        c, = extract('L', io)
-        self.dotastate['events'].append((self.state['gametime'], (a,b,c)))
+
+        if b[0] in ('8', '9'):
+            c = getUnit(extract('4s', io)[0][::-1])
+        else:
+            c, = extract('L', io)
+
+        if a.isnumeric():
+            keyName = self.triggerKeys[b]
+            self.dotastate['HeroStats'][int(a)][keyName] = c
+
+        self.dotastate['Events'].append((self.state['gametime'], (a,b,c)))
 
 
 def blockDebug(reader, block, io):
@@ -60,7 +97,7 @@ def blockDebug(reader, block, io):
                 print
 
 def parseDotaReplay(io):
-    gamestate = emptyState()
+    gamestate = getEmptyGamestate()
     gamestate.update({
             'parsetime': time.asctime(),
     })
@@ -69,36 +106,33 @@ def parseDotaReplay(io):
     if DEBUG:
         gamestate['debug']['blockdebugger'] = blockDebug
 
-
     reader = ReplayReader(gamestate)
     reader.gameBlockReader.actionBlockReader = DotaActionBlockReader(gamestate)
-    #reader.gameBlockReader.debug = DEBUG
     reader.gameBlockReader.actionBlockReader.debug = DEBUG
     reader.parse(io)
+
+
+    gamestate['DotA']['Hero'] = {}
+    for statId, heroStat in gamestate['DotA']['HeroStats'].items():
+        heroStat['StatId'] = statId
+        slotId = (statId-1) if (statId>6) else statId
+        if slotId in gamestate['Slots']:
+            gamestate['Slots'][slotId]['Stats'] = heroStat
 
     return gamestate
 
 
-def output(gamestate):
-    #print json.dumps(gamestate)
-    #pprint(gamestate)
+def dumpState(gamestate):
+    pprint(gamestate)
 
-    print "mode: %s" % gamestate['dota']['modeline']
-    print "duration: %s" % formatGametime(gamestate['gametime'])
-
-    for p_id, player in gamestate['playerMap'].items():
-        dspname = player['name']+(' (Host)' if player['isHost'] else '')
-        print 'id=%s race=%s name=%s' % (p_id, player['race'], dspname)
-
-    #pprint(gamestate['playerMap'])
-
-    #for slot in gamestate['startrecord']['slots']:
-        #print 'color=%(color)s id=%(id)s race=%(race)s' % slot
-
-    for ts, (a,b,c) in gamestate['dota']['events']:
-        if b=='id' or 1:
-            print "%s    %-8s %-12s %s" % (formatGametime(ts), a, b, c)
-
+def dumpSlots(state):
+    print state['DotA']['ModeLine']
+    for s in state['Slots'].values():
+        stats = s['Stats']
+        #print '%-25s: %-25s' % (s['Name'], stats['Hero'])
+        kills, deaths, assists = stats.get('Kills'), stats.get('Deaths'), stats.get('Assists')
+        #pprint(stats)
+        print '%-24s | %-48s | %s/%s/%s' % (s['Name'], stats['Hero'], kills, deaths, assists)
 
 def usage(name):
     print "Usage: %s REPLAY-FILE" % name
@@ -111,7 +145,10 @@ if __name__=="__main__":
             basicConfig(level=1)
         else:
             state = parseDotaReplay(file(arg))
-        output(state)
+
+        dumpState(state)
+        dumpSlots(state)
+
     if len(sys.argv)==1:
         usage(sys.argv[0])
 

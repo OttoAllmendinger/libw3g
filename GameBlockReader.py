@@ -41,5 +41,5 @@ class GameBlockReader(BlockReader):
             actionio = extractIO(block_length, cmdio)
 
             # player handling isn't very clean
-            self.actionBlockReader.currentPlayer = self.state['playerMap'][player_id]
+            self.actionBlockReader.currentPlayer = self.state['Players'][player_id]
             self.actionBlockReader.parse(actionio)
