@@ -1,11 +1,6 @@
 #/usr/bin/python
 #coding=utf8
 
-
-# fucking hack
-import codecs, locale, sys
-sys.stdout = codecs.getwriter(locale.getdefaultlocale()[1])(sys.stdout, 'replace')
-
 import psyco
 psyco.full()
 
@@ -16,10 +11,12 @@ from pprint import pprint
 from datetime import timedelta
 from logging import basicConfig
 
-from ReplayReader import ReplayReader
-from ActionBlockReader import ActionBlockReader
+from libw3g.ReplayReader import ReplayReader
+from libw3g.ActionBlockReader import ActionBlockReader
 
-from Tools import *
+from libw3g.Tools import *
+
+
 from DotaUnits import *
 
 
@@ -96,6 +93,7 @@ def blockDebug(reader, block, io):
                 dump(io.read(4))
                 print
 
+
 def parseDotaReplay(io):
     gamestate = getEmptyGamestate()
     gamestate.update({
@@ -120,35 +118,3 @@ def parseDotaReplay(io):
             gamestate['Slots'][slotId]['Stats'] = heroStat
 
     return gamestate
-
-
-def dumpState(gamestate):
-    pprint(gamestate)
-
-def dumpSlots(state):
-    print state['DotA']['ModeLine']
-    for s in state['Slots'].values():
-        stats = s['Stats']
-        #print '%-25s: %-25s' % (s['Name'], stats['Hero'])
-        kills, deaths, assists = stats.get('Kills'), stats.get('Deaths'), stats.get('Assists')
-        #pprint(stats)
-        print '%-24s | %-48s | %s/%s/%s' % (s['Name'], stats['Hero'], kills, deaths, assists)
-
-def usage(name):
-    print "Usage: %s REPLAY-FILE" % name
-
-
-if __name__=="__main__":
-    import sys
-    for arg in sys.argv[1:]:
-        if arg=='-d':
-            basicConfig(level=1)
-        else:
-            state = parseDotaReplay(file(arg))
-
-        dumpState(state)
-        dumpSlots(state)
-
-    if len(sys.argv)==1:
-        usage(sys.argv[0])
-
