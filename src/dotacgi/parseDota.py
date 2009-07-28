@@ -20,7 +20,7 @@ from ReplayReader import ReplayReader
 from ActionBlockReader import ActionBlockReader
 
 from Tools import *
-from Units import *
+from DotaUnits import *
 
 
 DEBUG = False

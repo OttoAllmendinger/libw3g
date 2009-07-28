@@ -46,29 +46,21 @@ class Hero(Unit):
 class Item(Unit):
     pass
 
-class NullUnit(Unit):
-    def __init__(self):
-        self.unitId = None
-        self.unitData = None
-
-    def __str__(self):
-        return 'Empty'
-
 class UnknownUnit(Unit):
-    def __init__(self):
-        self.unitId = None
-        self.unitData = None
-    def __str__(self):
-        return 'Unknown'
+    def __init__(self, unitId):
+        self.unitId = unitId
+
+    def getName(self):
+        return 'Unknown (id=%s)' % self.unitId
 
 def getUnit(unitId):
     if unitId=='\0'*4:
-        return NullUnit()
+        return None
 
     unit = Unit.mapper.get(unitId)
 
     if unit==None:
-        return UnknownUnit()
+        return UnknownUnit(unitId)
 
     utype = unit.get('Type')
 
