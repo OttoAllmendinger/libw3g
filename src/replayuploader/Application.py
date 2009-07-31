@@ -1,11 +1,17 @@
 import sys
 from PyQt4 import QtCore, QtGui
 
+from ReplayUploader import ReplayUploader
+
+import Config
+
 W, H = 250, 75
 
 class Uploader(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
+
+        self.uploader = ReplayUploader(Config.upload_url)
         self.setWindowFlags(QtCore.Qt.ToolTip)
 
         self.setMinimumSize(W, H)
@@ -18,7 +24,6 @@ class Uploader(QtGui.QWidget):
         self.createTrayIcon()
         self.createDisplay()
         self.trayIcon.show()
-        self.show()
 
     def createDisplay(self):
         self.progressBar = QtGui.QProgressBar(self)
@@ -36,12 +41,20 @@ class Uploader(QtGui.QWidget):
                 self.quitAction, QtCore.SIGNAL("triggered()"),
                 QtGui.qApp, QtCore.SLOT("quit()"))
 
+        #self.uploadAction = QtGui.QAction(self.tr("&Upload"), self)
+
+    def upload(self):
+        self.show()
+
     def createTrayIcon(self):
-         self.trayIconMenu = QtGui.QMenu(self)
-         self.trayIconMenu.addAction(self.quitAction)
-         self.trayIcon = QtGui.QSystemTrayIcon(self)
-         self.trayIcon.setContextMenu(self.trayIconMenu)
-         self.trayIcon.setIcon(QtGui.QIcon('trayicon.gif'))
+        self.trayIconMenu = QtGui.QMenu(self)
+        self.trayIconMenu.addAction(self.quitAction)
+        self.trayIcon = QtGui.QSystemTrayIcon(self)
+        self.trayIcon.setContextMenu(self.trayIconMenu)
+        self.trayIcon.setIcon(QtGui.QIcon('trayicon.gif'))
+        QtCore.QObject.connect(
+                self.trayIcon, QtCore.SIGNAL("activated(QSystemTrayIcon::ActivationReason)"),
+                self.upload)
 
 if __name__=="__main__":
     app = QtGui.QApplication(sys.argv)
