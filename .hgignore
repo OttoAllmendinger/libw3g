@@ -6,3 +6,4 @@ replays/
 *.swp
 *.pyc
 *.db
+*.w3g
