@@ -1,0 +1,14 @@
+dull
+#222222
+#445566
+#aaaadd
+#9999bb
+#777788
+
+vibrant
+#222233
+#335577
+#8899aa
+#aaaaee
+#aaaaff
+

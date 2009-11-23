@@ -64,7 +64,8 @@ class ReplayReader:
 
 
     def extractSlotRecord(self, io):
-        keys = 'PlayerId Downloaded SlotStatus Computer Team Color Race AiLevel Handicap'
+        keys = ('PlayerId Downloaded SlotStatus Computer '
+                'Team Color Race AiLevel Handicap')
         return dict(zip(keys.split(), extract('9b', io)))
 
     def extractStartRecord(self, io):

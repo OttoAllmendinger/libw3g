@@ -1,4 +1,5 @@
 from cStringIO import StringIO
+import struct
 from struct import *
 import string
 import zlib
@@ -8,6 +9,9 @@ try:
 except:
     import pprint
 
+
+class ExtractionError(Exception):
+    pass
 
 pprint = pprint.pprint
 
@@ -41,8 +45,11 @@ def skip(size, io):
     io.seek(io.tell()+size)
 
 def extract(fmt, io):
-    data = unpack(fmt, io.read(calcsize(fmt)))
-    return data
+    try:
+        data = unpack(fmt, io.read(calcsize(fmt)))
+        return data
+    except struct.error:
+        raise ExtractionError()
 
 def extractIO(size, io):
     return StringIO(io.read(size))
@@ -83,12 +90,12 @@ def inflate(data):
     inf += dc.flush()
     return inf
 
-def formatGametime(milliseconds):
-    #hours   = int(milliseconds/1000/60/60)
-    minutes = int(milliseconds/1000/60)
-    seconds = int(milliseconds/1000) - 60*minutes
-    return "%2d:%02d" % (minutes, seconds)
-
+def formatGametime(ms):
+    s = 0.001 * ms
+    h = int(s / 60. / 60.)
+    m = int(s / 60. ) - h * 60
+    s = int(s) - m * 60 - h * 60 * 60
+    return '%02d:%02d:%02d' % (h, m, s)
 
 def getEmptyGamestate():
     return { 'gametime': 0, 'debug': {} }

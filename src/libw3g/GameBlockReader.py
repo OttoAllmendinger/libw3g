@@ -2,6 +2,7 @@ from BlockReader import *
 from ActionBlockReader import ActionBlockReader
 
 from Tools import *
+import Debug
 
 class GameBlockReader(BlockReader):
     def __init__(self, gamestate):
@@ -36,10 +37,12 @@ class GameBlockReader(BlockReader):
 
         self.state['gametime'] += time_inc
 
-        if n_bytes>2:
-            player_id, block_length = extract('<bH', cmdio)
-            actionio = extractIO(block_length, cmdio)
-
-            # player handling isn't very clean
-            self.actionBlockReader.currentPlayer = self.state['Players'][player_id]
+        while True:
+            try:
+                player_id, block_length = extract('<bH', cmdio)
+                actionio = extractIO(block_length, cmdio)
+            except ExtractionError:
+                break
+            self.actionBlockReader.currentPlayer = (
+                        self.state['Players'][player_id])
             self.actionBlockReader.parse(actionio)

@@ -44,17 +44,12 @@ class BlockReader:
         while True:
             try:
                 _id, = extract('B', io)
-            except struct.error:
+            except ExtractionError:
                 break
 
             if _id not in self.blockMap.keys():
                 raise Exception("Undefined Block 0x%02X" % _id)
 
             block, callback = self.blockMap[_id]
-
-            if self.debug and self.state['debug']['blockdebugger']:
-                pos = io.tell()
-                bdb = self.state['debug']['blockdebugger'](self, block, io)
-                io.seek(pos)
-
             callback(block, io)
+

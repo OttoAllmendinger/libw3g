@@ -49,6 +49,7 @@ class Item(Unit):
 class UnknownUnit(Unit):
     def __init__(self, unitId):
         self.unitId = unitId
+        self.name = self.getName()
 
     def getName(self):
         return 'Unknown (id=%s)' % self.unitId
