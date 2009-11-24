@@ -2,6 +2,7 @@ import os
 import sys
 import urllib2
 import hashlib
+import optparse
 import time
 
 from poster.encode import multipart_encode
@@ -22,12 +23,9 @@ class ReplayUploader:
     def exists(self, path):
         rphash = hashlib.md5(file(path).read()).hexdigest()
         response = urllib2.urlopen(
-                self.cgiurl+'/replay/exists/%s' % rphash).read().strip()
+                self.cgiurl+'exists/%s' % rphash).read().strip()
 
-        if response=='False':
-            return False
-        else:
-            return True
+        return response=='True'
 
     def upload(self, path, callback=console_output):
         stat = os.stat(path)
@@ -51,10 +49,20 @@ class ReplayUploader:
 
 
 if __name__=='__main__':
-    rpfile = sys.argv[1]
-    uploader = ReplayUploader('http://localhost:8080/')
+    option_parser = optparse.OptionParser()
+    option_parser.add_option("-w", "--watch")
+    (options, args) = option_parser.parse_args()
+    cgi_url, replay_file = args
 
-    #if uploader.exists(rpfile):
-        #print 'replay already exists'
-    #else:
-    uploader.upload(rpfile)
+    uploader = ReplayUploader(cgi_url)
+
+    while True:
+        if uploader.exists(replay_file):
+            print 'replay already exists'
+        else:
+            uploader.upload(replay_file)
+
+        if options.watch:
+            wait_for_change(replay_file)
+        else:
+            break
