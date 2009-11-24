@@ -12,6 +12,9 @@ from poster.streaminghttp import register_openers
 register_openers()
 
 
+def get_timestamp(path):
+    stat = os.stat(path)
+    return int(stat.st_mtime)
 
 def console_output(n_bytes):
     print n_bytes
@@ -23,18 +26,17 @@ class ReplayUploader:
     def exists(self, path):
         rphash = hashlib.md5(file(path).read()).hexdigest()
         response = urllib2.urlopen(
-                self.cgiurl+'exists/%s' % rphash).read().strip()
+                self.cgiurl+'/exists/%s' % rphash).read().strip()
 
         return response=='True'
 
     def upload(self, path, callback=console_output):
-        stat = os.stat(path)
         datagen, headers = multipart_encode({
                 'replay_file': file(path, 'rb'),
-                'timestamp': str(int(stat.st_ctime)),
+                'timestamp': str(get_timestamp(path))
         })
 
-        request = urllib2.Request(self.cgiurl+'upload', datagen, headers)
+        request = urllib2.Request(self.cgiurl+'/upload', datagen, headers)
         buf = urllib2.urlopen(request)
 
         while True:
@@ -46,15 +48,19 @@ class ReplayUploader:
                 callback(downloaded)
         print buf.read()
 
-
+def wait_for_change(path):
+    timestamp = current_ts = get_timestamp(path)
+    while (timestamp==current_ts):
+        current_ts = get_timestamp(path)
+        time.sleep(1)
 
 if __name__=='__main__':
     option_parser = optparse.OptionParser()
-    option_parser.add_option("-w", "--watch")
+    option_parser.add_option("-w", "--watch", action='store_true')
     (options, args) = option_parser.parse_args()
-    cgi_url, replay_file = args
+    host, replay_file = args
 
-    uploader = ReplayUploader(cgi_url)
+    uploader = ReplayUploader('http://' + host)
 
     while True:
         if uploader.exists(replay_file):
@@ -64,5 +70,7 @@ if __name__=='__main__':
 
         if options.watch:
             wait_for_change(replay_file)
+            print 'new replay found'
+            time.sleep(1) # maybe warcraft needs time to write the replay
         else:
             break

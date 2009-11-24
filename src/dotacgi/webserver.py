@@ -13,6 +13,9 @@ import DotaUnits
 
 
 REPLAY_DIR = P.join(P.dirname(__file__), 'replays')
+DATA_DIR = P.join(P.dirname(__file__), 'data')
+
+DEBUG_FAKE_UPLOAD_LAG = False
 
 def get_metadata(replay_dir):
     return json.load(file(P.join(REPLAY_DIR, replay_dir, 'fileinfo.json')))
@@ -93,6 +96,8 @@ class DotaStats:
             else:
                 tmpio.write(data)
                 yield "%8d" % size
+            if DEBUG_FAKE_UPLOAD_LAG:
+                time.sleep(0.1)
         yield '-'*8
 
         tmpio.seek(0)
@@ -120,10 +125,25 @@ class DotaStats:
 
 
 
-cherrypy.tree.mount(DotaStats())
+app = cherrypy.tree.mount(DotaStats())
 
 if __name__=='__main__':
-    if len(sys.argv)>1:
-        cherrypy.config.update( {'server.socket_port': int(sys.argv[1])} )
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option('-p', '--port')
+    parser.add_option('--fastcgi', action='store_true')
+    options, args = parser.parse_args()
+    if options.fastcgi:
+        from flup.server.fcgi import WSGIServer
+        cherrypy.config.update( {
+                    'engine.autoreload_on': False,
+                    'tools.sessions.on': True,
+                    'log.screen': False,
+                    'log.access_file': '/tmp/cherry_access.log',
+                    'log.error_file': '/tmp/cherry_error.log'
+                })
+        WSGIServer(app).run()
+    if options.port:
+        cherrypy.config.update( {'server.socket_port': int(options.port) } )
     cherrypy.quickstart()
 
