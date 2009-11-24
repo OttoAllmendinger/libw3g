@@ -5,8 +5,8 @@ from os.path import *
 
 from libw3g.Tools import pprint
 
-PATH_SHELVEFILE = 'units-%s.db'
-PATH_JSONFILE = 'units-%s.json'
+PATH_SHELVEFILE = join(dirname(__file__), 'units-%s.db')
+PATH_JSONFILE = join(dirname(__file__), 'units-%s.json')
 
 def _getShelve(dotaversion):
     sh = shelve.open(PATH_SHELVEFILE % dotaversion)

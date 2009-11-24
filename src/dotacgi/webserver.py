@@ -1,5 +1,6 @@
 import os
 import os.path as P
+import sys
 import hashlib
 from cStringIO import StringIO
 import time
@@ -7,9 +8,9 @@ import json
 
 import cherrypy
 
-
 import parseDota
 import DotaUnits
+
 
 REPLAY_DIR = P.join(P.dirname(__file__), 'replays')
 
@@ -53,6 +54,9 @@ class DotaStats:
 
 
     def replay(self, replay_dir):
+        if not replay_exists(replay_dir):
+            return 'REPLAY_NOT_FOUND'
+
         gamedata = get_replaydata(replay_dir)
         buf = [('<html><body><table>'
                 '<tr>'
@@ -119,5 +123,7 @@ class DotaStats:
 cherrypy.tree.mount(DotaStats())
 
 if __name__=='__main__':
+    if len(sys.argv)>1:
+        cherrypy.config.update( {'server.socket_port': int(sys.argv[1])} )
     cherrypy.quickstart()
 
