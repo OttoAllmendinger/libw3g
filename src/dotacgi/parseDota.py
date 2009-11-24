@@ -1,8 +1,11 @@
 #/usr/bin/python
 #coding=utf8
 
-import psyco
-psyco.full()
+try:
+    import psyco
+    psyco.full()
+except ImportError:
+    print 'install psyco for speedup'
 
 import time
 import json
