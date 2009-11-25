@@ -141,7 +141,7 @@ def parseDotaReplay(io):
         heroStat['StatId'] = statId
         slotId = (statId-1) if (statId>6) else statId
         if slotId in gamestate['Slots']:
-            gamestate['Slots'][slotId]['Stats'] = heroStat
+            gamestate['Slots'][slotId].update(heroStat)
             if 'SpawnId' in heroStat:
                 gamestate['Slots'][slotId]['Team'] = (
                     'The Sentinel' if heroStat['SpawnId']<6 else 'The Scourge')
@@ -151,3 +151,4 @@ def parseDotaReplay(io):
 
 def getDotaStats(io):
     gamestate = getDotaReplay(io)
+
