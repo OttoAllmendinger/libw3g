@@ -39,7 +39,7 @@ def get_hero_name(hero_id):
     return DotaUnits.getUnit(unicode(hero_id).encode('utf8')).getName()
 
 def is_valid_replay_hash(replay_hash):
-    return all((c in '012345679abcdefg') for c in replay_hash)
+    return all((c in '0123456789abcdef') for c in replay_hash)
 
 class DotaStats:
     def exists(self, replay_file_hash):
@@ -72,6 +72,13 @@ class DotaStats:
         fileio = file(P.join(get_replay_dir(replay_hash), 'replay.w3g'), 'r')
         self.parse(fileio, overwrite=True)
         return self.dumpjson(replay_hash)
+
+    @cherrypy.expose
+    def reparse_all(self):
+        for replay_hash in get_replay_hashs():
+            fileio = file(P.join(get_replay_dir(replay_hash), 'replay.w3g'), 'r')
+            self.parse(fileio, overwrite=True)
+        return 'done'
 
     @cherrypy.expose
     def index(self):
