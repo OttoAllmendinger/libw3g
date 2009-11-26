@@ -44,5 +44,5 @@ class GameBlockReader(BlockReader):
             except ExtractionError:
                 break
             self.actionBlockReader.currentPlayer = (
-                        self.state['Players'][player_id])
+                        self.state['players'][player_id])
             self.actionBlockReader.parse(actionio)

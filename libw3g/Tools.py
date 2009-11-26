@@ -71,7 +71,7 @@ def extractPlayer(io):
     record_flag, player_id = extract("BB", io)
     name = extractString(io)
     io.read(2)
-    return {'RecordFlag':record_flag, 'PlayerId':player_id, 'Name': name}
+    return {'record_flag':record_flag, 'player_id':player_id, 'name': name}
 
 def decodeGameInfo(data):
     enc = map(ord, data)

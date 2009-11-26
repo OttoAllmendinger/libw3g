@@ -10,39 +10,36 @@ except ImportError:
     from pprint import pprint
 
 from libw3g.Tools import *
-
-import parseDota
-
+from libdota.DotaParser import get_gamestate
 
 def dump_state(gamestate):
     pprint(gamestate)
 
 def dump_events(gamestate):
     print '---- events ----'
-    for ts, event in gamestate['DotA']['Events']:
+    for ts, event in gamestate['dota']['events']:
         print "%12s | " % formatGametime(ts) + "%-12s, %-12s, %-12s" % event
 
 def dump_metadata(state):
     print 'Header: Version %d.%d - Modeline: %s' % (state['header']['version'],
-            state['header']['major_v'], state['DotA']['ModeLine'])
+            state['header']['major_v'], state['dota']['mode_line'])
 
 def dump_results(state):
-    print " %8s | %8s | %-12s | %-16s | %-38s | %s/%s/%s" % ("PlayerId",
-            "SlotId", "Team", "Name", "Hero", "Kills", "Deaths", "Assists")
-    for s in state['Slots'].values():
-        stats = s['Stats']
-        kills, deaths, assists = (stats.get('Kills'), stats.get('Deaths'),
-                stats.get('Assists'))
-        print ' %8d | %8d | %-12s | %-16s | %-38s | %s/%s/%s' % (
-                s.get("PlayerId"), s.get("SlotId"), s.get("Team"), s['Name'],
-                stats['Hero'], kills, deaths, assists)
+    print " %9s | %8s | %-12s | %-16s | %-38s | %s/%s/%s" % ("player_id",
+            "slot_id", "team", "name", "hero", "kills", "deaths", "assists")
+    for s in state['slots'].values():
+        kills, deaths, assists = (s.get('kills'), s.get('deaths'),
+                s.get('Assists'))
+        print ' %9d | %8d | %-12s | %-16s | %-38s | %s/%s/%s' % (
+                s.get("player_id"), s.get("slot_id"), s.get("team"), s['name'],
+                s['hero'], kills, deaths, assists)
 
 def dump_players(state):
     print '# Name, SlotId, PlayerId, SpawnId, StatId'
-    for slot in state['Slots'].values():
-        stats = slot.get('Stats', {})
-        print "%-18s : %d %d %d %d" % (slot.get('Name'), slot.get('SlotId'),
-                slot.get('PlayerId'), stats.get('SpawnId'), stats.get('StatId'))
+    for slot in state['slots'].values():
+        print "%-18s : %d %d %d %d" % (slot.get('name'), slot.get('slot_id'),
+                slot.get('player_id'), slot.get('spawn_id'),
+                slot.get('stat_id'))
 
 def dump_json(state, json_file_name):
     json.dump(state, file(json_file_name, 'w'))
@@ -63,7 +60,7 @@ if __name__=="__main__":
     parser.add_option('-j', '--json')
     options, args = parser.parse_args()
 
-    state = parseDota.parseDotaReplay(file(args[0]))
+    state = get_gamestate(file(args[0]))
 
     if options.metadata:
         dump_metadata(state)

@@ -18,8 +18,6 @@ from libw3g.ReplayReader import ReplayReader
 from libw3g.ActionBlockReader import ActionBlockReader
 
 from libw3g.Tools import *
-
-
 from DotaUnits import *
 
 
@@ -33,40 +31,38 @@ class DotaActionBlockReader(ActionBlockReader):
         ActionBlockReader.__init__(self, gamestate)
 
         self.dotastate = {
-                'Events': [],
-                'ModeLine': None,
-                'HeroStats': dict((n,{}) for n in range(1, 13)),
-                'MapPlayerHero': {},
-                'MapHeroPlayer': {}
+                'events': [],
+                'mode_line': None,
+                'hero_stats': dict((n,{}) for n in range(1, 13)),
         }
 
-        self.state['DotA'] = self.dotastate
+        self.state['dota'] = self.dotastate
 
         self.define(0x6B, 'DotaTrigger')
 
 
         self.triggerKeys = {
-            '1' : 'Kills',
+            '1' : 'kills',
             '2' : 'Deaths',
-            '3' : 'Creep Kills',
-            '4' : 'Creep Denies',
-            '5' : 'Assists',
-            '6' : 'End Gold',
-            '7' : 'Neutrals',
-            '9' : 'Hero',
-            'id': 'SpawnId',
+            '3' : 'creep_kills',
+            '4' : 'creep_denies',
+            '5' : 'assists',
+            '6' : 'end_gold',
+            '7' : 'neutrals',
+            '9' : 'hero',
+            'id': 'spawn_id',
         }
 
         for i in range(6):
-            self.triggerKeys['8_%d'%i] = 'Inventory%d' % i
+            self.triggerKeys['8_%d'%i] = 'inventory_%d' % i
 
     def handleChatTrigger(self, block, io):
         extract('LL', io)
         message = extractString(io)
 
-        if self.currentPlayer['IsAdmin'] and\
-                self.dotastate['ModeLine']==None:
-            self.dotastate['ModeLine'] = message
+        if self.currentPlayer['is_admin'] and\
+                self.dotastate['mode_line']==None:
+            self.dotastate['mode_line'] = message
 
     def handleDotaTrigger(self, block, io):
         _ = extractString(io)
@@ -81,25 +77,20 @@ class DotaActionBlockReader(ActionBlockReader):
         if a=='Data' and b.startswith('Hero'):
             killedHeroStatId = int(b[-1])
             killerHeroStatId = int(c)
-            '''
-            print '%s: %s kills %s' % (formatGametime(
-                    dotaTime(self.state['gametime'])),
-                    killerHeroStatId, killedHeroStatId)
-            '''
-            if killerHeroStatId in self.dotastate['HeroStats']:
-                killerStats = self.dotastate['HeroStats'][killerHeroStatId]
+            if killerHeroStatId in self.dotastate['hero_stats']:
+                killerStats = self.dotastate['hero_stats'][killerHeroStatId]
             else:
                 killerStats = {} # FIXME: dummy dict
-            if not 'KilledPlayers' in killerStats:
-                killerStats['KilledPlayers'] = {}
-            if not killedHeroStatId in killerStats['KilledPlayers']:
-                killerStats['KilledPlayers'][killedHeroStatId] = 0
-            killerStats['KilledPlayers'][killedHeroStatId] += 1
+            if not 'killed_players' in killerStats:
+                killerStats['killed_players'] = {}
+            if not killedHeroStatId in killerStats['killed_players']:
+                killerStats['killed_players'][killedHeroStatId] = 0
+            killerStats['killed_players'][killedHeroStatId] += 1
         elif a.isnumeric():
             keyName = self.triggerKeys[b]
-            self.dotastate['HeroStats'][int(a)][keyName] = c
+            self.dotastate['hero_stats'][int(a)][keyName] = c
 
-        self.dotastate['Events'].append((
+        self.dotastate['events'].append((
             dotaTime(self.state['gametime']), (a,b,c)))
 
 
@@ -136,15 +127,15 @@ def parseDotaReplay(io):
     reader.parse(io)
 
 
-    gamestate['DotA']['Hero'] = {}
-    for statId, heroStat in gamestate['DotA']['HeroStats'].items():
-        heroStat['StatId'] = statId
+    gamestate['dota']['hero'] = {}
+    for statId, heroStat in gamestate['dota']['hero_stats'].items():
+        heroStat['stat_id'] = statId
         slotId = (statId-1) if (statId>6) else statId
-        if slotId in gamestate['Slots']:
-            gamestate['Slots'][slotId].update(heroStat)
-            if 'SpawnId' in heroStat:
-                gamestate['Slots'][slotId]['Team'] = (
-                    'The Sentinel' if heroStat['SpawnId']<6 else 'The Scourge')
+        if slotId in gamestate['slots']:
+            gamestate['slots'][slotId].update(heroStat)
+            if 'spawn_id' in heroStat:
+                gamestate['slots'][slotId]['team'] = (
+                    'The Sentinel' if heroStat['spawn_id']<6 else 'The Scourge')
 
     return gamestate
 
@@ -152,3 +143,6 @@ def parseDotaReplay(io):
 def getDotaStats(io):
     gamestate = getDotaReplay(io)
 
+
+def get_gamestate(io):
+    return parseDotaReplay(io)

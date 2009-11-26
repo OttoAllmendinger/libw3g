@@ -53,12 +53,15 @@
     "Name": "Orc Burrow", 
     "Id": "otrb"
   }, 
-  "rnec": {
-    "Type": "ITEM", 
-    "Cost": "150", 
-    "Art": "images/BTNRodOfNecromancy.gif", 
-    "Name": "Rod of Necromancy", 
-    "Id": "rnec"
+  "O016": {
+    "Art": "images/BTNBatrider.jpg", 
+    "Name": "Batrider", 
+    "RelatedTo": "A1EL,A19V,A19Z,A19O", 
+    "ProperNames": [
+      "Jin'zakk"
+    ], 
+    "Type": "HERO", 
+    "Id": "O016"
   }, 
   "O017": {
     "Art": "images/BTNBatrider.jpg", 
@@ -105,6 +108,12 @@
     "Art": "images/BTNRingSkull.gif", 
     "Name": "Ring of Regeneration", 
     "Id": "rlif"
+  }, 
+  "A0GK": {
+    "Type": "SKILL", 
+    "Art": "images/BTNDevourMagic.gif", 
+    "Name": "Brain Sap", 
+    "Id": "A0GK"
   }, 
   "A05B": {
     "Type": "ULTIMATE", 
@@ -154,11 +163,11 @@
     "Name": "Shadow Weave enemy", 
     "Id": "A05I"
   }, 
-  "A05J": {
+  "AOww": {
     "Type": "SKILL", 
-    "Art": "images/BTNGoblinLandMine.gif", 
-    "Name": "Land Mines", 
-    "Id": "A05J"
+    "Art": "images/BTNWhirlwind.gif", 
+    "Name": "Bladestorm", 
+    "Id": "AOww"
   }, 
   "horl": {
     "Type": "ITEM", 
@@ -179,11 +188,11 @@
     "Name": "Chain Frost", 
     "Id": "A05T"
   }, 
-  "AOwk": {
+  "A05V": {
     "Type": "SKILL", 
-    "Art": "images/BTNWindWalkOn.gif", 
-    "Name": "Wind Walk", 
-    "Id": "AOwk"
+    "Art": "images/BTNDeathNova.gif", 
+    "Name": "Death Pulse", 
+    "Id": "A05V"
   }, 
   "A05W": {
     "Type": "SKILL", 
@@ -336,12 +345,11 @@
     "Name": "Earthbind", 
     "Id": "A0NB"
   }, 
-  "I02Y": {
-    "Type": "ITEM", 
-    "Cost": "185", 
-    "Art": "images/BTNCirclet.gif", 
-    "Name": "Circlet of Nobility", 
-    "Id": "I02Y"
+  "A0NE": {
+    "Type": "SKILL", 
+    "Art": "images/BTNBigBadVoodooSpell.gif", 
+    "Name": "Voodoo Restoration", 
+    "Id": "A0NE"
   }, 
   "I02X": {
     "Type": "ITEM", 
@@ -394,11 +402,12 @@
     "Name": "Gloves of Haste", 
     "Id": "I02P"
   }, 
-  "A0NO": {
-    "Type": "SKILL", 
-    "Art": "images/BTNShadowPact.gif", 
-    "Name": "Maledict", 
-    "Id": "A0NO"
+  "lnrn": {
+    "Type": "ITEM", 
+    "Cost": "50", 
+    "Art": "images/BTNRingLionHead.gif", 
+    "Name": "Lions Ring", 
+    "Id": "lnrn"
   }, 
   "I02R": {
     "Type": "ITEM", 
@@ -407,11 +416,11 @@
     "Name": "Boots of Elvenskin", 
     "Id": "I02R"
   }, 
-  "A0NQ": {
-    "Type": "SKILL", 
-    "Art": "images/BTNINV_Wand_12.gif", 
-    "Name": "Poison Touch", 
-    "Id": "A0NQ"
+  "I02M": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollGreen.gif", 
+    "Name": "Dummy Item", 
+    "Id": "I02M"
   }, 
   "I02L": {
     "Type": "ITEM", 
@@ -419,17 +428,18 @@
     "Name": "Aghanims Scepter (Ogre)", 
     "Id": "I02L"
   }, 
-  "A0NS": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNAnimateDead.gif", 
-    "Name": "Borrowed Time", 
-    "Id": "A0NS"
+  "I02O": {
+    "Type": "ITEM", 
+    "Cost": "500", 
+    "Art": "images/BTNBootsOfSpeed.gif", 
+    "Name": "Boots of Speed", 
+    "Id": "I02O"
   }, 
-  "A0NR": {
-    "Type": "STAT", 
-    "Art": "images/PASBTNStatUp.gif", 
-    "Name": "Attribute Bonus", 
-    "Id": "A0NR"
+  "I02N": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Boots of Elvenskin", 
+    "Id": "I02N"
   }, 
   "I02I": {
     "Type": "ITEM", 
@@ -437,11 +447,11 @@
     "Name": "Necronomicon Level 2", 
     "Id": "I02I"
   }, 
-  "I02H": {
-    "Type": "ITEM", 
-    "Art": "images/DISBTNNecromancerAdept.gif", 
-    "Name": "Necronomicon Level 1", 
-    "Id": "I02H"
+  "A0NT": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNStasisTrap.gif", 
+    "Name": "Death Ward", 
+    "Id": "A0NT"
   }, 
   "I02K": {
     "Type": "ITEM", 
@@ -455,11 +465,11 @@
     "Name": "Necronomicon Level 3", 
     "Id": "I02J"
   }, 
-  "I02E": {
-    "Type": "ITEM", 
-    "Art": "images/DISBTNINV_ThrowingAxe_02.gif", 
-    "Name": "Manta Style", 
-    "Id": "I02E"
+  "A0NY": {
+    "Type": "SKILL", 
+    "Art": "images/BTNBattleRoar.gif", 
+    "Name": "Beast Roar (Side Effect)", 
+    "Id": "A0NY"
   }, 
   "A0NX": {
     "Type": "ULTIMATE", 
@@ -556,12 +566,6 @@
     "Art": "images/BTNBloodLustOn.gif", 
     "Name": "Overpower", 
     "Id": "A059"
-  }, 
-  "A071": {
-    "Type": "SKILL", 
-    "Art": "images/BTNCannibalize.gif", 
-    "Name": "Feast", 
-    "Id": "A071"
   }, 
   "tels": {
     "Type": "ITEM", 
@@ -784,13 +788,6 @@
     "Name": "Broadsword", 
     "Id": "I0CZ"
   }, 
-  "rnsp": {
-    "Type": "ITEM", 
-    "Cost": "100", 
-    "Art": "images/BTNGoldRing.gif", 
-    "Name": "Ring of Superiority", 
-    "Id": "rnsp"
-  }, 
   "ward": {
     "Type": "ITEM", 
     "Cost": "500", 
@@ -827,25 +824,12 @@
     "Type": "HERO", 
     "Id": "Hpal"
   }, 
-  "O016": {
-    "Art": "images/BTNBatrider.jpg", 
-    "Name": "Batrider", 
-    "RelatedTo": "A1EL,A19V,A19Z,A19O", 
-    "ProperNames": [
-      "Jin'zakk"
-    ], 
-    "Type": "HERO", 
-    "Id": "O016"
-  }, 
-  "Hpb1": {
-    "Art": "images/BTNHeroPaladin.gif", 
-    "Name": "Paladin", 
-    "RelatedTo": "AHhb,AHds,AHre,AHad", 
-    "ProperNames": [
-      "Lord Nicholas Buzan"
-    ], 
-    "Type": "HERO", 
-    "Id": "Hpb1"
+  "rnec": {
+    "Type": "ITEM", 
+    "Cost": "150", 
+    "Art": "images/BTNRodOfNecromancy.gif", 
+    "Name": "Rod of Necromancy", 
+    "Id": "rnec"
   }, 
   "tbar": {
     "Type": "ITEM", 
@@ -925,12 +909,6 @@
     "Name": "Orb of Venom", 
     "Id": "oven"
   }, 
-  "A02K": {
-    "Type": "SKILL", 
-    "Art": "images/BTNManaBurn.gif", 
-    "Name": "Mana Burn", 
-    "Id": "A02K"
-  }, 
   "A0LV": {
     "Type": "SKILL", 
     "Art": "images/BTNStaffOfPreservation.gif", 
@@ -1002,11 +980,11 @@
     "Name": "Remote Mines", 
     "Id": "A0AK"
   }, 
-  "I05P": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Hand of Midas Recipe", 
-    "Id": "I05P"
+  "A0AD": {
+    "Type": "SKILL", 
+    "Art": "images/BTNDOCMasterTraining.gif", 
+    "Name": "Rabid", 
+    "Id": "A0AD"
   }, 
   "I05Q": {
     "Type": "ITEM", 
@@ -1121,11 +1099,12 @@
     "Name": "Ancient Tango of Essifation", 
     "Id": "I05C"
   }, 
-  "A0AP": {
-    "Type": "SKILL", 
-    "Art": "images/BTNHowlOfTerror.gif", 
-    "Name": "Terror", 
-    "Id": "A0AP"
+  "I05D": {
+    "Type": "ITEM", 
+    "Cost": "50", 
+    "Art": "images/BTNLesserClarityPotion.gif", 
+    "Name": "Clarity Potion", 
+    "Id": "I05D"
   }, 
   "A0AQ": {
     "Type": "ULTIMATE", 
@@ -1140,11 +1119,12 @@
     "Name": "Healing Salve", 
     "Id": "I05F"
   }, 
-  "A0AS": {
-    "Type": "SKILL", 
-    "Art": "images/BTNSpell_Shadow_ShadowWordPain.gif", 
-    "Name": "Shadow Word", 
-    "Id": "A0AS"
+  "I05G": {
+    "Type": "ITEM", 
+    "Cost": "200", 
+    "Art": "images/BTNSentryWard.gif", 
+    "Name": "Observer Wards", 
+    "Id": "I05G"
   }, 
   "Ubal": {
     "Art": "images/BTNNerubianQueen.gif", 
@@ -1222,12 +1202,12 @@
     "Name": "Greater Scroll of Replenishment", 
     "Id": "rej6"
   }, 
-  "I054": {
+  "rej1": {
     "Type": "ITEM", 
-    "Cost": "875", 
-    "Art": "images/BTNPeriapt.gif", 
-    "Name": "Void Stone", 
-    "Id": "I054"
+    "Cost": "100", 
+    "Art": "images/BTNMinorRejuvPotion.gif", 
+    "Name": "Minor Replenishment Potion", 
+    "Id": "rej1"
   }, 
   "I055": {
     "Type": "ITEM", 
@@ -1288,12 +1268,6 @@
     "Art": "images/BTNDoom.gif", 
     "Name": "Doom", 
     "Id": "A0A2"
-  }, 
-  "n000": {
-    "Type": "ITEM", 
-    "Art": "images/BTNInfernal.gif", 
-    "Name": "Greater Infernel", 
-    "Id": "n000"
   }, 
   "I0BM": {
     "Type": "ITEM", 
@@ -1543,11 +1517,11 @@
     "Name": "Morph", 
     "Id": "A048"
   }, 
-  "AOww": {
+  "A05J": {
     "Type": "SKILL", 
-    "Art": "images/BTNWhirlwind.gif", 
-    "Name": "Bladestorm", 
-    "Id": "AOww"
+    "Art": "images/BTNGoblinLandMine.gif", 
+    "Name": "Land Mines", 
+    "Id": "A05J"
   }, 
   "A04C": {
     "Type": "SKILL", 
@@ -1585,17 +1559,17 @@
     "Name": "Rage Attack Speed", 
     "Id": "A0SR"
   }, 
-  "A04J": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNDevourMagic.gif", 
-    "Name": "Exorcism", 
-    "Id": "A04J"
+  "A0SS": {
+    "Type": "SKILL", 
+    "Art": "images/BTNCannibalize.gif", 
+    "Name": "Feast", 
+    "Id": "A0SS"
   }, 
-  "A04H": {
-    "Type": "STAT", 
-    "Art": "images/PASBTNStatUp.gif", 
-    "Name": "Attribute Bonus", 
-    "Id": "A04H"
+  "A0SQ": {
+    "Type": "SKILL", 
+    "Art": "images/BTNReincarnation.gif", 
+    "Name": "Rage", 
+    "Id": "A0SQ"
   }, 
   "A0SV": {
     "Type": "SKILL", 
@@ -1603,11 +1577,11 @@
     "Name": "Rage", 
     "Id": "A0SV"
   }, 
-  "A04N": {
+  "A0SW": {
     "Type": "ULTIMATE", 
-    "Art": "images/BTNDevourMagic.gif", 
-    "Name": "Exorcism", 
-    "Id": "A04N"
+    "Art": "images/BTNOrbOfCorruption.gif", 
+    "Name": "Infest", 
+    "Id": "A0SW"
   }, 
   "A04M": {
     "Type": "ULTIMATE", 
@@ -1741,17 +1715,21 @@
     "Name": "Aghanims Scepter (Rhasta)", 
     "Id": "I0B4"
   }, 
-  "I0B7": {
+  "ebal": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Aghanims Scepter (Rylai)", 
-    "Id": "I0B7"
+    "Art": "images/BTNGlaiveThrower.gif", 
+    "Name": "Glaive Thrower", 
+    "Id": "ebal"
   }, 
-  "I0B6": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Aghanims Scepter (Veno)", 
-    "Id": "I0B6"
+  "Hpb1": {
+    "Art": "images/BTNHeroPaladin.gif", 
+    "Name": "Paladin", 
+    "RelatedTo": "AHhb,AHds,AHre,AHad", 
+    "ProperNames": [
+      "Lord Nicholas Buzan"
+    ], 
+    "Type": "HERO", 
+    "Id": "Hpb1"
   }, 
   "I0B1": {
     "Type": "ITEM", 
@@ -1760,12 +1738,11 @@
     "Name": "Cheese", 
     "Id": "I0B1"
   }, 
-  "pgma": {
+  "I0B0": {
     "Type": "ITEM", 
-    "Cost": "400", 
-    "Art": "images/BTNPotionBlueBig.gif", 
-    "Name": "Potion of Greater Mana", 
-    "Id": "pgma"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Cheese", 
+    "Id": "I0B0"
   }, 
   "I0B3": {
     "Type": "ITEM", 
@@ -1779,11 +1756,11 @@
     "Name": "Aghanims Scepter (Pugna)", 
     "Id": "I0B2"
   }, 
-  "A05V": {
+  "AOwk": {
     "Type": "SKILL", 
-    "Art": "images/BTNDeathNova.gif", 
-    "Name": "Death Pulse", 
-    "Id": "A05V"
+    "Art": "images/BTNWindWalkOn.gif", 
+    "Name": "Wind Walk", 
+    "Id": "AOwk"
   }, 
   "tmsc": {
     "Type": "ITEM", 
@@ -1811,12 +1788,6 @@
     "Name": "Wand of the Wind", 
     "Id": "wcyc"
   }, 
-  "A09U": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNWindWalkOn.gif", 
-    "Name": "Vendetta", 
-    "Id": "A09U"
-  }, 
   "wswd": {
     "Type": "ITEM", 
     "Cost": "150", 
@@ -1830,11 +1801,11 @@
     "Name": "Lumber Mill", 
     "Id": "hlum"
   }, 
-  "nfsh": {
-    "Type": "ITEM", 
-    "Art": "images/BTNForestTrollShadowPriest.gif", 
-    "Name": "Forest Troll High Priest", 
-    "Id": "nfsh"
+  "ANs1": {
+    "Type": "SKILL", 
+    "Art": "images/BTNPocketFactory.gif", 
+    "Name": "Pocket Factory", 
+    "Id": "ANs1"
   }, 
   "bgst": {
     "Type": "ITEM", 
@@ -1880,12 +1851,17 @@
     "Name": "Mechanical Critter", 
     "Id": "mcri"
   }, 
-  "sprn": {
-    "Type": "ITEM", 
-    "Cost": "50", 
-    "Art": "images/BTNRingVioletSpider.gif", 
-    "Name": "Spider Ring", 
-    "Id": "sprn"
+  "A0LO": {
+    "Type": "SKILL", 
+    "Art": "images/BTNAdvancedStrengthOfTheWild.gif", 
+    "Name": "Leap (effect)", 
+    "Id": "A0LO"
+  }, 
+  "A0N0": {
+    "Type": "SKILL", 
+    "Art": "images/BTNRavenForm.gif", 
+    "Name": "Take Flight", 
+    "Id": "A0N0"
   }, 
   "nwgt": {
     "Type": "ITEM", 
@@ -1976,13 +1952,6 @@
     "Type": "HERO", 
     "Id": "Emoo"
   }, 
-  "crys": {
-    "Type": "ITEM", 
-    "Cost": "500", 
-    "Art": "images/BTNCrystalBall.gif", 
-    "Name": "Crystal Ball", 
-    "Id": "crys"
-  }, 
   "h04A": {
     "Type": "ITEM", 
     "Art": "images/BTNSelectHero.gif", 
@@ -2005,17 +1974,18 @@
     "Name": "Berserkers Blood", 
     "Id": "A0QQ"
   }, 
-  "A0NE": {
-    "Type": "SKILL", 
-    "Art": "images/BTNBigBadVoodooSpell.gif", 
-    "Name": "Voodoo Restoration", 
-    "Id": "A0NE"
-  }, 
-  "ohwd": {
+  "I02Y": {
     "Type": "ITEM", 
-    "Art": "images/BTNHealingWard.gif", 
-    "Name": "Healing Ward", 
-    "Id": "ohwd"
+    "Cost": "185", 
+    "Art": "images/BTNCirclet.gif", 
+    "Name": "Circlet of Nobility", 
+    "Id": "I02Y"
+  }, 
+  "hgra": {
+    "Type": "ITEM", 
+    "Art": "images/BTNGryphonAviary.gif", 
+    "Name": "Gryphon Aviary", 
+    "Id": "hgra"
   }, 
   "ANms": {
     "Type": "SKILL", 
@@ -2061,18 +2031,17 @@
     "Type": "HERO", 
     "Id": "H06Y"
   }, 
-  "lnrn": {
+  "I02S": {
     "Type": "ITEM", 
-    "Cost": "50", 
-    "Art": "images/BTNRingLionHead.gif", 
-    "Name": "Lions Ring", 
-    "Id": "lnrn"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Gloves of Haste", 
+    "Id": "I02S"
   }, 
-  "I02M": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollGreen.gif", 
-    "Name": "Dummy Item", 
-    "Id": "I02M"
+  "A0NQ": {
+    "Type": "SKILL", 
+    "Art": "images/BTNINV_Wand_12.gif", 
+    "Name": "Poison Touch", 
+    "Id": "A0NQ"
   }, 
   "hmtt": {
     "Type": "ITEM", 
@@ -2080,12 +2049,11 @@
     "Name": "Siege Engine", 
     "Id": "hmtt"
   }, 
-  "I02O": {
-    "Type": "ITEM", 
-    "Cost": "500", 
-    "Art": "images/BTNBootsOfSpeed.gif", 
-    "Name": "Boots of Speed", 
-    "Id": "I02O"
+  "A0NS": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNAnimateDead.gif", 
+    "Name": "Borrowed Time", 
+    "Id": "A0NS"
   }, 
   "H06S": {
     "Art": "images/BTNProudmoore.gif", 
@@ -2101,17 +2069,17 @@
     "Type": "HERO", 
     "Id": "H06S"
   }, 
-  "I02N": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Boots of Elvenskin", 
-    "Id": "I02N"
+  "A0NR": {
+    "Type": "STAT", 
+    "Art": "images/PASBTNStatUp.gif", 
+    "Name": "Attribute Bonus", 
+    "Id": "A0NR"
   }, 
-  "A0NT": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNStasisTrap.gif", 
-    "Name": "Death Ward", 
-    "Id": "A0NT"
+  "I02H": {
+    "Type": "ITEM", 
+    "Art": "images/DISBTNNecromancerAdept.gif", 
+    "Name": "Necronomicon Level 1", 
+    "Id": "I02H"
   }, 
   "A07N": {
     "Type": "SKILL", 
@@ -2185,11 +2153,11 @@
     "Name": "Wind Walk", 
     "Id": "A07A"
   }, 
-  "A0NY": {
-    "Type": "SKILL", 
-    "Art": "images/BTNBattleRoar.gif", 
-    "Name": "Beast Roar (Side Effect)", 
-    "Id": "A0NY"
+  "I02E": {
+    "Type": "ITEM", 
+    "Art": "images/DISBTNINV_ThrowingAxe_02.gif", 
+    "Name": "Manta Style", 
+    "Id": "I02E"
   }, 
   "HC49": {
     "Art": "images/BTNSeaWitch.gif", 
@@ -2201,11 +2169,11 @@
     "Type": "HERO", 
     "Id": "HC49"
   }, 
-  "uslh": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSlaughterhouse.gif", 
-    "Name": "Slaughterhouse", 
-    "Id": "uslh"
+  "A07Z": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNSpikedBarricades.gif", 
+    "Name": "Overgrowth", 
+    "Id": "A07Z"
   }, 
   "A07X": {
     "Type": "ULTIMATE", 
@@ -2424,12 +2392,12 @@
     "Name": "Plate Mail", 
     "Id": "I04Q"
   }, 
-  "lgdh": {
+  "I04P": {
     "Type": "ITEM", 
-    "Cost": "400", 
-    "Art": "images/BTNHornOfDoom.gif", 
-    "Name": "Legion Doom-Horn", 
-    "Id": "lgdh"
+    "Cost": "650", 
+    "Art": "images/BTNINV_Misc_Cape_08.gif", 
+    "Name": "Planeswalkers Cloak", 
+    "Id": "I04P"
   }, 
   "I04W": {
     "Type": "ITEM", 
@@ -2604,11 +2572,11 @@
     "Name": "Exorcism", 
     "Id": "A073"
   }, 
-  "A0EE": {
+  "A071": {
     "Type": "SKILL", 
-    "Art": "images/BTNQuillSpray.gif", 
-    "Name": "Rupture", 
-    "Id": "A0EE"
+    "Art": "images/BTNCannibalize.gif", 
+    "Name": "Feast", 
+    "Id": "A071"
   }, 
   "ewsp": {
     "Type": "ITEM", 
@@ -2627,12 +2595,6 @@
     "Art": "images/BTNCorpseExplode.gif", 
     "Name": "Finger of Death", 
     "Id": "A095"
-  }, 
-  "hgtw": {
-    "Type": "ITEM", 
-    "Art": "images/BTNGuardTower.gif", 
-    "Name": "Guard Tower", 
-    "Id": "hgtw"
   }, 
   "A091": {
     "Type": "SKILL", 
@@ -2828,12 +2790,11 @@
     "Name": "Aghanims Scepter (KOTL)", 
     "Id": "I0EZ"
   }, 
-  "I09O": {
+  "h02Y": {
     "Type": "ITEM", 
-    "Cost": "6900", 
-    "Art": "images/BTNINV_Wand_06.gif", 
-    "Name": "Dagon Level 4", 
-    "Id": "I09O"
+    "Art": "images/BTNStaffofpurification.gif", 
+    "Name": "Euls Scepter of Divinity", 
+    "Id": "h02Y"
   }, 
   "Udea": {
     "Art": "images/BTNHeroDeathKnight.gif", 
@@ -2929,11 +2890,11 @@
     "Name": "Impale", 
     "Id": "A09K"
   }, 
-  "h02R": {
-    "Type": "ITEM", 
-    "Art": "images/BTNJapaneseSword.gif", 
-    "Name": "Sange", 
-    "Id": "h02R"
+  "A09U": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNWindWalkOn.gif", 
+    "Name": "Vendetta", 
+    "Id": "A09U"
   }, 
   "A09V": {
     "Type": "SKILL", 
@@ -2953,18 +2914,17 @@
     "Name": "Mana Void", 
     "Id": "A09R"
   }, 
-  "I09E": {
+  "h02S": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Black King Bar (8)", 
-    "Id": "I09E"
+    "Art": "images/BTNINV_Hammer_10.gif", 
+    "Name": "Cranium Basher", 
+    "Id": "h02S"
   }, 
-  "I09F": {
+  "h02P": {
     "Type": "ITEM", 
-    "Cost": "5800", 
-    "Art": "images/BTNINV_ThrowingAxe_02.gif", 
-    "Name": "Manta Style", 
-    "Id": "I09F"
+    "Art": "images/BTNTalisman.gif", 
+    "Name": "Null Talisman", 
+    "Id": "h02P"
   }, 
   "A09Z": {
     "Type": "ULTIMATE", 
@@ -2972,11 +2932,11 @@
     "Name": "Laguna Blade", 
     "Id": "A09Z"
   }, 
-  "I09G": {
+  "h02Q": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Manta Style", 
-    "Id": "I09G"
+    "Art": "images/BTNINV_Sword_10.gif", 
+    "Name": "Yasha", 
+    "Id": "h02Q"
   }, 
   "h02V": {
     "Type": "ITEM", 
@@ -2984,24 +2944,23 @@
     "Name": "Diffusal Blade", 
     "Id": "h02V"
   }, 
-  "I09A": {
+  "h02W": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Battle Fury", 
-    "Id": "I09A"
+    "Art": "images/BTNINV_Helmet_13.gif", 
+    "Name": "Helm of the Dominator", 
+    "Id": "h02W"
   }, 
-  "I09B": {
+  "h02T": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Crystalys", 
-    "Id": "I09B"
+    "Art": "images/BTNINV_Chest_Plate06.gif", 
+    "Name": "Blade Mail", 
+    "Id": "h02T"
   }, 
-  "I09C": {
+  "h02U": {
     "Type": "ITEM", 
-    "Cost": "2200", 
-    "Art": "images/BTNThoriumMelee.gif", 
-    "Name": "Crystalys", 
-    "Id": "I09C"
+    "Art": "images/BTNStormHammer.gif", 
+    "Name": "Maelstrom", 
+    "Id": "h02U"
   }, 
   "A0LH": {
     "Type": "ULTIMATE", 
@@ -3009,25 +2968,24 @@
     "Name": "Rupture", 
     "Id": "A0LH"
   }, 
-  "h02N": {
+  "I09X": {
     "Type": "ITEM", 
-    "Art": "images/BTNRunedBracers.gif", 
-    "Name": "Bracer", 
-    "Id": "h02N"
+    "Cost": "4050", 
+    "Art": "images/BTNBookOfTheDead.gif", 
+    "Name": "Necronomicon Level 2", 
+    "Id": "I09X"
   }, 
-  "I09Y": {
+  "h02O": {
     "Type": "ITEM", 
-    "Cost": "5350", 
-    "Art": "images/BTNNecromancerMaster.gif", 
-    "Name": "Necronomicon Level 3", 
-    "Id": "I09Y"
+    "Art": "images/BTNRevenant.gif", 
+    "Name": "Wraith Band", 
+    "Id": "h02O"
   }, 
-  "I09Z": {
+  "h02L": {
     "Type": "ITEM", 
-    "Cost": "5175", 
-    "Art": "images/BTNOrb of Water.gif", 
-    "Name": "Linkens Sphere", 
-    "Id": "I09Z"
+    "Art": "images/BTNGoldGloves.gif", 
+    "Name": "Hand of Midas", 
+    "Id": "h02L"
   }, 
   "Nfir": {
     "Art": "images/BTNShade.gif", 
@@ -3039,11 +2997,11 @@
     "Type": "HERO", 
     "Id": "Nfir"
   }, 
-  "I09U": {
+  "h02C": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Necronomicon Level 1", 
-    "Id": "I09U"
+    "Art": "images/BTNSentryWard.gif", 
+    "Name": "Observer Wards", 
+    "Id": "h02C"
   }, 
   "I09V": {
     "Type": "ITEM", 
@@ -3051,18 +3009,17 @@
     "Name": "Necronomicon Level 2", 
     "Id": "I09V"
   }, 
-  "I09W": {
+  "h02A": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Necronomicon Level 3", 
-    "Id": "I09W"
+    "Art": "images/BTNAncientOfTheEarth.gif", 
+    "Name": "Ancient Tango of Essifation", 
+    "Id": "h02A"
   }, 
-  "I09P": {
+  "h02F": {
     "Type": "ITEM", 
-    "Cost": "4200", 
-    "Art": "images/BTNINV_Wand_06.gif", 
-    "Name": "Dagon Level 2", 
-    "Id": "I09P"
+    "Art": "images/BTNCritterChicken.gif", 
+    "Name": "Animal Courier", 
+    "Id": "h02F"
   }, 
   "pdiv": {
     "Type": "ITEM", 
@@ -3077,6 +3034,12 @@
     "Name": "Haunted Gold Mine", 
     "Id": "ugol"
   }, 
+  "n022": {
+    "Type": "ITEM", 
+    "Art": "images/BTNRacoon.gif", 
+    "Name": "Raccoon", 
+    "Id": "n022"
+  }, 
   "h02D": {
     "Type": "ITEM", 
     "Art": "images/BTNBlueSentryWard.gif", 
@@ -3089,12 +3052,18 @@
     "Name": "Scroll of Town Portal", 
     "Id": "h02E"
   }, 
-  "sman": {
+  "h01N": {
     "Type": "ITEM", 
-    "Cost": "150", 
-    "Art": "images/BTNScrollOfProtection.gif", 
-    "Name": "Scroll of Mana", 
-    "Id": "sman"
+    "Art": "images/BTNSpiritWalkerMasterTraining.gif", 
+    "Name": "Messerschmidts Reaver", 
+    "Id": "h01N"
+  }, 
+  "hlst": {
+    "Type": "ITEM", 
+    "Cost": "450", 
+    "Art": "images/BTNHealthStone.gif", 
+    "Name": "Health Stone", 
+    "Id": "hlst"
   }, 
   "ciri": {
     "Type": "ITEM", 
@@ -3233,17 +3202,18 @@
     "Name": "Decrepify", 
     "Id": "A0CE"
   }, 
-  "A0CZ": {
-    "Type": "SKILL", 
-    "Art": "images/PASBTNBacktrack.gif", 
-    "Name": "Backtrack", 
-    "Id": "A0CZ"
-  }, 
-  "I094": {
+  "whwd": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Mekansm", 
-    "Id": "I094"
+    "Cost": "600", 
+    "Art": "images/BTNHealingWard.gif", 
+    "Name": "Healing Wards", 
+    "Id": "whwd"
+  }, 
+  "AHre": {
+    "Type": "SKILL", 
+    "Art": "images/BTNResurrection.gif", 
+    "Name": "Resurrection", 
+    "Id": "AHre"
   }, 
   "A0CY": {
     "Type": "ULTIMATE", 
@@ -3288,11 +3258,11 @@
     "Name": "Buriza-do Kyanon Recipe", 
     "Id": "I07E"
   }, 
-  "h00X": {
+  "I07B": {
     "Type": "ITEM", 
-    "Art": "images/BTNTemp.gif", 
-    "Name": "AH", 
-    "Id": "h00X"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Dagon Recipe", 
+    "Id": "I07B"
   }, 
   "I07C": {
     "Type": "ITEM", 
@@ -3424,11 +3394,12 @@
     "Name": "Rain of Chaos", 
     "Id": "S008"
   }, 
-  "h00B": {
+  "I07X": {
     "Type": "ITEM", 
-    "Art": "images/BTNImprovedStrengthOfTheMoon.gif", 
-    "Name": "IceArmor Caster", 
-    "Id": "h00B"
+    "Cost": "2080", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Black King Bar Recipe", 
+    "Id": "I07X"
   }, 
   "I07Y": {
     "Type": "ITEM", 
@@ -3436,12 +3407,6 @@
     "Art": "images/BTNSnazzyScroll.gif", 
     "Name": "Manta Style Recipe", 
     "Id": "I07Y"
-  }, 
-  "A08X": {
-    "Type": "SKILL", 
-    "Art": "images/BTNAbsorbMagic.gif", 
-    "Name": "Grave Chill", 
-    "Id": "A08X"
   }, 
   "h009": {
     "Type": "ITEM", 
@@ -3479,11 +3444,12 @@
     "Name": "Shadow Path", 
     "Id": "h002"
   }, 
-  "h003": {
+  "crys": {
     "Type": "ITEM", 
-    "Art": "images/BTNAbility_Spectral_Dagger.gif", 
-    "Name": "Shadow Dagger", 
-    "Id": "h003"
+    "Cost": "500", 
+    "Art": "images/BTNCrystalBall.gif", 
+    "Name": "Crystal Ball", 
+    "Id": "crys"
   }, 
   "I076": {
     "Type": "ITEM", 
@@ -3553,27 +3519,17 @@
     "Name": "Shukuchi Effect", 
     "Id": "A0C9"
   }, 
-  "n00J": {
-    "Type": "ITEM", 
-    "Art": "images/BTNOrcWarlock.gif", 
-    "Name": "Necronomicon Warrior 1", 
-    "Id": "n00J"
-  }, 
   "A0C2": {
     "Type": "SKILL", 
     "Art": "images/BTNGlove.gif", 
     "Name": "Grow! speed", 
     "Id": "A0C2"
   }, 
-  "Naka": {
-    "Art": "images/BTNakama.gif", 
-    "Name": "Bounty Hunter", 
-    "RelatedTo": "Aamk,A000,A07A,A004,A0B4", 
-    "ProperNames": [
-      "Gondar"
-    ], 
-    "Type": "HERO", 
-    "Id": "Naka"
+  "A0C1": {
+    "Type": "ULTIMATE", 
+    "Art": "images/PASBTNReincarnation.gif", 
+    "Name": "Grow!", 
+    "Id": "A0C1"
   }, 
   "A0C6": {
     "Type": "SKILL", 
@@ -3797,11 +3753,22 @@
     "Name": "Purification", 
     "Id": "A08N"
   }, 
-  "A08M": {
-    "Type": "SKILL", 
-    "Art": "images/BTNNeutralManaShield.gif", 
-    "Name": "Tornado Barrier", 
-    "Id": "A08M"
+  "rsps": {
+    "Type": "ITEM", 
+    "Cost": "300", 
+    "Art": "images/BTNRune.gif", 
+    "Name": "Rune of Shielding", 
+    "Id": "rsps"
+  }, 
+  "Hlgr": {
+    "Art": "images/BTNTheCaptain.gif", 
+    "Name": "Dragon Knight", 
+    "RelatedTo": "A03G,A03F,Aamk,A0AR,A0CL", 
+    "ProperNames": [
+      "Knight Davion"
+    ], 
+    "Type": "HERO", 
+    "Id": "Hlgr"
   }, 
   "A08K": {
     "Type": "ULTIMATE", 
@@ -3851,11 +3818,12 @@
     "Name": "Mana Flare", 
     "Id": "A08T"
   }, 
-  "A08R": {
-    "Type": "SKILL", 
-    "Art": "images/BTNFrostArmorOn.gif", 
-    "Name": "Frost Armor", 
-    "Id": "A08R"
+  "rspl": {
+    "Type": "ITEM", 
+    "Cost": "150", 
+    "Art": "images/BTNRune.gif", 
+    "Name": "Rune of Spirit Link", 
+    "Id": "rspl"
   }, 
   "A08Q": {
     "Type": "SKILL", 
@@ -3905,11 +3873,11 @@
     "Name": "Reapers Scythe", 
     "Id": "A067"
   }, 
-  "A066": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNOmnislash.gif", 
-    "Name": "Omnislash", 
-    "Id": "A066"
+  "A08X": {
+    "Type": "SKILL", 
+    "Art": "images/BTNAbsorbMagic.gif", 
+    "Name": "Grave Chill", 
+    "Id": "A08X"
   }, 
   "A06I": {
     "Type": "SKILL", 
@@ -4008,11 +3976,11 @@
     "Name": "Anabolic Frenzy", 
     "Id": "A06Y"
   }, 
-  "A06X": {
-    "Type": "ULTIMATE", 
-    "Art": "images/PASBTNShadeTrueSight.gif", 
-    "Name": "Pulse Nova", 
-    "Id": "A06X"
+  "A086": {
+    "Type": "SKILL", 
+    "Art": "images/BTNHeroDreadLord.gif", 
+    "Name": "Hunter in the Night", 
+    "Id": "A086"
   }, 
   "A085": {
     "Type": "SKILL", 
@@ -4086,11 +4054,11 @@
     "Name": "Overgrowth 1", 
     "Id": "A06T"
   }, 
-  "A06W": {
+  "A089": {
     "Type": "SKILL", 
-    "Art": "images/BTNEarthquake.gif", 
-    "Name": "Split Earth", 
-    "Id": "A06W"
+    "Art": "images/BTNFireBolt.gif", 
+    "Name": "Fireblast", 
+    "Id": "A089"
   }, 
   "A06V": {
     "Type": "SKILL", 
@@ -4189,47 +4157,47 @@
     "Name": "Dagon Level 5", 
     "Id": "I0D3"
   }, 
-  "I0D2": {
+  "u00J": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNINV_ThrowingKnife_03.gif", 
-    "Name": "Blade of Alacrity", 
-    "Id": "I0D2"
+    "Art": "images/BTNorboflightning.gif", 
+    "Name": "Illuminate Orb", 
+    "Id": "u00J"
   }, 
-  "I0D1": {
+  "u00I": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNWandOfCyclone.gif", 
-    "Name": "Staff of Wizardry", 
-    "Id": "I0D1"
+    "Art": "images/BTNLocustSwarm.gif", 
+    "Name": "Natures Attendants", 
+    "Id": "u00I"
   }, 
-  "I0D0": {
+  "u00H": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNHammer.gif", 
-    "Name": "Mithril Hammer", 
-    "Id": "I0D0"
+    "Art": "images/BTNImpale.gif", 
+    "Name": "Chain Link", 
+    "Id": "u00H"
   }, 
-  "I0D7": {
+  "u00O": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNINV_Chest_Chain_12.gif", 
-    "Name": "Chain Mail", 
-    "Id": "I0D7"
+    "Art": "images/PASBTNFreezingBreath.gif", 
+    "Name": "Icy Path", 
+    "Id": "u00O"
   }, 
-  "I0D6": {
+  "u00N": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNSteelRanged.gif", 
-    "Name": "Javelin", 
-    "Id": "I0D6"
+    "Art": "images/BTNZigguratUpgrade.gif", 
+    "Name": "Spirit Tower - level 3", 
+    "Id": "u00N"
   }, 
-  "I0D5": {
+  "u00M": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNClawsOfAttack.gif", 
-    "Name": "Blades of Attack", 
-    "Id": "I0D5"
+    "Art": "images/BTNZigguratUpgrade.gif", 
+    "Name": "Spirit Tower - level 1", 
+    "Id": "u00M"
   }, 
-  "I0D4": {
+  "I0CW": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNCirclet.gif", 
-    "Name": "Circlet of Nobility", 
-    "Id": "I0D4"
+    "Art": "images/BTN_RingOfProtection.jpg", 
+    "Name": "Ring of Protection", 
+    "Id": "I0CW"
   }, 
   "hrif": {
     "Type": "ITEM", 
@@ -4249,40 +4217,17 @@
     "Name": "Claymore", 
     "Id": "I0CX"
   }, 
-  "n001": {
-    "Type": "ITEM", 
-    "Art": "images/BTNWisp.gif", 
-    "Name": "Ancestral Spirit", 
-    "Id": "n001"
-  }, 
   "okod": {
     "Type": "ITEM", 
     "Art": "images/BTNKotoBeast.gif", 
     "Name": "Kodo Beast", 
     "Id": "okod"
   }, 
-  "n00E": {
-    "Type": "ITEM", 
-    "Art": "images/BTNMurgulTideWarrior.gif", 
-    "Name": "Scary Fish", 
-    "Id": "n00E"
-  }, 
-  "texp": {
-    "Type": "ITEM", 
-    "Cost": "500", 
-    "Art": "images/BTNTomeBrown.gif", 
-    "Name": "Tome of Experience", 
-    "Id": "texp"
-  }, 
-  "N01A": {
-    "Art": "images/BTNSpellBreaker.gif", 
-    "Name": "Silencer", 
-    "RelatedTo": "A0LZ,A0MC,A14L,A0L3,Aamk", 
-    "ProperNames": [
-      "Nortrom"
-    ], 
-    "Type": "HERO", 
-    "Id": "N01A"
+  "A037": {
+    "Type": "SKILL", 
+    "Art": "images/BTNGhoulFrenzy.gif", 
+    "Name": "Empower", 
+    "Id": "A037"
   }, 
   "nbrg": {
     "Type": "ITEM", 
@@ -4324,11 +4269,15 @@
     "Name": "Ghost Ship Slow", 
     "Id": "A11L"
   }, 
-  "A17U": {
-    "Type": "SKILL", 
-    "Art": "images/BTNFireBolt.gif", 
-    "Name": "Fireblast Multi", 
-    "Id": "A17U"
+  "N02B": {
+    "Art": "images/BTNForestTroll.gif", 
+    "Name": "Troll Warlord", 
+    "RelatedTo": "Aamk,A0BE,A0BC,A0O0,A1EJ", 
+    "ProperNames": [
+      "Jahrakal"
+    ], 
+    "Type": "HERO", 
+    "Id": "N02B"
   }, 
   "E01A": {
     "Art": "images/BTNWitchDoctor.gif", 
@@ -4347,11 +4296,11 @@
     "Name": "Rune of Dispel Magic", 
     "Id": "rdis"
   }, 
-  "owyv": {
-    "Type": "ITEM", 
-    "Art": "images/BTNWyvernRider.gif", 
-    "Name": "Wind Rider", 
-    "Id": "owyv"
+  "A17P": {
+    "Type": "SKILL", 
+    "Art": "images/BTNEatTree.gif", 
+    "Name": "Sprout", 
+    "Id": "A17P"
   }, 
   "I005": {
     "Type": "ITEM", 
@@ -4475,18 +4424,18 @@
     "Name": "Troll Headhunter", 
     "Id": "ohun"
   }, 
-  "hkni": {
-    "Type": "ITEM", 
-    "Art": "images/BTNKnight.gif", 
-    "Name": "Knight", 
-    "Id": "hkni"
-  }, 
   "skul": {
     "Type": "ITEM", 
     "Cost": "50", 
     "Art": "images/BTNSacrificialSkull.gif", 
     "Name": "Sacrificial Skull", 
     "Id": "skul"
+  }, 
+  "I06G": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Oblivion Staff", 
+    "Id": "I06G"
   }, 
   "Ucrl": {
     "Art": "images/BTNMountainGiant.gif", 
@@ -4850,6 +4799,13 @@
     "Name": "Incapacitating Bite", 
     "Id": "A0BK"
   }, 
+  "I06J": {
+    "Type": "ITEM", 
+    "Cost": "460", 
+    "Art": "images/BTNRevenant.gif", 
+    "Name": "Wraith Band", 
+    "Id": "I06J"
+  }, 
   "I06A": {
     "Type": "ITEM", 
     "Cost": "500", 
@@ -4882,11 +4838,11 @@
     "Name": "Sacred Relic", 
     "Id": "h01Z"
   }, 
-  "I06G": {
+  "nech": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Oblivion Staff", 
-    "Id": "I06G"
+    "Art": "images/BTNCritterChicken.gif", 
+    "Name": "Chicken", 
+    "Id": "nech"
   }, 
   "h01X": {
     "Type": "ITEM", 
@@ -4949,11 +4905,15 @@
     "Name": "Mithril Hammer", 
     "Id": "h01O"
   }, 
-  "h01N": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSpiritWalkerMasterTraining.gif", 
-    "Name": "Messerschmidts Reaver", 
-    "Id": "h01N"
+  "Hamg": {
+    "Art": "images/BTNTreant.gif", 
+    "Name": "Treant Protector", 
+    "RelatedTo": "A07Z,A01Z,A01V,Aamk,A01U", 
+    "ProperNames": [
+      "Rooftrellen"
+    ], 
+    "Type": "HERO", 
+    "Id": "Hamg"
   }, 
   "h01M": {
     "Type": "ITEM", 
@@ -5193,12 +5153,12 @@
     "Name": "Phase Boots", 
     "Id": "I0GL"
   }, 
-  "shhn": {
+  "I0GM": {
     "Type": "ITEM", 
-    "Cost": "3350", 
-    "Art": "images/BTNHumanArmorUpThree.gif", 
-    "Name": "Shield of Honor", 
-    "Id": "shhn"
+    "Cost": "175", 
+    "Art": "images/BTNCirclet.gif", 
+    "Name": "Version Check", 
+    "Id": "I0GM"
   }, 
   "I0GJ": {
     "Type": "ITEM", 
@@ -5226,12 +5186,11 @@
     "Name": "Dust of Appearance", 
     "Id": "I0GI"
   }, 
-  "whwd": {
-    "Type": "ITEM", 
-    "Cost": "600", 
-    "Art": "images/BTNHealingWard.gif", 
-    "Name": "Healing Wards", 
-    "Id": "whwd"
+  "A0CZ": {
+    "Type": "SKILL", 
+    "Art": "images/PASBTNBacktrack.gif", 
+    "Name": "Backtrack", 
+    "Id": "A0CZ"
   }, 
   "nbal": {
     "Type": "ITEM", 
@@ -5239,11 +5198,11 @@
     "Name": "Doom Guard", 
     "Id": "nbal"
   }, 
-  "hcas": {
+  "I0F6": {
     "Type": "ITEM", 
-    "Art": "images/BTNCastle.gif", 
-    "Name": "Castle", 
-    "Id": "hcas"
+    "Art": "images/DISBTNINV_Wand_05.gif", 
+    "Name": "Aghanims Scepter (Lich)", 
+    "Id": "I0F6"
   }, 
   "olig": {
     "Type": "ITEM", 
@@ -5286,17 +5245,11 @@
     "Name": "Siege Engine", 
     "Id": "hrtt"
   }, 
-  "ANab": {
+  "A03N": {
     "Type": "SKILL", 
-    "Art": "images/BTNAcidBomb.gif", 
-    "Name": "Acid Bomb", 
-    "Id": "ANab"
-  }, 
-  "otbk": {
-    "Type": "ITEM", 
-    "Art": "images/BTNHeadHunterBerserker.gif", 
-    "Name": "Troll Berserker", 
-    "Id": "otbk"
+    "Art": "images/BTNCriticalStrikeNew.gif", 
+    "Name": "Critical Strike", 
+    "Id": "A03N"
   }, 
   "hspt": {
     "Type": "ITEM", 
@@ -5304,11 +5257,11 @@
     "Name": "Spell Breaker", 
     "Id": "hspt"
   }, 
-  "I07B": {
+  "h00X": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Dagon Recipe", 
-    "Id": "I07B"
+    "Art": "images/BTNTemp.gif", 
+    "Name": "AH", 
+    "Id": "h00X"
   }, 
   "ndr1": {
     "Type": "ITEM", 
@@ -5345,6 +5298,12 @@
     "Art": "images/BTNImprovedStrengthOfTheMoon.gif", 
     "Name": "Raise Dead Projectile", 
     "Id": "h00W"
+  }, 
+  "A0FW": {
+    "Type": "SKILL", 
+    "Art": "images/BTNBristleGoo.gif", 
+    "Name": "Viscous Nasal Goo", 
+    "Id": "A0FW"
   }, 
   "srbd": {
     "Type": "ITEM", 
@@ -5552,12 +5511,11 @@
     "Name": "Wounding Spear", 
     "Id": "A0ED"
   }, 
-  "sfog": {
-    "Type": "ITEM", 
-    "Cost": "200", 
-    "Art": "images/BTNHornOfFog.gif", 
-    "Name": "Horn of the Clouds", 
-    "Id": "sfog"
+  "A0EE": {
+    "Type": "SKILL", 
+    "Art": "images/BTNQuillSpray.gif", 
+    "Name": "Rupture", 
+    "Id": "A0EE"
   }, 
   "A0EG": {
     "Type": "ULTIMATE", 
@@ -5603,11 +5561,12 @@
     "Name": "Mask of Madness", 
     "Id": "h02X"
   }, 
-  "h02Y": {
+  "I09O": {
     "Type": "ITEM", 
-    "Art": "images/BTNStaffofpurification.gif", 
-    "Name": "Euls Scepter of Divinity", 
-    "Id": "h02Y"
+    "Cost": "6900", 
+    "Art": "images/BTNINV_Wand_06.gif", 
+    "Name": "Dagon Level 4", 
+    "Id": "I09O"
   }, 
   "I09H": {
     "Type": "ITEM", 
@@ -5634,30 +5593,30 @@
     "Name": "Dagon Level 1", 
     "Id": "I09K"
   }, 
-  "I09D": {
+  "h02R": {
     "Type": "ITEM", 
-    "Cost": "3910", 
-    "Art": "images/BTNRodOfNecromancy.gif", 
-    "Name": "Black King Bar (6)", 
-    "Id": "I09D"
+    "Art": "images/BTNJapaneseSword.gif", 
+    "Name": "Sange", 
+    "Id": "h02R"
   }, 
-  "h02S": {
+  "I09E": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Hammer_10.gif", 
-    "Name": "Cranium Basher", 
-    "Id": "h02S"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Black King Bar (8)", 
+    "Id": "I09E"
   }, 
-  "h02P": {
+  "I09F": {
     "Type": "ITEM", 
-    "Art": "images/BTNTalisman.gif", 
-    "Name": "Null Talisman", 
-    "Id": "h02P"
+    "Cost": "5800", 
+    "Art": "images/BTNINV_ThrowingAxe_02.gif", 
+    "Name": "Manta Style", 
+    "Id": "I09F"
   }, 
-  "nshf": {
+  "I09G": {
     "Type": "ITEM", 
-    "Art": "images/BTNSheep.gif", 
-    "Name": "Flying Sheep", 
-    "Id": "nshf"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Manta Style", 
+    "Id": "I09G"
   }, 
   "nsha": {
     "Type": "ITEM", 
@@ -5665,23 +5624,24 @@
     "Name": "Sheep", 
     "Id": "nsha"
   }, 
-  "h02W": {
+  "I09A": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Helmet_13.gif", 
-    "Name": "Helm of the Dominator", 
-    "Id": "h02W"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Battle Fury", 
+    "Id": "I09A"
   }, 
-  "h02T": {
+  "I09B": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Chest_Plate06.gif", 
-    "Name": "Blade Mail", 
-    "Id": "h02T"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Crystalys", 
+    "Id": "I09B"
   }, 
-  "h02U": {
+  "I09C": {
     "Type": "ITEM", 
-    "Art": "images/BTNStormHammer.gif", 
-    "Name": "Maelstrom", 
-    "Id": "h02U"
+    "Cost": "2200", 
+    "Art": "images/BTNThoriumMelee.gif", 
+    "Name": "Crystalys", 
+    "Id": "I09C"
   }, 
   "h02J": {
     "Type": "ITEM", 
@@ -5707,24 +5667,25 @@
     "Name": "Nathrezim Buckler", 
     "Id": "h02I"
   }, 
-  "I09X": {
+  "h02N": {
     "Type": "ITEM", 
-    "Cost": "4050", 
-    "Art": "images/BTNBookOfTheDead.gif", 
-    "Name": "Necronomicon Level 2", 
-    "Id": "I09X"
+    "Art": "images/BTNRunedBracers.gif", 
+    "Name": "Bracer", 
+    "Id": "h02N"
   }, 
-  "h02O": {
+  "I09Y": {
     "Type": "ITEM", 
-    "Art": "images/BTNRevenant.gif", 
-    "Name": "Wraith Band", 
-    "Id": "h02O"
+    "Cost": "5350", 
+    "Art": "images/BTNNecromancerMaster.gif", 
+    "Name": "Necronomicon Level 3", 
+    "Id": "I09Y"
   }, 
-  "h02L": {
+  "I09Z": {
     "Type": "ITEM", 
-    "Art": "images/BTNGoldGloves.gif", 
-    "Name": "Hand of Midas", 
-    "Id": "h02L"
+    "Cost": "5175", 
+    "Art": "images/BTNOrb of Water.gif", 
+    "Name": "Linkens Sphere", 
+    "Id": "I09Z"
   }, 
   "h02M": {
     "Type": "ITEM", 
@@ -5732,18 +5693,17 @@
     "Name": "Oblivion Staff", 
     "Id": "h02M"
   }, 
-  "I09T": {
+  "h02B": {
     "Type": "ITEM", 
-    "Cost": "2750", 
-    "Art": "images/BTNNecromancerAdept.gif", 
-    "Name": "Necronomicon Level 1", 
-    "Id": "I09T"
+    "Art": "images/BTNBottle0.gif", 
+    "Name": "Empty Bottle", 
+    "Id": "h02B"
   }, 
-  "h02C": {
+  "I09U": {
     "Type": "ITEM", 
-    "Art": "images/BTNSentryWard.gif", 
-    "Name": "Observer Wards", 
-    "Id": "h02C"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Necronomicon Level 1", 
+    "Id": "I09U"
   }, 
   "nshw": {
     "Type": "ITEM", 
@@ -5751,23 +5711,24 @@
     "Name": "Sheep", 
     "Id": "nshw"
   }, 
-  "h02A": {
+  "I09W": {
     "Type": "ITEM", 
-    "Art": "images/BTNAncientOfTheEarth.gif", 
-    "Name": "Ancient Tango of Essifation", 
-    "Id": "h02A"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Necronomicon Level 3", 
+    "Id": "I09W"
   }, 
-  "h02F": {
+  "I09P": {
     "Type": "ITEM", 
-    "Art": "images/BTNCritterChicken.gif", 
-    "Name": "Animal Courier", 
-    "Id": "h02F"
+    "Cost": "4200", 
+    "Art": "images/BTNINV_Wand_06.gif", 
+    "Name": "Dagon Level 2", 
+    "Id": "I09P"
   }, 
-  "h02G": {
+  "I09Q": {
     "Type": "ITEM", 
-    "Art": "images/BTNOrbOfFire.gif", 
-    "Name": "Perseverance", 
-    "Id": "h02G"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Dagon Level 3", 
+    "Id": "I09Q"
   }, 
   "I09R": {
     "Type": "ITEM", 
@@ -5861,11 +5822,11 @@
     "Name": "Battle Fury", 
     "Id": "I099"
   }, 
-  "AHre": {
-    "Type": "SKILL", 
-    "Art": "images/BTNResurrection.gif", 
-    "Name": "Resurrection", 
-    "Id": "AHre"
+  "I094": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Mekansm", 
+    "Id": "I094"
   }, 
   "I095": {
     "Type": "ITEM", 
@@ -5880,12 +5841,11 @@
     "Name": "Sange and Yasha", 
     "Id": "I096"
   }, 
-  "tfar": {
+  "h003": {
     "Type": "ITEM", 
-    "Cost": "75", 
-    "Art": "images/BTNFarm.gif", 
-    "Name": "Tiny Farm", 
-    "Id": "tfar"
+    "Art": "images/BTNAbility_Spectral_Dagger.gif", 
+    "Name": "Shadow Dagger", 
+    "Id": "h003"
   }, 
   "I090": {
     "Type": "ITEM", 
@@ -6198,11 +6158,11 @@
     "Name": "Aghanims Scepter (Rhasta)", 
     "Id": "I0F7"
   }, 
-  "I0F6": {
+  "hcas": {
     "Type": "ITEM", 
-    "Art": "images/DISBTNINV_Wand_05.gif", 
-    "Name": "Aghanims Scepter (Lich)", 
-    "Id": "I0F6"
+    "Art": "images/BTNCastle.gif", 
+    "Name": "Castle", 
+    "Id": "hcas"
   }, 
   "I0F9": {
     "Type": "ITEM", 
@@ -6216,11 +6176,11 @@
     "Name": "Aghanims Scepter (Zeus)", 
     "Id": "I0F8"
   }, 
-  "htow": {
+  "etol": {
     "Type": "ITEM", 
-    "Art": "images/BTNTownHall.gif", 
-    "Name": "Town Hall", 
-    "Id": "htow"
+    "Art": "images/BTNTreeOfLife.gif", 
+    "Name": "The World Tree", 
+    "Id": "etol"
   }, 
   "sbok": {
     "Type": "ITEM", 
@@ -6259,29 +6219,17 @@
     "Name": "Insatiable Hunger", 
     "Id": "A0WQ"
   }, 
-  "I0AD": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Eye of Skadi", 
-    "Id": "I0AD"
-  }, 
-  "A0YM": {
-    "Type": "SKILL", 
-    "Art": "images/BTNThoriumRanged.gif", 
-    "Name": "Stifling Dagger", 
-    "Id": "A0YM"
-  }, 
   "A0YL": {
     "Type": "SKILL", 
     "Art": "images/BTNSoulBurn.gif", 
     "Name": "Stifling Knife Slow", 
     "Id": "A0YL"
   }, 
-  "A0N0": {
+  "A0YM": {
     "Type": "SKILL", 
-    "Art": "images/BTNRavenForm.gif", 
-    "Name": "Take Flight", 
-    "Id": "A0N0"
+    "Art": "images/BTNThoriumRanged.gif", 
+    "Name": "Stifling Dagger", 
+    "Id": "A0YM"
   }, 
   "A0YJ": {
     "Type": "SKILL", 
@@ -6329,12 +6277,6 @@
     "Name": "Cocos Rum", 
     "Id": "h070"
   }, 
-  "I0AK": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Refresher Orb", 
-    "Id": "I0AK"
-  }, 
   "A0YX": {
     "Type": "SKILL", 
     "Art": "images/BTNWellSpring.gif", 
@@ -6353,23 +6295,21 @@
     "Name": "Mark of Fire Stun", 
     "Id": "A0YZ"
   }, 
-  "A0C1": {
-    "Type": "ULTIMATE", 
-    "Art": "images/PASBTNReincarnation.gif", 
-    "Name": "Grow!", 
-    "Id": "A0C1"
+  "Naka": {
+    "Art": "images/BTNakama.gif", 
+    "Name": "Bounty Hunter", 
+    "RelatedTo": "Aamk,A000,A07A,A004,A0B4", 
+    "ProperNames": [
+      "Gondar"
+    ], 
+    "Type": "HERO", 
+    "Id": "Naka"
   }, 
   "h075": {
     "Type": "ITEM", 
     "Art": "images/BTNPotionOfDivinity.gif", 
     "Name": "Poison Powder", 
     "Id": "h075"
-  }, 
-  "I0BU": {
-    "Type": "ITEM", 
-    "Art": "images/DISBTNHornOfDoom.gif", 
-    "Name": "Satanic", 
-    "Id": "I0BU"
   }, 
   "ccmd": {
     "Type": "ITEM", 
@@ -6397,17 +6337,24 @@
     "Name": "Ring of Regeneration", 
     "Id": "I0DJ"
   }, 
-  "I0BT": {
-    "Type": "ITEM", 
-    "Art": "images/DISBTNHeartOfAszune.gif", 
-    "Name": "Heart of Tarrasque", 
-    "Id": "I0BT"
-  }, 
   "I0DI": {
     "Type": "ITEM", 
     "Art": "images/BTNRoH_Borrowed.gif", 
     "Name": "Ring of Health", 
     "Id": "I0DI"
+  }, 
+  "I047": {
+    "Type": "ITEM", 
+    "Cost": "550", 
+    "Art": "images/BTNINV_Chest_Chain_12.gif", 
+    "Name": "Chainmail", 
+    "Id": "I047"
+  }, 
+  "A0QR": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNSoulEater.gif", 
+    "Name": "Life Break", 
+    "Id": "A0QR"
   }, 
   "I0DM": {
     "Type": "ITEM", 
@@ -6460,6 +6407,12 @@
     "Art": "images/BTNVulture.gif", 
     "Name": "Vulture", 
     "Id": "nvul"
+  }, 
+  "hwtw": {
+    "Type": "ITEM", 
+    "Art": "images/BTNHumanWatchTower.gif", 
+    "Name": "Scout Tower", 
+    "Id": "hwtw"
   }, 
   "scul": {
     "Type": "ITEM", 
@@ -6731,12 +6684,11 @@
     "Name": "Centaur Outrunner", 
     "Id": "ncen"
   }, 
-  "rsps": {
-    "Type": "ITEM", 
-    "Cost": "300", 
-    "Art": "images/BTNRune.gif", 
-    "Name": "Rune of Shielding", 
-    "Id": "rsps"
+  "A08M": {
+    "Type": "SKILL", 
+    "Art": "images/BTNNeutralManaShield.gif", 
+    "Name": "Tornado Barrier", 
+    "Id": "A08M"
   }, 
   "h03E": {
     "Type": "ITEM", 
@@ -6868,19 +6820,17 @@
     "Name": "Mjollnir", 
     "Id": "h03P"
   }, 
-  "I089": {
+  "h03S": {
     "Type": "ITEM", 
-    "Cost": "840", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Arcane Ring Recipe", 
-    "Id": "I089"
+    "Art": "images/BTNINV_Chest_Chain_14.gif", 
+    "Name": "Assault Cuirass", 
+    "Id": "h03S"
   }, 
-  "I088": {
+  "h03R": {
     "Type": "ITEM", 
-    "Cost": "3000", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Refresher Orb Recipe", 
-    "Id": "I088"
+    "Art": "images/BTNCloakOfFlames.gif", 
+    "Name": "Vladmirs Offering", 
+    "Id": "h03R"
   }, 
   "I087": {
     "Type": "ITEM", 
@@ -6910,19 +6860,17 @@
     "Name": "Heart of Tarrasque Recipe", 
     "Id": "I084"
   }, 
-  "I083": {
+  "h03Y": {
     "Type": "ITEM", 
-    "Cost": "1920", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Buriza-do Kyanon Recipe", 
-    "Id": "I083"
+    "Art": "images/BTNImprovedStrengthOfTheMoon.gif", 
+    "Name": "Rocket Flare", 
+    "Id": "h03Y"
   }, 
-  "I082": {
+  "h03X": {
     "Type": "ITEM", 
-    "Cost": "2120", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Linkens Sphere Recipe", 
-    "Id": "I082"
+    "Art": "images/BTNStaffOfSilence.gif", 
+    "Name": "Orchid Malevolence", 
+    "Id": "h03X"
   }, 
   "I081": {
     "Type": "ITEM", 
@@ -6931,12 +6879,11 @@
     "Name": "Necronomicon Recipe", 
     "Id": "I081"
   }, 
-  "I080": {
+  "h03Z": {
     "Type": "ITEM", 
-    "Cost": "2160", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Dagon Recipe", 
-    "Id": "I080"
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Vengeful Spirit", 
+    "Id": "h03Z"
   }, 
   "n020": {
     "Type": "ITEM", 
@@ -6986,11 +6933,11 @@
     "Name": "Forged Spirit", 
     "Id": "n027"
   }, 
-  "A0VA": {
-    "Type": "SKILL", 
-    "Art": "images/BTNOrbOfLightning.gif", 
-    "Name": "Wex", 
-    "Id": "A0VA"
+  "hkni": {
+    "Type": "ITEM", 
+    "Art": "images/BTNKnight.gif", 
+    "Name": "Knight", 
+    "Id": "hkni"
   }, 
   "n029": {
     "Type": "ITEM", 
@@ -6998,17 +6945,17 @@
     "Name": "Ancestral Spirit", 
     "Id": "n029"
   }, 
-  "A0D9": {
+  "A0VC": {
     "Type": "ULTIMATE", 
-    "Art": "images/BTNBanish.gif", 
-    "Name": "Phantom Edge", 
-    "Id": "A0D9"
+    "Art": "images/BTNMarksmanship.gif", 
+    "Name": "Marksmanship", 
+    "Id": "A0VC"
   }, 
-  "A0D8": {
+  "A0VB": {
     "Type": "SKILL", 
-    "Art": "images/BTNINV_Misc_Coin_01.gif", 
-    "Name": "Ante Up", 
-    "Id": "A0D8"
+    "Art": "images/BTNOrbOfFrost.gif", 
+    "Name": "Quas", 
+    "Id": "A0VB"
   }, 
   "A0VF": {
     "Type": "SKILL", 
@@ -7028,12 +6975,11 @@
     "Name": "Gravekeepers Cloak", 
     "Id": "A0VX"
   }, 
-  "rspl": {
-    "Type": "ITEM", 
-    "Cost": "150", 
-    "Art": "images/BTNRune.gif", 
-    "Name": "Rune of Spirit Link", 
-    "Id": "rspl"
+  "A08R": {
+    "Type": "SKILL", 
+    "Art": "images/BTNFrostArmorOn.gif", 
+    "Name": "Frost Armor", 
+    "Id": "A08R"
   }, 
   "A0DR": {
     "Type": "ULTIMATE", 
@@ -7310,25 +7256,23 @@
     "Name": "Helm of the Dominator", 
     "Id": "I08U"
   }, 
-  "I08T": {
-    "Type": "ITEM", 
-    "Cost": "1850", 
-    "Art": "images/BTNINV_Helmet_13.gif", 
-    "Name": "Helm of the Dominator", 
-    "Id": "I08T"
+  "A066": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNOmnislash.gif", 
+    "Name": "Omnislash", 
+    "Id": "A066"
   }, 
-  "I08S": {
+  "h039": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Diffusal Blade", 
-    "Id": "I08S"
+    "Art": "images/BTNNecromancerMaster.gif", 
+    "Name": "Necronomicon", 
+    "Id": "h039"
   }, 
-  "I08R": {
+  "h038": {
     "Type": "ITEM", 
-    "Cost": "3300", 
-    "Art": "images/BTNINV_Sword_11.gif", 
-    "Name": "Diffusal Blade ( Level 1 )", 
-    "Id": "I08R"
+    "Art": "images/BTNINV_Wand_06.gif", 
+    "Name": "Dagon", 
+    "Id": "h038"
   }, 
   "I08Q": {
     "Type": "ITEM", 
@@ -7404,6 +7348,13 @@
     "Art": "images/BTNMoonStone.gif", 
     "Name": "Moonstone", 
     "Id": "moon"
+  }, 
+  "sreg": {
+    "Type": "ITEM", 
+    "Cost": "100", 
+    "Art": "images/BTNScrollOfRegenerationGreen.gif", 
+    "Name": "Scroll of Regeneration", 
+    "Id": "sreg"
   }, 
   "A180": {
     "Type": "SKILL", 
@@ -7509,11 +7460,11 @@
     "Name": "Watcher", 
     "Id": "ushd"
   }, 
-  "A086": {
-    "Type": "SKILL", 
-    "Art": "images/BTNHeroDreadLord.gif", 
-    "Name": "Hunter in the Night", 
-    "Id": "A086"
+  "A06X": {
+    "Type": "ULTIMATE", 
+    "Art": "images/PASBTNShadeTrueSight.gif", 
+    "Name": "Pulse Nova", 
+    "Id": "A06X"
   }, 
   "ospw": {
     "Type": "ITEM", 
@@ -7584,17 +7535,17 @@
     "Name": "Fel Beast", 
     "Id": "npfl"
   }, 
-  "A0AD": {
-    "Type": "SKILL", 
-    "Art": "images/BTNDOCMasterTraining.gif", 
-    "Name": "Rabid", 
-    "Id": "A0AD"
+  "I05P": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Hand of Midas Recipe", 
+    "Id": "I05P"
   }, 
-  "A089": {
+  "A06W": {
     "Type": "SKILL", 
-    "Art": "images/BTNFireBolt.gif", 
-    "Name": "Fireblast", 
-    "Id": "A089"
+    "Art": "images/BTNEarthquake.gif", 
+    "Name": "Split Earth", 
+    "Id": "A06W"
   }, 
   "A0AE": {
     "Type": "SKILL", 
@@ -7650,6 +7601,18 @@
     "Name": "Orc Flag", 
     "Id": "oflg"
   }, 
+  "h05R": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Clinkz", 
+    "Id": "h05R"
+  }, 
+  "h05T": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Viper", 
+    "Id": "h05T"
+  }, 
   "I05A": {
     "Type": "ITEM", 
     "Art": "images/BTNSnazzyScrollPurple.gif", 
@@ -7668,12 +7631,11 @@
     "Name": "Gaze", 
     "Id": "A0AW"
   }, 
-  "I05D": {
-    "Type": "ITEM", 
-    "Cost": "50", 
-    "Art": "images/BTNLesserClarityPotion.gif", 
-    "Name": "Clarity Potion", 
-    "Id": "I05D"
+  "A0AP": {
+    "Type": "SKILL", 
+    "Art": "images/BTNHowlOfTerror.gif", 
+    "Name": "Terror", 
+    "Id": "A0AP"
   }, 
   "ndfl": {
     "Type": "ITEM", 
@@ -7693,12 +7655,11 @@
     "Name": "Dragon Tail", 
     "Id": "A0AR"
   }, 
-  "I05G": {
-    "Type": "ITEM", 
-    "Cost": "200", 
-    "Art": "images/BTNSentryWard.gif", 
-    "Name": "Observer Wards", 
-    "Id": "I05G"
+  "A0AS": {
+    "Type": "SKILL", 
+    "Art": "images/BTNSpell_Shadow_ShadowWordPain.gif", 
+    "Name": "Shadow Word", 
+    "Id": "A0AS"
   }, 
   "A0H9": {
     "Type": "ULTIMATE", 
@@ -7718,53 +7679,47 @@
     "Name": "Command Aura", 
     "Id": "ACac"
   }, 
-  "I006": {
-    "Type": "ITEM", 
-    "Art": "images/BTNBootsOfSpeed.gif", 
-    "Name": "Haste", 
-    "Id": "I006"
-  }, 
   "AHbz": {
     "Type": "SKILL", 
     "Art": "images/BTNOrbOfLightning.gif", 
     "Name": "Nether Blast", 
     "Id": "AHbz"
   }, 
-  "u00J": {
+  "I0D2": {
     "Type": "ITEM", 
-    "Art": "images/BTNorboflightning.gif", 
-    "Name": "Illuminate Orb", 
-    "Id": "u00J"
+    "Art": "images/DISBTNINV_ThrowingKnife_03.gif", 
+    "Name": "Blade of Alacrity", 
+    "Id": "I0D2"
   }, 
-  "u00I": {
+  "I0D1": {
     "Type": "ITEM", 
-    "Art": "images/BTNLocustSwarm.gif", 
-    "Name": "Natures Attendants", 
-    "Id": "u00I"
+    "Art": "images/DISBTNWandOfCyclone.gif", 
+    "Name": "Staff of Wizardry", 
+    "Id": "I0D1"
   }, 
-  "u00H": {
+  "I0D0": {
     "Type": "ITEM", 
+    "Art": "images/DISBTNHammer.gif", 
+    "Name": "Mithril Hammer", 
+    "Id": "I0D0"
+  }, 
+  "I0D7": {
+    "Type": "ITEM", 
+    "Art": "images/DISBTNINV_Chest_Chain_12.gif", 
+    "Name": "Chain Mail", 
+    "Id": "I0D7"
+  }, 
+  "I0D6": {
+    "Type": "ITEM", 
+    "Art": "images/DISBTNSteelRanged.gif", 
+    "Name": "Javelin", 
+    "Id": "I0D6"
+  }, 
+  "A0F1": {
+    "Type": "SKILL", 
     "Art": "images/BTNImpale.gif", 
-    "Name": "Chain Link", 
-    "Id": "u00H"
-  }, 
-  "u00O": {
-    "Type": "ITEM", 
-    "Art": "images/PASBTNFreezingBreath.gif", 
-    "Name": "Icy Path", 
-    "Id": "u00O"
-  }, 
-  "u00N": {
-    "Type": "ITEM", 
-    "Art": "images/BTNZigguratUpgrade.gif", 
-    "Name": "Spirit Tower - level 3", 
-    "Id": "u00N"
-  }, 
-  "n006": {
-    "Type": "ITEM", 
-    "Art": "images/BTNOrcWarlock.gif", 
-    "Name": "Necronomicon Warrior 3", 
-    "Id": "n006"
+    "Name": "Burrowstrike", 
+    "Id": "A0F1"
   }, 
   "UC60": {
     "Art": "images/BTNSpiritWyvern.gif", 
@@ -7782,17 +7737,17 @@
     "Name": "Boots of Speed", 
     "Id": "I02Q"
   }, 
-  "u00M": {
+  "I0D5": {
     "Type": "ITEM", 
-    "Art": "images/BTNZigguratUpgrade.gif", 
-    "Name": "Spirit Tower - level 1", 
-    "Id": "u00M"
+    "Art": "images/DISBTNClawsOfAttack.gif", 
+    "Name": "Blades of Attack", 
+    "Id": "I0D5"
   }, 
-  "n007": {
-    "Type": "ITEM", 
-    "Art": "images/BTNTavern.gif", 
-    "Name": "Evening Tavern", 
-    "Id": "n007"
+  "A0F0": {
+    "Type": "SKILL", 
+    "Art": "images/BTNDeathCoil.gif", 
+    "Name": "Shadowraze", 
+    "Id": "A0F0"
   }, 
   "orai": {
     "Type": "ITEM", 
@@ -7806,11 +7761,11 @@
     "Name": "ChronoSphere", 
     "Id": "u00L"
   }, 
-  "n004": {
-    "Type": "ITEM", 
-    "Art": "images/BTNGrizzlyBear.gif", 
-    "Name": "Spirit Bear", 
-    "Id": "n004"
+  "A0F3": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNEarthquake.gif", 
+    "Name": "Epicenter", 
+    "Id": "A0F3"
   }, 
   "srrc": {
     "Type": "ITEM", 
@@ -7819,11 +7774,11 @@
     "Name": "Scroll of Resurrection", 
     "Id": "srrc"
   }, 
-  "n002": {
-    "Type": "ITEM", 
-    "Art": "images/BTNWisp.gif", 
-    "Name": "Recipe Shop 3", 
-    "Id": "n002"
+  "A0F5": {
+    "Type": "SKILL", 
+    "Art": "images/BTNCannibalize.gif", 
+    "Name": "Naix Lifesteal NEW", 
+    "Id": "A0F5"
   }, 
   "A0GS": {
     "Type": "SKILL", 
@@ -7837,11 +7792,11 @@
     "Name": "Quill Spray", 
     "Id": "A0GP"
   }, 
-  "n003": {
-    "Type": "ITEM", 
-    "Art": "images/BTNArmorGolem.gif", 
-    "Name": "Siege Golem", 
-    "Id": "n003"
+  "A0F4": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNForceofNature.gif", 
+    "Name": "Adapt", 
+    "Id": "A0F4"
   }, 
   "Uktl": {
     "Art": "images/BTNSpell_Shadow_SummonVoidWalker.gif", 
@@ -7865,11 +7820,11 @@
     "Name": "Charge of Darkness", 
     "Id": "A0GJ"
   }, 
-  "A0GK": {
+  "A0HY": {
     "Type": "SKILL", 
-    "Art": "images/BTNDevourMagic.gif", 
-    "Name": "Brain Sap", 
-    "Id": "A0GK"
+    "Art": "images/BTNAbility_Spectral_Dagger.gif", 
+    "Name": "Spectral Dagger", 
+    "Id": "A0HY"
   }, 
   "A0GH": {
     "Type": "SKILL", 
@@ -7907,11 +7862,17 @@
     "Name": "Snowy Owl", 
     "Id": "nsno"
   }, 
-  "I02S": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Gloves of Haste", 
-    "Id": "I02S"
+  "A0VA": {
+    "Type": "SKILL", 
+    "Art": "images/BTNOrbOfLightning.gif", 
+    "Name": "Wex", 
+    "Id": "A0VA"
+  }, 
+  "A0NO": {
+    "Type": "SKILL", 
+    "Art": "images/BTNShadowPact.gif", 
+    "Name": "Maledict", 
+    "Id": "A0NO"
   }, 
   "AHtb": {
     "Type": "SKILL", 
@@ -8073,11 +8034,11 @@
     "Name": "Blue Dragonspawn Sorcerer", 
     "Id": "nbds"
   }, 
-  "n00Y": {
-    "Type": "ITEM", 
-    "Art": "images/BTNInfernal.gif", 
-    "Name": "Infernal", 
-    "Id": "n00Y"
+  "A0H0": {
+    "Type": "SKILL", 
+    "Art": "images/BTNSandStorm.gif", 
+    "Name": "Sand Storm", 
+    "Id": "A0H0"
   }, 
   "Edmm": {
     "Art": "images/BTNMetamorphosis.gif", 
@@ -8109,11 +8070,12 @@
     "Name": "Zeus", 
     "Id": "h040"
   }, 
-  "h041": {
+  "sprn": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Enchantress", 
-    "Id": "h041"
+    "Cost": "50", 
+    "Art": "images/BTNRingVioletSpider.gif", 
+    "Name": "Spider Ring", 
+    "Id": "sprn"
   }, 
   "h042": {
     "Type": "ITEM", 
@@ -8182,11 +8144,11 @@
     "Name": "Stasis Trap", 
     "Id": "otot"
   }, 
-  "n00T": {
-    "Type": "ITEM", 
-    "Art": "images/BTNCOP.gif", 
-    "Name": "Transportation", 
-    "Id": "n00T"
+  "A0FS": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNUnsummonBuilding.gif", 
+    "Name": "Time Stop caster", 
+    "Id": "A0FS"
   }, 
   "nbdo": {
     "Type": "ITEM", 
@@ -8351,11 +8313,11 @@
     "Name": "Omniknight", 
     "Id": "h04Z"
   }, 
-  "n00Q": {
-    "Type": "ITEM", 
-    "Art": "images/BTNGoblinLandMine.gif", 
-    "Name": "Goblin Land Mine", 
-    "Id": "n00Q"
+  "A0FV": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNHire.gif", 
+    "Name": "Warpath", 
+    "Id": "A0FV"
   }, 
   "A0IT": {
     "Type": "SKILL", 
@@ -8397,11 +8359,11 @@
     "Type": "HERO", 
     "Id": "Obla"
   }, 
-  "n00O": {
-    "Type": "ITEM", 
-    "Art": "images/BTNGoblinLandMine.gif", 
-    "Name": "Goblin Land Mine", 
-    "Id": "n00O"
+  "A0FH": {
+    "Type": "SKILL", 
+    "Art": "images/BTNDeathCoil.gif", 
+    "Name": "Shadowraze", 
+    "Id": "A0FH"
   }, 
   "AHfa": {
     "Type": "SKILL", 
@@ -8439,23 +8401,23 @@
     "Name": "Restless Dead", 
     "Id": "A0IJ"
   }, 
-  "n00K": {
-    "Type": "ITEM", 
-    "Art": "images/BTNOrcWarlock.gif", 
-    "Name": "Necronomicon Archer 3", 
-    "Id": "n00K"
+  "A0FL": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNCannibalize.gif", 
+    "Name": "Dismember", 
+    "Id": "A0FL"
   }, 
-  "n00I": {
-    "Type": "ITEM", 
-    "Art": "images/BTNCritterChicken.gif", 
-    "Name": "Chicken", 
-    "Id": "n00I"
+  "A0FN": {
+    "Type": "SKILL", 
+    "Art": "images/BTNCrushingWave.gif", 
+    "Name": "Waveform", 
+    "Id": "A0FN"
   }, 
-  "n00F": {
-    "Type": "ITEM", 
-    "Art": "images/BTNWisp.gif", 
-    "Name": "Ancestral Spirit", 
-    "Id": "n00F"
+  "A0FA": {
+    "Type": "SKILL", 
+    "Art": "images/PASBTNPoisonSting.gif", 
+    "Name": "Caustic Finale", 
+    "Id": "A0FA"
   }, 
   "A173": {
     "Type": "SKILL", 
@@ -8463,12 +8425,12 @@
     "Name": "Venomous Gale", 
     "Id": "A173"
   }, 
-  "hlst": {
+  "sman": {
     "Type": "ITEM", 
-    "Cost": "450", 
-    "Art": "images/BTNHealthStone.gif", 
-    "Name": "Health Stone", 
-    "Id": "hlst"
+    "Cost": "150", 
+    "Art": "images/BTNScrollOfProtection.gif", 
+    "Name": "Scroll of Mana", 
+    "Id": "sman"
   }, 
   "shcw": {
     "Type": "ITEM", 
@@ -8477,11 +8439,11 @@
     "Name": "Shaman Claws", 
     "Id": "shcw"
   }, 
-  "n00A": {
-    "Type": "ITEM", 
-    "Art": "images/BTNOrcWarlock.gif", 
-    "Name": "Necronomicon Warrior 2", 
-    "Id": "n00A"
+  "A0FF": {
+    "Type": "SKILL", 
+    "Art": "images/BTNWallOfFire.gif", 
+    "Name": "Scorched earth effect", 
+    "Id": "A0FF"
   }, 
   "ofor": {
     "Type": "ITEM", 
@@ -8489,15 +8451,21 @@
     "Name": "War Mill", 
     "Id": "ofor"
   }, 
-  "Hlgr": {
-    "Art": "images/BTNTheCaptain.gif", 
-    "Name": "Dragon Knight", 
-    "RelatedTo": "A03G,A03F,Aamk,A0AR,A0CL", 
+  "A10W": {
+    "Type": "SKILL", 
+    "Art": "images/BTNWellSpring.gif", 
+    "Name": "Blinding Light", 
+    "Id": "A10W"
+  }, 
+  "O00P": {
+    "Art": "images/BTNSeaElemental.gif", 
+    "Name": "Morphling", 
+    "RelatedTo": "A0G6,A0G8,A0NR,A0KX,A0FN", 
     "ProperNames": [
-      "Knight Davion"
+      "Morphling"
     ], 
     "Type": "HERO", 
-    "Id": "Hlgr"
+    "Id": "O00P"
   }, 
   "I009": {
     "Type": "ITEM", 
@@ -8550,15 +8518,11 @@
     "Name": "Ignite Multi", 
     "Id": "A17V"
   }, 
-  "N02B": {
-    "Art": "images/BTNForestTroll.gif", 
-    "Name": "Troll Warlord", 
-    "RelatedTo": "Aamk,A0BE,A0BC,A0O0,A1EJ", 
-    "ProperNames": [
-      "Jahrakal"
-    ], 
-    "Type": "HERO", 
-    "Id": "N02B"
+  "A17U": {
+    "Type": "SKILL", 
+    "Art": "images/BTNFireBolt.gif", 
+    "Name": "Fireblast Multi", 
+    "Id": "A17U"
   }, 
   "A17T": {
     "Type": "SKILL", 
@@ -8566,11 +8530,11 @@
     "Name": "Bloodlust Multi", 
     "Id": "A17T"
   }, 
-  "A17P": {
-    "Type": "SKILL", 
-    "Art": "images/BTNEatTree.gif", 
-    "Name": "Sprout", 
-    "Id": "A17P"
+  "owyv": {
+    "Type": "ITEM", 
+    "Art": "images/BTNWyvernRider.gif", 
+    "Name": "Wind Rider", 
+    "Id": "owyv"
   }, 
   "A17Z": {
     "Type": "SKILL", 
@@ -8597,24 +8561,18 @@
     "Name": "Vitality Booster", 
     "Id": "I053"
   }, 
-  "rej1": {
+  "I054": {
     "Type": "ITEM", 
-    "Cost": "100", 
-    "Art": "images/BTNMinorRejuvPotion.gif", 
-    "Name": "Minor Replenishment Potion", 
-    "Id": "rej1"
+    "Cost": "875", 
+    "Art": "images/BTNPeriapt.gif", 
+    "Name": "Void Stone", 
+    "Id": "I054"
   }, 
   "I057": {
     "Type": "ITEM", 
     "Art": "images/BTNSnazzyScrollPurple.gif", 
     "Name": "Ancient Tango of Essifation", 
     "Id": "I057"
-  }, 
-  "AEbl": {
-    "Type": "SKILL", 
-    "Art": "images/BTNBlink.gif", 
-    "Name": "Blink", 
-    "Id": "AEbl"
   }, 
   "pclr": {
     "Type": "ITEM", 
@@ -8655,11 +8613,11 @@
     "Type": "HERO", 
     "Id": "H001"
   }, 
-  "etol": {
+  "htow": {
     "Type": "ITEM", 
-    "Art": "images/BTNTreeOfLife.gif", 
-    "Name": "The World Tree", 
-    "Id": "etol"
+    "Art": "images/BTNTownHall.gif", 
+    "Name": "Town Hall", 
+    "Id": "htow"
   }, 
   "AIcd": {
     "Type": "SKILL", 
@@ -8678,6 +8636,12 @@
     "Art": "images/BTNTreeOfAges.gif", 
     "Name": "Tree of Ages", 
     "Id": "etoa"
+  }, 
+  "A13S": {
+    "Type": "SKILL", 
+    "Art": "images/BTNGolemStormBolt.gif", 
+    "Name": "Avalanche (effect-correct-test)", 
+    "Id": "A13S"
   }, 
   "penr": {
     "Type": "ITEM", 
@@ -8707,12 +8671,6 @@
     "Art": "images/BTNPocketFactory.gif", 
     "Name": "Pocket Factory", 
     "Id": "nfa1"
-  }, 
-  "I03F": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Mantle of Intelligence", 
-    "Id": "I03F"
   }, 
   "h05C": {
     "Type": "ITEM", 
@@ -8810,11 +8768,11 @@
     "Name": "Void", 
     "Id": "h05S"
   }, 
-  "h05R": {
+  "I0BU": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Clinkz", 
-    "Id": "h05R"
+    "Art": "images/DISBTNHornOfDoom.gif", 
+    "Name": "Satanic", 
+    "Id": "I0BU"
   }, 
   "h05Q": {
     "Type": "ITEM", 
@@ -8846,11 +8804,11 @@
     "Name": "Razor", 
     "Id": "h05U"
   }, 
-  "h05T": {
+  "I0BT": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Viper", 
-    "Id": "h05T"
+    "Art": "images/DISBTNHeartOfAszune.gif", 
+    "Name": "Heart of Tarrasque", 
+    "Id": "I0BT"
   }, 
   "AEim": {
     "Type": "SKILL", 
@@ -8918,23 +8876,23 @@
     "Name": "Recipe Shop 5", 
     "Id": "n009"
   }, 
-  "A0F1": {
-    "Type": "SKILL", 
-    "Art": "images/BTNImpale.gif", 
-    "Name": "Burrowstrike", 
-    "Id": "A0F1"
+  "n006": {
+    "Type": "ITEM", 
+    "Art": "images/BTNOrcWarlock.gif", 
+    "Name": "Necronomicon Warrior 3", 
+    "Id": "n006"
   }, 
-  "A0F0": {
-    "Type": "SKILL", 
-    "Art": "images/BTNDeathCoil.gif", 
-    "Name": "Shadowraze", 
-    "Id": "A0F0"
+  "n007": {
+    "Type": "ITEM", 
+    "Art": "images/BTNTavern.gif", 
+    "Name": "Evening Tavern", 
+    "Id": "n007"
   }, 
-  "A0F3": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNEarthquake.gif", 
-    "Name": "Epicenter", 
-    "Id": "A0F3"
+  "n004": {
+    "Type": "ITEM", 
+    "Art": "images/BTNGrizzlyBear.gif", 
+    "Name": "Spirit Bear", 
+    "Id": "n004"
   }, 
   "n005": {
     "Type": "ITEM", 
@@ -8942,29 +8900,29 @@
     "Name": "Midnight Tavern", 
     "Id": "n005"
   }, 
-  "A0F5": {
-    "Type": "SKILL", 
-    "Art": "images/BTNCannibalize.gif", 
-    "Name": "Naix Lifesteal NEW", 
-    "Id": "A0F5"
+  "n002": {
+    "Type": "ITEM", 
+    "Art": "images/BTNWisp.gif", 
+    "Name": "Recipe Shop 3", 
+    "Id": "n002"
   }, 
-  "A0F4": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNForceofNature.gif", 
-    "Name": "Adapt", 
-    "Id": "A0F4"
+  "n003": {
+    "Type": "ITEM", 
+    "Art": "images/BTNArmorGolem.gif", 
+    "Name": "Siege Golem", 
+    "Id": "n003"
   }, 
-  "A0HY": {
-    "Type": "SKILL", 
-    "Art": "images/BTNAbility_Spectral_Dagger.gif", 
-    "Name": "Spectral Dagger", 
-    "Id": "A0HY"
+  "n000": {
+    "Type": "ITEM", 
+    "Art": "images/BTNInfernal.gif", 
+    "Name": "Greater Infernel", 
+    "Id": "n000"
   }, 
-  "A0F6": {
-    "Type": "SKILL", 
-    "Art": "images/BTNTechReincarnation.gif", 
-    "Name": "Unstable Power", 
-    "Id": "A0F6"
+  "n001": {
+    "Type": "ITEM", 
+    "Art": "images/BTNWisp.gif", 
+    "Name": "Ancestral Spirit", 
+    "Id": "n001"
   }, 
   "A0HG": {
     "Type": "SKILL", 
@@ -9020,6 +8978,12 @@
     "Name": "Requiem of Souls Cripple Far", 
     "Id": "A0HH"
   }, 
+  "A0MT": {
+    "Type": "SKILL", 
+    "Art": "images/BTNOrbOfLightning.gif", 
+    "Name": "Nether Blast", 
+    "Id": "A0MT"
+  }, 
   "A0FX": {
     "Type": "SKILL", 
     "Art": "images/PASBTNSciophobia.gif", 
@@ -9054,11 +9018,11 @@
     "Name": "Recipe Shop 4", 
     "Id": "n00X"
   }, 
-  "A0H0": {
-    "Type": "SKILL", 
-    "Art": "images/BTNSandStorm.gif", 
-    "Name": "Sand Storm", 
-    "Id": "A0H0"
+  "n00Y": {
+    "Type": "ITEM", 
+    "Art": "images/BTNInfernal.gif", 
+    "Name": "Infernal", 
+    "Id": "n00Y"
   }, 
   "n00V": {
     "Type": "ITEM", 
@@ -9072,11 +9036,11 @@
     "Name": "Recipe Shop 2", 
     "Id": "n00W"
   }, 
-  "A0FS": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNUnsummonBuilding.gif", 
-    "Name": "Time Stop caster", 
-    "Id": "A0FS"
+  "n00T": {
+    "Type": "ITEM", 
+    "Art": "images/BTNCOP.gif", 
+    "Name": "Transportation", 
+    "Id": "n00T"
   }, 
   "n00U": {
     "Type": "ITEM", 
@@ -9102,11 +9066,11 @@
     "Name": "Goblin Land Mine", 
     "Id": "n00P"
   }, 
-  "A0FV": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNHire.gif", 
-    "Name": "Warpath", 
-    "Id": "A0FV"
+  "n00Q": {
+    "Type": "ITEM", 
+    "Art": "images/BTNGoblinLandMine.gif", 
+    "Name": "Goblin Land Mine", 
+    "Id": "n00Q"
   }, 
   "n00N": {
     "Type": "ITEM", 
@@ -9114,11 +9078,11 @@
     "Name": "Goblin Land Mine", 
     "Id": "n00N"
   }, 
-  "A0FH": {
-    "Type": "SKILL", 
-    "Art": "images/BTNDeathCoil.gif", 
-    "Name": "Shadowraze", 
-    "Id": "A0FH"
+  "n00O": {
+    "Type": "ITEM", 
+    "Art": "images/BTNGoblinLandMine.gif", 
+    "Name": "Goblin Land Mine", 
+    "Id": "n00O"
   }, 
   "n00L": {
     "Type": "ITEM", 
@@ -9132,17 +9096,17 @@
     "Name": "Mini Pudge", 
     "Id": "n00M"
   }, 
-  "A0FM": {
-    "Type": "SKILL", 
-    "Art": "images/BTNShimmerWeed.gif", 
-    "Name": "Morph Attack", 
-    "Id": "A0FM"
+  "n00J": {
+    "Type": "ITEM", 
+    "Art": "images/BTNOrcWarlock.gif", 
+    "Name": "Necronomicon Warrior 1", 
+    "Id": "n00J"
   }, 
-  "A0FL": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNCannibalize.gif", 
-    "Name": "Dismember", 
-    "Id": "A0FL"
+  "n00K": {
+    "Type": "ITEM", 
+    "Art": "images/BTNOrcWarlock.gif", 
+    "Name": "Necronomicon Archer 3", 
+    "Id": "n00K"
   }, 
   "n00H": {
     "Type": "ITEM", 
@@ -9150,17 +9114,17 @@
     "Name": "Necronomicon Archer 1", 
     "Id": "n00H"
   }, 
-  "A0FN": {
-    "Type": "SKILL", 
-    "Art": "images/BTNCrushingWave.gif", 
-    "Name": "Waveform", 
-    "Id": "A0FN"
+  "n00I": {
+    "Type": "ITEM", 
+    "Art": "images/BTNCritterChicken.gif", 
+    "Name": "Chicken", 
+    "Id": "n00I"
   }, 
-  "A0FA": {
-    "Type": "SKILL", 
-    "Art": "images/PASBTNPoisonSting.gif", 
-    "Name": "Caustic Finale", 
-    "Id": "A0FA"
+  "n00F": {
+    "Type": "ITEM", 
+    "Art": "images/BTNWisp.gif", 
+    "Name": "Ancestral Spirit", 
+    "Id": "n00F"
   }, 
   "n00G": {
     "Type": "ITEM", 
@@ -9174,12 +9138,11 @@
     "Name": "Ancient Hydra", 
     "Id": "n00D"
   }, 
-  "sreg": {
+  "n00E": {
     "Type": "ITEM", 
-    "Cost": "100", 
-    "Art": "images/BTNScrollOfRegenerationGreen.gif", 
-    "Name": "Scroll of Regeneration", 
-    "Id": "sreg"
+    "Art": "images/BTNMurgulTideWarrior.gif", 
+    "Name": "Scary Fish", 
+    "Id": "n00E"
   }, 
   "A0FE": {
     "Type": "SKILL", 
@@ -9199,11 +9162,11 @@
     "Name": "Scorched earth health", 
     "Id": "A0FG"
   }, 
-  "A0FF": {
-    "Type": "SKILL", 
-    "Art": "images/BTNWallOfFire.gif", 
-    "Name": "Scorched earth effect", 
-    "Id": "A0FF"
+  "n00A": {
+    "Type": "ITEM", 
+    "Art": "images/BTNOrcWarlock.gif", 
+    "Name": "Necronomicon Warrior 2", 
+    "Id": "n00A"
   }, 
   "h053": {
     "Type": "ITEM", 
@@ -9295,6 +9258,12 @@
     "Name": "Howl", 
     "Id": "A0ZF"
   }, 
+  "A0OR": {
+    "Type": "SKILL", 
+    "Art": "images/BTNShadowWave.gif", 
+    "Name": "Shadow Wave", 
+    "Id": "A0OR"
+  }, 
   "nomg": {
     "Type": "ITEM", 
     "Art": "images/BTNOgreMagi.gif", 
@@ -9352,18 +9321,6 @@
     "Name": "Electric Vortext", 
     "Id": "A14Q"
   }, 
-  "A14T": {
-    "Type": "SKILL", 
-    "Art": "images/BTNResStone.gif", 
-    "Name": "Tombstone", 
-    "Id": "A14T"
-  }, 
-  "A14U": {
-    "Type": "SKILL", 
-    "Art": "images/BTNHeartStopper.gif", 
-    "Name": "Decay", 
-    "Id": "A14U"
-  }, 
   "Ofar": {
     "Art": "images/BTNSeaGiantGreen.gif", 
     "Name": "Tidehunter", 
@@ -9373,6 +9330,18 @@
     ], 
     "Type": "HERO", 
     "Id": "Ofar"
+  }, 
+  "A14U": {
+    "Type": "SKILL", 
+    "Art": "images/BTNHeartStopper.gif", 
+    "Name": "Decay", 
+    "Id": "A14U"
+  }, 
+  "A14T": {
+    "Type": "SKILL", 
+    "Art": "images/BTNResStone.gif", 
+    "Name": "Tombstone", 
+    "Id": "A14T"
   }, 
   "A142": {
     "Type": "STAT", 
@@ -9387,12 +9356,11 @@
     "Name": "Aghanims Scepter (Goblin Techies)", 
     "Id": "I0KH"
   }, 
-  "I0KF": {
+  "hctw": {
     "Type": "ITEM", 
-    "Cost": "550", 
-    "Art": "images/BTN_PoorManShield.jpg", 
-    "Name": "Poor Man's Shield", 
-    "Id": "I0KF"
+    "Art": "images/BTNCannonTower.gif", 
+    "Name": "Cannon Tower", 
+    "Id": "hctw"
   }, 
   "N0EG": {
     "Art": "images/BTNSylvanusWindrunner.gif", 
@@ -9524,23 +9492,23 @@
     "Name": "Storm Crow Form", 
     "Id": "Arav"
   }, 
-  "A0SS": {
-    "Type": "SKILL", 
-    "Art": "images/BTNCannibalize.gif", 
-    "Name": "Feast", 
-    "Id": "A0SS"
-  }, 
-  "A0SQ": {
-    "Type": "SKILL", 
-    "Art": "images/BTNReincarnation.gif", 
-    "Name": "Rage", 
-    "Id": "A0SQ"
-  }, 
-  "A0SW": {
+  "A04J": {
     "Type": "ULTIMATE", 
-    "Art": "images/BTNOrbOfCorruption.gif", 
-    "Name": "Infest", 
-    "Id": "A0SW"
+    "Art": "images/BTNDevourMagic.gif", 
+    "Name": "Exorcism", 
+    "Id": "A04J"
+  }, 
+  "A04H": {
+    "Type": "STAT", 
+    "Art": "images/PASBTNStatUp.gif", 
+    "Name": "Attribute Bonus", 
+    "Id": "A04H"
+  }, 
+  "A04N": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNDevourMagic.gif", 
+    "Name": "Exorcism", 
+    "Id": "A04N"
   }, 
   "A0SC": {
     "Type": "SKILL", 
@@ -9548,11 +9516,18 @@
     "Name": "Waning Rift", 
     "Id": "A0SC"
   }, 
-  "hctw": {
+  "I0D4": {
     "Type": "ITEM", 
-    "Art": "images/BTNCannonTower.gif", 
-    "Name": "Cannon Tower", 
-    "Id": "hctw"
+    "Art": "images/DISBTNCirclet.gif", 
+    "Name": "Circlet of Nobility", 
+    "Id": "I0D4"
+  }, 
+  "I0KF": {
+    "Type": "ITEM", 
+    "Cost": "550", 
+    "Art": "images/BTN_PoorManShield.jpg", 
+    "Name": "Poor Man's Shield", 
+    "Id": "I0KF"
   }, 
   "nfpu": {
     "Type": "ITEM", 
@@ -9566,18 +9541,17 @@
     "Name": "Polar Furbolg Champion", 
     "Id": "nfpc"
   }, 
-  "silk": {
-    "Type": "ITEM", 
-    "Cost": "50", 
-    "Art": "images/BTNSpiderSilkBroach.gif", 
-    "Name": "Spider Silk Broach", 
-    "Id": "silk"
+  "A0MK": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNAnimateDead.gif", 
+    "Name": "Borrowed Time", 
+    "Id": "A0MK"
   }, 
-  "h02Q": {
+  "h03J": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Sword_10.gif", 
-    "Name": "Yasha", 
-    "Id": "h02Q"
+    "Art": "images/BTNINV_ThrowingKnife_04.gif", 
+    "Name": "The Butterfly", 
+    "Id": "h03J"
   }, 
   "srtl": {
     "Type": "ITEM", 
@@ -9596,21 +9570,11 @@
     "Type": "HERO", 
     "Id": "UC01"
   }, 
-  "O00P": {
-    "Art": "images/BTNSeaElemental.gif", 
-    "Name": "Morphling", 
-    "RelatedTo": "A0G6,A0G8,A0NR,A0KX,A0FN", 
-    "ProperNames": [
-      "Morphling"
-    ], 
-    "Type": "HERO", 
-    "Id": "O00P"
-  }, 
-  "I03G": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Mask of Death", 
-    "Id": "I03G"
+  "A0OS": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNAnkh.gif", 
+    "Name": "Shallow Grave", 
+    "Id": "A0OS"
   }, 
   "n01Y": {
     "Type": "ITEM", 
@@ -9630,11 +9594,12 @@
     "Name": "Draft Tavern 2", 
     "Id": "n01Z"
   }, 
-  "h03S": {
+  "I089": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Chest_Chain_14.gif", 
-    "Name": "Assault Cuirass", 
-    "Id": "h03S"
+    "Cost": "840", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Arcane Ring Recipe", 
+    "Id": "I089"
   }, 
   "n01Q": {
     "Type": "ITEM", 
@@ -9654,11 +9619,12 @@
     "Name": "Greater Quilbeast", 
     "Id": "n01S"
   }, 
-  "n01R": {
+  "I088": {
     "Type": "ITEM", 
-    "Art": "images/BTNWarEagle.gif", 
-    "Name": "Greater Hawk", 
-    "Id": "n01R"
+    "Cost": "3000", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Refresher Orb Recipe", 
+    "Id": "I088"
   }, 
   "n01U": {
     "Type": "ITEM", 
@@ -9726,23 +9692,26 @@
     "Name": "Spawning Artifact", 
     "Id": "n01F"
   }, 
-  "h03Y": {
+  "I083": {
     "Type": "ITEM", 
-    "Art": "images/BTNImprovedStrengthOfTheMoon.gif", 
-    "Name": "Rocket Flare", 
-    "Id": "h03Y"
+    "Cost": "1920", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Buriza-do Kyanon Recipe", 
+    "Id": "I083"
   }, 
-  "h03X": {
+  "I082": {
     "Type": "ITEM", 
-    "Art": "images/BTNStaffOfSilence.gif", 
-    "Name": "Orchid Malevolence", 
-    "Id": "h03X"
+    "Cost": "2120", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Linkens Sphere Recipe", 
+    "Id": "I082"
   }, 
-  "h03Z": {
+  "I080": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Vengeful Spirit", 
-    "Id": "h03Z"
+    "Cost": "2160", 
+    "Art": "images/BTNSnazzyScroll.gif", 
+    "Name": "Dagon Recipe", 
+    "Id": "I080"
   }, 
   "n021": {
     "Type": "ITEM", 
@@ -9750,11 +9719,12 @@
     "Name": "Penguin", 
     "Id": "n021"
   }, 
-  "n022": {
+  "pams": {
     "Type": "ITEM", 
-    "Art": "images/BTNRacoon.gif", 
-    "Name": "Raccoon", 
-    "Id": "n022"
+    "Cost": "100", 
+    "Art": "images/BTNSnazzyPotion.gif", 
+    "Name": "Anti-magic Potion", 
+    "Id": "pams"
   }, 
   "n024": {
     "Type": "ITEM", 
@@ -9768,11 +9738,11 @@
     "Name": "Ignis Fatuus", 
     "Id": "e00L"
   }, 
-  "ebal": {
+  "I0B7": {
     "Type": "ITEM", 
-    "Art": "images/BTNGlaiveThrower.gif", 
-    "Name": "Glaive Thrower", 
-    "Id": "ebal"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Aghanims Scepter (Rylai)", 
+    "Id": "I0B7"
   }, 
   "n025": {
     "Type": "ITEM", 
@@ -9832,11 +9802,12 @@
     "Name": "Storm", 
     "Id": "n012"
   }, 
-  "I0B0": {
+  "pgma": {
     "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Cheese", 
-    "Id": "I0B0"
+    "Cost": "400", 
+    "Art": "images/BTNPotionBlueBig.gif", 
+    "Name": "Potion of Greater Mana", 
+    "Id": "pgma"
   }, 
   "n028": {
     "Type": "ITEM", 
@@ -9850,11 +9821,11 @@
     "Name": "Barracks", 
     "Id": "hbar"
   }, 
-  "A0VC": {
+  "A0D9": {
     "Type": "ULTIMATE", 
-    "Art": "images/BTNMarksmanship.gif", 
-    "Name": "Marksmanship", 
-    "Id": "A0VC"
+    "Art": "images/BTNBanish.gif", 
+    "Name": "Phantom Edge", 
+    "Id": "A0D9"
   }, 
   "A0K3": {
     "Type": "SKILL", 
@@ -9862,11 +9833,11 @@
     "Name": "Fervor", 
     "Id": "A0K3"
   }, 
-  "A0VB": {
+  "A0D8": {
     "Type": "SKILL", 
-    "Art": "images/BTNOrbOfFrost.gif", 
-    "Name": "Quas", 
-    "Id": "A0VB"
+    "Art": "images/BTNINV_Misc_Coin_01.gif", 
+    "Name": "Ante Up", 
+    "Id": "A0D8"
   }, 
   "A0K9": {
     "Type": "SKILL", 
@@ -9887,11 +9858,12 @@
     "Name": "Light Tavern", 
     "Id": "ntav"
   }, 
-  "uske": {
+  "I0JI": {
     "Type": "ITEM", 
-    "Art": "images/BTNSkeletonWarrior.gif", 
-    "Name": "Skeleton Warrior", 
-    "Id": "uske"
+    "Cost": "1500", 
+    "Art": "images/BTN_GhostScepter.jpg", 
+    "Name": "Ghost Scepter", 
+    "Id": "I0JI"
   }, 
   "I0JU": {
     "Type": "ITEM", 
@@ -9921,11 +9893,12 @@
     "Name": "Aghanims Scepter (Bane Elemental)", 
     "Id": "I0JV"
   }, 
-  "h068": {
+  "I0JS": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Spectre", 
-    "Id": "h068"
+    "Cost": "6000", 
+    "Art": "images/BTNINV_Wand_05.gif", 
+    "Name": "Aghanims Scepter (Pudge)", 
+    "Id": "I0JS"
   }, 
   "h069": {
     "Type": "ITEM", 
@@ -9957,17 +9930,19 @@
     "Name": "Axe", 
     "Id": "h065"
   }, 
-  "h062": {
+  "I0JY": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Weaver", 
-    "Id": "h062"
+    "Cost": "6000", 
+    "Art": "images/BTNINV_Wand_05.gif", 
+    "Name": "Aghanims Scepter (Lord of Avernus)", 
+    "Id": "I0JY"
   }, 
-  "h063": {
+  "I0JX": {
     "Type": "ITEM", 
-    "Art": "images/BTNSelectHero.gif", 
-    "Name": "Nevermore", 
-    "Id": "h063"
+    "Cost": "6000", 
+    "Art": "images/BTNINV_Wand_05.gif", 
+    "Name": "Aghanims Scepter (Shadow Priest)", 
+    "Id": "I0JX"
   }, 
   "h060": {
     "Type": "ITEM", 
@@ -10280,12 +10255,6 @@
     "Type": "HERO", 
     "Id": "N00R"
   }, 
-  "h02B": {
-    "Type": "ITEM", 
-    "Art": "images/BTNBottle0.gif", 
-    "Name": "Empty Bottle", 
-    "Id": "h02B"
-  }, 
   "A15V": {
     "Type": "SKILL", 
     "Art": "images/BTN_Tombstone.gif", 
@@ -10450,12 +10419,6 @@
     "Name": "Sturdy War Axe", 
     "Id": "stwa"
   }, 
-  "h03J": {
-    "Type": "ITEM", 
-    "Art": "images/BTNINV_ThrowingKnife_04.gif", 
-    "Name": "The Butterfly", 
-    "Id": "h03J"
-  }, 
   "sor9": {
     "Type": "ITEM", 
     "Cost": "900", 
@@ -10556,6 +10519,12 @@
     "Name": "Circle of Power", 
     "Id": "ncop"
   }, 
+  "h02G": {
+    "Type": "ITEM", 
+    "Art": "images/BTNOrbOfFire.gif", 
+    "Name": "Perseverance", 
+    "Id": "h02G"
+  }, 
   "ubon": {
     "Type": "ITEM", 
     "Art": "images/BTNBoneyard.gif", 
@@ -10600,12 +10569,6 @@
     "Art": "images/BTNStaffofpurification.gif", 
     "Name": "Euls Scepter of Divinity", 
     "Id": "I08Z"
-  }, 
-  "I018": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Aghanims Scepter (Leshrac)", 
-    "Id": "I018"
   }, 
   "gomn": {
     "Type": "ITEM", 
@@ -10652,27 +10615,41 @@
     "Name": "Sentry Ward", 
     "Id": "oeye"
   }, 
-  "h039": {
+  "I08T": {
     "Type": "ITEM", 
-    "Art": "images/BTNNecromancerMaster.gif", 
-    "Name": "Necronomicon", 
-    "Id": "h039"
+    "Cost": "1850", 
+    "Art": "images/BTNINV_Helmet_13.gif", 
+    "Name": "Helm of the Dominator", 
+    "Id": "I08T"
   }, 
-  "h038": {
+  "I08S": {
     "Type": "ITEM", 
-    "Art": "images/BTNINV_Wand_06.gif", 
-    "Name": "Dagon", 
-    "Id": "h038"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Diffusal Blade", 
+    "Id": "I08S"
   }, 
-  "Hmkg": {
-    "Art": "images/BTNOgreMagi.gif", 
-    "Name": "Ogre Magi", 
-    "RelatedTo": "A011,A04W,A083,A088,Aamk,A089,A007,A08F,A08A,A01T,A08G,A08D,A00F,A08I", 
+  "I08R": {
+    "Type": "ITEM", 
+    "Cost": "3300", 
+    "Art": "images/BTNINV_Sword_11.gif", 
+    "Name": "Diffusal Blade ( Level 1 )", 
+    "Id": "I08R"
+  }, 
+  "npn6": {
+    "Type": "ITEM", 
+    "Art": "images/BTNEarthBrewmaster.gif", 
+    "Name": "Earth", 
+    "Id": "npn6"
+  }, 
+  "Usyl": {
+    "Art": "images/BTNRifleman.gif", 
+    "Name": "Dwarven Sniper", 
+    "RelatedTo": "A04P,Aamk,A03U,A03S,A064", 
     "ProperNames": [
-      "Aggron Stonebreaker"
+      "Kardel Sharpeye"
     ], 
     "Type": "HERO", 
-    "Id": "Hmkg"
+    "Id": "Usyl"
   }, 
   "h07H": {
     "Type": "ITEM", 
@@ -10757,12 +10734,6 @@
     "Art": "images/BTNRavenForm.gif", 
     "Name": "Druid of the Talon", 
     "Id": "edtm"
-  }, 
-  "h03R": {
-    "Type": "ITEM", 
-    "Art": "images/BTNCloakOfFlames.gif", 
-    "Name": "Vladmirs Offering", 
-    "Id": "h03R"
   }, 
   "A0JQ": {
     "Type": "SKILL", 
@@ -11043,11 +11014,15 @@
     "Type": "HERO", 
     "Id": "N01O"
   }, 
-  "hwtw": {
-    "Type": "ITEM", 
-    "Art": "images/BTNHumanWatchTower.gif", 
-    "Name": "Scout Tower", 
-    "Id": "hwtw"
+  "N01A": {
+    "Art": "images/BTNSpellBreaker.gif", 
+    "Name": "Silencer", 
+    "RelatedTo": "A0LZ,A0MC,A14L,A0L3,Aamk", 
+    "ProperNames": [
+      "Nortrom"
+    ], 
+    "Type": "HERO", 
+    "Id": "N01A"
   }, 
   "owtw": {
     "Type": "ITEM", 
@@ -11291,6 +11266,13 @@
     "Name": "Dark Troll", 
     "Id": "ndtr"
   }, 
+  "I09D": {
+    "Type": "ITEM", 
+    "Cost": "3910", 
+    "Art": "images/BTNRodOfNecromancy.gif", 
+    "Name": "Black King Bar (6)", 
+    "Id": "I09D"
+  }, 
   "Acdh": {
     "Type": "SKILL", 
     "Art": "images/BTNStrongDrink.gif", 
@@ -11375,6 +11357,12 @@
     "Art": "images/BTNAltarOfStorms.gif", 
     "Name": "Altar of Storms", 
     "Id": "oalt"
+  }, 
+  "I0B6": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Aghanims Scepter (Veno)", 
+    "Id": "I0B6"
   }, 
   "A0QY": {
     "Type": "SKILL", 
@@ -11464,11 +11452,11 @@
     "Name": "AttackToRight", 
     "Id": "e00A"
   }, 
-  "A02N": {
+  "A0QW": {
     "Type": "SKILL", 
-    "Art": "images/BTNManaDrain.gif", 
-    "Name": "Mana Drain", 
-    "Id": "A02N"
+    "Art": "images/PASBTNOverload.gif", 
+    "Name": "Overload", 
+    "Id": "A0QW"
   }, 
   "e00G": {
     "Type": "ITEM", 
@@ -11614,11 +11602,11 @@
     "Name": "Purge", 
     "Id": "A02V"
   }, 
-  "A0QH": {
-    "Type": "SKILL", 
-    "Art": "images/BTNSpell_Nature_AstralRecal.gif", 
-    "Name": "Surge", 
-    "Id": "A0QH"
+  "A02Q": {
+    "Type": "ULTIMATE", 
+    "Art": "images/BTNAmuletOftheWild.gif", 
+    "Name": "Fiends Grip", 
+    "Id": "A02Q"
   }, 
   "A0F7": {
     "Type": "SKILL", 
@@ -11693,6 +11681,12 @@
     "Art": "images/BTNAbility_Spectral_Dagger.gif", 
     "Name": "Nightcrawler Shadow", 
     "Id": "h073"
+  }, 
+  "A0F6": {
+    "Type": "SKILL", 
+    "Art": "images/BTNTechReincarnation.gif", 
+    "Name": "Unstable Power", 
+    "Id": "A0F6"
   }, 
   "A0QG": {
     "Type": "SKILL", 
@@ -12112,11 +12106,11 @@
     "Name": "Tome of Agility", 
     "Id": "tdex"
   }, 
-  "I014": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Flying Courier", 
-    "Id": "I014"
+  "A0MX": {
+    "Type": "SKILL", 
+    "Art": "images/PASBTNDrunkenDodge.gif", 
+    "Name": "Drunken Brawler", 
+    "Id": "A0MX"
   }, 
   "I015": {
     "Type": "ITEM", 
@@ -12183,11 +12177,11 @@
     "Name": "Plague Ward", 
     "Id": "A0MS"
   }, 
-  "A0MT": {
-    "Type": "SKILL", 
-    "Art": "images/BTNOrbOfLightning.gif", 
-    "Name": "Nether Blast", 
-    "Id": "A0MT"
+  "I018": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Aghanims Scepter (Leshrac)", 
+    "Id": "I018"
   }, 
   "A0MU": {
     "Type": "ULTIMATE", 
@@ -12225,11 +12219,12 @@
     "Name": "Aphotic Shield Damage", 
     "Id": "A0MJ"
   }, 
-  "A0MK": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNAnimateDead.gif", 
-    "Name": "Borrowed Time", 
-    "Id": "A0MK"
+  "I09T": {
+    "Type": "ITEM", 
+    "Cost": "2750", 
+    "Art": "images/BTNNecromancerAdept.gif", 
+    "Name": "Necronomicon Level 1", 
+    "Id": "I09T"
   }, 
   "A0ML": {
     "Type": "SKILL", 
@@ -12285,11 +12280,12 @@
     "Name": "Frostmourne", 
     "Id": "A0MG"
   }, 
-  "I0CW": {
+  "tfar": {
     "Type": "ITEM", 
-    "Art": "images/BTN_RingOfProtection.jpg", 
-    "Name": "Ring of Protection", 
-    "Id": "I0CW"
+    "Cost": "75", 
+    "Art": "images/BTNFarm.gif", 
+    "Name": "Tiny Farm", 
+    "Id": "tfar"
   }, 
   "nshe": {
     "Type": "ITEM", 
@@ -12314,6 +12310,13 @@
     "Art": "images/BTNNeutralManaShield.gif", 
     "Name": "Torrent", 
     "Id": "A136"
+  }, 
+  "silk": {
+    "Type": "ITEM", 
+    "Cost": "50", 
+    "Art": "images/BTNSpiderSilkBroach.gif", 
+    "Name": "Spider Silk Broach", 
+    "Id": "silk"
   }, 
   "AEmb": {
     "Type": "SKILL", 
@@ -12342,21 +12345,27 @@
     "Name": "Greater Replenishment Potion", 
     "Id": "rej4"
   }, 
-  "Npbm": {
-    "Art": "images/BTNPandarenBrewmaster.gif", 
-    "Name": "Pandaren Brewmaster", 
-    "RelatedTo": "A06M,Acdh,A0MX,A0MQ,Aamk,A1B3", 
+  "nshf": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSheep.gif", 
+    "Name": "Flying Sheep", 
+    "Id": "nshf"
+  }, 
+  "E01P": {
+    "Art": "images/BTNHeroDemonHunter.gif", 
+    "Name": "Dummy: SlowTurn-Range", 
+    "RelatedTo": "Aamk,A0KY,A022,AEbl,A0E3", 
     "ProperNames": [
-      "Mangix"
+      "Magina"
     ], 
     "Type": "HERO", 
-    "Id": "Npbm"
+    "Id": "E01P"
   }, 
-  "A13S": {
+  "AEbl": {
     "Type": "SKILL", 
-    "Art": "images/BTNGolemStormBolt.gif", 
-    "Name": "Avalanche (effect-correct-test)", 
-    "Id": "A13S"
+    "Art": "images/BTNBlink.gif", 
+    "Name": "Blink", 
+    "Id": "AEbl"
   }, 
   "A13R": {
     "Type": "SKILL", 
@@ -12381,12 +12390,6 @@
     "Art": "images/PASBTNWaterS.gif", 
     "Name": "Tidebringer", 
     "Id": "A13T"
-  }, 
-  "I09Q": {
-    "Type": "ITEM", 
-    "Art": "images/BTNSnazzyScrollPurple.gif", 
-    "Name": "Dagon Level 3", 
-    "Id": "I09Q"
   }, 
   "unpl": {
     "Type": "ITEM", 
@@ -12423,12 +12426,6 @@
     "Type": "HERO", 
     "Id": "Hjai"
   }, 
-  "nwlg": {
-    "Type": "ITEM", 
-    "Art": "images/BTNTimberWolf.gif", 
-    "Name": "Giant Wolf", 
-    "Id": "nwlg"
-  }, 
   "A0T2": {
     "Type": "SKILL", 
     "Art": "images/BTNUnholyFrenzy.gif", 
@@ -12440,6 +12437,13 @@
     "Art": "images/BTNFarm.gif", 
     "Name": "Farm", 
     "Id": "hhou"
+  }, 
+  "lgdh": {
+    "Type": "ITEM", 
+    "Cost": "400", 
+    "Art": "images/BTNHornOfDoom.gif", 
+    "Name": "Legion Doom-Horn", 
+    "Id": "lgdh"
   }, 
   "uplg": {
     "Type": "ITEM", 
@@ -12496,11 +12500,17 @@
     "Name": "Remote Mines", 
     "Id": "A1FY"
   }, 
-  "A0MX": {
-    "Type": "SKILL", 
-    "Art": "images/PASBTNDrunkenDodge.gif", 
-    "Name": "Drunken Brawler", 
-    "Id": "A0MX"
+  "I014": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Flying Courier", 
+    "Id": "I014"
+  }, 
+  "n01R": {
+    "Type": "ITEM", 
+    "Art": "images/BTNWarEagle.gif", 
+    "Name": "Greater Hawk", 
+    "Id": "n01R"
   }, 
   "gsou": {
     "Type": "ITEM", 
@@ -12515,11 +12525,11 @@
     "Name": "Poison Sting", 
     "Id": "A0MY"
   }, 
-  "ANs1": {
-    "Type": "SKILL", 
-    "Art": "images/BTNPocketFactory.gif", 
-    "Name": "Pocket Factory", 
-    "Id": "ANs1"
+  "nfsh": {
+    "Type": "ITEM", 
+    "Art": "images/BTNForestTrollShadowPriest.gif", 
+    "Name": "Forest Troll High Priest", 
+    "Id": "nfsh"
   }, 
   "ANs2": {
     "Type": "SKILL", 
@@ -12591,12 +12601,11 @@
     "Name": "Wraith Band", 
     "Id": "I06K"
   }, 
-  "I06J": {
+  "h00B": {
     "Type": "ITEM", 
-    "Cost": "460", 
-    "Art": "images/BTNRevenant.gif", 
-    "Name": "Wraith Band", 
-    "Id": "I06J"
+    "Art": "images/BTNImprovedStrengthOfTheMoon.gif", 
+    "Name": "IceArmor Caster", 
+    "Id": "h00B"
   }, 
   "h01S": {
     "Type": "ITEM", 
@@ -12692,11 +12701,11 @@
     "Name": "Cranium Basher Recipe", 
     "Id": "I06R"
   }, 
-  "A0LO": {
+  "ANab": {
     "Type": "SKILL", 
-    "Art": "images/BTNAdvancedStrengthOfTheWild.gif", 
-    "Name": "Leap (effect)", 
-    "Id": "A0LO"
+    "Art": "images/BTNAcidBomb.gif", 
+    "Name": "Acid Bomb", 
+    "Id": "ANab"
   }, 
   "A0LN": {
     "Type": "SKILL", 
@@ -12846,11 +12855,11 @@
     "Name": "Satyr Trickster", 
     "Id": "nsat"
   }, 
-  "hgra": {
+  "ohwd": {
     "Type": "ITEM", 
-    "Art": "images/BTNGryphonAviary.gif", 
-    "Name": "Gryphon Aviary", 
-    "Id": "hgra"
+    "Art": "images/BTNHealingWard.gif", 
+    "Name": "Healing Ward", 
+    "Id": "ohwd"
   }, 
   "A030": {
     "Type": "SKILL", 
@@ -12864,11 +12873,12 @@
     "Name": "Remote Mine 1", 
     "Id": "A036"
   }, 
-  "A037": {
-    "Type": "SKILL", 
-    "Art": "images/BTNGhoulFrenzy.gif", 
-    "Name": "Empower", 
-    "Id": "A037"
+  "texp": {
+    "Type": "ITEM", 
+    "Cost": "500", 
+    "Art": "images/BTNTomeBrown.gif", 
+    "Name": "Tome of Experience", 
+    "Id": "texp"
   }, 
   "A034": {
     "Type": "ULTIMATE", 
@@ -12901,11 +12911,11 @@
     "Name": "Illusion", 
     "Id": "I007"
   }, 
-  "A10W": {
-    "Type": "SKILL", 
-    "Art": "images/BTNWellSpring.gif", 
-    "Name": "Blinding Light", 
-    "Id": "A10W"
+  "I006": {
+    "Type": "ITEM", 
+    "Art": "images/BTNBootsOfSpeed.gif", 
+    "Name": "Haste", 
+    "Id": "I006"
   }, 
   "E01B": {
     "Art": "images/BTNvengeanceincarnate.gif", 
@@ -12965,15 +12975,11 @@
     "Name": "Regeneration", 
     "Id": "I008"
   }, 
-  "E01P": {
-    "Art": "images/BTNHeroDemonHunter.gif", 
-    "Name": "Dummy: SlowTurn-Range", 
-    "RelatedTo": "Aamk,A0KY,A022,AEbl,A0E3", 
-    "ProperNames": [
-      "Magina"
-    ], 
-    "Type": "HERO", 
-    "Id": "E01P"
+  "hgtw": {
+    "Type": "ITEM", 
+    "Art": "images/BTNGuardTower.gif", 
+    "Name": "Guard Tower", 
+    "Id": "hgtw"
   }, 
   "A10D": {
     "Type": "SKILL", 
@@ -13277,11 +13283,11 @@
     "Name": "Blink", 
     "Id": "A03I"
   }, 
-  "A03N": {
-    "Type": "SKILL", 
-    "Art": "images/BTNCriticalStrikeNew.gif", 
-    "Name": "Critical Strike", 
-    "Id": "A03N"
+  "otbk": {
+    "Type": "ITEM", 
+    "Art": "images/BTNHeadHunterBerserker.gif", 
+    "Name": "Troll Berserker", 
+    "Id": "otbk"
   }, 
   "A03O": {
     "Type": "ULTIMATE", 
@@ -13339,15 +13345,15 @@
     "Name": "Shamanic Totem", 
     "Id": "shtm"
   }, 
-  "Usyl": {
-    "Art": "images/BTNRifleman.gif", 
-    "Name": "Dwarven Sniper", 
-    "RelatedTo": "A04P,Aamk,A03U,A03S,A064", 
+  "Hmkg": {
+    "Art": "images/BTNOgreMagi.gif", 
+    "Name": "Ogre Magi", 
+    "RelatedTo": "A011,A04W,A083,A088,Aamk,A089,A007,A08F,A08A,A01T,A08G,A08D,A00F,A08I", 
     "ProperNames": [
-      "Kardel Sharpeye"
+      "Aggron Stonebreaker"
     ], 
     "Type": "HERO", 
-    "Id": "Usyl"
+    "Id": "Hmkg"
   }, 
   "ram4": {
     "Type": "ITEM", 
@@ -13448,11 +13454,11 @@
     "Name": "Heart of Tarrasque", 
     "Id": "I0A9"
   }, 
-  "A0FW": {
-    "Type": "SKILL", 
-    "Art": "images/BTNBristleGoo.gif", 
-    "Name": "Viscous Nasal Goo", 
-    "Id": "A0FW"
+  "I0AD": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Eye of Skadi", 
+    "Id": "I0AD"
   }, 
   "I0AE": {
     "Type": "ITEM", 
@@ -13541,12 +13547,11 @@
     "Name": "Refresher Orb", 
     "Id": "I0AJ"
   }, 
-  "pams": {
+  "I0AK": {
     "Type": "ITEM", 
-    "Cost": "100", 
-    "Art": "images/BTNSnazzyPotion.gif", 
-    "Name": "Anti-magic Potion", 
-    "Id": "pams"
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Refresher Orb", 
+    "Id": "I0AK"
   }, 
   "I0AT": {
     "Type": "ITEM", 
@@ -13598,6 +13603,13 @@
     "Art": "images/BTNSnazzyScrollPurple.gif", 
     "Name": "Magical Bottle - 2/3", 
     "Id": "I0AS"
+  }, 
+  "sfog": {
+    "Type": "ITEM", 
+    "Cost": "200", 
+    "Art": "images/BTNHornOfFog.gif", 
+    "Name": "Horn of the Clouds", 
+    "Id": "sfog"
   }, 
   "I0AX": {
     "Type": "ITEM", 
@@ -13774,17 +13786,17 @@
     "Name": "Storm", 
     "Id": "npn5"
   }, 
-  "npn6": {
+  "nwlg": {
     "Type": "ITEM", 
-    "Art": "images/BTNEarthBrewmaster.gif", 
-    "Name": "Earth", 
-    "Id": "npn6"
+    "Art": "images/BTNTimberWolf.gif", 
+    "Name": "Giant Wolf", 
+    "Id": "nwlg"
   }, 
-  "hfoo": {
-    "Type": "ITEM", 
-    "Art": "images/BTNFootman.gif", 
-    "Name": "Footman", 
-    "Id": "hfoo"
+  "A0FM": {
+    "Type": "SKILL", 
+    "Art": "images/BTNShimmerWeed.gif", 
+    "Name": "Morph Attack", 
+    "Id": "A0FM"
   }, 
   "npn1": {
     "Type": "ITEM", 
@@ -13864,11 +13876,11 @@
     "Name": "Robo-Goblin", 
     "Id": "ANrg"
   }, 
-  "nech": {
+  "o004": {
     "Type": "ITEM", 
-    "Art": "images/BTNCritterChicken.gif", 
-    "Name": "Chicken", 
-    "Id": "nech"
+    "Art": "images/BTNSentryWard.gif", 
+    "Name": "Observer Ward", 
+    "Id": "o004"
   }, 
   "rre1": {
     "Type": "ITEM", 
@@ -13999,17 +14011,17 @@
     "Name": "Stout Shield", 
     "Id": "I03A"
   }, 
-  "A0OR": {
-    "Type": "SKILL", 
-    "Art": "images/BTNShadowWave.gif", 
-    "Name": "Shadow Wave", 
-    "Id": "A0OR"
+  "I03F": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Mantle of Intelligence", 
+    "Id": "I03F"
   }, 
-  "A0OS": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNAnkh.gif", 
-    "Name": "Shallow Grave", 
-    "Id": "A0OS"
+  "I03G": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSnazzyScrollPurple.gif", 
+    "Name": "Mask of Death", 
+    "Id": "I03G"
   }, 
   "I03D": {
     "Type": "ITEM", 
@@ -14071,12 +14083,12 @@
     "Name": "Plate Mail", 
     "Id": "I03M"
   }, 
-  "I0GM": {
+  "shhn": {
     "Type": "ITEM", 
-    "Cost": "175", 
-    "Art": "images/BTNCirclet.gif", 
-    "Name": "Version Check", 
-    "Id": "I0GM"
+    "Cost": "3350", 
+    "Art": "images/BTNHumanArmorUpThree.gif", 
+    "Name": "Shield of Honor", 
+    "Id": "shhn"
   }, 
   "otau": {
     "Type": "ITEM", 
@@ -14228,11 +14240,11 @@
     "Name": "Ghost", 
     "Id": "ngh1"
   }, 
-  "A07Z": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNSpikedBarricades.gif", 
-    "Name": "Overgrowth", 
-    "Id": "A07Z"
+  "uslh": {
+    "Type": "ITEM", 
+    "Art": "images/BTNSlaughterhouse.gif", 
+    "Name": "Slaughterhouse", 
+    "Id": "uslh"
   }, 
   "A0O8": {
     "Type": "SKILL", 
@@ -14265,6 +14277,16 @@
     "Name": "Mana Leak", 
     "Id": "A07Y"
   }, 
+  "Npbm": {
+    "Art": "images/BTNPandarenBrewmaster.gif", 
+    "Name": "Pandaren Brewmaster", 
+    "RelatedTo": "A06M,Acdh,A0MX,A0MQ,Aamk,A1B3", 
+    "ProperNames": [
+      "Mangix"
+    ], 
+    "Type": "HERO", 
+    "Id": "Npbm"
+  }, 
   "E002": {
     "Art": "images/BTNRevenant.gif", 
     "Name": "Lightning Revenant", 
@@ -14274,22 +14296,6 @@
     ], 
     "Type": "HERO", 
     "Id": "E002"
-  }, 
-  "Hamg": {
-    "Art": "images/BTNTreant.gif", 
-    "Name": "Treant Protector", 
-    "RelatedTo": "A07Z,A01Z,A01V,Aamk,A01U", 
-    "ProperNames": [
-      "Rooftrellen"
-    ], 
-    "Type": "HERO", 
-    "Id": "Hamg"
-  }, 
-  "o00R": {
-    "Type": "ITEM", 
-    "Art": "images/BTNFire.gif", 
-    "Name": "Fireball", 
-    "Id": "o00R"
   }, 
   "E005": {
     "Art": "images/BTNHuntress.gif", 
@@ -14454,11 +14460,11 @@
     "Name": "Raise Dead", 
     "Id": "A0QV"
   }, 
-  "A0QW": {
+  "A02N": {
     "Type": "SKILL", 
-    "Art": "images/PASBTNOverload.gif", 
-    "Name": "Overload", 
-    "Id": "A0QW"
+    "Art": "images/BTNManaDrain.gif", 
+    "Name": "Mana Drain", 
+    "Id": "A02N"
   }, 
   "A0QP": {
     "Type": "SKILL", 
@@ -14473,11 +14479,11 @@
     "Name": "Demon Edge", 
     "Id": "I049"
   }, 
-  "A0QR": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNSoulEater.gif", 
-    "Name": "Life Break", 
-    "Id": "A0QR"
+  "A02K": {
+    "Type": "SKILL", 
+    "Art": "images/BTNManaBurn.gif", 
+    "Name": "Mana Burn", 
+    "Id": "A02K"
   }, 
   "A02J": {
     "Type": "SKILL", 
@@ -14505,11 +14511,11 @@
     "Name": "Claymore", 
     "Id": "I048"
   }, 
-  "A02Q": {
-    "Type": "ULTIMATE", 
-    "Art": "images/BTNAmuletOftheWild.gif", 
-    "Name": "Fiends Grip", 
-    "Id": "A02Q"
+  "A0QH": {
+    "Type": "SKILL", 
+    "Art": "images/BTNSpell_Nature_AstralRecal.gif", 
+    "Name": "Surge", 
+    "Id": "A0QH"
   }, 
   "A02S": {
     "Type": "SKILL", 
@@ -14634,12 +14640,11 @@
     "Name": "Dragonhawk Rider", 
     "Id": "hdhw"
   }, 
-  "I047": {
+  "uske": {
     "Type": "ITEM", 
-    "Cost": "550", 
-    "Art": "images/BTNINV_Chest_Chain_12.gif", 
-    "Name": "Chainmail", 
-    "Id": "I047"
+    "Art": "images/BTNSkeletonWarrior.gif", 
+    "Name": "Skeleton Warrior", 
+    "Id": "uske"
   }, 
   "n0EO": {
     "Type": "ITEM", 
@@ -14654,39 +14659,41 @@
     "Name": "Broadsword", 
     "Id": "I046"
   }, 
+  "hfoo": {
+    "Type": "ITEM", 
+    "Art": "images/BTNFootman.gif", 
+    "Name": "Footman", 
+    "Id": "hfoo"
+  }, 
   "o00H": {
     "Type": "ITEM", 
     "Art": "images/BTNEntrapmentWard.gif", 
     "Name": "Weaver Web", 
     "Id": "o00H"
   }, 
-  "I0JI": {
+  "h068": {
     "Type": "ITEM", 
-    "Cost": "1500", 
-    "Art": "images/BTN_GhostScepter.jpg", 
-    "Name": "Ghost Scepter", 
-    "Id": "I0JI"
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Spectre", 
+    "Id": "h068"
   }, 
-  "I0JS": {
+  "h041": {
     "Type": "ITEM", 
-    "Cost": "6000", 
-    "Art": "images/BTNINV_Wand_05.gif", 
-    "Name": "Aghanims Scepter (Pudge)", 
-    "Id": "I0JS"
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Enchantress", 
+    "Id": "h041"
   }, 
-  "I0JY": {
+  "h062": {
     "Type": "ITEM", 
-    "Cost": "6000", 
-    "Art": "images/BTNINV_Wand_05.gif", 
-    "Name": "Aghanims Scepter (Lord of Avernus)", 
-    "Id": "I0JY"
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Weaver", 
+    "Id": "h062"
   }, 
-  "I0JX": {
+  "h063": {
     "Type": "ITEM", 
-    "Cost": "6000", 
-    "Art": "images/BTNINV_Wand_05.gif", 
-    "Name": "Aghanims Scepter (Shadow Priest)", 
-    "Id": "I0JX"
+    "Art": "images/BTNSelectHero.gif", 
+    "Name": "Nevermore", 
+    "Id": "h063"
   }, 
   "thdm": {
     "Type": "ITEM", 
@@ -14694,13 +14701,6 @@
     "Art": "images/BTNEnchantedGemstone.gif", 
     "Name": "Thunderlizard Diamond", 
     "Id": "thdm"
-  }, 
-  "I07X": {
-    "Type": "ITEM", 
-    "Cost": "2080", 
-    "Art": "images/BTNSnazzyScroll.gif", 
-    "Name": "Black King Bar Recipe", 
-    "Id": "I07X"
   }, 
   "Ulic": {
     "Art": "images/BTNLichVersion2.gif", 
@@ -14742,11 +14742,12 @@
     "Name": "Lycanthropy Wolf", 
     "Id": "o005"
   }, 
-  "o004": {
+  "rnsp": {
     "Type": "ITEM", 
-    "Art": "images/BTNSentryWard.gif", 
-    "Name": "Observer Ward", 
-    "Id": "o004"
+    "Cost": "100", 
+    "Art": "images/BTNGoldRing.gif", 
+    "Name": "Ring of Superiority", 
+    "Id": "rnsp"
   }, 
   "o007": {
     "Type": "ITEM", 
@@ -14802,12 +14803,11 @@
     "Name": "Corrosive Skin Attacker", 
     "Id": "o00S"
   }, 
-  "I04P": {
+  "o00R": {
     "Type": "ITEM", 
-    "Cost": "650", 
-    "Art": "images/BTNINV_Misc_Cape_08.gif", 
-    "Name": "Planeswalkers Cloak", 
-    "Id": "I04P"
+    "Art": "images/BTNFire.gif", 
+    "Name": "Fireball", 
+    "Id": "o00R"
   }, 
   "o00U": {
     "Type": "ITEM", 
