@@ -10,7 +10,7 @@ except ImportError:
     from pprint import pprint
 
 from libw3g.Tools import *
-from libdota.DotaParser import get_gamestate
+from libdota.DotaParser import get_gameinfo
 
 def dump_state(gamestate):
     pprint(gamestate)
@@ -44,7 +44,6 @@ def dump_players(state):
 def dump_json(state, json_file_name):
     json.dump(state, file(json_file_name, 'w'))
 
-
 def usage(name):
     print "Usage: %s REPLAY-FILE" % name
 
@@ -60,7 +59,7 @@ if __name__=="__main__":
     parser.add_option('-j', '--json')
     options, args = parser.parse_args()
 
-    state = get_gamestate(file(args[0]))
+    state = get_gameinfo(file(args[0]))
 
     if options.metadata:
         dump_metadata(state)

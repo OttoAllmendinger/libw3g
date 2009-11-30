@@ -7,6 +7,7 @@ import Debug
 class GameBlockReader(BlockReader):
     def __init__(self, gamestate):
         BlockReader.__init__(self, gamestate)
+        self.state['leaves'] = []
 
         self.actionBlockReader = ActionBlockReader(gamestate)
 
@@ -23,6 +24,8 @@ class GameBlockReader(BlockReader):
 
     def handleLeaveGame(self, block, io):
         reason, player_id, result, unknown = extract('<LBLL', io)
+        self.state['leaves'].append((
+            self.state['gametime'], reason, player_id, result))
 
     def handleChatMessage(self, block, io):
         sender, size, flags, mode = extract('<bhbl', io)

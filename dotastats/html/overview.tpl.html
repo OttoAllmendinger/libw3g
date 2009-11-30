@@ -1,3 +1,5 @@
+<!--! vi:ft=genshi
+-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
           xmlns:py="http://genshi.edgewall.org/">
@@ -11,6 +13,18 @@
                 background: #030336;
                 font-family: Georgia;
                 color: white;
+            }
+
+            h1 .date {
+                color: #617197;
+                font-size: 80%;
+                margin-left: 2em;
+            }
+
+            .footer {
+                margin-top: 100px;
+                text-align: right;
+                color: #617197;
             }
 
             table.overview {
@@ -49,16 +63,16 @@
                 vertical-align: middle;
             }
 
+            table.overview td.hero_image {
+                border-left: 2px solid #1d1d43;
+            }
+
             table.overview td.win.score div {
                 background: #335301;
             }
 
             table.overview td.fail.score div {
                 background: #4b0004;
-            }
-
-            table.overview td.absent {
-                background: #2a2a2a;
             }
 
             table.overview th {
@@ -85,41 +99,51 @@
         </style>
     </head>
     <body>
-        <div py:for="play_day in play_days">
-        <h1>${play_day.title}</h1>
+        <div py:for="play_day in playdays">
+        <h1>${play_day.week_day} <span class="date">${play_day.date}</span></h1>
         <table class="overview">
             <tr>
                 <th class="game_index">#</th>
                 <th py:for="player in players" colspan="2">${player}</th>
             </tr>
             <tr py:for="n, game in enumerate(play_day.games)">
-                <td class="game_index">${n+1}</td>
+                <td class="game_index" title="${game.replay_hash}">${n+1}</td>
                 <py:for each="player in players">
                     <?python
-                    if not player in game['players']:
+                    players = game['dota']['players']
+                    if not player in players:
                         tag = 'absent'
                     else:
-                        image_path = get_hero_image(
-                                        game['players'][player]['hero_id'])
-                        tag = ('win' if game['players'][player]['is_winner']
-                                        else 'fail')
+                        image_path = get_hero_image(players[player]['hero'])
+                        #image_path = 'img/sub.png'
+                        tag= ('win' if players[player]['is_winner'] else 'fail')
                     ?>
-                    <py:choose test="tag">
-                        <py:when test="'absent'">
-                            <td colspan="2"> &nbsp; </td>
-                        </py:when>
-                        <py:otherwise>
-                            <td class="player_stat hero_image ${tag}">
+                        <td class="player_stat hero_image ${tag}">
+                            <py:choose test="tag">
+                            <py:when test="'absent'">
+                                &nbsp;
+                            </py:when>
+                            <py:otherwise>
                                 <img src="${image_path}" />
-                            </td>
-                            <td class="player_stat score ${tag}">
-                                <div> ${game.players[player].kills} </div>
-                            </td>
-                        </py:otherwise>
-                    </py:choose>
+                            </py:otherwise>
+                            </py:choose>
+                        </td>
+                        <td class="player_stat score ${tag}">
+                            <py:choose test="tag">
+                            <py:when test="'absent'">
+                                &nbsp;
+                            </py:when>
+                            <py:otherwise>
+                                <div> ${game.dota.players[player].kills} </div>
+                            </py:otherwise>
+                            </py:choose>
+                        </td>
                 </py:for>
             </tr>
         </table>
+        </div>
+        <div class="footer">
+            libw3g.libdota.dotastats.r${libw3g_version}
         </div>
     </body>
 </html>
