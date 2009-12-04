@@ -67,6 +67,15 @@ class DotaStats:
     upload._cp_config = {'response.stream': True}
 
     @cherrypy.expose
+    def game_data(self, **k):
+        games = {}
+        for full_info in get_dota_replays():
+            games[full_info['replay_hash']] = game = {}
+            for player in full_info['dota']['info']['players'].values():
+                game[player['name']] = {'heroId': player['hero']}
+        return json.dumps(games)
+
+    @cherrypy.expose
     def reparse_all(self):
         for replay_hash in os.listdir(REPLAY_DIR):
             replay_file = get_replay_file(replay_hash, 'r')
@@ -100,8 +109,11 @@ if __name__=='__main__':
     parser.add_option('--fastcgi', action='store_true')
     options, args = parser.parse_args()
 
-    staticconf = {
+    config = {
         '/': {
+            'tools.encode.on': True,
+            'tools.encode.encoding': 'utf8',
+            'tools.encode.add_charset': True,
             'tools.staticdir.root': join(dirname(abspath(__file__)))},
         '/static': {
             'tools.staticdir.on': True,
@@ -121,5 +133,5 @@ if __name__=='__main__':
     else:
         if options.port:
             cherrypy.config.update( {'server.socket_port': int(options.port) } )
-        cherrypy.quickstart(DotaStats(), '/', config=staticconf)
+        cherrypy.quickstart(DotaStats(), '/', config=config)
 

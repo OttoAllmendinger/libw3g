@@ -55,12 +55,14 @@ def get_playdays():
             week_day=format_ts('%A', replay_ts(games[0])),
             date=format_ts('%Y-%m-%d', replay_ts(games[0])), games=games)
     return map(mk_play_day, sorted(((key, list(games))
-                for key, games in groupby(sorted(get_dota_replays(), key=replay_ts), group_func)),
-                reverse=True))
+                for key, games in groupby(sorted(get_dota_replays(),
+                    key=replay_ts, reverse=True), group_func)), reverse=True))
 
 def get_players():
-    return set(chain(*(list((p['name'] for p in g['dota']['players'].values())
-                                                for g in get_dota_replays()))))
+    games = get_dota_replays()
+    return sorted(
+        set(chain(*(g['dota']['players'].keys() for g in games))),
+        key=lambda p: (sum(-1 for g in games if p in g['dota']['players']),p))
 
 def get_replay_hash(data):
     return hashlib.md5(data).hexdigest()[:6]

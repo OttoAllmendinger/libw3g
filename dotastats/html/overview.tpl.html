@@ -1,22 +1,58 @@
-<!--! vi:ft=genshi
+<!--!
+vi:ft=genshi
 -->
 <!DOCTYPE html>
+<?python
+
+import re
+
+def get_initials(player_name):
+    parts = re.split('(?u)\W', unicode(player_name))
+    return ''.join([c[0].upper() for c in parts])[:3]
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
           xmlns:py="http://genshi.edgewall.org/">
     <head>
+        <script src="http://www.google.com/jsapi"></script>
+        <script src="/static/js/local.js"></script>
+        <script>
+            google.load("jquery", "1.3.2");
+            google.setOnLoadCallback(function() {
+                $.getJSON("/game_data?_="+(new Date().getTime()), 
+                    function(data) {
+                        gameData = data;
+                });
+
+                $.getJSON("/static/json/units-6.60.compact.json?_="
+                    +(new Date().getTime()), function(data) {
+                        console.log("got dota info");
+                        dotaInfo = data;
+                });
+
+                $.getScript("/static/js/jquery.dataset.js", function() {
+                    initTooltips();
+                });
+            });
+        </script>
         <title>DotA Overview</title>
         <style type="text/css">
             /*
                 http://colorschemedesigner.com/#3-32CvKhNF3nk
             */
+
             body {
-                background: #030336;
+                background: #021406;
                 font-family: Georgia;
                 color: white;
             }
 
+            h1 {
+                color: white;
+            }
+
             h1 .date {
-                color: #617197;
+                color: #144725;
                 font-size: 80%;
                 margin-left: 2em;
             }
@@ -33,12 +69,15 @@
                 text-align: center;
                 border-collapse: separate;
                 border-spacing: 0;
-                border: 2px solid #1d1d43;
+                border: 2px solid #61b28e;
+                background: #033f04;
+                padding-bottom: 10px;
                 -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
             }
 
             table.overview td {
-                background: #101063;
+                background: #0b2c18;
             }
 
             table.overview .game_index {
@@ -46,7 +85,7 @@
             }
 
             table.overview td.player_stat {
-                padding: 8px;
+                padding: 0px;
                 width: 64px;
                 height: 64px;
             }
@@ -64,47 +103,52 @@
             }
 
             table.overview td.hero_image {
-                border-left: 2px solid #1d1d43;
+                border-left: 4px solid #033f04;
             }
 
             table.overview td.win.score div {
-                background: #335301;
+                background: #000080;
             }
 
             table.overview td.fail.score div {
                 background: #4b0004;
             }
 
-            table.overview th {
-                background: #1d1d43;
-                padding: .5em;
+            .tooltip {
+                position: absolute;
+                background: black;
+                border: 2px solid #222;
+                padding: 0.66em;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                display: none;
+                opacity: 0.9;
             }
 
-            table.overview th:first-child {
-                -webkit-border-top-left-radius: 10px;
+
+            #tt_hero .hero_image {
+                width: 64px;
+                height: 64px;
+                float: left;
             }
 
-            table.overview th:last-child {
-                -webkit-border-top-right-radius: 10px;
-            }
-
-            table.overview tr:last-child td:first-child {
-                -webkit-border-bottom-left-radius: 10px;
-            }
-
-            table.overview tr:last-child td:last-child {
-                -webkit-border-bottom-right-radius: 10px;
+            #tt_hero .hero_name {
+                padding: 1em;
             }
 
         </style>
     </head>
     <body>
-        <div py:for="play_day in playdays">
+        <div py:for="play_day in playdays" 
+            class="play_day" data-play_day="${play_day.date}">
         <h1>${play_day.week_day} <span class="date">${play_day.date}</span></h1>
         <table class="overview">
             <tr>
                 <th class="game_index">#</th>
-                <th py:for="player in players" colspan="2">${player}</th>
+                <th py:for="player in players" class="player_name"
+                    data-player="${player}">
+                    ${get_initials(player)}
+                </th>
             </tr>
             <tr py:for="n, game in enumerate(play_day.games)">
                 <td class="game_index" title="${game.replay_hash}">${n+1}</td>
@@ -113,37 +157,34 @@
                     players = game['dota']['players']
                     if not player in players:
                         tag = 'absent'
+                        absent = True
                     else:
                         image_path = get_hero_image(players[player]['hero'])
-                        #image_path = 'img/sub.png'
                         tag= ('win' if players[player]['is_winner'] else 'fail')
+                        absent = False
                     ?>
-                        <td class="player_stat hero_image ${tag}">
-                            <py:choose test="tag">
-                            <py:when test="'absent'">
-                                &nbsp;
-                            </py:when>
-                            <py:otherwise>
-                                <img src="${image_path}" />
-                            </py:otherwise>
-                            </py:choose>
-                        </td>
-                        <td class="player_stat score ${tag}">
-                            <py:choose test="tag">
-                            <py:when test="'absent'">
-                                &nbsp;
-                            </py:when>
-                            <py:otherwise>
-                                <div> ${game.dota.players[player].kills} </div>
-                            </py:otherwise>
-                            </py:choose>
-                        </td>
+                    <td class="player_stat score ${tag}" 
+                        data-game="${game.replay_hash}"
+                        data-player="${player}">
+                        <div py:if="not absent">
+                            ${game.dota.players[player].kills} 
+                        </div>
+                    </td>
                 </py:for>
             </tr>
         </table>
         </div>
+
+        <div id="tt_player" class="tooltip"> </div>
+
+        <div id="tt_hero" class="tooltip">
+            <img class="hero_image" />
+            <span class="hero_name"></span>
+        </div>
+
         <div class="footer">
             libw3g.libdota.dotastats.r${libw3g_version}
         </div>
+
     </body>
 </html>

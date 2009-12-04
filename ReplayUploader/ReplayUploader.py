@@ -24,7 +24,7 @@ class ReplayUploader:
         self.cgiurl = cgiurl
 
     def exists(self, path):
-        rphash = hashlib.md5(file(path).read()).hexdigest()
+        rphash = hashlib.md5(file(path).read()).hexdigest()[:6]
         response = urllib2.urlopen(
                 self.cgiurl+'/exists/%s' % rphash).read().strip()
 

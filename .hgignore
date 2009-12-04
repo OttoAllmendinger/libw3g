@@ -1,7 +1,8 @@
 syntax: glob
 
-replays/
-dotastats/static/
+local/
+dotastats/static/images/
+dotastats/replays
 *.swo
 *.swp
 *.pyc
