@@ -38,6 +38,25 @@ def load_replay_metadata(replay_hash):
     except:
         return {}
 
+def get_game_data(metadata):
+    game = {'players':{}}
+    players = metadata['dota']['info']['players']
+    game['replayHash'] = metadata['replay_hash']
+    players_kid = dict((p['stat_id'], p) for p in players.values())
+    for player in players.values():
+        game['players'][player['name']] = {
+                'heroId': player['hero'],
+                'isWinner': player['is_winner'],
+                'kills': player['kills'],
+                'killedPlayers': dict(
+                    (players_kid.get(int(k), {}).get('name'), v) for k,v in
+                    player.get('killed_players', {}).items()),
+        }
+    game['duration'] = metadata['dota']['game_length']
+    game['endTime'] = metadata['file_timestamp']
+    game['startTime'] = game['endTime'] - game['duration']
+    return game['replayHash'], game
+
 def get_replays():
     return map(load_replay_metadata, os.listdir(REPLAY_DIR))
 
@@ -45,24 +64,24 @@ def is_valid_replay(game):
     return (game.get('dota') and game['dota']['game_length']>600)
 
 def get_dota_replays():
-    return filter(is_valid_replay, get_replays())
+    return dict(map(get_game_data, filter(is_valid_replay, get_replays())))
 
 def get_playdays():
     format_ts = lambda fmt, ts: time.strftime(fmt, time.localtime(ts))
-    replay_ts = lambda r: r['file_timestamp']
+    replay_ts = lambda r: r['startTime']
     group_func = lambda r: format_ts('%Y-%m-%d', replay_ts(r))
     mk_play_day = lambda (date, games): dict(
             week_day=format_ts('%A', replay_ts(games[0])),
             date=format_ts('%Y-%m-%d', replay_ts(games[0])), games=games)
     return map(mk_play_day, sorted(((key, list(games))
-                for key, games in groupby(sorted(get_dota_replays(),
+                for key, games in groupby(sorted(get_dota_replays().values(),
                     key=replay_ts, reverse=True), group_func)), reverse=True))
 
 def get_players():
-    games = get_dota_replays()
+    games = get_dota_replays().values()
     return sorted(
-        set(chain(*(g['dota']['players'].keys() for g in games))),
-        key=lambda p: (sum(-1 for g in games if p in g['dota']['players']),p))
+        set(chain(*(g['players'].keys() for g in games))),
+        key=lambda p: (sum(-1 for g in games if p in g['players']), p))
 
 def get_replay_hash(data):
     return hashlib.md5(data).hexdigest()[:6]
@@ -75,7 +94,7 @@ def get_hero_image(hero_id):
 def test():
     from betterprint import pprint
     pprint(get_dota_replays())
-    #print get_playdays()
+    pprint(get_playdays())
     #print get_players()
 
 if __name__=='__main__':

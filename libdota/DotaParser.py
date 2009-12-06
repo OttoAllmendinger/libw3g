@@ -83,7 +83,7 @@ class DotaActionBlockReader(ActionBlockReader):
             c, = extract('L', io)
 
         if a=='Data' and b.startswith('Hero'):
-            killedHeroStatId = int(b[-1])
+            killedHeroStatId = int(b.replace("Hero", ""))
             killerHeroStatId = int(c)
             if killerHeroStatId in self.dotastate['hero_stats']:
                 killerStats = self.dotastate['hero_stats'][killerHeroStatId]
@@ -173,7 +173,7 @@ def get_gameinfo(io):
         gamestate.update({
             'players':
                 dict((p['name'], p) for p in gamestate['slots'].values()),
-            'game_length': gamestate['gametime'] / 1000,
+            'game_length': gamestate['gametime'] / 1000.0,
         })
 
         return gamestate

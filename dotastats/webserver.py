@@ -68,12 +68,7 @@ class DotaStats:
 
     @cherrypy.expose
     def game_data(self, **k):
-        games = {}
-        for full_info in get_dota_replays():
-            games[full_info['replay_hash']] = game = {}
-            for player in full_info['dota']['info']['players'].values():
-                game[player['name']] = {'heroId': player['hero']}
-        return json.dumps(games)
+        return json.dumps(get_dota_replays())
 
     @cherrypy.expose
     def reparse_all(self):
