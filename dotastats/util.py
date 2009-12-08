@@ -16,6 +16,7 @@ def get_replay_metadata_file(replay_hash, mode):
     return file(join(get_replay_dir(replay_hash), 'metadata.json'), mode)
 
 def get_replay_dir(replay_hash):
+    assert all((c in '0123456789abcdef') for c in replay_hash)
     return join(REPLAY_DIR, replay_hash)
 
 def replay_exists(replay_hash):

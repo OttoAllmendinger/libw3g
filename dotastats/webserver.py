@@ -20,6 +20,8 @@ from dotastats.util import *
 
 loader = TemplateLoader(join(dirname(__file__), 'html'), auto_reload=True)
 
+VALID_RU_VERSIONS = ('0.1', )
+
 class DotaStats:
     @cherrypy.expose
     def set_admin(self):
@@ -65,6 +67,13 @@ class DotaStats:
             'dota': libdota.get_gameinfo(tmp_io) })
 
     upload._cp_config = {'response.stream': True}
+
+    @cherrypy.expose
+    def check_ru(self, version=None):
+        if version in VALID_RU_VERSIONS:
+            return str(True)
+        else:
+            return str(False)
 
     @cherrypy.expose
     def game_data(self, **k):
