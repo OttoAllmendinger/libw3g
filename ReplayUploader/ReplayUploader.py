@@ -11,6 +11,7 @@ from poster.streaminghttp import register_openers
 
 register_openers()
 
+VERSION = '0.1'
 
 def get_timestamp(path):
     stat = os.stat(path)
@@ -24,11 +25,10 @@ class ReplayUploader:
         self.cgiurl = cgiurl
 
     def exists(self, path):
-        rphash = hashlib.md5(file(path).read()).hexdigest()[:6]
+        rphash = hashlib.md5(file(path, 'rb').read()).hexdigest()[:6]
         response = urllib2.urlopen(
                 self.cgiurl+'/exists/%s' % rphash).read().strip()
-
-        return response=='True'
+        return str(response)=='True'
 
     def upload(self, path, callback=console_output):
         datagen, headers = multipart_encode({
@@ -47,6 +47,17 @@ class ReplayUploader:
                 downloaded = int(data)
                 callback(downloaded)
         print buf.read()
+
+def test_host(host):
+    url = 'http://%s/check_ru?version=%s' % (host, VERSION)
+    response = urllib2.urlopen(url).read()
+
+    if response=='True':
+        return True
+    else:
+        raise Exception('Invalid ReplayUploader version, please update\n'
+                        'http://code.google.com/p/libw3g/')
+
 
 def wait_for_change(path):
     timestamp = current_ts = get_timestamp(path)

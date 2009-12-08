@@ -1,11 +1,21 @@
+from os.path import join, expanduser
 import json
 
-Config = {}
+config_file = join(expanduser("~"), "dru.config.json")
 
-configFile = join(expanduser("~", "dru.config"))
+def load():
+    try:
+        return json.load(file(config_file, 'r'))
+    except:
+        return {}
 
-if exists(configFile):
-    Config.update(json.load(file(configFile, 'r')))
+def save(cfg):
+    json.dump(cfg, file(config_file, 'w'))
 
-def saveConfig():
-    json.dump(Config, file(configFile, 'w'))
+def get(key, default=None):
+    return load().get(key, default)
+
+def set(key, value):
+    cfg = load()
+    cfg[key]=value
+    save(cfg)
