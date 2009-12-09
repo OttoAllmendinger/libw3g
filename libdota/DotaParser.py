@@ -97,6 +97,8 @@ class DotaActionBlockReader(ActionBlockReader):
         elif a.isnumeric():
             keyName = self.triggerKeys[b]
             self.dotastate['hero_stats'][int(a)][keyName] = c
+        elif a=='Global' and b=='Winner':
+            self.dotastate['game_winner'] = [TEAM_1, TEAM_2][int(c)-1]
 
         self.dotastate['events'].append((
             dotaTime(self.state['gametime']), (a,b,c)))
@@ -110,11 +112,14 @@ def parseDotaReplay(io):
     reader.parse(io)
     return gamestate
 
+def get_winner_by_dota_event(gamestate):
+    return gamestate['dota'].get('game_winner')
 
 def get_winner_by_kill_difference(gamestate, min_diff=5):
     team_kills = defaultdict(int)
     for p in gamestate['slots'].values():
-        team_kills[p['team']] += p['kills']
+        if 'team' in p.keys():
+            team_kills[p['team']] += p['kills']
 
     if team_kills[TEAM_1]>(team_kills[TEAM_2]+min_diff):
         return TEAM_1
@@ -123,13 +128,22 @@ def get_winner_by_kill_difference(gamestate, min_diff=5):
 
 def get_winner_by_first_leave(gamestate):
     _, player_id, _, _ = gamestate['leaves'][0]
-    leaving_player = next(iter(filter(lambda p: p['player_id']==player_id,
-        gamestate['players'].values())))
-    loser_team = leaving_player['team']
-    return OPPONENT[leaving_player['team']]
+    leaving_players = filter(lambda p: p['player_id']==player_id,
+            gamestate['players'].values())
+    try:
+        leaving_player = next(iter(leaving_players))
+    except StopIteration:
+        leaving_player = None
+
+    if leaving_player:
+        loser_team = leaving_player['team']
+        return OPPONENT[leaving_player['team']]
+    else:
+        return None
 
 def get_winner_team(gamestate):
     algorithms = (
+            get_winner_by_dota_event,
             get_winner_by_kill_difference,
             get_winner_by_first_leave)
     for a in algorithms:
