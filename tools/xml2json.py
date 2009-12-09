@@ -30,6 +30,7 @@ def saveDict(units, outfile, compact=False):
                     unitValue = unitValue.split(',')
                 elif unitKey=='Art':
                     unitKey='Image'
+                    unitValue = unitValue.replace("images/", "")
                     #unitValue = unitValue[:-3] + 'png'
                 unitDict[unitKey] = unitValue
 

@@ -68,7 +68,7 @@ def get_dota_replays():
     return dict(map(get_game_data, filter(is_valid_replay, get_replays())))
 
 def get_playdays():
-    format_ts = lambda fmt, ts: time.strftime(fmt, time.localtime(ts))
+    format_ts = lambda fmt, ts: time.strftime(fmt, time.gmtime(ts))
     replay_ts = lambda r: r['startTime']
     group_func = lambda r: format_ts('%Y-%m-%d', replay_ts(r))
     mk_play_day = lambda (date, games): dict(
@@ -89,8 +89,8 @@ def get_replay_hash(data):
 
 def get_hero_image(hero_id):
     image_file = libdota.DotaUnits.getUnit(
-            unicode(hero_id).encode('utf8')).unitData['Art']
-    return '/static/' + image_file
+            unicode(hero_id).encode('utf8')).unitData['Image']
+    return '/static/images/' + image_file
 
 def test():
     from betterprint import pprint

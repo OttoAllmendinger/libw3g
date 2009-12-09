@@ -113,6 +113,14 @@ def format_duration(game):
                 color: #575244;
             }
 
+            table.overview td.score.fail img {
+                opacity: 0.25;
+            }
+
+            table.overview td.score.fail img:hover {
+                opacity: 1.0;
+            }
+
             .tooltip#ttPlayerStats .heroName {
                 font-weight: bolder;
                 padding-bottom: .2em;
@@ -140,7 +148,7 @@ def format_duration(game):
             <tr>
                 <!-- <th class="game_index">#</th> -->
                 <th class="gameTime"></th>
-                <th py:for="player in players" class="player_name"
+                <th py:for="player in players" class="playerName"
                     data-player="${player}">
                     ${get_initials(player)}
                 </th>

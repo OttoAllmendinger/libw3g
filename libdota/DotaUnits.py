@@ -5,23 +5,13 @@ from os.path import *
 
 from libw3g.Tools import pprint
 
-PATH_SHELVEFILE = join(dirname(__file__), 'units-%s.db')
 PATH_JSONFILE = join(dirname(__file__), 'units-%s.json')
 
-def _getShelve(dotaversion):
-    sh = shelve.open(PATH_SHELVEFILE % dotaversion)
-    if len(sh.keys())==0:
-        _fillShelve(sh, dotaversion)
-    return sh
-
-def _fillShelve(sh, dotaversion):
-    jsonFile = file(PATH_JSONFILE % dotaversion)
-    sh.update(dict(
-        (k.encode('ASCII'), v) for k,v in json.load(jsonFile).items()))
-
+def _getUnitInfo(version):
+    return json.load(file(PATH_JSONFILE % version, 'r'))
 
 class Unit:
-    mapper = _getShelve('6.60')
+    mapper = _getUnitInfo('6.60')
 
     def __init__(self, unitId):
         self.unitId = unitId
@@ -49,6 +39,7 @@ class Item(Unit):
 class UnknownUnit(Unit):
     def __init__(self, unitId):
         self.unitId = unitId
+        self.unitData = {'Image': 'UnknownUnit.png'}
         self.name = self.getName()
 
     def getName(self):
@@ -61,6 +52,7 @@ def getUnit(unitId):
     unit = Unit.mapper.get(unitId)
 
     if unit==None:
+        logging.warn("unknown unit %s" % unitId)
         return UnknownUnit(unitId)
 
     utype = unit.get('Type')
@@ -71,3 +63,10 @@ def getUnit(unitId):
         return Item(unitId)
     else:
         return Unit(unitId)
+
+def dump():
+    for k,v in Unit.mapper.items():
+        print k, v
+
+if __name__=="__main__":
+    dump()
