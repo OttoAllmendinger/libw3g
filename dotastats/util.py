@@ -4,6 +4,7 @@ import time
 from os.path import join, dirname, exists
 from itertools import groupby, chain
 import hashlib
+import logging
 
 import libdota
 
@@ -52,11 +53,15 @@ def get_game_data(metadata):
                 'killedPlayers': dict(
                     (players_kid.get(int(k), {}).get('name'), v) for k,v in
                     player.get('killed_players', {}).items()),
+                'team': player.get('team'),
+                'levelLog': player.get('level_log', []),
+                'killLog': player.get('kill_log', []),
+                'deathLog': player.get('death_log', []),
         }
     game['duration'] = metadata['dota']['game_length']
     game['endTime'] = metadata['file_timestamp']
     game['startTime'] = game['endTime'] - game['duration']
-    return game['replayHash'], game
+    return game
 
 def get_replays():
     return map(load_replay_metadata, os.listdir(REPLAY_DIR))
@@ -65,7 +70,14 @@ def is_valid_replay(game):
     return (game.get('dota') and game['dota']['game_length']>600)
 
 def get_dota_replays():
-    return dict(map(get_game_data, filter(is_valid_replay, get_replays())))
+    replays = {}
+    for metadata in filter(is_valid_replay, get_replays()):
+        try:
+            game = get_game_data(metadata)
+            replays[game['replayHash']] = game
+        except:
+            logging.exception('invalid replay')
+    return replays
 
 def get_playdays():
     format_ts = lambda fmt, ts: time.strftime(fmt, time.gmtime(ts))
