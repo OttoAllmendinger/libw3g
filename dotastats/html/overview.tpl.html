@@ -39,6 +39,8 @@ def format_duration(game):
                 });
 
                 $.getScript("/static/js/jquery.sprintf.js");
+                $.getScript("/static/js/jquery.gchart.pack.js");
+                $.getScript("/static/js/flot/jquery.flot.min.js");
 
                 $.getScript("/static/js/jquery.dataset.js", function() {
                     initTooltips();
@@ -67,7 +69,7 @@ def format_duration(game):
             }
 
             .footer {
-                margin-top: 100px;
+                margin-top: 300px;
                 text-align: right;
                 color: #b5a26b;
             }
@@ -124,6 +126,11 @@ def format_duration(game):
             .tooltip#ttPlayerStats .heroName {
                 font-weight: bolder;
                 padding-bottom: .2em;
+            }
+
+            .tooltip#ttPlayerStats .chart {
+                width: 200px;
+                height: 150px;
             }
 
 
@@ -190,6 +197,10 @@ def format_duration(game):
         <div id="ttPlayerStats" class="tooltip">
             <div class="heroName"></div>
             <div class="killStats"></div>
+            <h4>Level</h4>
+            <div class="chart level"></div>
+            <h4>Score</h4>
+            <div class="chart score"></div>
         </div>
 
         <div class="footer">

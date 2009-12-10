@@ -15,6 +15,7 @@ from cStringIO import StringIO
 from pprint import pprint
 from datetime import timedelta
 from logging import basicConfig
+from collections import defaultdict
 
 from libw3g.ReplayReader import ReplayReader
 from libw3g.ActionBlockReader import ActionBlockReader
@@ -38,10 +39,18 @@ class DotaActionBlockReader(ActionBlockReader):
     def __init__(self, gamestate):
         ActionBlockReader.__init__(self, gamestate)
 
+        heroStats = lambda: {
+            'kill_log': [],
+            'death_log': [],
+            'level_log': [],
+            'killed_players': defaultdict(int),
+        }
+
         self.dotastate = {
                 'events': [],
                 'mode_line': None,
-                'hero_stats': dict((n,{}) for n in range(1, 13)),
+                'hero_stats':
+                    dict((n,heroStats()) for n in range(0, 13)),
         }
 
         self.state['dota'] = self.dotastate
@@ -83,22 +92,25 @@ class DotaActionBlockReader(ActionBlockReader):
             c, = extract('L', io)
 
         if a=='Data' and b.startswith('Hero'):
-            killedHeroStatId = int(b.replace("Hero", ""))
-            killerHeroStatId = int(c)
-            if killerHeroStatId in self.dotastate['hero_stats']:
-                killerStats = self.dotastate['hero_stats'][killerHeroStatId]
-            else:
-                killerStats = {} # FIXME: dummy dict
-            if not 'killed_players' in killerStats:
-                killerStats['killed_players'] = {}
-            if not killedHeroStatId in killerStats['killed_players']:
-                killerStats['killed_players'][killedHeroStatId] = 0
-            killerStats['killed_players'][killedHeroStatId] += 1
+            victimId = int(b.replace("Hero", ""))
+            killerId = int(c)
+            killerStats = self.dotastate['hero_stats'][killerId]
+            victimStats = self.dotastate['hero_stats'][victimId]
+            killerStats['killed_players'][killerId] += 1
+            killerStats['kill_log'].append(
+                    (self.state['gametime'], victimId))
+            victimStats['death_log'].append(
+                    (self.state['gametime'], killerId))
         elif a.isnumeric():
             keyName = self.triggerKeys[b]
             self.dotastate['hero_stats'][int(a)][keyName] = c
         elif a=='Global' and b=='Winner':
             self.dotastate['game_winner'] = [TEAM_1, TEAM_2][int(c)-1]
+        elif a=='Data' and b.startswith('Level'):
+            heroLevel = int(b.replace("Level", ""))
+            heroStatId = int(c)
+            heroStats = self.dotastate['hero_stats'][heroStatId]
+            heroStats['level_log'].append((self.state['gametime'], heroLevel))
 
         self.dotastate['events'].append((
             dotaTime(self.state['gametime']), (a,b,c)))
