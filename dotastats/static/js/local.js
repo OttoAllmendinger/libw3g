@@ -20,8 +20,8 @@ setTooltip = function(element, ttElement, setContent) {
 
     $(element).hover(function(e) {
             setPosition(e.pageX, e.pageY);
-            ttElement.show();
             setContent(ttElement);
+            ttElement.show();
         }, function() {
             ttElement.hide();
         }
@@ -31,6 +31,7 @@ setTooltip = function(element, ttElement, setContent) {
         setPosition(e.pageX, e.pageY);
     });
 }
+
 
 initTooltips = function() {
     var tt_player = $("#ttPlayer");
@@ -45,131 +46,103 @@ initTooltips = function() {
         });
     });
 
-    var getLevelSeries = function(levelLog, gameDuration) {
-        var scaleTime = 1.0 / 60.0 / 1000.0;
-        var scaledLog = [[0,0]].concat(
-            $.map(levelLog, function(e, i) {
-                return [[e[0]*scaleTime, e[1]]];
-        }));
-
-        scaledLog.push([
-                    scaleTime*gameDuration*1000.0, 
-                    scaledLog[scaledLog.length-1][1]
-                ]);
-
-        return scaledLog;
-    }
-
-    var getScoreSeries = function(killLog, deathLog, gameDuration) {
-        var eventLog = $.map(killLog, function(e) {
-                return [[e[0], 1]];
-            }).concat($.map(deathLog, function(e) {
-                return [[e[0], -1]];
-            })).sort( function(a, b) {
-                return a[0] - b[0];
-            });
-
-        var scoreLog = [[0,0]];
-        var score = 0;
-        $.each(eventLog, function(i, e) {
-            score += e[1];
-            scoreLog.push([e[0], score]);
-        });
-
-        var scaleTime = 1.0 / 60.0 / 1000.0;
-
-        var scoreSequence = $.map(scoreLog, function(e, i) {
-                return [e[1]];
-        });
-        
-        var scaleScore = 100.0/Math.max(
-                scoreSequence.max(),-scoreSequence.min());
-
-        scaledScoreLog = $.map(scoreLog, function(e, i) {
-                return [[ e[0]*scaleTime, e[1] ]]
-        });
-
-        scaledScoreLog.push( [
-                scaleTime*gameDuration*1000.0,
-                scaledScoreLog[scaledScoreLog.length-1][1]]);
-
-        return scaledScoreLog;
-    }
-
-
-
     $("td.playerStat").not(".absent").each(function(i) {
         var cell = $(this);
-        setTooltip($(this), $("#ttPlayerStats"), function(tt) {
-            var game = gameData[cell.dataset("game")];
-            var player = game.players[cell.dataset("player")];
+        var game = gameData[cell.dataset("game")];
+        var player = game.players[cell.dataset("player")];
+
+        setTooltip($(this).children("img"), $("#ttPlayerStats"), function(tt) {
             tt.find(".heroName").text(dotaInfo[player.heroId].Name);
 
-
-            /*
-            var killDetails = "";
-
-            $.each(player.killedPlayers, function(k,v) {
-                if (killDetails) {
-                    killDetails += ", ";
-                }
-                killDetails += k + ': ' + v;
-            });
-
-            tt.find(".killStats").text($.sprintf(
-                "Kills: %d (%s)", player.kills, killDetails));
-            */
-
             tt.find(".killStats").html(
-                $.sprintf("Kills: <strong>%d</strong>", player.kills));
+                $.sprintf("Kills: <strong>%d</strong>", 
+                    player.killLog.length));
 
+            tt.find(".deathStats").html(
+                $.sprintf("Deaths: <strong>%d</strong>", 
+                    player.deathLog.length));
 
-            /*
-             * draw LevelChart
-             */
+        });
 
-            var levelSeries = [];
-            var currentLevelSeries;
+        var details = $(this).closest("tr").next().find("div.gameDetails");
+        var detailsChart = details.children(".chart");
 
-            $.each(game.players, function(name,playeri) {
-                var newSeries = getLevelSeries(playeri.levelLog, game.duration);
-                if (playeri==player) {
-                    currentLevelSeries = newSeries;
-                } else if (playeri.team==player.team) {
-                    levelSeries.push({data: newSeries, color: "#5f5432"});
-                } else {
-                    levelSeries.push({data: newSeries, color: "#444444"});
-                }
+        $(this).children("img").click(function() {
+            details.slideToggle("fast", function() {
+                showDetails(detailsChart, game, player);
             });
+        });
 
-            levelSeries.push({data: currentLevelSeries, color: "#ffffff"});
-
-            var levelPlot = $.plot($(".chart.level"), levelSeries);
-
-
-            /*
-             * draw ScoreChart
-             */
-
-            var scoreSeries = [];
-            var currentScoreSeries;
-
-            $.each(game.players, function(name,playeri) {
-                var newSeries = getScoreSeries(
-                    playeri.killLog, playeri.deathLog, game.duration);
-                if (playeri==player) {
-                    currentScoreSeries = newSeries;
-                } else if (playeri.team==player.team) {
-                    scoreSeries.push({data: newSeries, color: "#5f5432"});
-                } else {
-                    scoreSeries.push({data: newSeries, color: "#444444"});
-                }
-            });
-
-            scoreSeries.push({data: currentScoreSeries, color: '#ffffff'});
-
-            var scorePlot = $.plot($(".chart.score"), scoreSeries);
-
+        $(this).children("img").hover(function() {
+            showDetails(detailsChart, game, player);
         });
     });
 }
+
+
+getScoreSeries = function(killLog, deathLog, gameDuration) {
+    var eventLog = $.map(killLog, function(e) {
+            return [[e[0], 1]];
+        }).concat($.map(deathLog, function(e) {
+            return [[e[0], -1]];
+        })).sort( function(a, b) {
+            return a[0] - b[0];
+        });
+
+    var scoreLog = [[0,0]];
+    var score = 0;
+    var ts = 0;
+    var lastTs = 0;
+
+    $.each(eventLog, function(i, e) {
+        ts = e[0];
+        if ((ts-lastTs) > 100000) {
+            scoreLog.push([ts-100000, score]);
+        }
+        score += e[1];
+        scoreLog.push([ts, score]);
+        lastTs = ts;
+    });
+
+    var scaleTime = 1.0 / 60.0 / 1000.0;
+
+    var scoreSequence = $.map(scoreLog, function(e, i) {
+            return [e[1]];
+    });
+    
+    var scaleScore = 100.0/Math.max(
+            scoreSequence.max(),-scoreSequence.min());
+
+    scaledScoreLog = $.map(scoreLog, function(e, i) {
+            return [[ e[0]*scaleTime, e[1] ]]
+    });
+
+    scaledScoreLog.push( [
+            scaleTime*gameDuration*1000.0,
+            scaledScoreLog[scaledScoreLog.length-1][1]]);
+
+    return scaledScoreLog;
+}
+
+
+showDetails = function(detailsElm, game, player) {
+    var scoreSeries = [];
+
+    $.each(game.players, function(name, playeri) {
+        var newSeries = getScoreSeries(
+            playeri.killLog, playeri.deathLog, game.duration);
+        scoreSeries.push({data: newSeries, label:name});
+    });
+
+
+    console.log(detailsElm.width(), detailsElm.height());
+
+    if (detailsElm.width()>0 && detailsElm.height()>0) {
+        $.plot(detailsElm, scoreSeries, {legend: {
+                position: "sw",
+                backgroundColor: 'null',
+                labelBoxBorderColor: 'null',
+            }
+        });
+    }
+};

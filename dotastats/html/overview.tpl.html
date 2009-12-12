@@ -27,23 +27,21 @@ def format_duration(game):
         <script>
             google.load("jquery", "1.3.2");
             google.setOnLoadCallback(function() {
-                $.getJSON("/game_data?_="+(new Date().getTime()), 
-                    function(data) {
-                        gameData = data;
-                });
-
-                $.getJSON("/static/json/units-6.60.compact.json?_="
-                    +(new Date().getTime()), function(data) {
-                        console.log("got dota info");
-                        dotaInfo = data;
-                });
-
                 $.getScript("/static/js/jquery.sprintf.js");
                 $.getScript("/static/js/jquery.gchart.pack.js");
                 $.getScript("/static/js/flot/jquery.flot.min.js");
 
+                $.getJSON("/static/json/units-6.60.compact.json?_="
+                    +(new Date().getTime()), function(data) {
+                        dotaInfo = data;
+                });
+
                 $.getScript("/static/js/jquery.dataset.js", function() {
-                    initTooltips();
+                    $.getJSON("/game_data?_="+(new Date().getTime()), 
+                        function(data) {
+                            gameData = data;
+                            initTooltips();
+                        });
                 });
             });
         </script>
@@ -78,7 +76,6 @@ def format_duration(game):
                 cursor: default;
                 margin-left: auto;
                 margin-right: auto;
-                text-align: center;
                 border-collapse: separate;
                 border-spacing: 0;
                 border: 2px solid #333;
@@ -92,7 +89,8 @@ def format_duration(game):
                 color: #ffebaf;
             }
 
-            table.overview td {
+            table.overview > tbody > tr > td {
+                text-align: center;
                 background: #111;
                 width: 64px;
             }
@@ -123,16 +121,20 @@ def format_duration(game):
                 opacity: 1.0;
             }
 
+            table.overview div.gameDetails {
+                height: 340px;
+                display: none;
+            }
+
+            .gameDetails .chart {
+                height: 100%;
+                width: 100%;
+            }
+
             .tooltip#ttPlayerStats .heroName {
                 font-weight: bolder;
                 padding-bottom: .2em;
             }
-
-            .tooltip#ttPlayerStats .chart {
-                width: 200px;
-                height: 150px;
-            }
-
 
             .tooltip {
                 position: absolute;
@@ -142,6 +144,11 @@ def format_duration(game):
                 -moz-border-radius: 10px;
                 display: none;
                 border: 2px solid #333;
+            }
+
+            td.legendLabel {
+                color: #ffebaf;
+                text-align: left;
             }
 
         </style>
@@ -160,35 +167,48 @@ def format_duration(game):
                     ${get_initials(player)}
                 </th>
             </tr>
-            <tr py:for="n, game in enumerate(play_day.games)">
-                <!--! <td class="game_index" title="${game.replay_hash}">${n+1}</td> -->
-                <td class="gameTime">
-                    ${format_gametime(game)} <br />
-                    ${format_duration(game)}
-                </td>
-                <py:for each="player in players">
-                    <?python
-                    players = game['players']
-                    if not player in players:
-                        tag = 'absent'
-                        absent = True
-                    else:
-                        image_path = get_hero_image(players[player]['heroId'])
-                        tag= ('win' if players[player]['isWinner'] else 'fail')
-                        absent = False
-                    ?>
-                    <td class="playerStat score ${tag}" 
-                        data-game="${game.replayHash}"
-                        data-player="${player}">
-                        <img    py:if="not absent"
-                                class="heroImage" 
-                                src="${image_path}" />
-                        <div py:if="not absent">
-                            ${game.players[player].kills} 
+            <py:for each="n, game in enumerate(play_day.games)">
+                <tr>
+                    <!--! <td class="game_index" title="${game.replay_hash}">${n+1}</td> -->
+                    <td class="gameTime">
+                        ${format_gametime(game)} <br />
+                        ${format_duration(game)}
+                    </td>
+                    <py:for each="player in players">
+                        <?python
+                        players = game['players']
+                        if not player in players:
+                            tag = 'absent'
+                            absent = True
+                        else:
+                            image_path = get_hero_image(players[player]['heroId'])
+                            tag= ('win' if players[player]['isWinner'] else 'fail')
+                            absent = False
+                        ?>
+                        <td class="playerStat score ${tag}" 
+                            data-game="${game.replayHash}"
+                            data-player="${player}">
+                            <img    py:if="not absent"
+                                    class="heroImage" 
+                                    src="${image_path}" />
+                            <!-- 
+                            <div py:if="not absent">
+                                ${game.players[player].kills} 
+                            </div>
+                            -->
+                        </td>
+                    </py:for>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="${len(players)}">
+                        <div class="gameDetails"
+                            data-game="%{game.replayHash}">
+                            <div class="chart"></div>
                         </div>
                     </td>
-                </py:for>
-            </tr>
+                </tr>
+            </py:for>
         </table>
         </div>
 
@@ -196,11 +216,14 @@ def format_duration(game):
 
         <div id="ttPlayerStats" class="tooltip">
             <div class="heroName"></div>
-            <div class="killStats"></div>
+            <span class="killStats"></span>
+            <span class="deathStats"></span>
+            <!--
             <h4>Level</h4>
             <div class="chart level"></div>
             <h4>Score</h4>
             <div class="chart score"></div>
+            -->
         </div>
 
         <div class="footer">
