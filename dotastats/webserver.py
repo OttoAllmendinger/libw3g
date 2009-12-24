@@ -80,18 +80,14 @@ class DotaStats:
         return json.dumps(get_dota_replays())
 
     @cherrypy.expose
-    def reparse_all(self):
-        for replay_hash in os.listdir(REPLAY_DIR):
-            replay_file = get_replay_file(replay_hash, 'r')
-            replay_metadata = load_replay_metadata(replay_hash)
-            replay_metadata['dota'] = None
-            try:
-                replay_metadata['dota'] = libdota.get_gameinfo(replay_file)
-            except:
-                logging.exception('failed to parse replay')
-            finally:
-                save_replay_metadata(replay_hash, replay_metadata)
-                yield '%s %s<br>' % (replay_hash, bool(replay_metadata['dota']))
+    def rebuild(self, targets='replay+gameinfo'):
+        targets = targets.split("+")
+
+        if 'replayinfo' in targets:
+            rebuild_replayinfo()
+        if 'gameinfo' in targets:
+            rebuild_gameinfo()
+
 
     @cherrypy.expose
     def index(self):

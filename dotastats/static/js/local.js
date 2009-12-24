@@ -85,14 +85,14 @@ getScoreSeries = function(killLog, deathLog, gameDuration) {
             return [[e[0], 1]];
         }).concat($.map(deathLog, function(e) {
             return [[e[0], -1]];
-        })).sort( function(a, b) {
+        })).sort(function(a, b) {
             return a[0] - b[0];
-        });
+        }),
 
-    var scoreLog = [[0,0]];
-    var score = 0;
-    var ts = 0;
-    var lastTs = 0;
+        scoreLog = [[0,0]],
+        score = 0,
+        ts = 0,
+        lastTs = 0;
 
     $.each(eventLog, function(i, e) {
         ts = e[0];
@@ -104,18 +104,13 @@ getScoreSeries = function(killLog, deathLog, gameDuration) {
         lastTs = ts;
     });
 
-    var scaleTime = 1.0 / 60.0 / 1000.0;
-
-    var scoreSequence = $.map(scoreLog, function(e, i) {
+    var scaleTime = 1.0 / 60.0 / 1000.0,
+        scoreSequence = $.map(scoreLog, function(e, i) {
             return [e[1]];
-    });
-    
-    var scaleScore = 100.0/Math.max(
-            scoreSequence.max(),-scoreSequence.min());
-
-    scaledScoreLog = $.map(scoreLog, function(e, i) {
+        }),
+        scaledScoreLog = $.map(scoreLog, function(e, i) {
             return [[ e[0]*scaleTime, e[1] ]]
-    });
+        });
 
     scaledScoreLog.push( [
             scaleTime*gameDuration*1000.0,
@@ -131,7 +126,8 @@ showDetails = function(detailsElm, game, player) {
     $.each(game.players, function(name, playeri) {
         var newSeries = getScoreSeries(
             playeri.killLog, playeri.deathLog, game.duration);
-        scoreSeries.push({data: newSeries, label:name});
+        scoreSeries.push({data: newSeries, label:name, 
+            color:playerColors[name]});
     });
 
 
@@ -146,3 +142,24 @@ showDetails = function(detailsElm, game, player) {
         });
     }
 };
+
+
+initColors = function() {
+    playerColors = new Object();
+    $(".playerName").each(function() {
+            var playerName = $(this).dataset("player"),
+                color = $.autocontrast(playerName, "dark");
+            console.log(playerColors, playerColors[playerName]);
+            if (playerColors[playerName]===undefined) {
+                playerColors[playerName] = color;
+            }
+
+            $(this).css("color", playerColors[playerName]);
+    });
+    console.log("playerColors", playerColors);
+}
+
+init = function() {
+    initTooltips();
+    initColors();
+}

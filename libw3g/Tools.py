@@ -4,16 +4,11 @@ from struct import *
 import string
 import zlib
 
-try:
-    import betterprint as pprint
-except:
-    import pprint
+from pprint import pprint
 
 
 class ExtractionError(Exception):
     pass
-
-pprint = pprint.pprint
 
 def dump(data):
     if not data:

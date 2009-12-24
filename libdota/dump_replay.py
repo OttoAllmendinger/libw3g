@@ -4,19 +4,18 @@ sys.stdout = codecs.getwriter(locale.getdefaultlocale()[1])(sys.stdout, 'replace
 import logging
 import json
 
-try:
-    from betterprint import pprint
-except ImportError:
-    from pprint import pprint
+from pprint import pprint
 
 from libw3g.Tools import *
-from libdota.DotaParser import get_gameinfo
+from libdota import get_replay_data, get_game_data
+
+def dump_replay_data(replay_data):
+    pprint(replay_data)
 
 def dump_state(gamestate):
     pprint(gamestate)
 
-def dump_events(gamestate):
-    print '---- events ----'
+def dump_dota_events(gamestate):
     for ts, event in gamestate['dota']['events']:
         print "%12s | " % formatGametime(ts) + "%-12s, %-12s, %-12s" % event
 
@@ -47,30 +46,32 @@ def dump_json(state, json_file_name):
 def usage(name):
     print "Usage: %s REPLAY-FILE" % name
 
-
 if __name__=="__main__":
     from optparse import OptionParser
     parser = OptionParser()
-    parser.add_option('-r', '--results', action='store_true')
-    parser.add_option('-e', '--events', action='store_true')
-    parser.add_option('-s', '--state', action='store_true')
     parser.add_option('-m', '--metadata', action='store_true')
-    parser.add_option('-p', '--players', action='store_true')
-    parser.add_option('-j', '--json')
+    parser.add_option('-r', '--replaydata', action='store_true')
+    parser.add_option('-g', '--gamedata', action='store_true')
+    parser.add_option('-e', '--dota-events', action='store_true')
+    #parser.add_option('-s', '--state', action='store_true')
+    #parser.add_option('-p', '--players', action='store_true')
+    #parser.add_option('-j', '--json')
     options, args = parser.parse_args()
 
-    state = get_gameinfo(file(args[0]))
+    #meta_data = get_meta_data(args[0])
+    replay_data = get_replay_data(file(args[0]))
+    game_data = get_game_data(replay_data)
 
     if options.metadata:
-        dump_metadata(state)
-    if options.results:
-        dump_results(state)
-    if options.state:
-        dump_state(state)
-    if options.events:
-        dump_events(state)
-    if options.players:
-        dump_players(state)
-    if options.json:
-        dump_json(state, options.json)
+        dump_metadata(meta_data)
+    if options.replaydata:
+        dump_replay_data(replay_data)
+    if options.gamedata:
+        dump_state(game_data)
+    if options.dota_events:
+        dump_dota_events(replay_data)
+    #if options.players:
+        #dump_players(state)
+    #if options.json:
+        #dump_json(state, options.json)
 

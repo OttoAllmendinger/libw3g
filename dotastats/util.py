@@ -10,6 +10,20 @@ import libdota
 
 REPLAY_DIR = join(dirname(__file__), 'replays')
 
+def rebuild_replays():
+    for replay_hash in os.listdir(REPLAY_DIR):
+        replay_file = get_replay_file(replay_hash, 'r')
+        replay_metadata = load_replay_metadata(replay_hash)
+        replay_metadata['dota'] = None
+        try:
+            replay_metadata['dota'] = libdota.get_gameinfo(replay_file)
+        except:
+            logging.exception('failed to parse replay')
+        finally:
+            save_replay_metadata(replay_hash, replay_metadata)
+            yield '%s %s<br>' % (replay_hash, bool(replay_metadata['dota']))
+
+
 def get_replay_file(replay_hash, mode):
     return file(join(get_replay_dir(replay_hash), 'replay.w3g'), mode)
 
@@ -109,6 +123,10 @@ def test():
     pprint(get_dota_replays())
     pprint(get_playdays())
     #print get_players()
+
+
+def color_palette():
+    return
 
 if __name__=='__main__':
     test()

@@ -22,28 +22,57 @@ def format_duration(game):
 <html xmlns="http://www.w3.org/1999/xhtml"
           xmlns:py="http://genshi.edgewall.org/">
     <head>
-        <script src="http://www.google.com/jsapi"></script>
+        <!-- <script src="http://www.google.com/jsapi"></script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="/static/js/autocontrast/crc32.js"></script>
+        <script src="/static/js/autocontrast/jquery.color.utils-0.1.0.js"></script>
+        <script src="/static/js/autocontrast/colorutils.js"></script>
+        <script src="/static/js/autocontrast/jquery.autocontrast.js"></script>
+        <script src="/static/js/jquery.dataset.js"></script>
+        <script src="/static/js/jquery.sprintf.js"></script>
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
         <script src="/static/js/local.js"></script>
+        <script> 
+
+            $.getJSON("/static/json/units-6.60.compact.json?_="
+                +(new Date().getTime()), 
+                function(data) {
+                    dotaInfo = data;
+                    init();
+                }
+            );
+
+            $.getJSON("/game_data?_="+(new Date().getTime()), 
+                function(data) {
+                    gameData = data;
+                    init();
+                }
+            );
+
+            $(document).ready(function() {
+                init();
+            });
+
+        </script>
         <script>
+            /*
             google.load("jquery", "1.3.2");
             google.setOnLoadCallback(function() {
+                $.getScript("/static/js/autocontrast/crc32.js");
+                $.getScript("/static/js/autocontrast/jquery.color.utils-0.10.0.js");
+                $.getScript("/static/js/autocontrast/colorutils.js");
+                $.getScript("/static/js/autocontrast/jquery.autocontrast.js");
                 $.getScript("/static/js/jquery.sprintf.js");
                 $.getScript("/static/js/jquery.gchart.pack.js");
                 $.getScript("/static/js/flot/jquery.flot.min.js");
 
-                $.getJSON("/static/json/units-6.60.compact.json?_="
-                    +(new Date().getTime()), function(data) {
-                        dotaInfo = data;
-                });
 
                 $.getScript("/static/js/jquery.dataset.js", function() {
-                    $.getJSON("/game_data?_="+(new Date().getTime()), 
-                        function(data) {
-                            gameData = data;
-                            initTooltips();
-                        });
+                    initColors();
+
                 });
             });
+            */
         </script>
         <title>DotA Overview</title>
         <style type="text/css">

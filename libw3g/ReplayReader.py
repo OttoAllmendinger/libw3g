@@ -19,9 +19,9 @@ class ReplayReader:
         io.seek(header['size'])
         return header
 
-    def extractGameInfo(self, io):
-        gameinfo = {}
-        gameinfo['Name'] = extractString(io)
+    def parseGameInfo(self, io):
+        self.state['info'] = gameinfo = {}
+        gameinfo['name'] = extractString(io)
         io.read(1)
 
         ioGameinfo = decodeGameInfo(extractString(io, decode=False))
@@ -55,7 +55,7 @@ class ReplayReader:
                 break
 
 
-        gameinfo['players'] = players = {}
+        self.state['players'] = players = {}
         for rid, rec in enumerate(records):
             players[rec['player_id']] = rec
             rec['is_admin']= (rid==0)
@@ -68,23 +68,20 @@ class ReplayReader:
                 'team color race ai_level handicap')
         return dict(zip(keys.split(), extract('9b', io)))
 
-    def extractStartRecord(self, io):
-        slots = {}
-        startrecord = {'slots': slots }
+    def parseStartRecord(self, io):
+        startrecord = {}
         record_id, n_bytes, n_slots = extract("<bhb", io)
-
-        self.state['slots'] = {}
 
         assert record_id==0x19
 
         for i in range(n_slots):
             sid = i+1
-            slot = self.extractSlotRecord(io)
-            if slot['slot_status'] != 0:
-                pid = slot['player_id']
+            slot_data = self.extractSlotRecord(io)
+            if slot_data['slot_status'] != 0:
+                pid = slot_data['player_id']
                 player = self.state['players'][pid]
                 player['slot_id']=sid
-                self.state['slots'][sid] = player
+                player.update(slot_data)
 
         keys = "random_seed select_mode start_spots".split()
         startrecord.update(dict(zip(keys, extract("LBB", io))))
@@ -102,7 +99,6 @@ class ReplayReader:
         gameio.seek(4)
 
         self.state['host'] = extractPlayer(gameio)
-        self.state['info'] = self.extractGameInfo(gameio)
-        self.state['players'] = self.state['info']['players']
-        self.state['start_records'] = self.extractStartRecord(gameio)
+        self.parseGameInfo(gameio)
+        self.parseStartRecord(gameio)
         self.gameBlockReader.parse(gameio)
