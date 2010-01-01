@@ -8,14 +8,13 @@ import time
 from poster.encode import multipart_encode
 from poster.streaminghttp import register_openers
 
-
 register_openers()
 
-VERSION = '0.1'
 
-def get_timestamp(path):
-    stat = os.stat(path)
-    return int(stat.st_mtime)
+import libw3g
+
+
+VERSION = '0.1'
 
 def console_output(n_bytes):
     print n_bytes
@@ -25,9 +24,9 @@ class ReplayUploader:
         self.cgiurl = cgiurl
 
     def exists(self, path):
-        rphash = hashlib.md5(file(path, 'rb').read()).hexdigest()[:6]
+        replay_id = libw3g.get_replay_id(file(path, 'rb').read())
         response = urllib2.urlopen(
-                self.cgiurl+'/exists/%s' % rphash).read().strip()
+                self.cgiurl+'/exists/%s' % replay_id).read().strip()
         return str(response)=='True'
 
     def upload(self, path, callback=console_output):

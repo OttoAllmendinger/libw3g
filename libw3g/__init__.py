@@ -1,3 +1,5 @@
+from util import *
+
 def _getversion():
     try:
         from mercurial import ui, hg

@@ -93,4 +93,4 @@ def formatGametime(ms):
     return '%02d:%02d:%02d' % (h, m, s)
 
 def getEmptyGamestate():
-    return { 'gametime': 0, 'debug': {} }
+    return { 'gametime': 0 }

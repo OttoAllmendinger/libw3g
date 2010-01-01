@@ -23,10 +23,7 @@ class DotaActionBlockReader(ActionBlockReader):
     def __init__(self, gamestate):
         ActionBlockReader.__init__(self, gamestate)
 
-        self.dotastate = self.state['dota'] = {
-            'events': [],
-            'mode_line': None,
-        }
+        self.dota_events = self.state['dota_events'] = []
 
         self.define(0x6B, 'DotaTrigger')
 
@@ -34,28 +31,24 @@ class DotaActionBlockReader(ActionBlockReader):
         extract('LL', io)
         message = extractString(io)
 
-        if self.currentPlayer['is_admin'] and\
-                self.dotastate['mode_line']==None:
-            self.dotastate['mode_line'] = message
-
     def handleDotaTrigger(self, block, io):
         _ = extractString(io)
         a = extractString(io)
         b = extractString(io)
 
-        if b[0] in ('8', '9'):
-            c = extract('4s', io)[0][::-1]
+        if b[0] in ('8', '9') or b.startswith('PUI_') or b.startswith('DRI_'):
+            c = extract('4s', io)[0][::-1].replace('\0', '') or None
         else:
             c, = extract('L', io)
 
-        self.dotastate['events'].append((
+        self.dota_events.append((
             dotaTime(self.state['gametime']), (a,b,c)))
 
 
-def get_replay_data(io):
+def get_replaydata(data):
     gamestate = getEmptyGamestate()
     gamestate.update({ 'parsetime': time.asctime(), })
     reader = ReplayReader(gamestate)
     reader.gameBlockReader.actionBlockReader = DotaActionBlockReader(gamestate)
-    reader.parse(io)
+    reader.parse(StringIO(data))
     return gamestate

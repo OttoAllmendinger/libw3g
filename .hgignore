@@ -1,8 +1,10 @@
 syntax: glob
 
 local/
+libdota/tests/replays
 dotastats/static/images/
 dotastats/replays
+dotastats/data/*
 *.swo
 *.swp
 *.pyc

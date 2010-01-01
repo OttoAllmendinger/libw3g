@@ -1,7 +1,9 @@
-from GameBlockReader import GameBlockReader
-from Tools import *
 
 from logging import basicConfig, debug
+
+from GameBlockReader import GameBlockReader
+from Tools import *
+from util import get_replay_id
 
 
 class ReplayReader:
@@ -79,6 +81,8 @@ class ReplayReader:
             slot_data = self.extractSlotRecord(io)
             if slot_data['slot_status'] != 0:
                 pid = slot_data['player_id']
+                if not pid in self.state['players']:
+                    continue
                 player = self.state['players'][pid]
                 player['slot_id']=sid
                 player.update(slot_data)
@@ -89,6 +93,8 @@ class ReplayReader:
         return startrecord
 
     def parse(self, io):
+        self.state['replay_id'] = get_replay_id(io.read())
+        io.seek(0)
         header = self.state['header'] = self.extractHeader(io)
 
         gameio = StringIO()

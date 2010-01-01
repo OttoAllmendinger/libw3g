@@ -1,20 +1,24 @@
 import os
 import sys
 import time
+import json
 import logging
 from os.path import abspath, dirname, exists, join
 from cStringIO import StringIO
 
 import cherrypy
+from cherrypy import expose
 from genshi.template import TemplateLoader
 
+from libw3g import get_replay_id
 import libw3g
 import libw3g.Tools
 import libdota.DotaParser
 import libdota.DotaUnits
-from dotastats.util import *
 
-
+from dotastats import util
+from dotastats.ReplayDB import ReplayDB
+from dotastats.PlayerDB import PlayerDB
 
 # TODO: maybe add http://www.thomasfrank.se/json_editor.html
 
@@ -22,13 +26,27 @@ loader = TemplateLoader(join(dirname(__file__), 'html'), auto_reload=True)
 
 VALID_RU_VERSIONS = ('0.1', )
 
+
+def rename_players(gamedata_players):
+    newdict = {}
+    for player in ALIAS_MAP:
+        for alias in player['aliases']:
+            if alias in gamedata_players:
+                newdict[player] = gamedata_players[alias]
+                break
+    return newdict
+
 class DotaStats:
-    @cherrypy.expose
+    def __init__(self):
+        self.replaydb = ReplayDB(join(dirname(__file__), 'data', 'replaydb'))
+        self.playerdb = PlayerDB(join(dirname(__file__), 'data', 'playerdb'))
+
+    @expose
     def set_admin(self):
         cherrypy.response.cookie['dotastats-admin'] = 'True'
         return 'cookie data was: %s' % cherrypy.request.cookie
 
-    @cherrypy.expose
+    @expose
     def unset_admin(self):
         cherrypy.response.cookie['dotastats-admin'] = 'False'
         return 'cookie unset'
@@ -36,11 +54,11 @@ class DotaStats:
     def is_admin(self):
         return cherrypy.request.cookie.get('dotastats-admin')=='True'
 
-    @cherrypy.expose
-    def exists(self, file_hash):
-        return unicode(replay_exists(file_hash))
+    @expose
+    def exists(self, replay_id):
+        return unicode(replay_exists(replay_id))
 
-    @cherrypy.expose
+    @expose
     def upload(self, replay_file=None, timestamp=None):
         timestamp, size, tmp_io = int(timestamp), 0, StringIO()
 
@@ -56,50 +74,53 @@ class DotaStats:
 
         tmp_io.seek(0)
         data = tmp_io.read()
-        replay_hash = get_replay_hash(data)
 
-        save_replay(replay_hash, data)
-        save_replay_metadata(replay_hash, {
-            'replay_hash': replay_hash,
+        metadata = {
             'file_timestamp': int(timestamp),
             'upload_timestamp': int(time.time()),
-            'uploader_ip': cherrypy.request.remote.ip,
-            'dota': libdota.get_gameinfo(tmp_io) })
+            'uploader_ip': cherrypy.request.remote.ip }
+
+        self.replaydb.add_replay(data, metadata)
 
     upload._cp_config = {'response.stream': True}
 
-    @cherrypy.expose
+    @expose
     def check_ru(self, version=None):
         if version in VALID_RU_VERSIONS:
             return str(True)
         else:
             return str(False)
 
-    @cherrypy.expose
-    def game_data(self, **k):
-        return json.dumps(get_dota_replays())
 
-    @cherrypy.expose
+    @expose
     def rebuild(self, targets='replay+gameinfo'):
         targets = targets.split("+")
 
-        if 'replayinfo' in targets:
-            rebuild_replayinfo()
-        if 'gameinfo' in targets:
-            rebuild_gameinfo()
+    @expose
+    def gamedata(self, **k):
+        return json.dumps(dict((r.replay_id,
+            util.unalias(r.gamedata, self.playerdb.alias_map)) for r in
+            self.replaydb.replays.values()))
 
+    @expose
+    def metadata(self, **k):
+        return json.dumps(
+                dict((r.replay_id, r.metadata) for r in
+                    self.replaydb.replays.values()))
+    @expose
+    def test(self):
+        return loader.load('test.tpl.html').generate().render('html')
 
-    @cherrypy.expose
+    @expose
     def index(self):
-        return loader.load('overview.tpl.html').generate(
-                playdays=get_playdays(), players=get_players(),
-                get_hero_image=get_hero_image,
-                libw3g_version=libw3g.version).render('html')
+        return loader.load('overview.tpl.html').generate(util=util,
+                replaydb=self.replaydb, playerdb=self.playerdb,
+                libw3g_version=libw3g.version,
+        ).render('html')
 
-    @cherrypy.expose
+    @expose
     def static(self):
         return "you shouldn't see this"
-
 
 
 if __name__=='__main__':
@@ -107,10 +128,13 @@ if __name__=='__main__':
     parser = OptionParser()
     parser.add_option('-p', '--port')
     parser.add_option('--fastcgi', action='store_true')
+    parser.add_option('--replaydb')
+    #parser.add_option('--playerdb')
     options, args = parser.parse_args()
 
     config = {
         '/': {
+            'tools.gzip.on': True,
             'tools.encode.on': True,
             'tools.encode.encoding': 'utf8',
             'tools.encode.add_charset': True,
@@ -118,6 +142,8 @@ if __name__=='__main__':
         '/static': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': 'static' }}
+
+    dotastats = DotaStats()
 
     if options.fastcgi:
         from flup.server.fcgi import WSGIServer
@@ -128,10 +154,10 @@ if __name__=='__main__':
                     'log.access_file': '/tmp/cherry_access.log',
                     'log.error_file': '/tmp/cherry_error.log'
                 })
-        app = cherrypy.tree.mount(DotaStats())
+        app = cherrypy.tree.mount(dotastats)
         WSGIServer(app).run()
     else:
         if options.port:
             cherrypy.config.update( {'server.socket_port': int(options.port) } )
-        cherrypy.quickstart(DotaStats(), '/', config=config)
+        cherrypy.quickstart(dotastats, '/', config=config)
 
