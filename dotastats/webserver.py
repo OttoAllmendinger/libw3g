@@ -56,7 +56,7 @@ class DotaStats:
 
     @expose
     def exists(self, replay_id):
-        return unicode(replay_exists(replay_id))
+        return unicode(replay_id in self.replaydb.get_replay_ids())
 
     @expose
     def upload(self, replay_file=None, timestamp=None):

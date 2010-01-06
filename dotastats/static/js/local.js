@@ -79,4 +79,19 @@ init = function() {
         initTooltips();
     });
 
+<<<<<<< local
+
+    // console.log(detailsElm.width(), detailsElm.height());
+
+    if (detailsElm.width()>0 && detailsElm.height()>0) {
+        $.plot(detailsElm, scoreSeries, {legend: {
+                position: "sw",
+                backgroundColor: 'null',
+                labelBoxBorderColor: 'null',
+            }
+        });
+    }
+};
+=======
 }
+>>>>>>> other

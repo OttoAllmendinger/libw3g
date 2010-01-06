@@ -2,8 +2,6 @@ import re
 from libdota import DotaParser
 from collections import defaultdict
 
-from betterprint import pprint
-
 from libdota.constants import TEAM_1, TEAM_2
 
 VALID_VERSIONS = ('v6.64', )

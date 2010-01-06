@@ -28,7 +28,7 @@ def unalias(gamestate, alias_map):
 def filter_replays(replays):
     def f(rp):
         return (rp.gamedata['duration']>10*60*1000)
-    return sorted(filter(f, replays), key=lambda r: r.gamedata['start_time'])
+    return sorted(filter(f, replays), key=lambda r: -r.gamedata['start_time'])
 
 def get_player_stats(player_data, gamedata):
     for alias in player_data['aliases']:
