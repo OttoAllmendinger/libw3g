@@ -32,7 +32,7 @@ class ReplayUploader:
     def upload(self, path, callback=console_output):
         datagen, headers = multipart_encode({
                 'replay_file': file(path, 'rb'),
-                'timestamp': str(get_timestamp(path))
+                'timestamp': str(libw3g.get_timestamp(path))
         })
 
         request = urllib2.Request(self.cgiurl+'/upload', datagen, headers)
@@ -59,28 +59,24 @@ def test_host(host):
 
 
 def wait_for_change(path):
-    timestamp = current_ts = get_timestamp(path)
+    timestamp = current_ts = libw3g.get_timestamp(path)
     while (timestamp==current_ts):
-        current_ts = get_timestamp(path)
+        current_ts = libw3g.get_timestamp(path)
         time.sleep(1)
 
 if __name__=='__main__':
     option_parser = optparse.OptionParser()
-    option_parser.add_option("-w", "--watch", action='store_true')
+    option_parser.add_option("-H", "--host")
+    #option_parser.add_option("-w", "--watch", action='store_true')
     (options, args) = option_parser.parse_args()
-    host, replay_file = args
+
+    host = options.host
+    replay_files = args[:]
 
     uploader = ReplayUploader('http://' + host)
 
-    while True:
+    for replay_file in replay_files:
         if uploader.exists(replay_file):
             print 'replay already exists'
         else:
             uploader.upload(replay_file)
-
-        if options.watch:
-            wait_for_change(replay_file)
-            print 'new replay found'
-            time.sleep(1) # maybe warcraft needs time to write the replay
-        else:
-            break
