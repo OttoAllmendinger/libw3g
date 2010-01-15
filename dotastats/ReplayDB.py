@@ -31,8 +31,11 @@ class Replay(object):
 
 class ReplayDB(object):
     def __init__(self, basedir):
-        if not basedir or not exists(basedir):
+        if not basedir:
             raise Exception("basedir does not exists: %s" % basedir)
+
+        if not exists(basedir):
+            os.makedirs(basedir)
 
         self.basedir = basedir
         self.replays = {}

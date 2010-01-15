@@ -1,0 +1,223 @@
+<!--!  vi: set ft=genshi: -->
+<!DOCTYPE html>
+<?python
+
+import time
+
+from libdota.constants import TEAM_1, TEAM_2
+
+def player_class(player_name):
+    return 'player%s' % player_name
+
+def format_gametime(gamedata):
+    return time.strftime("%H:%M", time.localtime(gamedata['start_time']))
+
+def format_duration(gamedata):
+    return "%d min" % (int(gamedata['duration']/60/1000))
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:py="http://genshi.edgewall.org/">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="/static/js/jquery.dataset.js"></script>
+        <script src="/static/js/jquery.sprintf.js"></script>
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/local.js"></script>
+        <script>
+            $(document).ready(function() {
+                init();
+            });
+        </script>
+
+        <title>DotA Overview</title>
+
+        <style type="text/css">
+            body {
+                background: #080808;
+                font-family: Georgia;
+                color: #ffebaf;
+            }
+
+            h1 {
+                text-align: center;
+                color: #ffebaf;
+            }
+
+            h3 {
+                color: #b5a26b;
+                text-align: center;
+            }
+
+            .footer {
+                margin-top: 300px;
+                margin-bottom: 50px;
+                text-align: center;
+                color: #404040;
+            }
+
+            table.overview {
+                cursor: default;
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: separate;
+                border-spacing: 0;
+                border: 2px solid #333;
+                background: #222;
+                padding-bottom: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+            }
+
+            table.overview th {
+                color: #ffebaf;
+            }
+
+            table.overview > tbody > tr > td {
+                text-align: center;
+                background: #111;
+            }
+
+            table.overview .game_index {
+                vertical-align: top;
+                width: 32px;
+            }
+
+            table.overview td.game_time {
+                width: 64px;
+            }
+
+            table.overview td.stat_button {
+                width: 64px;
+            }
+
+            table.overview td.score {
+                font-weight: bolder;
+                padding: 12px;
+                /* width: 80px; */
+            }
+
+            table.overview td.score.win {
+                color: #ffebaf;
+            }
+
+            table.overview td.score.fail {
+                color: #575244;
+            }
+
+            table.overview .fail img {
+                opacity: 0.2;
+            }
+
+            table.overview .fail img:hover {
+                opacity: 1.0;
+            }
+
+            table.overview div.gameDetails {
+                height: 340px;
+                display: none;
+            }
+
+            table.overview .team1, table.overview .team2 {
+                width: 264px;
+            }
+
+            .gameDetails .chart {
+                height: 100%;
+                width: 100%;
+            }
+
+            .tooltip#ttPlayerStats .heroName {
+                font-weight: bolder;
+                padding-bottom: .2em;
+            }
+
+            .tooltip {
+                position: absolute;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 0.66em;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                display: none;
+                border: 2px solid #333;
+            }
+
+            td.legendLabel {
+                color: #ffebaf;
+                text-align: left;
+            }
+
+        </style>
+    </head>
+    <body>
+        <table class="overview">
+            <tr>
+                <th class="game_time"></th>
+                <th class="team1">The Sentinel</th>
+                <th class="team2">The Scourge</th>
+                <th class="stat_button"></th>
+            </tr>
+            <py:for each="replay in util.filter_replays(replaydb.replays.values())">
+                <tr>
+                    <td class="game_time" title="${replay.replay_id}">
+                        ${format_gametime(replay.gamedata)} <br />
+                        ${format_duration(replay.gamedata)}
+                    </td>
+
+                    <td py:for="n, team in enumerate((TEAM_1, TEAM_2))" 
+                        class="team${n+1}">
+                        <?python
+                        game_players = sorted(
+                            util.players_by_team(replay, team),
+                            key=lambda p: p['hero'])
+                        ?>
+
+
+                        <span py:for="player in game_players" 
+                            class="${'win' if player.is_winner else 'fail'}">
+                            <img src="${util.get_hero_image(player.hero)}" />
+                        </span>
+                    </td>
+
+                    <td class="stat_button">
+                        <!--! ${util.get_ministats(replay)} -->
+                        <!--! <img src="static/statbutton.png" /> -->
+                        <!-- <a>...</a> -->
+                    </td>
+                </tr>
+                <!--
+                <tr>
+                    <td></td>
+                    <td colspan="${len(playerdb.players)}">
+                        <div class="gameDetails"
+                            data-game="${replay.replay_id}">
+                            <div class="chart"></div>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                -->
+            </py:for>
+        </table>
+
+        <div id="ttPlayer" class="tooltip"> </div>
+
+        <div id="ttPlayerStats" class="tooltip">
+            <div class="heroName"></div>
+            <span class="killStats"></span>
+            <span class="deathStats"></span>
+            <!--
+            <h4>Level</h4>
+            <div class="chart level"></div>
+            <h4>Score</h4>
+            <div class="chart score"></div>
+            -->
+        </div>
+
+        <div class="footer">
+            libw3g.libdota.dotastats.r${libw3g_version}
+        </div>
+
+    </body>
+</html>

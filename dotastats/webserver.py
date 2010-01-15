@@ -113,7 +113,7 @@ class DotaStats:
 
     @expose
     def index(self):
-        return loader.load('overview.tpl.html').generate(util=util,
+        return loader.load('twopane.tpl.html').generate(util=util,
                 replaydb=self.replaydb, playerdb=self.playerdb,
                 libw3g_version=libw3g.version,
         ).render('html')

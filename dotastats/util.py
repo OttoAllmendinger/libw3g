@@ -36,6 +36,9 @@ def get_player_stats(player_data, gamedata):
             if v['nick']==alias:
                 return v
 
+def players_by_team(replay, team):
+    return [p for p in replay.gamedata['players'].values() if p['team']==team]
+
 def get_hero_image(hero_id):
     image_file = libdota.DotaUnits.getUnit(
             unicode(hero_id).encode('utf8')).unitData['Image']
