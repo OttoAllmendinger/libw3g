@@ -35,8 +35,11 @@ class ReplayDB(object):
             raise Exception("basedir does not exists: %s" % basedir)
 
         self.basedir = basedir
-        self.replays = dict((r.replay_id, r) for r in filter(None, (
-                self.load_replay(r) for r in self.get_replay_ids())))
+        self.replays = {}
+        self.errors = {}
+
+        for replay_id in self.get_replay_ids():
+            self.load_replay(replay_id)
 
     def rp_path(self, replay_id, name):
         return join(self.basedir, replay_id, name)
@@ -49,11 +52,11 @@ class ReplayDB(object):
 
     def load_replay(self, replay_id, cached=True):
         try:
-            return Replay(replay_id,
+            self.replays[replay_id] = Replay(replay_id,
                     self.get_metadata(replay_id),
                     self.get_gamedata(replay_id))
         except:
-            return None
+            self.errors[replay_id] = traceback.format_exc()
 
     def make_data(self, replay_id, targets=None):
         try:
@@ -82,6 +85,7 @@ class ReplayDB(object):
             self.set_metadata(replay_id, metadata)
             self.make_replaydata(replay_id)
             self.make_gamedata(replay_id)
+            self.load_replay(replay_id)
             errors = None
         except:
             errors = traceback.format_exc()
