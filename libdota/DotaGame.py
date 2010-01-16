@@ -71,6 +71,7 @@ def get_winner_team(replay_data, event_data, player_info):
             get_winner_by_dota_event,
             get_winner_by_kill_difference,
             get_winner_by_first_leave)
+
     for alg in algorithms:
         winner_team = alg(replay_data, event_data, player_info)
         if winner_team:

@@ -46,8 +46,8 @@ init_data = function(units, players, games) {
 
             setTooltip($(this), tt, function() {
                 tt_heroname.text(units[player_data.hero].Name);
-                console.log(player_data.inventory);
                 var has_items = false;
+
                 $.each(player_data.inventory, function(i, item) {
                     if (item!==null) {
                         has_items = true;

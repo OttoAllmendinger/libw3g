@@ -143,6 +143,9 @@ def dump_gamedata(replay, verbose=False):
     if verbose:
         pprint(replay.gamedata)
 
+def search_replays(search, replays):
+    return (replay_data for replay_id, replay_data in replays.items() if any(
+        s in replay_id for s in search))
 
 def commandline():
     import optparse
@@ -191,7 +194,7 @@ def commandline():
             print replay_id, ('error' if replay_id not in rdb.replays else '')
 
     if options.dump_gamedata:
-        for replay in rdb.replays.values():
+        for replay in search_replays(args, rdb.replays):
             dump_gamedata(replay, options.verbose)
 
 
