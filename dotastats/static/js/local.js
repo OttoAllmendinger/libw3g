@@ -10,7 +10,9 @@ setTooltip = function(element, ttElement, setContent) {
 
     $(element).hover(function(e) {
             setPosition(e.pageX, e.pageY);
-            setContent(ttElement);
+            try {
+                setContent(ttElement);
+            } catch(ex) { }
             ttElement.show();
         }, function() {
             ttElement.hide();
@@ -26,20 +28,45 @@ init_data = function(units, players, games) {
     console.log(arguments);
     var tt = $(".tooltip#player_stats"),
         tt_header = tt.children(".header"),
-        tt_items = tt.children(".items");
+        tt_heroname = tt.children(".hero_name"),
+        tt_items = tt.children(".items"),
+        tt_inventory = tt.children("#inventory"),
+        tt_slots = tt_inventory.find("img");
+
+    console.log(tt);
+    console.log(tt_inventory);
 
     $("tr.game").each(function() {
         var replay_id = $(this).dataset("replay"),
                         game = games[replay_id];
-        $(this).find("span.player").each(function() {
+        $(this).find("div.player").each(function() {
             var player_name = $(this).dataset("player"),
                 player_data = game['players'][player_name],
                 image = $(this).children("img.hero_image");
 
             setTooltip($(this), tt, function() {
-                tt.html($.sprintf("<b>%s (%s)</b>",
-                        player_name, units[player_data.hero].Name));
+                tt_heroname.text(units[player_data.hero].Name);
+                console.log(player_data.inventory);
+                var has_items = false;
+                $.each(player_data.inventory, function(i, item) {
+                    if (item!==null) {
+                        has_items = true;
+                        $(tt_slots[i]).css("visibility", "visible");
+                        $(tt_slots[i]).attr("src", 
+                            "/static/images/dota/"+units[item].Image);
+                    } else {
+                        $(tt_slots[i]).css("visibility", "hidden");
+                    }
+                });
+
+                if (has_items===false) {
+                    tt_inventory.hide();
+                } else {
+                    tt_inventory.show();
+                }
+
             });
+
         });
     });
 }
