@@ -22,76 +22,32 @@ setTooltip = function(element, ttElement, setContent) {
     });
 }
 
-initTooltips = function() {
-    var tt_player = $("#ttPlayer");
+init_data = function(units, players, games) {
+    console.log(arguments);
+    var tt = $(".tooltip#player_stats"),
+        tt_header = tt.children(".header"),
+        tt_items = tt.children(".items");
 
-    $("td.playerStat").not(".absent").each(function(i) {
-        var cell = $(this),
-            game = gameData[cell.dataset("replay")],
-            player = game.players[cell.dataset("player")];
+    $("tr.game").each(function() {
+        var replay_id = $(this).dataset("replay"),
+                        game = games[replay_id];
+        $(this).find("span.player").each(function() {
+            var player_name = $(this).dataset("player"),
+                player_data = game['players'][player_name],
+                image = $(this).children("img.hero_image");
 
-        console.log(game);
-
-        setTooltip($(this).children("img"), $("#ttPlayerStats"), function(tt) {
-            tt.find(".heroName").text(dotaInfo[player.hero].Name);
-
-            tt.find(".killStats").html(
-                $.sprintf("Kills: <strong>%d</strong>", 
-                    player.kill_log.length));
-
-            tt.find(".deathStats").html(
-                $.sprintf("Deaths: <strong>%d</strong>", 
-                    player.death_log.length));
-
-        });
-
-        /*
-
-        var details = $(this).closest("tr").next().find("div.gameDetails");
-        var detailsChart = details.children(".chart");
-
-        $(this).children("img").click(function() {
-            details.slideToggle("fast", function() {
-                showDetails(detailsChart, game, player);
+            setTooltip($(this), tt, function() {
+                tt.html($.sprintf("<b>%s (%s)</b>",
+                        player_name, units[player_data.hero].Name));
             });
         });
-
-        $(this).children("img").hover(function() {
-            showDetails(detailsChart, game, player);
-        });
-
-        */
     });
 }
 
 init = function() {
-    $.getJSON("/static/json/units-6.60.compact.json", function(data) {
-        dotaInfo = data;
-        initTooltips();
-    });
-
-    $.getJSON("/players?_+"+(new Date()).getTime(), function(data) {
-        players = data;
-    });
-
-    $.getJSON("/gamedata?_="+(new Date()).getTime(), function(data) {
-        gameData = data;
-        initTooltips();
-    });
-
-<<<<<<< local
-
-    // console.log(detailsElm.width(), detailsElm.height());
-
-    if (detailsElm.width()>0 && detailsElm.height()>0) {
-        $.plot(detailsElm, scoreSeries, {legend: {
-                position: "sw",
-                backgroundColor: 'null',
-                labelBoxBorderColor: 'null',
-            }
-        });
-    }
-};
-=======
+    $.getAllJSON(
+            "/static/json/units-6.60.compact.json", 
+            "/json/players?_="+(new Date()).getTime(),
+            "/json/gamedata?_="+(new Date()).getTime(),
+            init_data);
 }
->>>>>>> other

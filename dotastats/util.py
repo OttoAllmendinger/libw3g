@@ -10,7 +10,24 @@ import libdota
 
 from libdota.constants import TEAM_1, TEAM_2
 
+def by_name(gamestate, alias_map):
+    new_players = {}
+    for player_data in add_name(gamestate, alias_map)['players'].values():
+        new_players[player_data['name']] = player_data
+    gamestate['players'] = new_players
+    return gamestate
+
+def add_name(gamestate, alias_map):
+    for player in gamestate['players'].values():
+        nick = player.get('nick')
+        player['name'] = alias_map.get(nick, nick)
+    return gamestate
+
+def player_color(player_name):
+    return "#%06X" % (hash(player_name) & 0XFFFFFF)
+
 def unalias(gamestate, alias_map):
+    #TODO: deprecate
     new_players = {}
     players = dict(gamestate['players'])
     unknown_player = {'nick': 'unknown'}

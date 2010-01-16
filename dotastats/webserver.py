@@ -97,16 +97,22 @@ class DotaStats:
         targets = targets.split("+")
 
     @expose
-    def gamedata(self, **k):
-        return json.dumps(dict((r.replay_id,
-            util.unalias(r.gamedata, self.playerdb.alias_map)) for r in
-            self.replaydb.replays.values()))
+    def json(self, key, **k):
+        if key=='gamedata':
+            return json.dumps(dict((r.replay_id,
+                util.by_name(dict(r.gamedata),
+                    self.playerdb.alias_map)) for r in
+                        self.replaydb.replays.values()))
+        elif key=='metadata':
+            return json.dumps(
+                    dict((r.replay_id, r.metadata) for r in
+                        self.replaydb.replays.values()))
+        elif key=='players':
+            return json.dumps(dict((p_name, p_data) for p_name, p_data in
+                    self.playerdb.players.items()))
+        else:
+            return '{}'
 
-    @expose
-    def metadata(self, **k):
-        return json.dumps(
-                dict((r.replay_id, r.metadata) for r in
-                    self.replaydb.replays.values()))
     @expose
     def test(self):
         return loader.load('test.tpl.html').generate().render('html')

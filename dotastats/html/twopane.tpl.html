@@ -20,10 +20,11 @@ def format_duration(gamedata):
 <html xmlns="http://www.w3.org/1999/xhtml"
           xmlns:py="http://genshi.edgewall.org/">
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
         <script src="/static/js/jquery.dataset.js"></script>
         <script src="/static/js/jquery.sprintf.js"></script>
         <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/jquery.getalljson.js"></script>
         <script src="/static/js/local.js"></script>
         <script>
             $(document).ready(function() {
@@ -72,11 +73,12 @@ def format_duration(gamedata):
 
             table.overview th {
                 color: #ffebaf;
+                padding-bottom: .5em;
             }
 
-            table.overview > tbody > tr > td {
-                text-align: center;
-                background: #111;
+            table.overview tr.game td {
+                vertical-align: top;
+                padding-bottom: 64px;
             }
 
             table.overview .game_index {
@@ -92,22 +94,31 @@ def format_duration(gamedata):
                 width: 64px;
             }
 
-            table.overview td.score {
-                font-weight: bolder;
-                padding: 12px;
-                /* width: 80px; */
+            table.overview div.player {
+                vertical-align: top;
+                font-size: 110%;
             }
 
-            table.overview td.score.win {
+            table.overview div.player img {
+                vertical-align: middle;
+            }
+
+            table.overview div.player span.info {
+                padding: 8px;
+            }
+
+
+
+            table.overview td.score.win, table.overview td.score.fail:hover {
                 color: #ffebaf;
-            }
-
-            table.overview td.score.fail {
-                color: #575244;
             }
 
             table.overview .fail img {
                 opacity: 0.2;
+            }
+
+            table.overview .fail {
+                color: #575244;
             }
 
             table.overview .fail img:hover {
@@ -121,6 +132,16 @@ def format_duration(gamedata):
 
             table.overview .team1, table.overview .team2 {
                 width: 264px;
+            }
+
+            table.overview .team1 {
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            table.overview .team2 {
+                padding-left: 1em;
+                text-align: left;
             }
 
             .gameDetails .chart {
@@ -153,38 +174,64 @@ def format_duration(gamedata):
     <body>
         <table class="overview">
             <tr>
-                <th class="game_time"></th>
+                <!-- <th class="game_time"></th> -->
                 <th class="team1">The Sentinel</th>
                 <th class="team2">The Scourge</th>
-                <th class="stat_button"></th>
+                <!-- <th class="stat_button"></th> -->
             </tr>
             <py:for each="replay in util.filter_replays(replaydb.replays.values())">
-                <tr>
-                    <td class="game_time" title="${replay.replay_id}">
+                <tr class="game" data-replay="${replay.replay_id}">
+                    <!--
+                    <td class="game_time">
                         ${format_gametime(replay.gamedata)} <br />
                         ${format_duration(replay.gamedata)}
                     </td>
+                    -->
 
                     <td py:for="n, team in enumerate((TEAM_1, TEAM_2))" 
                         class="team${n+1}">
                         <?python
-                        game_players = sorted(
-                            util.players_by_team(replay, team),
-                            key=lambda p: p['hero'])
+                        game_players = sorted(map(playerdb.add_name,
+                            util.players_by_team(replay, team)),
+                            key=lambda p: -len(p['kill_log']))
                         ?>
 
 
-                        <span py:for="player in game_players" 
-                            class="${'win' if player.is_winner else 'fail'}">
-                            <img src="${util.get_hero_image(player.hero)}" />
-                        </span>
+                        <div 
+                            py:for="player in game_players" 
+                            class="player ${'win' if player.is_winner else 'fail'}"
+                            data-player="${player.name}">
+
+                            <img    
+                                py:if="team==TEAM_2"
+                                class="hero_image"
+                                src="${util.get_hero_image(player.hero)}" />
+
+                            <span class="info">
+                                <b>
+                                    ${player.name}
+                                </b>
+
+                                (${len(player.kill_log)}:${len(player.death_log)})
+                            </span>
+
+                            <img    
+                                py:if="team==TEAM_1"
+                                class="hero_image"
+                                src="${util.get_hero_image(player.hero)}" />
+                        </div>
                     </td>
 
+                    <!--
+
                     <td class="stat_button">
-                        <!--! ${util.get_ministats(replay)} -->
-                        <!--! <img src="static/statbutton.png" /> -->
-                        <!-- <a>...</a> -->
+                        ${util.get_ministats(replay)}
+                        <img src="static/statbutton.png" />
+                        <a>...</a>
                     </td>
+
+                    -->
+
                 </tr>
                 <!--
                 <tr>
@@ -201,12 +248,11 @@ def format_duration(gamedata):
             </py:for>
         </table>
 
-        <div id="ttPlayer" class="tooltip"> </div>
-
-        <div id="ttPlayerStats" class="tooltip">
-            <div class="heroName"></div>
-            <span class="killStats"></span>
-            <span class="deathStats"></span>
+        <div id="player_stats" class="tooltip">
+            <div class="player_name"></div>
+            <div class="hero_name"></div>
+            <span class="kill_stats"></span>
+            <span class="death_stats"></span>
             <!--
             <h4>Level</h4>
             <div class="chart level"></div>
@@ -216,7 +262,7 @@ def format_duration(gamedata):
         </div>
 
         <div class="footer">
-            libw3g.libdota.dotastats.r${libw3g_version}
+            dotastats.r${libw3g_version}
         </div>
 
     </body>
