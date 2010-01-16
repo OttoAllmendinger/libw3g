@@ -41,7 +41,7 @@ def get_modes(event_data):
 
 def get_winner_by_dota_event(replay_data, event_data, player_info):
     winner_id = event_data['global_data'].get('Winner')
-    return (TEAM_1 if winner_id==1 else TEAM_2)
+    return (TEAM_2 if winner_id==1 else TEAM_1)
 
 def get_winner_by_kill_difference(
         replay_data, event_data, player_info, min_diff=5):

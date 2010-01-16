@@ -194,16 +194,6 @@ def commandline():
         for replay in rdb.replays.values():
             dump_gamedata(replay, options.verbose)
 
-def purge_metadata():
-    rdb = ReplayDB('local/replaydb')
-    for replay_id in rdb.get_replay_ids():
-        metadata = rdb.get_metadata(replay_id)
-        new_metadata = {
-                'file_timestamp': metadata.get('file_timestamp'),
-                'parse_error': metadata.get('parse_error')
-        }
-        rdb.set_metadata(replay_id, new_metadata)
-
 
 if __name__=="__main__":
     commandline()
