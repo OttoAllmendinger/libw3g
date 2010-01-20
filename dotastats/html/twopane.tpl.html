@@ -61,6 +61,10 @@ def format_duration(gamedata):
                 color: #404040;
             }
 
+            div.game {
+                margin: 1em;
+            }
+
             table.overview {
                 cursor: default;
                 margin-left: auto;
@@ -119,6 +123,11 @@ def format_duration(gamedata):
 
             table.overview td.score.win, table.overview td.score.fail:hover {
                 color: #ffebaf;
+            }
+
+            img.hero_image {
+                width: 64px;
+                height: 64px;
             }
 
             table.overview .fail img {
@@ -180,14 +189,15 @@ def format_duration(gamedata):
         </style>
     </head>
     <body>
-        <table class="overview">
-            <tr>
-                <!-- <th class="game_time"></th> -->
-                <th class="team1">The Sentinel</th>
-                <th class="team2">The Scourge</th>
-                <!-- <th class="stat_button"></th> -->
-            </tr>
-            <py:for each="replay in util.filter_replays(replaydb.replays.values())">
+        <div py:for="replay in util.filter_replays(replaydb.replays.values())"
+            class="game">
+            <table class="overview">
+                <tr>
+                    <!-- <th class="game_time"></th> -->
+                    <th class="team1">The Sentinel</th>
+                    <th class="team2">The Scourge</th>
+                    <!-- <th class="stat_button"></th> -->
+                </tr>
                 <tr class="game" data-replay="${replay.replay_id}">
                     <!--
                     <td class="game_time">
@@ -253,8 +263,8 @@ def format_duration(gamedata):
                     <td></td>
                 </tr>
                 -->
-            </py:for>
-        </table>
+            </table>
+        </div>
 
         <div id="player_stats" class="tooltip">
             <div class="player_name"></div>
