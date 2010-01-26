@@ -1,0 +1,2324 @@
+A000 Jinada
+A001 Ultimate
+A003 Time Stop
+A004 Shuriken Toss
+A006 Lightning Bolt
+A007 Ignite 1
+A00C Star Storm
+A00E Critical Strike
+A00F Ignite 3
+A00G Nether Swap
+A00H Mass Serpent Ward
+A00J Permanent Invisibility
+A00K Blade Dance
+A00L Double Edge
+A00N Unholy Fervor
+A00O Sonic Wave
+A00P Shackles
+A00S Hoof Stomp
+A00T Watcher
+A00U Eclipse
+A00V Return
+A00X Spirit Lance Banish
+A00Y Chain Lightning
+A010 Forked Lightning
+A011 Ignite
+A012 Split Shot
+A013 Poison Nova
+A019 Smoke screen scourge
+A01B Natures Attendants
+A01D Frost Nova
+A01E Poison Sting
+A01F Dragon Slave
+A01G Sand Storm
+A01H Gods Strength
+A01I Firestorm
+A01K Great Cleave
+A01L Great Fortitude
+A01M Toughness Aura
+A01N Heartstopper Aura
+A01O Teleportation
+A01P Laguna Blade
+A01T Ignite 2
+A01U Living Armor
+A01V Eyes in the Forest
+A01W Slithereen Crush
+A01X Static Field
+A01Y Reincarnation
+A01Z Natures Guise
+A020 Arc Lightning
+A022 Mana Break
+A024 Mighty Swing
+A025 Wind Walk
+A026 Frost Arrows
+A027 Light Strike Array
+A028 Rage
+A029 Trueshot Aura
+A02A Magic Missile
+A02C Witchcraft
+A02E Battle Purge
+A02F Holy Light
+A02G Howl
+A02H Void
+A02J Impale
+A02K Mana Burn
+A02L Spiked Carapace
+A02M Carrion Swarm
+A02N Mana Drain
+A02Q Fiends Grip
+A02S Shockwave
+A02V Purge
+A02Z Life Drain
+A030 Strafe
+A034 Amplify Damage
+A035 Diabolic Edict
+A036 Remote Mine 1
+A037 Empower
+A03D Summon Wolves
+A03E Feral Impulse
+A03F Breathe Fire
+A03G Elder Dragon Form
+A03H Mana Burn
+A03I Blink
+A03J Exorcism
+A03K Darkness
+A03N Critical Strike
+A03O Phantasm
+A03P Blur
+A03Q Coup de grace
+A03R Freezing Field
+A03S Headshot
+A03U Take Aim
+A03V Power Word
+A03X Freezing Field 1
+A03Y Earthshock
+A03Z Ravage
+A040 Morph
+A041 Moon Glaive
+A042 Lucent Beam
+A044 Anchor Smash
+A046 Gush
+A047 Healing Ward
+A048 Morph
+A049 Laser
+A04A Scream of Pain
+A04B Storm Seeker
+A04C Frostbite
+A04E Kraken Shell
+A04G Shadow Weave
+A04H Attribute Bonus
+A04J Exorcism
+A04L Soul Steal
+A04M Exorcism
+A04N Exorcism
+A04P Assassinate
+A04Q Death Pact
+A04V Enfeeble
+A04W Fireblast
+A04X Brain Sap
+A04Y Nightmare
+A04Z Nightmare
+A050 Enrage
+A052 Spell Shield
+A053 Dark Ritual
+A054 Eclipse
+A055 Chaos Bolt
+A056 Marksmanship
+A057 Poison Nova damage
+A058 Healing Ward Aura
+A059 Overpower
+A05B Guardian Angel
+A05C Sprint
+A05D Frenzy
+A05E Heat Seeking Missile
+A05F March of the Machines effect
+A05G Blade Fury
+A05H Shadow Weave friendly
+A05I Shadow Weave enemy
+A05J Land Mines
+A05T Chain Frost
+A05V Death Pulse
+A05W Death Pulse Heal
+A05X Ostracize
+A05Y Devour
+A060 Sadist
+A062 Lunar Blessing
+A063 Mirror Image
+A064 Shrapnel
+A065 Rearm
+A066 Omnislash
+A067 Reapers Scythe
+A069 Holy Persuasion
+A06A Degen Aura
+A06B Suicide Squad, Attack!
+A06D Flesh Heap
+A06F Reverse Polarity
+A06H Stasis Trap
+A06I Meat Hook
+A06J Waveform Old
+A06K Rot
+A06L Thundergods Wrath
+A06M Thunder Clap
+A06N Carrion Swarm
+A06O Burrowstrike
+A06P Upheaval
+A06Q Sprout
+A06R Epicenter
+A06T Overgrowth 1
+A06U Entrench
+A06V Lightning Storm
+A06W Split Earth
+A06X Pulse Nova
+A06Y Anabolic Frenzy
+A071 Feast
+A072 Carrion Swarm
+A073 Exorcism
+A074 Carrion Swarm
+A075 BSImpale
+A076 Poison Nova 1
+A078 Carrion Swarm
+A07A Wind Walk
+A07B Shadowraze
+A07C Thundergods Wrath
+A07F Frost Nova
+A07H Silence
+A07I Silence
+A07J Silence
+A07K Raise Revenants
+A07L Epicenter
+A07M Silence
+A07N Chakra Magic
+A07P Perdition
+A07Q Sunder
+A07T Song of the Siren 1
+A07U Song of the Siren
+A07V Typhoon
+A07X Wrath of Nature
+A07Y Mana Leak
+A07Z Overgrowth
+A080 Viper Strike
+A081 Time Lock
+A082 Displace
+A083 Bloodlust
+A084 Ravage 1
+A085 Illuminate
+A086 Hunter in the Night
+A087 IllCast
+A088 Multi Cast
+A089 Fireblast
+A08A Fireblast
+A08D Fireblast
+A08E Crippling Fear
+A08F Bloodlust
+A08G Bloodlust
+A08H Chain Frost
+A08I Bloodlust
+A08J Crushing Wave old
+A08K Tornado Barrier buff
+A08M Tornado Barrier
+A08N Purification
+A08O Ostracize
+A08P Reapers Scythe
+A08Q Conjure Image
+A08R Frost Armor
+A08T Mana Flare
+A08V Repel
+A08W Anonymous Dead
+A08X Grave Chill
+A091 Frost Nova
+A093 Shapeshift
+A094 LVL? Death
+A095 Finger of Death
+A09C Grave Chill Effect
+A09D Nether Ward
+A09E Bash
+A09F Blink Strike
+A09K Impale
+A09N Dragon Blood
+A09R Mana Void
+A09U Vendetta
+A09V Poison Attack
+A09W Finger of Death
+A09Z Laguna Blade
+A0A1 Mass Serpent Ward
+A0A2 Doom
+A0A5 Summon Spirit Bear
+A0A6 Poison Nova
+A0A8 Synergy
+A0AA Rabid
+A0AB Rabid
+A0AC Rabid
+A0AD Rabid
+A0AE Rabid
+A0AF Sonic Wave
+A0AG True Form
+A0AJ Attribute Bonus
+A0AK Remote Mines
+A0AL Wrath of Nature
+A0AP Terror
+A0AQ Pulse Nova
+A0AR Dragon Tail
+A0AS Shadow Word
+A0AU Bleed
+A0AV Freezing Field
+A0AW Gaze
+A0B0 Untouchable effect
+A0B1 Midnight Pulse
+A0B2 Midnight Pulse effect
+A0B3 Malefice
+A0B4 Track
+A0B7 Demonic Conversion
+A0BA Ensnare
+A0BB Rampage
+A0BC Blind
+A0BD Inner Beast
+A0BE Berserker Rage
+A0BF Web Bonus
+A0BG Spin Web
+A0BH Spawn Spiderlings
+A0BI Conversion effect
+A0BK Incapacitating Bite
+A0BP Insatiable Hunger
+A0BQ March of the Machines
+A0BR Necromastery
+A0BT Dark Flame burn
+A0BU Craggy Exterior
+A0BV Craggy damage
+A0BW Avalanche (cast)
+A0BY Black Hole
+A0BZ Toss
+A0C1 Grow!
+A0C2 Grow! speed
+A0C4 Soul Assumption
+A0C5 Battle Hunger
+A0C6 Counter Helix
+A0C7 Berserkers Call
+A0C9 Shukuchi Effect
+A0CA Shukuchi
+A0CC Life Drain
+A0CE Decrepify
+A0CF Nether Ward
+A0CG Geminate Attack
+A0CH Drunken Haze
+A0CI Drunken Haze
+A0CJ Drunken Haze
+A0CL Dragon Blood
+A0CP Spellsteal
+A0CT Time Lapse
+A0CY Grow
+A0CZ Backtrack
+A0D1 Spirit Lance (Cripple)
+A0D2 Roulette
+A0D5 Divine Intervention
+A0D6 Lucky Stars
+A0D7 Doppelwalk
+A0D8 Ante Up
+A0D9 Phantom Edge
+A0DA Spirit Lance
+A0DB Juxtapose
+A0DH Echo Slam
+A0DI Aftershock Effect
+A0DJ Aftershock
+A0DK Fissure
+A0DL Enchant Totem
+A0DM Echo Slam reverberate
+A0DP Shadowraze
+A0DQ Shadowraze
+A0DR Dark Flame
+A0DU Crushing Wave
+A0DW Untouchable
+A0DX Enchant
+A0DY Impetus
+A0DZ Backstab
+A0E0 Grave Bind
+A0E1 Berserkers Call effect
+A0E2 Culling Blade
+A0E3 Mana Void
+A0E5 Disentangle
+A0E6 Smoke Screen
+A0E7 Smoke screen effect
+A0E8 Bleed
+A0E9 DiabolicEffect
+A0EC Bloodrage
+A0ED Wounding Spear
+A0EE Rupture
+A0EG Demon Fury
+A0EI Rupture
+A0EO Ignis Fatuus
+A0EP Mana Leak
+A0ER Guardian Angel
+A0ES Empowering Haste
+A0ET Roar
+A0EU Stoneform
+A0EY Shadowraze
+A0EZ Shadowraze
+A0F0 Shadowraze
+A0F1 Burrowstrike
+A0F3 Epicenter
+A0F4 Adapt
+A0F5 Naix Lifesteal NEW
+A0F6 Unstable Power
+A0F7 Watery Grasp
+A0F8 SandKing Dust
+A0F9 Feast
+A0FA Caustic Finale
+A0FB Unstable Intellect
+A0FE Scorched Earth
+A0FF Scorched earth effect
+A0FG Scorched earth health
+A0FH Shadowraze
+A0FL Dismember
+A0FM Morph Attack
+A0FN Waveform
+A0FS Time Stop caster
+A0FU Presence of the Dark Lord
+A0FV Warpath
+A0FW Viscous Nasal Goo
+A0FX Desolate
+A0G2 Mystic Snake
+A0G4 Nether Strike
+A0G5 Greater Bash
+A0G6 Adaptive Strike
+A0G7 Breath of Fire
+A0G8 Replicate
+A0G9 Temporal Drag
+A0GE charge 1
+A0GF charge 2
+A0GG charge 3
+A0GH charge 4
+A0GI Charge of Darkness old
+A0GJ Charge of Darkness
+A0GK Brain Sap
+A0GL Poison nova wave
+A0GP Quill Spray
+A0GS Charge of Darkness Stun
+A0H0 Sand Storm
+A0H4 Conjure Image
+A0H9 Haunt
+A0HE Requiem of Souls
+A0HF Carrion Beetles
+A0HG Requiem of Souls Effect
+A0HH Requiem of Souls Cripple Far
+A0HI Requiem of Souls Cripple Close
+A0HJ Requiem of Souls Cripple Moderate
+A0HM Sand Storm Damage
+A0HO Sand Storm Invisibility
+A0HW Spectral Dagger
+A0HY Spectral Dagger
+A0I2 Spectral Dagger
+A0I3 Death Coil
+A0I6 Berserkers Call
+A0I7 Malefice
+A0I8 Strygwyrs Thirst
+A0IF Essence Aura
+A0IJ Restless Dead
+A0IL Acid Spray
+A0IN Nether Swap
+A0IT Time Walk
+A0IV Time Walk Effect 2
+A0IW Time Walk Effect 3
+A0J1 Chronosphere
+A0J4 Acid Spray
+A0J5 Fatal Bonds
+A0J6 Unstable Concoction
+A0JB Storm Bolt
+A0JC Lightning Bolt
+A0JD Unstable Concoction
+A0JJ Bash
+A0JP Corrosive Skin
+A0JQ Feast
+A0K3 Fervor
+A0K9 Blink Strike
+A0KD Curse of the Silent
+A0KE Time Walk
+A0KG Avalanche (effect)
+A0KH Earth Bind
+A0KI Corrosive Skin Effect
+A0KK Faith
+A0KL Channel
+A0KM Penitence
+A0KU Moonlight Shadow
+A0KV Starfall
+A0KW Morph
+A0KX Morph
+A0KY Spell Shield
+A0L0 Zeal
+A0L2 Silence
+A0L3 Global Silence
+A0L4 Mute
+A0L6 Enrage
+A0L7 Basic Stun
+A0L8 Elunes Arrow
+A0L9 Faith Effect
+A0LA Time Walk
+A0LB Avalanche
+A0LC Enrage
+A0LD Avalanche
+A0LE Blood Bath
+A0LF Strygwyrs Thirst
+A0LG Thirst speed buff
+A0LH Rupture
+A0LI Phoenix
+A0LJ Summon Golem
+A0LK Time Walk
+A0LL Avalanche
+A0LM Dummy Model Loader
+A0LN Leap
+A0LO Leap (effect)
+A0LS Last Word Effect
+A0LT Hand of God
+A0LV Test of Faith
+A0LX Chen - Staff of Persv on Hero
+A0LZ Glaives of Wisdom
+A0M0 Fissure
+A0M1 Omnislash
+A0M3 Bristleback
+A0M9 Slithereen Crush
+A0MB Permanent Invisibility
+A0MC Last Word
+A0ME Blink
+A0MF Aphotic Shield
+A0MG Frostmourne
+A0MH Mark effect
+A0MI Mark of the Abyss
+A0MJ Aphotic Shield Damage
+A0MK Borrowed Time
+A0ML Charge of Darkness
+A0MM Corrosive Skin
+A0MN Voodoo
+A0MO Ignis Fatuus
+A0MP Mana Shield
+A0MS Plague Ward
+A0MT Nether Blast
+A0MU Doom
+A0MV Metamorphosis
+A0MW Divided We Stand
+A0MX Drunken Brawler
+A0MY Poison Sting
+A0N0 Take Flight
+A0N5 Static Field
+A0N6 Phase
+A0N7 Geostrike
+A0N8 Poof
+A0N9 Haunt Helper
+A0NA Dispersion
+A0NB Earthbind
+A0NE Voodoo Restoration
+A0NM Paralyzing Cask
+A0NO Maledict
+A0NQ Poison Touch
+A0NR Attribute Bonus
+A0NS Borrowed Time
+A0NT Death Ward
+A0NV Weave
+A0NX Death Ward
+A0NY Beast Roar (Side Effect)
+A0O0 Fervor
+A0O1 Wild Axes
+A0O2 Primal Roar
+A0O3 Goblins Greed
+A0O5 Macropyre
+A0O6 Ice Path
+A0O7 Dual Breath
+A0O8 Liquid Fire
+A0OI Arcane Orb
+A0OJ Astral Imprisonment
+A0OK Sanitys Eclipse
+A0OO Call of the Wild
+A0OR Shadow Wave
+A0OS Shallow Grave
+A0P6 Silence
+A0PL Phantom Strike
+A0Q7 Shadow Strike
+A0QB Silence
+A0QE Vacuum
+A0QG Ion Shell
+A0QH Surge
+A0QK Wall of Replica
+A0QM Attribute Bonus
+A0QN Burning Spear
+A0QP Inner Vitality
+A0QQ Berserkers Blood
+A0QR Life Break
+A0QT Expulsion
+A0QV Raise Dead
+A0QW Overload
+A0QY Electric Rave
+A0QZ Item Attack Speed Bonus
+A0R0 Dark Rift
+A0R1 Ball Lightning
+A0R2 Fear
+A0R3 Plague
+A0R4 Plague (slow)
+A0R5 Soul Rip
+A0R6 Barrier
+A0R7 Surge
+A0RA Pit of Malice
+A0RB Shadow Strike
+A0RE Refraction
+A0RF Refraction Damage Bonus
+A0RG Smoke Screen
+A0RH Firestorm
+A0RI Cage
+A0RL Meld
+A0RO Psi Blades
+A0RP Psionic Trap
+A0RV Meld
+A0RW Blink Strike
+A0RX Voodoo
+A0RY Frenzy
+A0RZ Storm Bolt
+A0S1 Battle Hunger
+A0S8 Dream Coil
+A0S9 Illusory Orb
+A0SB Phase Shift
+A0SC Waning Rift
+A0SD Silence
+A0SE Dream Coil
+A0SG PrismaticPrison_Ministun Main
+A0SJ Fissure_Stun
+A0SK Fissure
+A0SQ Rage
+A0SR Rage Attack Speed
+A0SS Feast
+A0SV Rage
+A0SW Infest
+A0T2 Rage
+A0TI Open Wounds
+A0V4 Doom
+A0V9 Exort
+A0VA Wex
+A0VB Quas
+A0VC Marksmanship
+A0VF Invoke
+A0VX Gravekeepers Cloak
+A0VY Soul Assumption
+A0WO Gods Strength Container
+A0WP Gods Strength
+A0WQ Insatiable Hunger
+A0WR Insatiable Hunger Container
+A0X5 Impale
+A0X7 Impale
+A0XA Land Mines
+A0XE Rampage Container
+A0XI Rampage
+A0YJ Dummy AOE Stun
+A0YK Phantom Edge
+A0YL Stifling Knife Slow
+A0YM Stifling Dagger
+A0YT Storm Seeker
+A0YV Summon Ancestral Spirit
+A0YW Range Epi
+A0YX Frost Shock
+A0YY Inner Frost
+A0YZ Mark of Fire Stun
+A0Z0 Winters Call
+A0Z4 Battery Assault
+A0Z5 Power Cog
+A0Z6 Rocket Flare
+A0Z7 Battery Assault
+A0Z8 Hookshot
+A0Z9 Hookshot Stun
+A0ZE Feral Heart Damage Container
+A0ZF Howl
+A10C Spirit Lance Slow
+A10D Spirit Lance
+A10J Avalanche Stomp
+A10K Avalanche Stomp
+A10L Shallow Grave
+A10M Avalanche (effect-correct)
+A10Q Weave
+A10R Devour
+A10W Blinding Light
+A10X Mana Leak
+A112 Chakra Magic
+A11J Orb of Dummy
+A11K FUCKYEAGIANTCOCK
+A11L Ghost Ship Slow
+A11M Tide Bringer
+A11N X Marks The Spot
+A11O Water Sword Damage
+A11T Spirit Form
+A120 Illuminate
+A122 Captain CoCos Rum
+A127 Nightcrawler
+A12A Fear of the Dark
+A12J Shackleshot
+A12K Powershot
+A12L Windrunner Cyclone
+A12N Windrunner
+A12P Focus Fire
+A130 Windrunner
+A136 Torrent
+A13Q Magic Stick
+A13R Shackleshot Stun
+A13S Avalanche (effect-correct-test)
+A13T Tidebringer
+A13U Torrent
+A142 Roshan Aura
+A14I Windrunner
+A14L Curse of the Silent
+A14O Ball Lightning
+A14P Static Remnant
+A14Q Electric Vortext
+A14R Electric Vortex
+A14T Tombstone
+A14U Decay
+A15H Death Stench
+A15J Flesh Golem
+A15K Plague
+A15L Undying Aura
+A15S Decay
+A15V Tombstone
+A173 Venomous Gale
+A17N Shadow Strike
+A17O Wave of Terror
+A17P Sprout
+A17T Bloodlust Multi
+A17U Fireblast Multi
+A17V Ignite Multi
+A17W Ignite 1 Multi
+A17X Ignite 2 Multi
+A17Y Ignite 3 Multi
+A17Z Demonic Conversion
+A180 Demonic Conversion
+A18X Fiery Soul
+A190 Storm Bolt
+A19O Flaming Lasso
+A19V Flame Break
+A19Z Firefly
+A1A1 Earth Splitter
+A1A3 Nethertoxin
+A1A5 Warcry
+A1A8 Ancestral Spirit
+A1AA Echo Stomp
+A1AO Eye Of The Storm
+A1AT Stone Gaze
+A1AW Nether Swap
+A1AX Omnislash
+A1B0 Darkness
+A1B1 Macropyre
+A1B3 Primal Split
+A1B4 Epicenter
+A1B5 Invoke
+A1B6 Life Break
+A1CD Natural Order
+A1CS Hand of God
+A1CV Hookshot
+A1CX Dismember
+A1D6 Focus Fire
+A1D7 Chronosphere
+A1D8 Nether Strike
+A1D9 Fiends Grip
+A1DA Borrowed Time
+A1DB Weave
+A1DP Static Field
+A1E6 Unstable Current
+A1E7 Plasma Field
+A1E9 Crystal Nova
+A1EJ Battle Trance
+A1EL Sticky Napalm
+A1FY Remote Mines
+ACac Command Aura
+AEah Thorns Aura
+AEbl Blink
+AEer Entangling Roots
+AEev Evasion
+AEfk Nether Blast
+AEfn Force of Nature
+AEim Immolation
+AEmb Mana Burn
+AEme Metamorphosis
+AEsh Shadow Strike
+AEsv Ignis Fatuus
+AEvi Metamorphosis
+AHab Brilliance Aura
+AHad Devotion Aura
+AHbz Nether Blast
+AHds Divine Shield
+AHfa Searing Arrows
+AHhb Holy Light
+AHre Resurrection
+AHtb Hellfire Blast
+AIcd Diffusion Aura
+ANab Acid Bomb
+ANc1 Cluster Rockets
+ANc2 Cluster Rockets
+ANc3 Cluster Rockets
+ANcr Chemical Rage
+ANcs Cluster Rockets
+ANdo Doom
+ANeg Engineering Upgrade
+ANht Howl of Terror
+ANic Fury Swipes
+ANms Mana Shield
+ANrg Robo-Goblin
+ANs1 Pocket Factory
+ANs2 Pocket Factory
+ANs3 Pocket Factory
+ANsi Silence
+ANst Stampede
+ANsw Summon Hawk
+ANsy Pocket Factory
+AOcr Critical Strike
+AOmi Mirror Image
+AOwk Wind Walk
+AOww Bladestorm
+AUav Vampiric Aura
+Aamk Attribute Bonus
+Acdh Drunken Haze
+Arav Storm Crow Form
+Auhf Frenzy
+Aven Poison Sting
+E002 Lightning Revenant
+E004 Bone Fletcher
+E005 Moon Rider
+E00P Twin Head Dragon
+E015 Lycanthrope
+E01A Witch Doctor
+E01B Spectre
+E01C Warlock
+E01P Dummy: SlowTurn-Range
+E01Y Templar Assassin
+E021 Dummy: FastTurn-Melee
+E023 Dummy: SlowTurn-Melee
+E024 Dummy: FastTurn-Range
+EC45 Void
+EC57 Venomancer
+EC77 Netherdrake
+Edem Anti-Mage
+Edmm Demon Hunter
+Eevi Soul Keeper
+Eevm Soul Keeper
+Ekee Tormented Soul
+Emns Prophet
+Emoo Enchantress
+Ewar Phantom Assassin
+H000 Centaur Warchief
+H001 Rogue Knight
+H004 Slayer
+H008 Bristleback
+H00A Holy Knight
+H00D Beastmaster
+H00E Dragon Knight
+H00F Dragon Knight
+H00G Dragon Knight
+H00H Oblivion
+H00I Geomancer
+H00J Geomancer
+H00K Goblin Techies
+H00M Bloodrune
+H00N Dark Seer
+H00Q Sacred Warrior
+H00R Undying
+H00S Storm Spirit
+H00T Clockwerk Goblin
+H00U Invoker
+H00V Gorgon
+H00Y Preloader Hero
+H06S Admiral
+H06W Keeper of the Light
+H06X Keeper of the Light
+H06Y Keeper of the Light
+H071 Murloc Nightcrawler
+H07G Storm Spirit
+H07I Flesh Golem
+HC49 Naga Siren
+HC92 Stealth Assassin
+Hamg Treant Protector
+Hapm Paladin
+Harf Omniknight
+Hblm Keeper of the Light
+Hhkl Paladin
+Hjai Crystal Maiden
+Hlgr Dragon Knight
+Hmbr Lord of Olympia
+Hmkg Ogre Magi
+Hpal Paladin
+Hpb1 Paladin
+Huth Ursa Warrior
+Hvsh Bloodseeker
+Hvwd Vengeful Spirit
+I000 Aghanims Scepter (Rylai)
+I001 Aghanims Scepter (Necro)
+I002 Aghanims Scepter (Luna)
+I003 Aghanims Scepter (Lucifer)
+I004 Aghanims Scepter (Lion)
+I005 Aghanims Scepter (Lich)
+I006 Haste
+I007 Illusion
+I008 Regeneration
+I009 Aghanims Scepter (Leshrac)
+I00A Boots of Speed
+I00B Aghanims Scepter
+I00C Arcane Ring
+I00D Aghanims Scepter (KOTL)
+I00E Morphling Bug Fix
+I00F Aghanims Scepter (KOTL)
+I00G Aghanims Scepter (Lina)
+I00H Aghanims Scepter (Pugna)
+I00I Aghanims Scepter (Ogre)
+I00J Invisibility
+I00K Double Damage
+I00L Empty Bottle
+I00M Armlet of Mordiggian
+I00N Armlet of Mordiggian (Courier Edition)
+I00O Aghanims Scepter (Zeus)
+I00P Aghanims Scepter (QoP)
+I00Q Armlet of Mordiggian
+I00R Armlet of Mordiggian (Courier Edition)
+I00S Armlet of Mordiggian
+I00T Armlet of Mordiggian
+I00U Aghanims Scepter (Rhasta)
+I00V Armlet of Mordiggian (Courier Edition)
+I00W Armlet of Mordiggian (Courier Edition)
+I00X Shivas Guard
+I00Y Shivas Guard (Courier Edition)
+I00Z Shivas Guard
+I010 Shivas Guard (Courier Edition)
+I011 Aghanims Scepter (Furion)
+I012 Orchid Malevolence
+I013 Orchid Malevolence
+I014 Flying Courier
+I015 Disassembler
+I016 Aghanims Scepter (Veno)
+I017 Aghanims Scepter (Witch Doctor)
+I018 Aghanims Scepter (Leshrac)
+I019 Aghanims Scepter (Lich)
+I01A Aghanims Scepter (Lina)
+I01B Aghanims Scepter (Lion)
+I01C Armlet of Mordiggian (On)
+I01D Flying Courier
+I01E Armlet of Mordiggian (Off)
+I01F Armlet of Mordiggian (On,Courier)
+I01G Dagon Level 1
+I01H Aghanims Scepter (Lucifer)
+I01I Aghanims Scepter (Luna)
+I01J Perseverance
+I01K Headdress of Rejuvenation
+I01L Nathrezim Buckler
+I01M Ring of Basilius
+I01N Freeze Hero
+I01O Unfreeze Hero
+I01P Boots of Travel
+I01Q Power Treads (Strength)
+I01R Power Treads (Agility)
+I01S Power Treads (Intelligence)
+I01T Hand of Midas
+I01U Oblivion Staff
+I01V Bracer
+I01W Wraith Band
+I01X Null Talisman
+I01Y Yasha
+I01Z Sange
+I020 Cranium Basher
+I021 Blade Mail
+I022 Maelstrom
+I023 Diffusal Blade
+I024 Helm of the Dominator
+I025 Mask of Madness
+I026 Euls Scepter of Divinity
+I027 Soul Booster
+I028 Mekansm
+I029 Sange and Yasha
+I02A Stygian Desolator
+I02B Battle Fury
+I02C Crystalys
+I02D Black King Bar (7)
+I02E Manta Style
+I02F Lothars Edge
+I02G Dagon Level 2
+I02H Necronomicon Level 1
+I02I Necronomicon Level 2
+I02J Necronomicon Level 3
+I02K Aghanims Scepter (Necro)
+I02L Aghanims Scepter (Ogre)
+I02M Dummy Item
+I02N Boots of Elvenskin
+I02O Boots of Speed
+I02P Gloves of Haste
+I02Q Boots of Speed
+I02R Boots of Elvenskin
+I02S Gloves of Haste
+I02T Power Treads (Agility)
+I02U Power Treads (Strength)
+I02V Power Treads Recipe
+I02W Power Treads Recipe
+I02X Circlet of Nobility
+I02Y Circlet of Nobility
+I02Z Belt of Giant Strength
+I030 Blade of Alacrity
+I031 Blades of Attack
+I032 Broadsword
+I033 Chainmail
+I034 Claymore
+I035 Demon Edge
+I036 Eaglehorn
+I037 Energy Booster
+I038 Gauntlets of Strength
+I039 Gem of True Sight
+I03A Stout Shield
+I03B Helm of Iron Will
+I03C Hyperstone
+I03D Ironwood Branch
+I03E Kelens Dagger
+I03F Mantle of Intelligence
+I03G Mask of Death
+I03H Messerschmidts Reaver
+I03I Mithril Hammer
+I03J Mystic Staff
+I03K Ogre Axe
+I03L Planeswalkers Cloak
+I03M Plate Mail
+I03N Point Booster
+I03O Power Treads (Agility)
+I03P Quarterstaff
+I03Q Ring of Health
+I03R Ring of Protection
+I03S Ring of Regeneration
+I03T Robe of the Magi
+I03U Sacred Relic
+I03V Slippers of Agility
+I03W Sobi Mask
+I03X Staff of Wizardry
+I03Y Ultimate Orb
+I03Z Vitality Booster
+I040 Void Stone
+I041 Javelin
+I042 Clarity Potion
+I043 Belt of Giant Strength
+I044 Blade of Alacrity
+I045 Blades of Attack
+I046 Broadsword
+I047 Chainmail
+I048 Claymore
+I049 Demon Edge
+I04A Eaglehorn
+I04B Energy Booster
+I04C Gauntlets of Strength
+I04D Gem of True Sight
+I04E Helm of Iron Will
+I04F Hyperstone
+I04G Ironwood Branch
+I04H Kelens Dagger
+I04I Disabled Kelens Dagger
+I04J Mantle of Intelligence
+I04K Mask of Death
+I04L Messerschmidts Reaver
+I04M Mithril Hammer
+I04N Mystic Staff
+I04O Ogre Axe
+I04P Planeswalkers Cloak
+I04Q Plate Mail
+I04R Point Booster
+I04S Quarterstaff
+I04T Ring of Health
+I04U Ring of Protection
+I04V Ring of Regeneration
+I04W Robe of the Magi
+I04X Sacred Relic
+I04Y Slippers of Agility
+I04Z Sobi Mask
+I050 Staff of Wizardry
+I051 Stout Shield
+I052 Ultimate Orb
+I053 Vitality Booster
+I054 Void Stone
+I055 Javelin
+I056 Healing Salve
+I057 Ancient Tango of Essifation
+I058 Observer Wards
+I059 Sentry Wards
+I05A Scroll of Town Portal
+I05B Animal Courier
+I05C Ancient Tango of Essifation
+I05D Clarity Potion
+I05E Empty Bottle
+I05F Healing Salve
+I05G Observer Wards
+I05H Sentry Wards
+I05I Scroll of Town Portal
+I05J Animal Courier
+I05K Bracer Recipe
+I05L Headdress of Rejuvenation Recipe
+I05M Nathrezim Buckler Recipe
+I05N Wraith Band Recipe
+I05O Boots of Travel Recipe
+I05P Hand of Midas Recipe
+I05Q Null Talisman Recipe
+I05R Headdress of Rejuvenation Recipe
+I05S Nathrezim Buckler Recipe
+I05T Boots of Travel Recipe
+I05U Hand of Midas Recipe
+I05V Bracer Recipe
+I05W Wraith Band Recipe
+I05X Null Talisman Recipe
+I05Y Power Treads (Strength)
+I05Z Power Treads (Intelligence)
+I060 Power Treads (Intelligence)
+I061 Perseverance
+I062 Perseverance
+I063 Headdress of Rejuvenation
+I064 Headdress of Rejuvenation
+I065 Nathrezim Buckler
+I066 Nathrezim Buckler
+I067 Ring of Basilius (Normal)
+I068 Ring of Basilius
+I069 Ring of Basilius (Heroes)
+I06A Ring of Basilius (Heroes)
+I06B Boots of Travel
+I06C Boots of Travel
+I06D Hand of Midas
+I06E Hand of Midas
+I06F Oblivion Staff
+I06G Oblivion Staff
+I06H Bracer
+I06I Bracer
+I06J Wraith Band
+I06K Wraith Band
+I06L Null Talisman
+I06M Null Talisman
+I06N Yasha Recipe
+I06O Yasha Recipe
+I06P Sange Recipe
+I06Q Sange Recipe
+I06R Cranium Basher Recipe
+I06S Cranium Basher Recipe
+I06T Blade Mail Recipe
+I06U Blade Mail Recipe
+I06V Maelstrom Recipe
+I06W Maelstrom Recipe
+I06X Diffusal Blade Recipe
+I06Y Diffusal Blade Recipe
+I06Z Mask of Madness Recipe
+I070 Mask of Madness Recipe
+I071 Euls Scepter of Divinity Recipe
+I072 Euls Scepter of Divinity Recipe
+I073 Mekansm Recipe
+I074 Mekansm Recipe
+I075 Sange and Yasha Recipe
+I076 Stygian Desolator Recipe
+I077 Crystalys Recipe
+I078 Black King Bar Recipe
+I079 Manta Style Recipe
+I07A Lothars Edge Recipe
+I07B Dagon Recipe
+I07C Necronomicon Recipe
+I07D Linkens Sphere Recipe
+I07E Buriza-do Kyanon Recipe
+I07F Radiance Recipe
+I07G Radiance Recipe
+I07H Heart of Tarrasque Recipe
+I07I The Butterfly Recipe
+I07J Refresher Orb Recipe
+I07K Guinsoos Scythe of Vyse
+I07L Mjollnir Recipe
+I07M Arcane Ring Recipe
+I07N Eye of Skadi Recipe
+I07O Satanic Recipe
+I07P Flying Courier Recipe
+I07Q Vladmirs Offering Recipe
+I07R Assault Cuirass Recipe
+I07S Armlet of Mordiggian Recipe
+I07T Shivas Guard Recipe
+I07U Sange and Yasha Recipe
+I07V Stygian Desolator Recipe
+I07W Crystalys Recipe
+I07X Black King Bar Recipe
+I07Y Manta Style Recipe
+I07Z Lothars Edge Recipe
+I080 Dagon Recipe
+I081 Necronomicon Recipe
+I082 Linkens Sphere Recipe
+I083 Buriza-do Kyanon Recipe
+I084 Heart of Tarrasque Recipe
+I085 Satanic Recipe
+I086 Eye of Skadi Recipe
+I087 The Butterfly Recipe
+I088 Refresher Orb Recipe
+I089 Arcane Ring Recipe
+I08A Flying Courier Recipe
+I08B Vladmirs Offering Recipe
+I08C Assault Cuirass Recipe
+I08D Armlet of Mordiggian Recipe
+I08E Shivas Guard Recipe
+I08F Yasha
+I08G Yasha
+I08H Sange
+I08I Sange
+I08J Cranium Basher
+I08K Cranium Basher
+I08L Cranium Basher (Ranged)
+I08M Cranium Basher (Ranged)
+I08N Blade Mail
+I08O Blade Mail
+I08P Maelstrom
+I08Q Maelstrom
+I08R Diffusal Blade ( Level 1 )
+I08S Diffusal Blade
+I08T Helm of the Dominator
+I08U Helm of the Dominator
+I08V Helm of the Dominator (Courier Edition)
+I08W Helm of the Dominator (Courier Edition)
+I08X Mask of Madness
+I08Y Mask of Madness
+I08Z Euls Scepter of Divinity
+I090 Euls Scepter of Divinity
+I091 Soul Booster
+I092 Soul Booster
+I093 Mekansm
+I094 Mekansm
+I095 Sange and Yasha
+I096 Sange and Yasha
+I097 Stygian Desolator
+I098 Stygian Desolator
+I099 Battle Fury
+I09A Battle Fury
+I09B Crystalys
+I09C Crystalys
+I09D Black King Bar (6)
+I09E Black King Bar (8)
+I09F Manta Style
+I09G Manta Style
+I09H Lothars Edge
+I09I Lothars Edge
+I09J Dagon Level 2
+I09K Dagon Level 1
+I09L Dagon Level 5
+I09M Dagon Level 1
+I09N Dagon Level 3
+I09O Dagon Level 4
+I09P Dagon Level 2
+I09Q Dagon Level 3
+I09R Dagon Level 5
+I09S Dagon Level 4
+I09T Necronomicon Level 1
+I09U Necronomicon Level 1
+I09V Necronomicon Level 2
+I09W Necronomicon Level 3
+I09X Necronomicon Level 2
+I09Y Necronomicon Level 3
+I09Z Linkens Sphere
+I0A0 Linkens Sphere
+I0A1 Divine Rapier
+I0A2 Divine Rapier
+I0A3 Buriza-do Kyanon
+I0A4 Buriza-do Kyanon
+I0A5 Monkey King Bar
+I0A6 Monkey King Bar
+I0A7 Radiance
+I0A8 Radiance
+I0A9 Heart of Tarrasque
+I0AA Heart of Tarrasque
+I0AB Satanic
+I0AC Satanic
+I0AD Eye of Skadi
+I0AE Eye of Skadi
+I0AF Eye of Skadi (Ranged)
+I0AG Eye of Skadi (Ranged)
+I0AH The Butterfly
+I0AI The Butterfly
+I0AJ Refresher Orb
+I0AK Refresher Orb
+I0AL Guinsoos Scythe of Vyse
+I0AM Empty Bottle
+I0AN Magical Bottle - 1/3
+I0AO Magical Bottle - 2/3
+I0AP Magical Bottle - 3/3
+I0AQ Magical Bottle - Rune
+I0AR Magical Bottle - Rune
+I0AS Magical Bottle - 2/3
+I0AT Magical Bottle - 3/3
+I0AU Magical Bottle - 1/3
+I0AV Empty Bottle Store
+I0AW Aegis of the Immortal
+I0AX Aegis of the Immortal
+I0AY Aghanims Scepter (Basic)
+I0AZ Aghanims Scepter (Furion)
+I0B0 Cheese
+I0B1 Cheese
+I0B2 Aghanims Scepter (Pugna)
+I0B3 Aghanims Scepter (QoP)
+I0B4 Aghanims Scepter (Rhasta)
+I0B5 Aghanims Scepter (Witch Doctor)
+I0B6 Aghanims Scepter (Veno)
+I0B7 Aghanims Scepter (Rylai)
+I0B8 Aghanims Scepter (Basic)
+I0B9 Aghanims Scepter (Zeus)
+I0BA Vanguard
+I0BB Vanguard
+I0BC Arcane Ring
+I0BD Arcane Ring
+I0BE Mjollnir
+I0BF Mjollnir
+I0BG Vladmirs Offering
+I0BH Vladmirs Offering
+I0BI Assault Cuirass
+I0BJ Assault Cuirass
+I0BK Bloodstone
+I0BL Bloodstone
+I0BM Hood of Defiance
+I0BN Hood of Defiance
+I0BO Linkins Sphere
+I0BP Divine Rapier
+I0BQ Buriza-do Kyanon
+I0BR Monkey King Bar
+I0BS Radiance
+I0BT Heart of Tarrasque
+I0BU Satanic
+I0BV Eye of Skadi
+I0BW The Butterfly
+I0BX Refresher Orb
+I0BY Guinsoos Scythe of Vyse
+I0BZ Vanguard
+I0C0 Mjollnir
+I0C1 Vladmirs Offering
+I0C2 Assault Cuirass
+I0C3 Bloodstone
+I0C4 Hood of Defiance
+I0C5 Slippers of Agility
+I0C6 Ring of Basilius (Heroes)
+I0C7 Kelens Dagger
+I0C8 Cranium Basher (Ranged)
+I0C9 Ultimate Orb
+I0CA Gloves of Haste
+I0CB Orchid Malevolence
+I0CC Sacred Relic
+I0CD Mask of Death
+I0CE Planeswalkers Cloak
+I0CF Shivas Guard
+I0CG Messerschmidts Reaver
+I0CH Eaglehorn
+I0CI Demon Edge
+I0CJ Gauntlets of Strength
+I0CK Vitality Booster
+I0CL Point Booster
+I0CM Mantle of Intelligence
+I0CN Mystic Staff
+I0CO Helm of the Dominator (Courier)
+I0CP Robe of the Magi
+I0CQ Hyperstone
+I0CR Energy Booster
+I0CS Boots of Elvenskin
+I0CT Eye of Skadi (Ranged)
+I0CU Ironwood Branch
+I0CV Belt of Giant Strength
+I0CW Ring of Protection
+I0CX Claymore
+I0CY Quarterstaff
+I0CZ Broadsword
+I0D0 Mithril Hammer
+I0D1 Staff of Wizardry
+I0D2 Blade of Alacrity
+I0D3 Dagon Level 5
+I0D4 Circlet of Nobility
+I0D5 Blades of Attack
+I0D6 Javelin
+I0D7 Chain Mail
+I0D8 Ogre Axe
+I0D9 Stout Shield
+I0DA Helm of Iron Will
+I0DB Plate Mail
+I0DC Dagon Level 3
+I0DD Dagon Level 4
+I0DE Armlet of Mordiggian (Off,Courier)
+I0DF Shivas Guard (Courier)
+I0DG Gem of True Sight
+I0DH Disabled Kelens Dagger
+I0DI Ring of Health
+I0DJ Ring of Regeneration
+I0DK Sobi Mask
+I0DL Void Stone
+I0DM Empty Bottle Store
+I0DN Empty Bottle
+I0DO Magical Bottle - 1/3
+I0DP Magical Bottle - 2/3
+I0DQ Magical Bottle - 3/3
+I0DR Magical Bottle - Rune
+I0DS Headdress of Rejuvenation Recipe
+I0DT Nathrezim Buckler Recipe
+I0DU Boots of Travel Recipe
+I0DV Power Treads Recipe
+I0DW Hand of Midas Recipe
+I0DX Bracer Recipe
+I0DY Wraith Band Recipe
+I0DZ Null Talisman Recipe
+I0E0 Yasha Recipe
+I0E1 Sange Recipe
+I0E2 Cranium Basher Recipe
+I0E3 Blade Mail Recipe
+I0E4 Maelstrom Recipe
+I0E5 Diffusal Blade Recipe
+I0E6 Mask of Madness Recipe
+I0E7 Euls Scepter of Divinity Recipe
+I0E8 Mekansm Recipe
+I0E9 Sange and Yasha Recipe
+I0EA Stygian Desolator Recipe
+I0EB Crystalys Recipe
+I0EC Black King Bar Recipe
+I0ED Manta Style Recipe
+I0EE Lothars Edge Recipe
+I0EF Dagon Recipe
+I0EG Necronomicon Recipe
+I0EH Linkens Sphere Recipe
+I0EI Buriza-do Kyanon Recipe
+I0EJ Radiance Recipe
+I0EK Heart of Tarrasque Recipe
+I0EL Satanic Recipe
+I0EM Eye of Skadi Recipe
+I0EN The Butterfly Recipe
+I0EO Refresher Orb Recipe
+I0EP Arcane Ring Recipe
+I0EQ Flying Courier Recipe
+I0ER Vladmirs Offering Recipe
+I0ES Assault Cuirass Recipe
+I0ET Armlet of Mordiggian Recipe
+I0EU Shivas Guard Recipe
+I0EV Diffusal Blade (Empty)
+I0EW Diffusal Blade (Empty)
+I0EX Diffusal Blade (Empty)
+I0EY Aghanims Scepter (Furion)
+I0EZ Aghanims Scepter (KOTL)
+I0F0 Aghanims Scepter (Leshrac)
+I0F1 Aghanims Scepter (Lina)
+I0F2 Aghanims Scepter (Lion)
+I0F3 Aghanims Scepter (Lucifer)
+I0F4 Aghanims Scepter (Necro)
+I0F5 Aghanims Scepter (Luna
+I0F6 Aghanims Scepter (Lich)
+I0F7 Aghanims Scepter (Rhasta)
+I0F8 Aghanims Scepter (Zeus)
+I0F9 Aghanims Scepter (Pugna)
+I0FA Aghanims Scepter (QoP)
+I0FB Aghanims Scepter (Witch Doctor)
+I0FC Aghanims Scepter (Veno)
+I0FD Aghanims Scepter (Rylai)
+I0FE Aghanims Scepter (Ogre)
+I0FF Temporary Item
+I0FG Temporary Item
+I0FH Lycan Damage - Hero - 2
+I0FI Lycan Damage - Hero - 4
+I0FJ Lycan Damage - Hero - 4 (negative)
+I0FK Lycan Damage - Hero - 1
+I0FL Lycan Damage - Hero - 3
+I0FM Lycan Damage - Hero - 1 (negative)
+I0FN Lycan Damage - Hero - 2 (negative)
+I0FO Lycan Damage - Hero - 3 (negative)
+I0FP Lycan Damage - Creep - 4 (negative)
+I0FQ Lycan Damage - Creep - 3
+I0FR Lycan Damage - Creep - 2 (negative)
+I0FS Black King Bar (7)
+I0FT Lycan Damage - Creep - 3 (negative)
+I0FU Lycan Damage - Creep - 1 (negative)
+I0FV Lycan Damage - Creep - 4
+I0FW Lycan Damage - Creep - 1
+I0FX Lycan Damage - Creep - 2
+I0FY Black King Bar (8)
+I0FZ Black King Bar (10)
+I0G0 Black King Bar (9)
+I0G1 Black King Bar (5)
+I0G2 Black King Bar (10)
+I0G3 Black King Bar (6)
+I0G4 Black King Bar (5)
+I0G5 Black King Bar (7)
+I0G6 Black King Bar (9)
+I0G7 Black King Bar (8)
+I0G8 Black King Bar (10)
+I0G9 Black King Bar (9)
+I0GA Black King Bar (5)
+I0GB Black King Bar (6)
+I0GC Magic Stick
+I0GD Magic Stick
+I0GE Magic Stick
+I0GF Poison Powder
+I0GG Poison Powder
+I0GH Dust of Appearance
+I0GI Dust of Appearance
+I0GJ Phase Boots
+I0GK Phase Boots
+I0GL Phase Boots
+I0GM Version Check
+I0HB Magic Wand
+I0HI Force Staff
+I0HP Quelling Blade
+I0I7 Aghanims Scepter (Pandaren Brewmaster)
+I0IK Aghanims Scepter (Holy Knight)
+I0IL Aghanims Scepter (Night Stalker)
+I0IM Aghanims Scepter (Twin Head Dragon)
+I0IN Aghanims Scepter (Invoker)
+I0IO Aghanims Scepter (Huskar)
+I0IP Aghanims Scepter (Sand King)
+I0IR Aghanims Scepter (Juggernaut)
+I0IS Aghanims Scepter (Vengeful Spirit)
+I0IU Aghanims Scepter (Clockwerk)
+I0J6 Talisman Of Evasion
+I0J9 Diffusal Blade ( Level 2 )
+I0JI Ghost Scepter
+I0JS Aghanims Scepter (Pudge)
+I0JT Aghanims Scepter (Windrunner)
+I0JU Aghanims Scepter (Void)
+I0JV Aghanims Scepter (Bane Elemental)
+I0JW Aghanims Scepter (Spiritbreaker)
+I0JX Aghanims Scepter (Shadow Priest)
+I0JY Aghanims Scepter (Lord of Avernus)
+I0K6 Khadgar's Pipe of Insight
+I0KF Poor Man's Shield
+I0KH Aghanims Scepter (Goblin Techies)
+N00B Faerie Dragon
+N00R Pit Lord
+N013 Lone Druid
+N014 Lone Druid
+N015 Lone Druid
+N016 Troll Warlord
+N017 Troll Warlord
+N01A Silencer
+N01H Alchemist
+N01I Alchemist
+N01J Alchemist
+N01O Lone Druid
+N01T Alchemist
+N01V Priestess of the Moon
+N01W Shadow Priest
+N02B Troll Warlord
+N0EG Windrunner
+N0EI Windrunner
+N0EJ Windrunner
+N0EK Windrunner
+N0EM Windrunner
+NC00 Skeleton King
+Naka Bounty Hunter
+Nbbc Juggernaut
+Nbrn Drow Ranger
+Nfir Shadow Fiend
+None Common
+Npbm Pandaren Brewmaster
+Nrob Tinker
+Ntin Tinker
+O00J Spiritbreaker
+O00P Morphling
+O015 Tauren Chieftain
+O016 Batrider
+O017 Batrider (Firefly)
+Obla Blademaster
+Ofar Tidehunter
+Ogrh Phantom Lancer
+Opgh Axe
+Orkn Shadow Shaman
+Oshd Bane Elemental
+Otch Earthshaker
+S008 Rain of Chaos
+U000 Nerubian Assassin
+U006 Broodmother
+U007 Lifestealer
+U008 Lycanthrope
+U00A Chaos Knight
+U00C Lifestealer
+U00E Necrolyte
+U00F Butcher
+U00K Sand King
+U00P Obsidian Destroyer
+UC01 Queen of Pain
+UC11 Magnataur
+UC18 Demon Witch
+UC42 Doom Bringer
+UC60 Necrolic
+UC76 Death Prophet
+UC91 Slithereen Guard
+Ubal Nerubian Weaver
+Ucrl Stone Giant
+Udea Lord of Avernus
+Udre Night Stalker
+Uktl Enigma
+Ulic Lich
+Usyl Dwarven Sniper
+belv Boots of QuelThalas +6
+bfhr Bloodfeathers Heart
+bgst Belt of Giant Strength +6
+bspd Boots of Speed
+ccmd Scepter of Mastery
+ches Cheese
+ciri Robe of the Magi +6
+clfm Cloak of Flames
+crys Crystal Ball
+desc Kelens Dagger of Escape
+dust Dust of Appearance
+e000 Lightning Bolter
+e001 AttackToUD
+e003 Smoke Screen
+e006 Dark Pillar
+e007 Dummy
+e008 AttackToSent
+e009 Frost Missile
+e00A AttackToRight
+e00B AttackToMid
+e00C Stop looking at me swan!!
+e00D AttackToLeft
+e00E Spellcaster
+e00F Dark Flame
+e00G OMG LION TEST
+e00H Fissure Unit
+e00I Ignis Fatuus
+e00J ScatterDebrei
+e00K Ignis Fatuus
+e00L Ignis Fatuus
+e00M Liberated Soul
+e00N Liberated Soul
+e00O Liberated Soul
+e00Q Sand Storm (caster)
+e00R Ancient Protector - level 1
+e00S Ancient Protector - level 3
+e00T Object Only Summon unit
+e00U Prismatic Prison
+e00V Treant
+e00W Druid of the Talon
+e00X Caster
+e00Y Spellcaster #2
+e00Z Soul Assumption Effect
+e010 Consume
+e011 Ancient Protector - level 2
+e012 Joke_Extort_FX1
+e013 Joke_Wex_FX1
+e014 Joke_Quas_FX1
+e016 Joke_Extort_FX2
+e017 Nova Missile
+e018 Joke_Quas_FX2
+e019 Ancient Protector - level 4
+e01D Joke_Wex_FX2
+e01E Acid Spray Model
+e01F ItemHolder
+e01G Upheaval Model
+e01H Crow
+e01I Liberated Soul
+e01J Ignis Fatuus
+e01K Meteor (Falling Down)
+e01L Meteor (Moving)
+e01M EMP Main
+e01N Caster with Truesight and for Following
+e01O EMP FX
+e01Q Vengeance Death caster
+e01R Buff Placer
+e01S Invis Caster
+e01T Wild Axes
+e01U Dummy Ice
+e01V Spellcaster #3
+e01X Test Caster
+e01Z Vulture
+e020 Psionic Trap
+e022 Spellcaster (vision)
+e025 Ancient of Wonders
+e026 Glaive Thrower
+e027 A Sentinel Player
+e028 A Scourge Player
+e029 DotA Caster
+e02A Spellcaster #4
+eaoe Ancient of Lore
+eaom Tangos
+eaow Ancient of Wind
+eate Altar of Elders
+ebal Glaive Thrower
+echm Chimaera
+eden Ancient of Wonders
+edob Hunters Hall
+edos Chimaera Roost
+edot Druid of the Talon
+edry Druid of the Talon
+edtm Druid of the Talon
+efon Treant
+egol Entangled Gold Mine
+emow Moon Well
+esen Treant
+etoa Tree of Ages
+etoe Tree of Eternity
+etol The World Tree
+etrp Ancient Protector
+ewsp Wisp
+fgrg Stone Token
+flag Human Flag
+gldo Orb of Kiljaeden
+gomn Glyph of Omniscience
+grsl Grimoire of Souls
+gsou Soul Gem
+gvsm Gloves of Spell Mastery
+h002 Shadow Path
+h003 Shadow Dagger
+h005 Elunes Arrow
+h006 Dire Eidolon
+h007 Weave
+h009 DummyNet
+h00B IceArmor Caster
+h00C Net Projectile
+h00L Shallow Grave
+h00O Wall of Replica
+h00P Wall of Replica Detection
+h00W Raise Dead Projectile
+h00X AH
+h00Z Battery Assault
+h010 Stifling Dagger Projectile
+h011 Boots of Speed
+h012 Gloves of Haste
+h013 Boots of Elvenskin
+h014 Power Treads
+h015 Circlet of Nobility
+h016 Belt of Giant Strength
+h017 Blade of Alacrity
+h018 Blades of Attack
+h019 Broadsword
+h01A Chainmail
+h01B Claymore
+h01C Demon Edge
+h01D Eaglehorn
+h01E Energy Booster
+h01F Gauntlets of Strength
+h01G Gem of True Sight
+h01H Helm of Iron Will
+h01I Hyperstone
+h01J Ironwood Branch
+h01K Kelens Dagger
+h01L Mantle of Intelligence
+h01M Mask of Death
+h01N Messerschmidts Reaver
+h01O Mithril Hammer
+h01P Mystic Staff
+h01Q Ogre Axe
+h01R Planeswalkers Cloak
+h01S Plate Mail
+h01T Point Booster
+h01U Quarterstaff
+h01V Ring of Health
+h01W Ring of Protection
+h01X Ring of Regeneration
+h01Y Robe of the Magi
+h01Z Sacred Relic
+h020 Slippers of Agility
+h021 Sobi Mask
+h022 Staff of Wizardry
+h023 Stout Shield
+h024 Ultimate Orb
+h025 Vitality Booster
+h026 Void Stone
+h027 Javelin
+h028 Clarity Potion
+h029 Healing Salve
+h02A Ancient Tango of Essifation
+h02B Empty Bottle
+h02C Observer Wards
+h02D Sentry Wards
+h02E Scroll of Town Portal
+h02F Animal Courier
+h02G Perseverance
+h02H Headdress of Rejuvenation
+h02I Nathrezim Buckler
+h02J Ring of Basilius
+h02K Boots of Travel
+h02L Hand of Midas
+h02M Oblivion Staff
+h02N Bracer
+h02O Wraith Band
+h02P Null Talisman
+h02Q Yasha
+h02R Sange
+h02S Cranium Basher
+h02T Blade Mail
+h02U Maelstrom
+h02V Diffusal Blade
+h02W Helm of the Dominator
+h02X Mask of Madness
+h02Y Euls Scepter of Divinity
+h02Z Soul Booster
+h030 Mekansm
+h031 Sange and Yasha
+h032 Stygian Desolator
+h033 Battle Fury
+h034 Crystalys
+h035 Black King Bar
+h036 Manta Style
+h037 Lothars Edge
+h038 Dagon
+h039 Necronomicon
+h03A Linkens Sphere
+h03B Aegis of the Immortal
+h03C Divine Rapier
+h03D Buriza-do Kyanon
+h03E Monkey King Bar
+h03F Radiance
+h03G Heart of Tarrasque
+h03H Satanic
+h03I Eye of Skadi
+h03J The Butterfly
+h03K Aghanims Scepter
+h03L Refresher Orb
+h03M Guinsoos Scythe of Vyse
+h03N Vanguard
+h03O Arcane Ring
+h03P Mjollnir
+h03Q Flying Courier
+h03R Vladmirs Offering
+h03S Assault Cuirass
+h03T Bloodstone
+h03U Hood of Defiance
+h03V Armlet of Mordiggian
+h03W Shivas Guard
+h03X Orchid Malevolence
+h03Y Rocket Flare
+h03Z Vengeful Spirit
+h040 Zeus
+h041 Enchantress
+h042 Morphling
+h043 Rylai
+h044 Sven
+h045 Slithice
+h046 Earthshaker
+h047 Rikimaru
+h048 Syllabear
+h049 Lina
+h04A Yurnero
+h04B Nortrom
+h04C Rooftrellen
+h04D Enigma
+h04E Ezalor
+h04F Ursa
+h04G Ogre Magi
+h04H Tinker
+h04I Furion
+h04J Phantom Lancer
+h04K Tiny
+h04L Techies
+h04M Chen
+h04N Luna
+h04O Sniper
+h04P Troll
+h04Q Storm
+h04R Jakiro
+h04S Rexxar
+h04T Magina
+h04U Bristleback
+h04V Knight Davion
+h04W Mirana
+h04X Centaur
+h04Y Huskar
+h04Z Omniknight
+h050 Puck
+h051 Clockwerk
+h052 Gondar
+h053 Panda
+h054 Alchemist
+h055 Traxex
+h056 Terrorblade
+h057 Rhasta
+h058 Lanaya
+h059 Leshrac
+h05A Lich
+h05B Krobelus
+h05C Lion
+h05D Venomancer
+h05E Magnus
+h05F Visage
+h05G Nessaj
+h05H Lycan
+h05I Broodmother
+h05J Mortred
+h05K Medusa
+h05L Balanar
+h05M Leoric
+h05N Lucifer
+h05O Nerubian Assassin
+h05P Slardar
+h05Q Akasha
+h05R Clinkz
+h05S Void
+h05T Viper
+h05U Razor
+h05V Naix
+h05W Pugna
+h05X Tidehunter
+h05Y Atropos
+h05Z Necrolyte
+h060 Pudge
+h061 Barathrum
+h062 Weaver
+h063 Nevermore
+h064 Crixalis
+h065 Axe
+h066 Strygwyr
+h067 Abaddon
+h068 Spectre
+h069 Witch Doctor
+h06A Destroyer
+h06B The Invoker
+h06C Warlock
+h06D Geomancer
+h06E Dazzle
+h06F Pit Lord
+h06G Undying
+h06H Dark Seer
+h06I Shadow Unit
+h06J BlinkStrike CK
+h06K Magina Dummy
+h06L Spirit Lance
+h06M Illuminate Vision
+h06N Select Hero
+h06O Illusory Orb
+h06P Blinding Light
+h06Q Black Hole FX
+h06R Blackhole Shadow
+h06T Kunkka
+h06U Ghost Ship
+h06V Ghost Ship Trail
+h06Z Ezalor Dummy
+h070 Cocos Rum
+h072 Slark
+h073 Nightcrawler Shadow
+h074 Magic Stick
+h075 Poison Powder
+h076 Dust of Appearance
+h077 Shackleshot Arrow
+h078 Power Shot Arrow
+h079 Phase Boots
+h07A Windrunner
+h07B Fight in the Shade Shadow
+h07C Glyph of Fortification
+h07D Ghost Ship Death
+h07E Glyph of Fortification
+h07F Static Remnant
+h07H Tombstone Acolyte
+h07J Decay Visual
+h07K Shadowstrike Model
+h07L Version Check
+h07M Venomous Gale FX1
+h07N Venomous Gale FX2
+h07O Venomous Gale FX3
+hC95 Cache of the Quelthelan
+halt Altar of Kings
+harm Workshop
+hars Arcane Sanctum
+hatw Arcane Tower
+hbar Barracks
+hbla Blacksmith
+hbth Helm of Battlethirst
+hcas Castle
+hctw Cannon Tower
+hdhw Dragonhawk Rider
+hfoo Footman
+hgra Gryphon Aviary
+hgry Gryphon Rider
+hgtw Guard Tower
+hgyr Flying Machine
+hhou Farm
+hkee Keep
+hkni Knight
+hlst Health Stone
+hlum Lumber Mill
+hmil Militia
+hmpr Priest
+hmtm Mortar Team
+hmtt Siege Engine
+horl Sacred Relic
+hpea Peasant
+hrif Rifleman
+hrtt Siege Engine
+hslv Healing Salve
+hsor Sorceress
+hspt Spell Breaker
+htow Town Hall
+hvlt Arcane Vault
+hwat Lesser Eidolon
+hwt2 Eidolon
+hwt3 Greater Eidolon
+hwtw Scout Tower
+infs Inferno Stone
+iwbr Ironwood Branch
+jdrn Jade Ring
+kgal Keg of Ale
+klmm Killmaim
+kybl Blood Key
+lgdh Legion Doom-Horn
+lnrn Lions Ring
+lure Monster Lure
+mcou Medallion of Courage
+mcri Mechanical Critter
+mlst Maul of Strength
+mnsf Mindstaff
+mnst Mana Stone
+modt Mask of Death
+moon Moonstone
+n000 Greater Infernel
+n001 Ancestral Spirit
+n002 Recipe Shop 3
+n003 Siege Golem
+n004 Spirit Bear
+n005 Midnight Tavern
+n006 Necronomicon Warrior 3
+n007 Evening Tavern
+n008 Morning Tavern
+n009 Recipe Shop 5
+n00A Necronomicon Warrior 2
+n00C Zone Indicator
+n00D Ancient Hydra
+n00E Scary Fish
+n00F Ancestral Spirit
+n00G Necronomicon Archer 2
+n00H Necronomicon Archer 1
+n00I Chicken
+n00J Necronomicon Warrior 1
+n00K Necronomicon Archer 3
+n00L Roshan
+n00M Mini Pudge
+n00N Goblin Land Mine
+n00O Goblin Land Mine
+n00P Goblin Land Mine
+n00Q Goblin Land Mine
+n00S Alpha Wolf
+n00T Transportation
+n00U Infernal
+n00V Recipe Shop 1
+n00W Recipe Shop 2
+n00X Recipe Shop 4
+n00Y Infernal
+n00Z Infernal
+n010 Earth
+n011 Fire
+n012 Storm
+n018 Spirit Bear
+n019 Spiderling
+n01B Twilight Tavern
+n01C Spirit Bear
+n01D Sunrise Tavern
+n01E Spiderite
+n01F Spawning Artifact
+n01G Spirit Bear
+n01K Weapons Dealer
+n01L Goblin Land Mine
+n01M Quilbeast
+n01N Dawn Tavern
+n01P Dusk Tavern
+n01Q Scout Hawk
+n01R Greater Hawk
+n01S Greater Quilbeast
+n01U Invoke Tornado
+n01X Defeaning Blast
+n01Y Draft Tavern 1
+n01Z Draft Tavern 2
+n020 Living Dead
+n021 Penguin
+n022 Raccoon
+n023 Carrion Beetle
+n024 Dune Worm
+n025 Fel Boar
+n026 Mud Golem
+n027 Forged Spirit
+n028 Ancestral Spirit
+n029 Ancestral Spirit
+n02A Hero Selector
+n0DC Zone Indicator RD
+n0EO Dummy Tavern
+n0F5 Living Dead
+n0F6 Tombstone - Level 3
+n0F7 Living Dead
+n0F8 Living Dead
+n0F9 Living Dead
+n0FH Tombstone - Level 4
+n0FI Tombstone - Level 2
+n0FJ Tombstone - Level 1
+nC35 Gateway of Demonic Artifacts
+nC38 Sena The Accessorizer
+nalb Albatross
+nbal Doom Guard
+nbdk Black Drake
+nbdo Blue Dragonspawn Overseer
+nbds Blue Dragonspawn Sorcerer
+nbrg Brigand
+nbwm Black Dragon
+ncen Centaur Outrunner
+ncg1 Clockwerk Goblin
+ncg2 Clockwerk Goblin
+ncgb Clockwerk Goblin
+ncnk Centaur Khan
+ncop Circle of Power
+ndfl Defiled Fountain of Life
+ndr1 Lesser Dark Minion
+ndr2 Dark Minion
+ndr3 Greater Dark Minion
+ndtr Dark Troll
+ndtw Dark Troll Warlord
+nech Chicken
+nfa1 Pocket Factory
+nfa2 Pocket Factory
+nfac Pocket Factory
+nfoh Well of Life
+nfpc Polar Furbolg Champion
+nfpu Polar Furbolg Ursa Warrior
+nfsh Forest Troll High Priest
+nftb Forest Troll Berserker
+nggr Granite Golem
+ngh1 Ghost
+ngns Gnoll Assassin
+ngst Rock Golem
+njg1 Jungle Stalker
+njga Elder Jungle Stalker
+nkob Kobold
+nkol Kobold Taskmaster
+nkot Kobold Tunneler
+nlur Monster Lure
+nmdm Medivh
+nmed Medivh
+nmrl Murloc Tiderunner
+nmrm Murloc Nightcrawler
+nmrr Murloc Huntsman
+nogm Ogre Mauler
+nomg Ogre Magi
+nowb Wildkin
+nowe Enraged Wildkin
+npfl Fel Beast
+npn1 Fire
+npn2 Storm
+npn3 Earth
+npn4 Fire
+npn5 Storm
+npn6 Earth
+npng Penguin
+npnw Penguin
+nsat Satyr Trickster
+nsha Sheep
+nshe Sheep
+nshf Flying Sheep
+nshw Sheep
+nsno Snowy Owl
+nspi Necklace of Spell Immunity
+nsth Satyr Hellcaller
+nstl Satyr Soulstealer
+ntav Light Tavern
+ntor Tornado
+nvul Vulture
+nwe1 Hawk
+nwe2 Thunder Hawk
+nwe3 Spirit Hawk
+nwgt Way Gate
+nwlg Giant Wolf
+o000 Death Ward
+o001 Death Ward
+o002 Remote Mine
+o003 Spin Web
+o004 Observer Ward
+o005 Lycanthropy Wolf
+o006 Lycanthropy Wolf
+o007 Lycanthropy Wolf
+o008 Serpent Ward
+o009 Serpent Ward
+o00A Death Ward
+o00B Remote Mine
+o00C Healing Ward
+o00D Vision Dummy
+o00E Vision Dummy
+o00F Lycanthropy Wolf
+o00G Vision Dummy
+o00H Weaver Web
+o00I Poison Nova Attack 1
+o00K Fireball
+o00L Nether Ward 2
+o00M Nether Ward 1
+o00N Nether Ward 4
+o00O Nether Ward 3
+o00Q Vision Dummy
+o00R Fireball
+o00S Corrosive Skin Attacker
+o00T Plague Ward
+o00U Plague Ward
+o00V Plague Ward
+o00W Plague Ward
+o00X Death Ward
+o00Y Lion Roar Effect
+o00Z Vision Dummy
+o010 Ball Lightning
+o018 Remote Mine
+oalt Altar of Storms
+obar Barracks
+obea Beastiary
+ocat Demolisher
+ocor Orb of Corruption
+odoc Troll Witch Doctor
+oeye Sentry Ward
+ofir Orb of Fire
+oflg Orc Flag
+ofor War Mill
+ofro Orb of Frost
+ofrt Fortress
+ogre Great Hall
+ogru Grunt
+ohun Troll Headhunter
+ohwd Healing Ward
+okod Kodo Beast
+oli2 Orb of Lightning
+olig Orb of Lightning
+opeo Peon
+orai Raider
+oshm Shaman
+osld Spirit Lodge
+oslo Orb of Slow
+osp1 Serpent Ward
+osp2 Serpent Ward
+osp3 Serpent Ward
+osp4 Serpent Ward
+ospm Spirit Walker
+ospw Spirit Walker
+ostr Stronghold
+osw3 Shadow Wolf
+otau Tauren
+otbk Troll Berserker
+otbr Troll Batrider
+otot Stasis Trap
+otrb Orc Burrow
+otto Tauren Totem
+oven Orb of Venom
+ovln Voodoo Lounge
+owtw Watch Tower
+owyv Wind Rider
+pams Anti-magic Potion
+pclr Clarity Potion
+pdiv Potion of Divinity
+penr Pendant of Energy
+pgin Potion of Greater Invisibility
+pgma Potion of Greater Mana
+phea Potion of Healing
+pinv Potion of Invisibility
+plcl Lesser Clarity Potion
+pman Potion of Mana
+prvt Periapt of Vitality
+pspd Potion of Speed
+ram1 Ring of the Archmagi
+ram2 Ring of the Archmagi
+ram3 Ring of the Archmagi
+ram4 Ring of the Archmagi
+rat6 Claws of Attack +6
+ratf Claws of Attack +15
+rde0 Ring of Protection +1
+rde2 Ring of Protection +3
+rde4 Ring of Protection +5
+rdis Rune of Dispel Magic
+rej1 Minor Replenishment Potion
+rej2 Lesser Replenishment Potion
+rej4 Greater Replenishment Potion
+rej5 Lesser Scroll of Replenishment
+rej6 Greater Scroll of Replenishment
+rhe2 Rune of Healing
+rlif Ring of Regeneration
+rma2 Rune of Greater Mana
+rnec Rod of Necromancy
+rnsp Ring of Superiority
+rots Scepter of the Sea
+rre1 Rune of Lesser Resurrection
+rreb Rune of Rebirth
+rspl Rune of Spirit Link
+rsps Rune of Shielding
+rst1 Gauntlets of Ogre Strength +3
+rugt Runed Gauntlets
+rump Rusty Mining Pick
+rwiz Sobi Mask
+sand Scroll of Animate Dead
+sbok Spell Book
+schl Scepter of Healing
+scul Scroll of the Unholy Legion
+sfog Horn of the Clouds
+shas Scroll of Speed
+shcw Shaman Claws
+shdt Shield of the Deathlord
+shea Scroll of Healing
+shhn Shield of Honor
+shrs Shimmerglaze Roast
+shtm Shamanic Totem
+silk Spider Silk Broach
+sksh Skull Shield
+skul Sacrificial Skull
+sman Scroll of Mana
+sor1 Shadow Orb +1
+sor2 Shadow Orb +2
+sor3 Shadow Orb +3
+sor4 Shadow Orb +4
+sor5 Shadow Orb +5
+sor6 Shadow Orb +6
+sor7 Shadow Orb +7
+sor8 Shadow Orb +8
+sor9 Shadow Orb +9
+sora Shadow Orb +10
+soul Soul
+spre Staff of Preservation
+sprn Spider Ring
+spsh Amulet of Spell Shield
+srbd Searing Blade
+sreg Scroll of Regeneration
+srrc Scroll of Resurrection
+srtl Serathil
+ssan Staff of Sanctuary
+stel Staff of Teleportation
+stre Staff of Reanimation
+stwa Sturdy War Axe
+stwp Scroll of Town Portal
+tbak Tiny Altar of Kings
+tbar Tiny Barracks
+tbsm Tiny Blacksmith
+tdex Tome of Agility
+tels Goblin Night Scope
+texp Tome of Experience
+tfar Tiny Farm
+tgrh Tiny Great Hall
+tgxp Tome of Greater Experience
+thdm Thunderlizard Diamond
+tkno Tome of Power
+tlum Tiny Lumber Mill
+tmmt Totem of Might
+tmsc Tome of Sacrifices
+tsct Ivory Tower
+u001 Ghoul
+u002 Necromancer
+u003 Revenant
+u004 Black Hole
+u005 Revenant
+u009 Revenant
+u00B ObserverTruesight
+u00D Spirit Tower - level 2
+u00G Ghosts
+u00H Chain Link
+u00I Natures Attendants
+u00J Illuminate Orb
+u00L ChronoSphere
+u00M Spirit Tower - level 1
+u00N Spirit Tower - level 3
+u00O Icy Path
+u00Q Graveyard
+u00R Meat Wagon
+u00S Power Cog
+u00T Spirit Tower - level 4
+u00U Hookshot Head
+u00V Hookshot Link
+u00W Power Cog Effect
+u00X Electric Vortex
+u00Z Goblin Shop
+uC74 Leragas The Vile
+uabo Abomination
+uaco Acolyte
+uaod Altar of Darkness
+ubon Boneyard
+ubsp Destroyer
+ugho Ghoul
+ugol Haunted Gold Mine
+ugrv Graveyard
+umtw Meat Wagon
+unec Necromancer
+unp1 Halls of the Dead
+unp2 Black Citadel
+unpl The Frozen Throne
+uobs Obsidian Statue
+uplg Disease Cloud
+usap Sacrificial Pit
+usep Crypt
+ushd Watcher
+uske Skeleton Warrior
+uslh Slaughterhouse
+utod Temple of the Damned
+utom Tomb of Relics
+uzig Ziggurat
+vddl Voodoo Doll
+ward Warsong Battle Drums
+wcyc Wand of the Wind
+whwd Healing Wards
+will Wand of Illusion
+wswd Sentry Wards

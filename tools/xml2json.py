@@ -29,10 +29,10 @@ def saveDict(units, outfile, compact=False):
                 elif unitKey=='RelatedTo':
                     unitValue = unitValue.split(',')
                 elif unitKey=='Art':
-                    unitKey='Image'
+                    unitKey='image'
                     unitValue = unitValue.replace("images/", "")
                     #unitValue = unitValue[:-3] + 'png'
-                unitDict[unitKey] = unitValue
+                unitDict[unitKey.lower()] = unitValue
 
     indent = None if compact else 2
 
@@ -46,4 +46,4 @@ outfile_compact = file('units-6.60.compact.json', 'w')
 
 units = makeDict(infile)
 saveDict(units, outfile)
-saveDict(units, outfile_compact, compact=True)
+#saveDict(units, outfile_compact, compact=True)

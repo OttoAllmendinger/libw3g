@@ -1,10 +1,12 @@
 import re
+import time
+
 from libdota import DotaParser
 from collections import defaultdict
 
 from libdota.constants import TEAM_1, TEAM_2
 
-VALID_VERSIONS = ('v6.64', )
+VALID_VERSIONS = ('v6.64', 'v6.66')
 
 OPPONENT = { TEAM_1: TEAM_2, TEAM_2: TEAM_1 }
 
@@ -103,6 +105,11 @@ def get_event_data(replay_data):
             killer_id = int(c)
             hero_data[killer_id]['kill_log'].append((ts, victim_id))
             hero_data[victim_id]['death_log'].append((ts, killer_id))
+        if a=='Data' and b.startswith('Assist'):
+            killer_id = int(b.replace('Assist', ''))
+            victim_id = int(c)
+            hero_data[killer_id]['assist_log'].append((ts, victim_id))
+            hero_data[victim_id]['death_log_assist'].append((ts, killer_id))
         elif a=='Data' and b.startswith('Level'):
             hero_level = int(b.replace('Level', ''))
             hero_data[int(c)]['level_log'].append((ts, hero_level))
@@ -137,6 +144,7 @@ def get_players_info(replay_data, event_data):
             'hero': hero_data['hero'],
             'item_log': hero_data['item_log'],
             'kill_log': hero_data['kill_log'],
+            'assist_log': hero_data['assist_log'],
             'death_log': hero_data['death_log'],
             'level_log': hero_data['level_log'],
             'team': (TEAM_1 if hero_data['spawn_id']<6 else TEAM_2),
@@ -150,18 +158,18 @@ def get_players_info(replay_data, event_data):
 
     return player_info
 
-def get_gamedata(meta_data, replay_data):
+def get_gamedata(replay_data, timestamp=0):
+    timestamp = timestamp or time.time()
     if 'dota_events' not in replay_data:
         raise Exception("no dota events found")
     elif not get_dota_version(replay_data) in VALID_VERSIONS:
-        raise Exception("unsupported DotA Version" %
+        raise Exception("unsupported DotA Version %s" %
                 get_dota_version(replay_data))
 
     event_data = get_event_data(replay_data)
 
     return {
-        'start_time':
-            meta_data['file_timestamp']-replay_data['gametime']/1000,
+        'start_time': timestamp-replay_data['gametime']/1000,
         'replay_id': replay_data['replay_id'],
         'duration': replay_data['gametime'],
         'players': get_players_info(replay_data, event_data),

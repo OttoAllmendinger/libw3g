@@ -8,7 +8,8 @@ import json
 from pprint import pprint
 
 from libw3g.Tools import *
-from libdota import get_replay_data, get_game_data
+from libw3g import get_timestamp
+from libdota import get_replaydata, get_gamedata
 
 def dump_replay_data(replay_data):
     pprint(replay_data)
@@ -50,6 +51,9 @@ def dump_rdnode(replay_data, rdv):
         node = node[name]
     print '%s=%s' % (rdv, node)
 
+def get_metadata(filename):
+    pass
+
 def usage(name):
     print "Usage: %s REPLAY-FILE" % name
 
@@ -68,10 +72,9 @@ if __name__=="__main__":
     options, args = parser.parse_args()
 
     for arg in args:
-        #meta_data = get_meta_data(arg)
         try:
-            replay_data = get_replay_data(file(arg))
-            game_data = get_game_data(replay_data)
+            replay_data = get_replaydata(file(arg).read())
+            game_data = get_gamedata(replay_data, get_timestamp(arg))
 
             if options.meta_data:
                 dump_metadata(replay_data, game_data)

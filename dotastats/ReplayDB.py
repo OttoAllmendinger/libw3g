@@ -105,8 +105,8 @@ class ReplayDB(object):
 
     def make_gamedata(self, replay_id):
         gamedata = libdota.get_gamedata(
-                self.get_metadata(replay_id),
-                self.get_replaydata(replay_id))
+                self.get_replaydata(replay_id),
+                self.get_metadata(replay_id).get('file_timestamp', 0))
         json.dump(gamedata, self.rp_file(replay_id, FN_GAMEDATA, 'w'))
         return gamedata
 

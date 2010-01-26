@@ -5,6 +5,7 @@ libdota/tests/replays
 dotastats/static/images/
 dotastats/replays
 dotastats/data/*
+*dota_files*
 *.swo
 *.swp
 *.pyc
