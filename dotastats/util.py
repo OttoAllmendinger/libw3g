@@ -57,8 +57,11 @@ def players_by_team(replay, team):
     return [p for p in replay.gamedata['players'].values() if p['team']==team]
 
 def get_hero_image(hero_id):
+    return get_unit_image(hero_id)
+
+def get_unit_image(unit_id):
     image_file = libdota.DotaUnits.getUnit(
-            unicode(hero_id).encode('utf8')).unitData['Image']
+            unicode(unit_id).encode('utf8')).unitData['Image']
     return '/static/images/dota/' + image_file
 
 

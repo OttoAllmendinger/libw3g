@@ -9,7 +9,8 @@ class PlayerDB:
         self.alias_map = self._aliasmap(self.players)
 
     def add_name(self, player):
-        player['name'] = self.alias_map.get(player['nick'], player['nick'])
+        nick = player.get('nick', 'Unknown')
+        player['name'] = self.alias_map.get(nick, nick)
         return player
 
     def _aliasmap(self, players):

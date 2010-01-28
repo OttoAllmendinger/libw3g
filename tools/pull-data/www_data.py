@@ -43,6 +43,8 @@ def get_hero_db(data):
 def convert(data):
     hero_db_www = get_hero_db(data)
 
+def get_www_data():
+    return get_hero_db(get_data_fs())
 
 if __name__=="__main__":
     #convert(get_data_www())
