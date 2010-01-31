@@ -109,10 +109,10 @@ class DotaStats:
         return loader.load('test.tpl.html').generate().render('html')
 
     @expose
-    def index(self):
+    def index(self, debug=False):
         return loader.load('listview.tpl.html').generate(util=util,
                 replaydb=self.replaydb, playerdb=self.playerdb,
-                libw3g_version=libw3g.version,
+                libw3g_version=libw3g.version, debug=debug
         ).render('html')
 
     @expose
