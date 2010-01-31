@@ -6,7 +6,7 @@ from collections import defaultdict
 
 from libdota.constants import TEAM_1, TEAM_2
 
-VALID_VERSIONS = ('v6.64', 'v6.66')
+VALID_VERSIONS = ('v6.66', )
 
 OPPONENT = { TEAM_1: TEAM_2, TEAM_2: TEAM_1 }
 

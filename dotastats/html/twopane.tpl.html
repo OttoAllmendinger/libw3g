@@ -10,7 +10,7 @@ def player_class(player_name):
     return 'player%s' % player_name
 
 def format_gametime(gamedata):
-    return time.strftime("%H:%M", time.localtime(gamedata['start_time']))
+    return time.strftime("%d.%m.%Y - %H:%M", time.localtime(gamedata['start_time']))
 
 def format_duration(gamedata):
     return "%d min" % (int(gamedata['duration']/60/1000))
@@ -21,6 +21,7 @@ def format_duration(gamedata):
           xmlns:py="http://genshi.edgewall.org/">
     <head>
         <link rel="icon" type="image/gif" href="/static/images/favicon.gif" />
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
         <script src="/static/js/jquery.dataset.js"></script>
         <script src="/static/js/jquery.sprintf.js"></script>
@@ -39,71 +40,34 @@ def format_duration(gamedata):
 
         <style type="text/css">
             body {
-                background: #080808;
-                font-family: Georgia;
-                color: #ffebaf;
-            }
-
-            h1 {
                 text-align: center;
-                color: #ffebaf;
-            }
-
-            h3 {
-                color: #b5a26b;
-                text-align: center;
-            }
-
-            .footer {
-                margin-top: 300px;
-                margin-bottom: 50px;
-                text-align: center;
-                color: #404040;
             }
 
             div.game {
                 margin: 1em;
+                width: 50%;
+                margin: auto;
+                margin-top: 32px;
+                margin-bottom: 32px;
             }
 
             table.overview {
-                cursor: default;
                 margin-left: auto;
                 margin-right: auto;
                 border-collapse: separate;
                 border-spacing: 0;
-                border: 2px solid #333;
-                background: #222;
                 padding-bottom: 10px;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
+                padding-top: 10px;
             }
 
-            table.overview th {
-                color: #ffebaf;
-                padding-bottom: .5em;
-            }
 
             table.overview tr.game td {
                 vertical-align: top;
-                padding-bottom: 64px;
             }
 
             table.overview .game_index {
                 vertical-align: top;
                 width: 32px;
-            }
-
-            table.overview td.game_time {
-                width: 64px;
-            }
-
-            table.overview td.stat_button {
-                width: 64px;
-            }
-
-            table#inventory img.item {
-                width: 48px;
-                height: 48px;
             }
 
             table.overview div.player {
@@ -154,8 +118,7 @@ def format_duration(gamedata):
             }
 
             table.overview .team1 {
-                text-align: right;
-                padding-right: 1em;
+                text-align: right; padding-right: 1em;
             }
 
             table.overview .team2 {
@@ -163,51 +126,30 @@ def format_duration(gamedata):
                 text-align: left;
             }
 
-            .gameDetails .chart {
-                height: 100%;
-                width: 100%;
+            div#player_stats {
+                width: 100px;
+                text-align: center;
             }
 
-            .tooltip#ttPlayerStats .heroName {
+            div#player_stats table#inventory {
+                margin: auto;
+            }
+
+            div#player_stats .hero_name {
                 font-weight: bolder;
-                padding-bottom: .2em;
-            }
-
-            .tooltip {
-                position: absolute;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 0.66em;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
-                display: none;
-                border: 2px solid #333;
-            }
-
-            td.legendLabel {
-                color: #ffebaf;
-                text-align: left;
             }
 
         </style>
     </head>
     <body>
         <div py:for="replay in util.filter_replays(replaydb.replays.values())"
-            class="game">
+            class="game lv1">
             <table class="overview">
                 <tr>
-                    <!-- <th class="game_time"></th> -->
                     <th class="team1">The Sentinel</th>
                     <th class="team2">The Scourge</th>
-                    <!-- <th class="stat_button"></th> -->
                 </tr>
                 <tr class="game" data-replay="${replay.replay_id}">
-                    <!--
-                    <td class="game_time">
-                        ${format_gametime(replay.gamedata)} <br />
-                        ${format_duration(replay.gamedata)}
-                    </td>
-                    -->
-
                     <td py:for="n, team in enumerate((TEAM_1, TEAM_2))" 
                         class="team${n+1}">
                         <?python
@@ -224,7 +166,7 @@ def format_duration(gamedata):
 
                             <img    
                                 py:if="team==TEAM_2"
-                                class="hero_image"
+                                class="hero"
                                 src="${util.get_hero_image(player.hero)}" />
 
                             <span class="info">
@@ -233,7 +175,7 @@ def format_duration(gamedata):
                                 </b>
 
                                 <span class="score_text">
-                                ${"%dk %da %dd" % (
+                                ${"%d/%d/%d" % (
                                     len(player.kill_log),
                                     len(player.assist_log),
                                     len(player.death_log))}
@@ -245,15 +187,17 @@ def format_duration(gamedata):
                                 class="hero_image"
                                 src="${util.get_hero_image(player.hero)}" />
                         </div>
-                    </td>
 
+                    </td>
                 </tr>
             </table>
+                ${format_gametime(replay.gamedata)} - ${format_duration(replay.gamedata)}
+                - <a href="/game/${replay.replay_id}">details</a>
         </div>
 
         <div id="player_stats" class="tooltip">
-            <div class="player_name"></div>
-            <div class="hero_name"></div>
+            <span class="player_name"></span>
+            <span class="hero_name"></span>
             <span class="kill_stats"></span>
             <span class="death_stats"></span>
 
@@ -264,9 +208,6 @@ def format_duration(gamedata):
                     </td>
                 </tr>
             </table>
-        </div>
-
-        <div id="inventory" class="tooltip">
         </div>
 
         <div class="footer">

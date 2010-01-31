@@ -27,15 +27,6 @@ loader = TemplateLoader(join(dirname(__file__), 'html'), auto_reload=True)
 VALID_RU_VERSIONS = ('0.1', )
 
 
-def rename_players(gamedata_players):
-    newdict = {}
-    for player in ALIAS_MAP:
-        for alias in player['aliases']:
-            if alias in gamedata_players:
-                newdict[player] = gamedata_players[alias]
-                break
-    return newdict
-
 class DotaStats:
     def __init__(self):
         self.replaydb = ReplayDB(join(dirname(__file__), 'data', 'replaydb'))
@@ -119,7 +110,7 @@ class DotaStats:
 
     @expose
     def index(self):
-        return loader.load('listview.tpl.html').generate(util=util,
+        return loader.load('twopane.tpl.html').generate(util=util,
                 replaydb=self.replaydb, playerdb=self.playerdb,
                 libw3g_version=libw3g.version,
         ).render('html')
