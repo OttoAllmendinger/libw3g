@@ -1,0 +1,86 @@
+<!--!  vi: set ft=genshi: -->
+<!DOCTYPE html>
+
+<?python
+
+import util
+
+from libdota.constants import TEAM_1, TEAM_2
+
+players = util.get_players()
+stats = util.get_player_stats(players, util.get_replays())
+
+sorted_players = sorted(players, key=lambda p: -stats[p]['score'])
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:py="http://genshi.edgewall.org/">
+    <head>
+        <link rel="icon" type="image/gif" href="/static/images/favicon.gif" />
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
+        <script src="/static/js/jquery.dataset.js"></script>
+        <script src="/static/js/jquery.sprintf.js"></script>
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/jquery.getalljson.js"></script>
+        <script 
+            py:if="not debug"
+            src="/static/js/consolefix.js"></script>
+        <script src="/static/js/dotastats.js"></script>
+        <script src="/static/js/listview.js"></script>
+        <script>
+            console.log();
+            $(document).ready(function() {
+                init();
+            });
+        </script>
+
+        <title>Highscore - DotaStats</title>
+
+        <style type="text/css">
+
+            div.highscore {
+                width: 66%;
+                margin: auto;
+            }
+            
+            table.highscore {
+                margin: auto;
+                width: 100%;
+            }
+
+            table.highscore td {
+                text-align: center;
+                font-size: 150%;
+            }
+
+            div#player_stats {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="lv1 highscore">
+        <table class="highscore">
+            <tr>
+                <th> Name </th>
+                <th> Score </th>
+                <th> Kills </th>
+                <th> Deaths </th>
+                <th> Assists </th>
+                <th> Creep Kills </th>
+            </tr>
+            <tr py:for="player in sorted_players">
+                <td>${player}</td>
+                <td>${stats[player].score}</td>
+                <td>${stats[player].kills}</td>
+                <td>${stats[player].deaths}</td>
+                <td>${stats[player].assists}</td>
+                <td>${stats[player].creep_kills}</td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

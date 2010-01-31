@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <?python
 
+import util
 import time
+import libw3g
 
 from libdota.constants import TEAM_1, TEAM_2
 
@@ -19,7 +21,7 @@ def sorted_team(players, team):
     return sorted(
         (p for p in players if p['team']==team), key=lambda p: p['hero'])
 
-replays = util.filter_replays(replaydb.replays.values())
+replays = util.get_replays()
 
 ?>
 
@@ -48,7 +50,7 @@ replays = util.filter_replays(replaydb.replays.values())
         <title>DotaStats</title>
 
         <style type="text/css">
-            table.overview {
+            div.overview {
                 width: 66%;
                 margin: auto;
             }
@@ -64,66 +66,70 @@ replays = util.filter_replays(replaydb.replays.values())
         </style>
     </head>
     <body>
-        <table class="overview lv1">
-            <?python
-            all_players = sorted(playerdb.players)
-            ?>
-            <tr>
-                <th> Game </th>
-                <th> Length </th>
-                <th> Kills </th>
-                <th> Sentinel </th>
-                <th> Scourge </th>
-            </tr>
-            <tr py:for="n, replay in enumerate(replays)" 
-                class="game" data-replay="${replay.replay_id}">
+        <div class="overview lv1">
+            <table class="overview">
                 <?python
-                players_by_name = dict((p['name'], p) for p in map(
-                    playerdb.add_name, replay.gamedata['players'].values()))
-                current_players = map(players_by_name.get, all_players)
-
-                players = replay.gamedata['players'].values()
-
-                teams = (
-                    (1, sorted_team(players, TEAM_1)),
-                    (2, sorted_team(players, TEAM_2))
-                )
-
+                all_players = sorted(util.get_players())
                 ?>
-                <td>
-                    <a href="/game/${replay.replay_id}">
-                        #${len(replays)-n} -
-                        ${format_gametime(replay.gamedata)}
-                    </a>
-                </td>
-                <td>
-                    ${format_duration(replay.gamedata)}
-                </td>
-                <td>
-                    ${sum(len(p.kill_log) for p in current_players if p)}
-                </td>
-                <td py:for="n_team, players in teams"
-                    class="team${n_team}">
-                    <img 
-                        data-player="${p.name}"
-                        style="width: 48px; height: 48px" py:for="p in players" 
-                        class="${'win' if p.is_winner else 'fail'}"
-                        src="${util.get_hero_image(p.hero)}" />
-                </td>
-            </tr>
-        </table>
+                <tr>
+                    <th> Game </th>
+                    <th> Length </th>
+                    <th> Kills </th>
+                    <th> Sentinel </th>
+                    <th> Scourge </th>
+                </tr>
+                <tr py:for="n, replay in enumerate(replays)" 
+                    class="game" data-replay="${replay.replay_id}">
+                    <?python
+                    players_by_name = dict((p['name'], p) for p in
+                        replay.gamedata['players'].values())
+                    current_players = map(players_by_name.get, all_players)
+
+                    players = replay.gamedata['players'].values()
+
+                    teams = (
+                        (1, sorted_team(players, TEAM_1)),
+                        (2, sorted_team(players, TEAM_2))
+                    )
+
+                    ?>
+                    <td>
+                        <a href="/game/${replay.replay_id}">
+                            #${len(replays)-n} -
+                            ${format_gametime(replay.gamedata)}
+                        </a>
+                    </td>
+                    <td>
+                        ${format_duration(replay.gamedata)}
+                    </td>
+                    <td>
+                        ${sum(len(p.kill_log) for p in current_players if p)}
+                    </td>
+                    <td py:for="n_team, players in teams"
+                        class="team${n_team}">
+                        <img 
+                            data-player="${p.name}"
+                            style="width: 48px; height: 48px" py:for="p in players" 
+                            class="${'win' if p.is_winner else 'fail'}"
+                            src="${util.get_hero_image(p.hero)}" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <div id="player_stats" class="tooltip">
             <div class="stats"></div>
 
+            <!--
             <div class="inventory">
                 <img py:for="i in range(6)" 
                 style="width: 42px; height:42px" class="item" />
             </div>
+            -->
         </div>
 
         <div class="footer">
-            dotastats.r${libw3g_version}
+            dotastats.r${libw3g.version}
         </div>
 
     </body>

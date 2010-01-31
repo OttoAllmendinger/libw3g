@@ -2,6 +2,7 @@ body {
     background: #080808;
     font-family: Georgia;
     color: #ffebaf;
+    cursor: default;
 }
 
 a {
@@ -9,6 +10,7 @@ a {
     text-decoration: none;
     border-bottom: 1px dotted #ffebaf;
 }
+
 a:hover {
     color: #fff;
 }
@@ -21,11 +23,22 @@ a:hover {
     -moz-border-radius: 10px;
 }
 
-img.fail {
+.lv1 table {
+    width: 100%;
+    background: #111;
+    border-collapse: collapse;
+}
+
+.lv1 table th {
+    background: #222;
+    padding: .3em;
+}
+
+img.fail, .fail img {
     opacity: 0.2;
 }
 
-img.fail:hover {
+img:hover {
     opacity: 1.0;
 }
 

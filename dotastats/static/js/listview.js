@@ -30,6 +30,8 @@ init_data = function(units, players, games) {
                 var has_items = false,
                     i=0;
 
+                    /*
+
                 $.each(tt_slots, function(j, slot) {
                     // $(slot).attr("src", "/static/images/dota/empty.png");
                     // $(slot).css("visibility", "hidden");
@@ -46,6 +48,8 @@ init_data = function(units, players, games) {
                         i = i+1;
                     } 
                 });
+
+                */
 
             });
 

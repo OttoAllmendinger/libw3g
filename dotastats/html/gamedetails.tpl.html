@@ -1,0 +1,120 @@
+<!--!  vi: set ft=genshi: -->
+<!DOCTYPE html>
+<?python
+
+import util
+
+from libdota.constants import TEAM_1, TEAM_2
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:py="http://genshi.edgewall.org/">
+    <head>
+        <link rel="icon" type="image/gif" href="/static/images/favicon.gif" />
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
+        <script src="/static/js/jquery.dataset.js"></script>
+        <script src="/static/js/jquery.sprintf.js"></script>
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/jquery.getalljson.js"></script>
+        <script 
+            py:if="not debug"
+            src="/static/js/consolefix.js"></script>
+        <script src="/static/js/dotastats.js"></script>
+        <script src="/static/js/listview.js"></script>
+        <script>
+            console.log();
+            $(document).ready(function() {
+                init();
+            });
+        </script>
+        <style type="text/css">
+            .details {
+                margin: auto;
+                width: 66%;
+            }
+
+            .details th {
+                padding-bottom: 1em;
+            }
+
+            .details td {
+                padding: .1em;
+                text-align: center;
+                font-size: 120%;
+            }
+
+            td.inventory {
+                text-align: left;
+            }
+
+            .player_name {
+                width: 128px;
+                text-align: center;
+            }
+        </style>
+
+
+    </head>
+    <body>
+        <table class="lv1 details">
+            <tr>
+                <th>Name</th>
+                <th>Hero</th>
+                <th>
+                    Inventory
+                </th>
+                <th>Kills</th>
+                <th>Deaths</th>
+                <th>Assists</th>
+            </tr>
+            <py:for each="n_team, team in ((1, TEAM_1), (2, TEAM_2))">
+                <?python
+
+                players = sorted(
+                    util.players_by_team(replay, team),
+                    key=lambda p: -len(p['kill_log']))
+
+                ?>
+
+                <tr py:for="player in players" 
+                    class="team${n_team} ${util.wintag(player)}">
+                    <td class="player_name">
+                        <a href="/player/${player.name}">
+                            ${player.name}
+                        </a>
+                    </td>
+                    <td>
+                        <img 
+                            class="hero"
+                            src="${util.get_hero_image(player.hero)}" />
+                    </td>
+
+                    <td class="inventory">
+                        <py:for each="i in range(6)" class="inventory slot${i}">
+                        <img 
+                            py:if="player.inventory[i]"
+                            class="item"
+                            src="${util.get_unit_image(player.inventory[i])}" />
+                        </py:for>
+                        <!-- 
+                        <img py:if="not player.inventory[i]"
+                            class="item"
+                            src="/static/images/dota/empty_slot.gif" /> -->
+                    </td>
+
+                    <td>
+                        ${len(player.kill_log)}
+                    </td>
+                    <td>
+                        ${len(player.death_log)}
+                    </td>
+                    <td>
+                        ${len(player.assist_log)}
+                    </td>
+                </tr>
+            </py:for>
+        </table>
+    </body>
+</html>

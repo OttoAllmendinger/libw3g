@@ -28,10 +28,6 @@ VALID_RU_VERSIONS = ('0.1', )
 
 
 class DotaStats:
-    def __init__(self):
-        self.replaydb = ReplayDB(join(dirname(__file__), 'data', 'replaydb'))
-        self.playerdb = PlayerDB(join(dirname(__file__), 'data', 'playerdb'))
-
     @expose
     def set_admin(self):
         cherrypy.response.cookie['dotastats-admin'] = 'True'
@@ -71,7 +67,7 @@ class DotaStats:
             'upload_timestamp': int(time.time()),
             'uploader_ip': cherrypy.request.remote.ip }
 
-        self.replaydb.add_replay(data, metadata)
+        util.add_replay(data, metadata)
 
     upload._cp_config = {'response.stream': True}
 
@@ -82,7 +78,6 @@ class DotaStats:
         else:
             return str(False)
 
-
     @expose
     def rebuild(self, targets='replay+gameinfo'):
         targets = targets.split("+")
@@ -90,17 +85,15 @@ class DotaStats:
     @expose
     def json(self, key, **k):
         if key=='gamedata':
-            return json.dumps(dict((r.replay_id,
-                util.by_name(dict(r.gamedata),
-                    self.playerdb.alias_map)) for r in
-                        self.replaydb.replays.values()))
+            return json.dumps(dict((r.replay_id, r.gamedata)
+                for r in util.get_replays()))
         elif key=='metadata':
             return json.dumps(
                     dict((r.replay_id, r.metadata) for r in
-                        self.replaydb.replays.values()))
+                        util.get_replays()))
         elif key=='players':
             return json.dumps(dict((p_name, p_data) for p_name, p_data in
-                    self.playerdb.players.items()))
+                    util.get_players().items()))
         else:
             return '{}'
 
@@ -108,12 +101,22 @@ class DotaStats:
     def test(self):
         return loader.load('test.tpl.html').generate().render('html')
 
+
+    @expose
+    def game(self, replay_id, debug=False):
+        replay = next(r for r in util.get_replays() if r.replay_id==replay_id)
+        return loader.load("gamedetails.tpl.html").generate(
+                replay=replay, debug=debug).render("html")
+
     @expose
     def index(self, debug=False):
-        return loader.load('listview.tpl.html').generate(util=util,
-                replaydb=self.replaydb, playerdb=self.playerdb,
-                libw3g_version=libw3g.version, debug=debug
-        ).render('html')
+        return loader.load('listview.tpl.html').generate(
+                debug=debug).render('html')
+
+    @expose
+    def highscore(self, debug=False):
+        return loader.load("highscore.tpl.html").generate(
+                debug=debug).render('html')
 
     @expose
     def static(self):

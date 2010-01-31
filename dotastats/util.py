@@ -6,21 +6,38 @@ from itertools import groupby, chain
 import hashlib
 import logging
 
+from collections import defaultdict
+
 import libdota
 
 from libdota.constants import TEAM_1, TEAM_2
 
-def by_name(gamestate, alias_map):
-    new_players = {}
-    for player_data in add_name(gamestate, alias_map)['players'].values():
-        new_players[player_data['name']] = player_data
-    gamestate['players'] = new_players
-    return gamestate
+from ReplayDB import ReplayDB
+from PlayerDB import PlayerDB
 
-def add_name(gamestate, alias_map):
+_replaydb = ReplayDB(join(dirname(__file__), 'data', 'replaydb'))
+_playerdb = PlayerDB(join(dirname(__file__), 'data', 'playerdb'))
+
+def get_replays():
+    return filter_replays(get_all_replays())
+
+def get_all_replays():
+    return map(by_name, _replaydb.replays.values())
+
+def get_players():
+    return _playerdb.players
+
+def by_name(replay):
+    new_players = {}
+    for player_data in add_name(replay.gamedata)['players'].values():
+        new_players[player_data['name']] = player_data
+    replay.gamedata['players'] = new_players
+    return replay
+
+def add_name(gamestate):
     for player in gamestate['players'].values():
         nick = player.get('nick')
-        player['name'] = alias_map.get(nick, nick)
+        player['name'] = _playerdb.alias_map.get(nick, nick)
     return gamestate
 
 def player_color(player_name):
@@ -47,12 +64,6 @@ def filter_replays(replays):
         return (rp.gamedata['duration']>10*60*1000)
     return sorted(filter(f, replays), key=lambda r: -r.gamedata['start_time'])
 
-def get_player_stats(player_data, gamedata):
-    for alias in player_data['aliases']:
-        for v in gamedata['players'].values():
-            if v['nick']==alias:
-                return v
-
 def players_by_team(replay, team):
     return [p for p in replay.gamedata['players'].values() if p['team']==team]
 
@@ -70,3 +81,36 @@ def get_ministats(replay):
     for p in replay.gamedata['players'].values():
         teamkills[p['team']] += len(p['kill_log'])
     return '%d:%d' % (teamkills[TEAM_1], teamkills[TEAM_2])
+
+
+def wintag(player):
+    return 'win' if player['is_winner'] else 'fail'
+
+
+
+def players_by_name(players):
+    return dict((p['name'], p) for p in players.values())
+
+def get_player_score(player_stat):
+    return (player_stat['kills'] * 100 -
+            player_stat['deaths'] * 100 +
+            player_stat['assists'] * 20)
+
+def get_player_stats(players, replays):
+    player_stats = dict(
+            (p, defaultdict(int)) for p in players)
+
+    for replay in replays:
+        players = players_by_name(replay.gamedata['players'])
+        for name in players:
+            player = players.get(name)
+            if player:
+                player_stats[name]['kills'] += len(player['kill_log'])
+                player_stats[name]['deaths'] += len(player['death_log'])
+                player_stats[name]['assists'] += len(player['assist_log'])
+
+    for player_stat in player_stats.values():
+        player_stat['score'] = get_player_score(player_stat)
+
+    return player_stats
+
