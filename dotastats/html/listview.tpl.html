@@ -10,7 +10,7 @@ def player_class(player_name):
     return 'player%s' % player_name
 
 def format_gametime(gamedata):
-    return time.strftime("%d.%m.%Y - %H:%M", time.localtime(gamedata['start_time']))
+    return time.strftime("%F - %H:%M", time.localtime(gamedata['start_time']))
 
 def format_duration(gamedata):
     return "%d min" % (int(gamedata['duration']/60/1000))
@@ -42,17 +42,12 @@ replays = util.filter_replays(replaydb.replays.values())
 
         <style type="text/css">
             table.overview {
+                width: 66%;
                 margin: auto;
-                cursor: default;
-            }
-
-            table.overview th {
-                padding: .2em;
             }
 
             table.overview td {
                 text-align: center;
-                width: 100px;
             }
 
             .player_stats {
@@ -66,9 +61,31 @@ replays = util.filter_replays(replaydb.replays.values())
             all_players = sorted(playerdb.players)
             ?>
             <tr>
+                <th>
+                    Game
+                </th>
+                <th>
+                    Length
+                </th>
+                <th>
+                    Kills
+                </th>
+                <th>
+                    Sentinel
+                </th>
+                <th>
+                    Scourge
+                </th>
+                <!--
+                <th>
+                    Losers
+                </th>
+                -->
+                <!--
                 <th py:for="player in all_players">
                     ${player}
                 </th>
+                -->
             </tr>
             <tr py:for="n, replay in enumerate(replays)" 
                 data-replay="${replay.replay_id}">
@@ -76,17 +93,50 @@ replays = util.filter_replays(replaydb.replays.values())
                 players_by_name = dict((p['name'], p) for p in map(
                     playerdb.add_name, replay.gamedata['players'].values()))
                 current_players = map(players_by_name.get, all_players)
+                team1 = sorted((p for p in
+                    replay.gamedata['players'].values() if p['team']==TEAM_1),
+                    key=lambda p: p['hero'])
+
+                team2 = sorted((p for p in
+                    replay.gamedata['players'].values() if p['team']==TEAM_2),
+                    key=lambda p: p['hero'])
                 ?>
+                <td>
+                    <a href="/game/${replay.replay_id}">
+                        #${len(replays)-n} -
+                        ${format_gametime(replay.gamedata)}
+                    </a>
+                </td>
+                <td>
+                    ${format_duration(replay.gamedata)}
+                </td>
+                <td>
+                    ${sum(len(p.kill_log) for p in current_players if p)}
+                </td>
+                <td class="team1">
+                    <img 
+                        style="width: 42px; height: 42px" py:for="p in team1" 
+                        class="${'win' if p.is_winner else 'fail'}"
+                        src="${util.get_hero_image(p.hero)}" />
+                </td>
+                <td class="team2">
+                    <img 
+                    style="width: 42px; height: 42px" py:for="p in team2" 
+                    class="${'win' if p.is_winner else 'fail'}"
+                    src="${util.get_hero_image(p.hero)}" />
+                </td>
+
+                <!--
                 <py:for each="p in current_players">
-                    <td py:if="p" class="player_stats">
-                        <img    src="${util.get_hero_image(p.hero)}"
-                                class="heroimage
-                                       ${'win' if p.is_winner else 'fail'}" />
+                    <td py:if="p" class="player_stats ${'win' if p.is_winner else 'fail'}">
+                        ${len(p.kill_log)}
                     </td>
 
                     <td class="player_stats absent" py:if="not p">
+                        -
                     </td>
                 </py:for>
+                -->
             </tr>
         </table>
 
