@@ -45,6 +45,10 @@ from libdota.constants import TEAM_1, TEAM_2
                 font-size: 120%;
             }
 
+            th.score {
+                width: 66px;
+            }
+
             td.inventory {
                 text-align: left;
             }
@@ -58,63 +62,65 @@ from libdota.constants import TEAM_1, TEAM_2
 
     </head>
     <body>
-        <table class="lv1 details">
-            <tr>
-                <th>Name</th>
-                <th>Hero</th>
-                <th>
-                    Inventory
-                </th>
-                <th>Kills</th>
-                <th>Deaths</th>
-                <th>Assists</th>
-            </tr>
-            <py:for each="n_team, team in ((1, TEAM_1), (2, TEAM_2))">
-                <?python
-
-                players = sorted(
-                    util.players_by_team(replay, team),
-                    key=lambda p: -len(p['kill_log']))
-
-                ?>
-
-                <tr py:for="player in players" 
-                    class="team${n_team} ${util.wintag(player)}">
-                    <td class="player_name">
-                        <a href="/player/${player.name}">
-                            ${player.name}
-                        </a>
-                    </td>
-                    <td>
-                        <img 
-                            class="hero"
-                            src="${util.get_hero_image(player.hero)}" />
-                    </td>
-
-                    <td class="inventory">
-                        <py:for each="i in range(6)" class="inventory slot${i}">
-                        <img 
-                            py:if="player.inventory[i]"
-                            class="item"
-                            src="${util.get_unit_image(player.inventory[i])}" />
-                        </py:for>
-                        <!-- 
-                        <img py:if="not player.inventory[i]"
-                            class="item"
-                            src="/static/images/dota/empty_slot.gif" /> -->
-                    </td>
-
-                    <td>
-                        ${len(player.kill_log)}
-                    </td>
-                    <td>
-                        ${len(player.death_log)}
-                    </td>
-                    <td>
-                        ${len(player.assist_log)}
-                    </td>
+        <div class="details lv1">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Hero</th>
+                    <th>
+                        Inventory
+                    </th>
+                    <th class="score">Kills</th>
+                    <th class="score">Deaths</th>
+                    <th class="score">Assists</th>
                 </tr>
-            </py:for>
-        </table>
+                <py:for each="n_team, team in ((1, TEAM_1), (2, TEAM_2))">
+                    <?python
+
+                    players = sorted(
+                        util.players_by_team(replay, team),
+                        key=lambda p: -len(p['kill_log']))
+
+                    ?>
+
+                    <tr py:for="player in players" 
+                        class="team${n_team} ${util.wintag(player)}">
+                        <td class="player_name">
+                            <a href="/player/${player.name}">
+                                ${player.name}
+                            </a>
+                        </td>
+                        <td>
+                            <img 
+                                class="hero"
+                                src="${util.get_hero_image(player.hero)}" />
+                        </td>
+
+                        <td class="inventory">
+                            <py:for each="i in range(6)" class="inventory slot${i}">
+                            <img 
+                                py:if="player.inventory[i]"
+                                class="item"
+                                src="${util.get_unit_image(player.inventory[i])}" />
+                            </py:for>
+                            <!-- 
+                            <img py:if="not player.inventory[i]"
+                                class="item"
+                                src="/static/images/dota/empty_slot.gif" /> -->
+                        </td>
+
+                        <td>
+                            ${len(player.kill_log)}
+                        </td>
+                        <td>
+                            ${len(player.death_log)}
+                        </td>
+                        <td>
+                            ${len(player.assist_log)}
+                        </td>
+                    </tr>
+                </py:for>
+            </table>
+        </div>
     </body>
 </html>

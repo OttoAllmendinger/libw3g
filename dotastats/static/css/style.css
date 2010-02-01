@@ -18,6 +18,7 @@ a:hover {
 .lv1 {
     border: 2px solid #333;
     background: #222;
+    padding-top: 10px;
     padding-bottom: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -31,7 +32,7 @@ a:hover {
 
 .lv1 table th {
     background: #222;
-    padding: .3em;
+    padding-bottom: 10px;
 }
 
 img.fail, .fail img {
