@@ -47,6 +47,11 @@ class BlockReader:
             except ExtractionError:
                 break
 
+            #print 'blockid=%02X' % _id
+            #_p = io.tell()
+            #dump(io.read(128))
+            #io.seek(_p)
+
             if _id not in self.blockMap.keys():
                 raise Exception("Undefined Block 0x%02X" % _id)
 

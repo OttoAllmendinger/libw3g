@@ -23,12 +23,12 @@ class GameBlockReader(BlockReader):
         self.define(0x00, 'Finish')
 
     def handleLeaveGame(self, block, io):
-        reason, player_id, result, unknown = extract('<LBLL', io)
+        reason, player_id, result, unknown = extract('IBII', io)
         self.state['leaves'].append((
             self.state['gametime'], reason, player_id, result))
 
     def handleChatMessage(self, block, io):
-        sender, size, flags, mode = extract('<bhbl', io)
+        sender, size, flags, mode = extract('bhbi', io)
         message = extractString(io)
 
     def handleFinish(self, block, io):
@@ -42,10 +42,15 @@ class GameBlockReader(BlockReader):
 
         while True:
             try:
-                player_id, block_length = extract('<bH', cmdio)
+                player_id, block_length = extract('bH', cmdio)
                 actionio = extractIO(block_length, cmdio)
             except ExtractionError:
                 break
             self.actionBlockReader.currentPlayer = (
                         self.state['players'][player_id])
+
+            #_p = actionio.tell()
+            #dump(actionio.read())
+            #actionio.seek(_p)
+
             self.actionBlockReader.parse(actionio)

@@ -40,6 +40,9 @@ def skip(size, io):
     io.seek(io.tell()+size)
 
 def extract(fmt, io):
+    if not fmt.startswith("<"):
+        # force little-endian format
+        fmt = "<" + fmt
     try:
         data = unpack(fmt, io.read(calcsize(fmt)))
         return data

@@ -13,10 +13,10 @@ class ReplayReader:
 
     def extractHeader(self, io):
         keys = 'intro size c_size version u_size blocks'.split()
-        header = dict(zip(keys, extract('26s2xLLLLL', io)))
+        header = dict(zip(keys, extract('26s2xIIIII', io)))
         assert header['version']==1
         keys = 'ident major_v build_v flags length checksum'.split()
-        header.update(dict(zip(keys, extract('4sLHHLL', io))))
+        header.update(dict(zip(keys, extract('4sIHHII', io))))
         header['ident'] = header['ident'][::-1]
         io.seek(header['size'])
         return header
@@ -38,7 +38,7 @@ class ReplayReader:
         gameinfo['map_name']= extractString(ioGameinfo)
         gameinfo['game_host'] = extractString(ioGameinfo)
 
-        player_slots = extract('L', io)
+        player_slots = extract('I', io)
 
         records = [self.state['host']]
 
@@ -88,7 +88,7 @@ class ReplayReader:
                 player.update(slot_data)
 
         keys = "random_seed select_mode start_spots".split()
-        startrecord.update(dict(zip(keys, extract("LBB", io))))
+        startrecord.update(dict(zip(keys, extract("IBB", io))))
 
         return startrecord
 
@@ -99,7 +99,7 @@ class ReplayReader:
 
         gameio = StringIO()
         for i in range(header['blocks']):
-            c_size, u_size, checksum = extract("HHL", io)
+            c_size, u_size, checksum = extract("HHI", io)
             data = io.read(c_size)
             gameio.write(inflate(data[2:]))
         gameio.seek(4)
