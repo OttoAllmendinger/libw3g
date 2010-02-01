@@ -24,8 +24,14 @@ def get_replays():
 def get_all_replays():
     return map(by_name, _replaydb.replays.values())
 
+def replay_exists(replay_id):
+    return replay_id in _replaydb.get_replay_ids()
+
 def get_players():
     return _playerdb.players
+
+def add_replay(data, metadata):
+    _replaydb.add_replay(data, metadata)
 
 def by_name(replay):
     new_players = {}
@@ -94,7 +100,7 @@ def players_by_name(players):
 def get_player_score(player_stat):
     return (player_stat['kills'] * 100 -
             player_stat['deaths'] * 100 +
-            player_stat['assists'] * 20)
+            player_stat['assists'] * 50)
 
 def get_player_stats(players, replays):
     player_stats = dict(
