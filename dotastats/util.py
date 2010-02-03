@@ -49,22 +49,6 @@ def add_name(gamestate):
 def player_color(player_name):
     return "#%06X" % (hash(player_name) & 0XFFFFFF)
 
-def unalias(gamestate, alias_map):
-    #TODO: deprecate
-    new_players = {}
-    players = dict(gamestate['players'])
-    unknown_player = {'nick': 'unknown'}
-    nickname = lambda pid: players.get(str(pid), unknown_player)['nick']
-    realname = lambda pid: alias_map.get(nickname(pid), nickname(pid))
-    logs = 'kill_log', 'death_log'
-    for pid, data in players.items():
-        new_players[realname(pid)] = players[pid]
-        for log in logs:
-            data[log] = map(lambda (ts, pid): (ts, realname(pid)), data[log])
-            pass
-    gamestate['players'] = new_players
-    return gamestate
-
 def filter_replays(replays):
     def f(rp):
         return (rp.gamedata['duration']>10*60*1000)
