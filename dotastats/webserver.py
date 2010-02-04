@@ -3,8 +3,10 @@ import sys
 import time
 import json
 import logging
+from zipfile import ZipFile
 from os.path import abspath, dirname, exists, join
 from cStringIO import StringIO
+from datetime import datetime
 
 import cherrypy
 from cherrypy import expose
@@ -70,6 +72,25 @@ class DotaStats:
         util.add_replay(data, metadata)
 
     upload._cp_config = {'response.stream': True}
+
+    @expose
+    def submit(self, zipfile=None, debug=False):
+        if zipfile==None:
+            return loader.load("upload.tpl.html").generate(
+                debug=debug).render("html")
+        else:
+            zipobj = ZipFile(StringIO(zipfile.file.read()))
+            for info in zipobj.infolist():
+                if info.filename.endswith("w3g"):
+                    data = zipobj.open(info).read()
+                    timestamp = time.mktime(
+                            datetime(*info.date_time).timetuple())
+                    metadata = {
+                        'file_timestamp': int(timestamp),
+                        'upload_timestamp': int(time.time()),
+                        'uploader_ip': cherrypy.request.remote.ip }
+                    util.add_replay(data, metadata)
+            return 'great success'
 
     @expose
     def check_ru(self, version=None):

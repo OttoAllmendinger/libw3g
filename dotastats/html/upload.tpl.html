@@ -1,0 +1,50 @@
+<!--!  vi: set ft=genshi: -->
+<!DOCTYPE html>
+<?python
+
+import util
+
+from libdota.constants import TEAM_1, TEAM_2
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:py="http://genshi.edgewall.org/">
+    <head>
+        <link rel="icon" type="image/gif" href="/static/images/favicon.gif" />
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
+        <script src="/static/js/jquery.dataset.js"></script>
+        <script src="/static/js/jquery.sprintf.js"></script>
+        <script src="/static/js/flot/jquery.flot.min.js"></script>
+        <script src="/static/js/jquery.getalljson.js"></script>
+        <script 
+            py:if="not debug"
+            src="/static/js/consolefix.js"></script>
+        <script src="/static/js/dotastats.js"></script>
+        <script src="/static/js/upload.js"></script>
+        <script>
+            console.log();
+            $(document).ready(function() {
+                init();
+            });
+        </script>
+        <style type="text/css">
+            .upload {
+                width: 66%;
+                margin: auto;
+            }
+        </style>
+
+
+    </head>
+    <body>
+        <div class="upload lv1">
+            <form action="/submit" method="post" 
+                enctype="multipart/form-data">
+                Select Zipfile: <input type="file" name="zipfile" /> <br />
+                <input type="submit" />
+            </form>
+        </div>
+    </body>
+</html>
