@@ -24,3 +24,12 @@ setTooltip = function(element, ttElement, setContent) {
     });
 }
 
+
+
+findplayer_id = function(players, id) {
+    $.each(players, function(k, v) {
+        if ((int)(v.player_id)===(int)(id)) {
+            return v;
+        }
+    });
+}

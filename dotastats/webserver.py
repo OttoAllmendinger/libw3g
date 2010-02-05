@@ -106,8 +106,13 @@ class DotaStats:
     @expose
     def json(self, key, **k):
         if key=='gamedata':
-            return json.dumps(dict((r.replay_id, r.gamedata)
-                for r in util.get_replays()))
+            if 'replay_id' in k:
+                return json.dumps(next(
+                    r.gamedata for r in util.get_replays()
+                        if r.replay_id==k['replay_id']))
+            else:
+                return json.dumps(dict((r.replay_id, r.gamedata)
+                    for r in util.get_replays()))
         elif key=='metadata':
             return json.dumps(
                     dict((r.replay_id, r.metadata) for r in

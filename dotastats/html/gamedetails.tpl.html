@@ -11,6 +11,7 @@ from libdota.constants import TEAM_1, TEAM_2
 <html xmlns="http://www.w3.org/1999/xhtml"
           xmlns:py="http://genshi.edgewall.org/">
     <head>
+        <title>Game Details - DotaStats</title>
         <link rel="icon" type="image/gif" href="/static/images/favicon.gif" />
         <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js"></script>
@@ -22,11 +23,10 @@ from libdota.constants import TEAM_1, TEAM_2
             py:if="not debug"
             src="/static/js/consolefix.js"></script>
         <script src="/static/js/dotastats.js"></script>
-        <script src="/static/js/listview.js"></script>
+        <script src="/static/js/gamedetails.js"></script>
         <script>
-            console.log();
             $(document).ready(function() {
-                init();
+                load_game("${replay.replay_id}");
             });
         </script>
         <style type="text/css">
@@ -84,7 +84,8 @@ from libdota.constants import TEAM_1, TEAM_2
                     ?>
 
                     <tr py:for="player in players" 
-                        class="team${n_team} ${util.wintag(player)}">
+                        data-player="${player.name}"
+                        class="player_stats team${n_team} ${util.wintag(player)}">
                         <td class="player_name">
                             <a href="/player/${player.name}">
                                 ${player.name}
@@ -93,34 +94,33 @@ from libdota.constants import TEAM_1, TEAM_2
                         <td>
                             <img 
                                 class="hero"
+                                data-hero_id="${player.hero}"
                                 src="${util.get_hero_image(player.hero)}" />
                         </td>
 
                         <td class="inventory">
-                            <py:for each="i in range(6)" class="inventory slot${i}">
-                            <img 
-                                py:if="player.inventory[i]"
+                            <img
+                                py:for="item_id in filter(None, player.inventory)"
                                 class="item"
-                                src="${util.get_unit_image(player.inventory[i])}" />
-                            </py:for>
-                            <!-- 
-                            <img py:if="not player.inventory[i]"
-                                class="item"
-                                src="/static/images/dota/empty_slot.gif" /> -->
+                                data-item_id="${item_id}"
+                                src="${util.get_unit_image(item_id)}" />
                         </td>
 
-                        <td>
+                        <td class="kills">
                             ${len(player.kill_log)}
                         </td>
-                        <td>
+                        <td class="deaths">
                             ${len(player.death_log)}
                         </td>
-                        <td>
+                        <td class="assists">
                             ${len(player.assist_log)}
                         </td>
                     </tr>
                 </py:for>
             </table>
+        </div>
+
+        <div class="tooltip" id="tooltip">
         </div>
     </body>
 </html>
