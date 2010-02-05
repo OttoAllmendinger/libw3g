@@ -17,12 +17,6 @@ def format_gametime(gamedata):
 def format_duration(gamedata):
     return "%d min" % (int(gamedata['duration']/60/1000))
 
-def sorted_team(players, team):
-    return sorted(
-        (p for p in players if p['team']==team), key=lambda p: p['hero'])
-
-replays = util.get_replays()
-
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -88,8 +82,8 @@ replays = util.get_replays()
                     players = replay.gamedata['players'].values()
 
                     teams = (
-                        (1, sorted_team(players, TEAM_1)),
-                        (2, sorted_team(players, TEAM_2))
+                        (1, util.sorted_team(players, TEAM_1)),
+                        (2, util.sorted_team(players, TEAM_2))
                     )
 
                     ?>

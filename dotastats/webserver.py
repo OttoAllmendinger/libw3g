@@ -132,7 +132,7 @@ class DotaStats:
     @expose
     def index(self, debug=False):
         return loader.load('listview.tpl.html').generate(
-                debug=debug).render('html')
+                replays=util.get_replays(), debug=debug).render('html')
 
     @expose
     def highscore(self, debug=False):

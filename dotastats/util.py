@@ -94,7 +94,7 @@ def get_player_stats(players, replays):
         players = players_by_name(replay.gamedata['players'])
         for name in players:
             player = players.get(name)
-            if player:
+            if player and name in player_stats:
                 player_stats[name]['kills'] += len(player['kill_log'])
                 player_stats[name]['deaths'] += len(player['death_log'])
                 player_stats[name]['assists'] += len(player['assist_log'])
@@ -104,3 +104,5 @@ def get_player_stats(players, replays):
 
     return player_stats
 
+def sorted_team(players, team):
+    return sorted((p for p in players if p['team']==team), key=lambda p: p['hero'])
