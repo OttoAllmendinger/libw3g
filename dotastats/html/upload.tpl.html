@@ -23,27 +23,35 @@ from libdota.constants import TEAM_1, TEAM_2
             src="/static/js/consolefix.js"></script>
         <script src="/static/js/dotastats.js"></script>
         <script src="/static/js/upload.js"></script>
-        <script>
-            console.log();
-            $(document).ready(function() {
-                init();
-            });
-        </script>
+        <title>
+            Upload Replay - DotaStats 
+        </title>
         <style type="text/css">
             .upload {
                 width: 66%;
                 margin: auto;
+                padding: 1em;
+                color: #444;
+                background: #ccc;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
             }
         </style>
 
-
     </head>
     <body>
-        <div class="upload lv1">
-            <form action="/submit" method="post" 
-                enctype="multipart/form-data">
-                Select Zipfile: <input type="file" name="zipfile" /> <br />
-                <input type="submit" />
+        <div class="upload">
+            <form action="/submit" method="post" enctype="multipart/form-data">
+                <h1>Upload Replay</h1>
+                <p>
+                    Select zipfile containing one or more DotA replays
+                </p>
+                <p>
+                    <input type="file" name="zipfile" id="file" />
+                </p>
+                <p>
+                    <input type="submit" />
+                </p>
             </form>
         </div>
     </body>
