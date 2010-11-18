@@ -1,0 +1,13 @@
+== libw3g ==
+ * Provides a general parser interface for Warcraft 3 replay files
+ * outputs a JSON dump of the parsed game
+
+== dotacgi ==
+ * Implements a DotA game parser that works for the newest stable and beta versions of the DotA map
+ * presents a cgi interface for uploading games and shows results and statistics for each game and also cumulative statistics for each player
+
+== ReplayUploader ==
+ * a PyQt4 app that automatically uploads LastReplay.w3g after each game
+
+**Attention**:
+ * the CGI stuff isn't secure at all, so only use it in trusted environments
